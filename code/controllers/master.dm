@@ -149,8 +149,14 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		ss.Shutdown()
 	log_world("Shutdown complete")
 
-ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "View the current states of the Subsystem Controllers.", ADMIN_CATEGORY_SERVER)
-	Master.ui_interact(user.mob)
+/client/proc/cmd_controller_view_ui()
+	set name = "Controller Overview"
+	set category = "Server"
+	if(!holder)
+		to_chat(src, span_danger("Error: Only administrators may use this command."))
+		return
+	SSblackbox.record_feedback("tally", "cmd_controller_view_ui", 1, "Controller Overview") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	Master.ui_interact(mob)
 
 /datum/controller/master/ui_status(mob/user, datum/ui_state/state)
 	if(!user.client?.holder?.check_for_rights(R_SERVER|R_DEBUG))
