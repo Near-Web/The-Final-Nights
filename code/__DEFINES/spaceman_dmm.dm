@@ -75,12 +75,6 @@
 
 /world/Del()
 	var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
-	if(debug_server)
-		call_ext(debug_server, "auxtools_shutdown")()
+	if (debug_server)
+		call(debug_server, "auxtools_shutdown")()
 	. = ..()
-
-/world/proc/enable_debugger()
-	var/dll = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
-	if(dll)
-		call_ext(dll, "auxtools_init")()
-		enable_debugging()

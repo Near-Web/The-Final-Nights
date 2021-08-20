@@ -29,13 +29,6 @@ GLOBAL_VAR(restart_counter)
  *			All atoms in both compiled and uncompiled maps are initialized()
  */
 /world/New()
-	// Write everything to this log file until we get to SetupLogs() later
-	_initialize_log_files("data/logs/config_error.[GUID()].log")
-
-	enable_debugger()
-#ifdef REFERENCE_TRACKING
-	enable_reference_tracking()
-#endif
 
 	log_world("World loaded at [time_stamp()]!")
 
