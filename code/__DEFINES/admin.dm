@@ -160,6 +160,10 @@ GLOBAL_VAR_INIT(ghost_role_flags, (~0))
 #define ASAY_LINK_NEW_MESSAGE_INDEX "!asay_new_message"
 /// for [/proc/check_asay_links], if there are any admin pings in the asay message, this index in the return list contains a list of admins to ping
 #define ASAY_LINK_PINGED_ADMINS_INDEX "!pinged_admins"
+/// for asay pings, this is the index in the return list for [/proc/check_admin_pings] that contains the message modified with underlines for the spotted names
+#define ADMINSAY_PING_UNDERLINE_NAME_INDEX "!underlined_names"
+/// for asay datum refs, this is the index in the return list for [/proc/check_memory_refs] that contains the message modified with underlines for the linked datums
+#define ADMINSAY_LINK_DATUM_REF "!datum_ref"
 
 /// When passed in as the duration for ban_panel, will make the ban default to permanent
 #define BAN_PANEL_PERMANENT "permanent"

@@ -48,12 +48,14 @@
 
 	var/ref_line = "@[copytext(refid, 2, -1)]" // get rid of the brackets, add a @ prefix for copy pasting in asay
 
+	var/ref_line = copytext(refid, 2, -1) // get rid of the brackets
+
 	var/marked_line
 	if(holder && holder.marked_datum && holder.marked_datum == thing)
 		marked_line = VV_MSG_MARKED
 	var/tagged_line
-	if(holder && LAZYFIND(holder.tagged_datums, thing))
-		var/tag_index = LAZYFIND(holder.tagged_datums, thing)
+	if(holder && LAZYFIND(holder.tagged_datums, D))
+		var/tag_index = LAZYFIND(holder.tagged_datums, D)
 		tagged_line = VV_MSG_TAGGED(tag_index)
 	var/varedited_line
 	if(!islist && (thing.datum_flags & DF_VAR_EDITED))
@@ -226,6 +228,7 @@
 							<b><font size='1'>[formatted_type]</font></b>
 							<br><b><font size='1'>[ref_line]</font></b>
 							<span id='marked'>[marked_line]</span>
+							<span id='tagged'>[tagged_line]</span>
 							<span id='varedited'>[varedited_line]</span>
 							<span id='deleted'>[deleted_line]</span>
 						</div>
