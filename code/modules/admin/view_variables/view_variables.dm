@@ -48,7 +48,7 @@
 
 	var/ref_line = "@[copytext(refid, 2, -1)]" // get rid of the brackets, add a @ prefix for copy pasting in asay
 
-	var/ref_line = copytext(refid, 2, -1) // get rid of the brackets
+	var/ref_line = "@[copytext(refid, 2, -1)]" // get rid of the brackets, add a @ prefix for copy pasting in asay
 
 	var/marked_line
 	if(holder && holder.marked_datum && holder.marked_datum == thing)
