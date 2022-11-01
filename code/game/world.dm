@@ -35,6 +35,9 @@ GLOBAL_VAR(restart_counter)
 	enable_debugger()
 #ifdef REFERENCE_TRACKING
 	enable_reference_tracking()
+#ifdef USE_BYOND_TRACY
+	#warn USE_BYOND_TRACY is enabled
+	init_byond_tracy()
 #endif
 
 	log_world("World loaded at [time_stamp()]!")
@@ -365,5 +368,25 @@ GLOBAL_VAR(restart_counter)
 		// IE: path_to_save/a/apple.json
 		json_son.path = (path_to_save + dir_name[1] + path_char + dir_name + path_char + file_name)
 		json_son.save()
+
+/world/proc/init_byond_tracy()
+	var/library
+
+	switch (system_type)
+		if (MS_WINDOWS)
+			library = "prof.dll"
+		if (UNIX)
+			library = "libprof.so"
+		else
+			CRASH("Unsupported platform: [system_type]")
+
+	var/init_result = call(library, "init")()
+	if (init_result != "0")
+		CRASH("Error initializing byond-tracy: [init_result]")
+
+
+/world/Profile(command, type, format)
+	if((command & PROFILE_STOP) || !global.config?.loaded || !CONFIG_GET(flag/forbid_all_profiling))
+		. = ..()
 
 #undef RESTART_COUNTER_PATH

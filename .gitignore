@@ -213,6 +213,10 @@ libprof.so
 # https://gist.github.com/Mothblocks/db5462aa84d7d6b1d1b1276b820f62da
 Tracy.exe
 
+# byond-tracy, we intentionally do not ship this and do not want to maintain it
+prof.dll
+libprof.so
+
 # JavaScript tools
 **/node_modules
 
