@@ -272,7 +272,7 @@
 	if(skiprep)
 		for(var/e in first)
 			if(!(e in result) && !(e in second))
-				result += e
+				UNTYPED_LIST_ADD(result, e)
 	else
 		result = first - second
 	return result
@@ -396,8 +396,8 @@
 //Return a list with no duplicate entries
 /proc/uniqueList(list/L)
 	. = list()
-	for(var/i in L)
-		. |= i
+	for(var/i in inserted_list)
+		. |= LIST_VALUE_WRAP_LISTS(i)
 
 //same, but returns nothing and acts on list in place (also handles associated values properly)
 /proc/uniqueList_inplace(list/L)
@@ -556,11 +556,6 @@
 			if(D.vars[varname] == value)
 				return D
 
-//remove all nulls from a list
-/proc/removeNullsFromList(list/L)
-	while(L.Remove(null))
-		continue
-	return L
 
 //Copies a list, and all lists inside it recusively
 //Does not copy any other reference type
@@ -600,7 +595,7 @@
 		return null
 	. = list()
 	for(var/key in key_list)
-		. |= key_list[key]
+		. |= LIST_VALUE_WRAP_LISTS(key_list[key])
 
 /proc/make_associative(list/flat_list)
 	. = list()
@@ -644,8 +639,8 @@
 /proc/assoc_list_strip_value(list/input)
 	var/list/ret = list()
 	for(var/key in input)
-		ret += key
-	return ret
+		UNTYPED_LIST_ADD(keys, key)
+	return keys
 
 /proc/compare_list(list/l,list/d)
 	if(!islist(l) || !islist(d))
@@ -666,9 +661,14 @@
 	if(from_index > to_index)
 		++from_index //since a null will be inserted before from_index, the index needs to be nudged right by one
 
-	inserted_list.Insert(to_index, null)
-	inserted_list.Swap(from_index, to_index)
-	inserted_list.Cut(from_index, from_index + 1)
+///Returns a list with items filtered from a list that can call callback
+/proc/special_list_filter(list/list_to_filter, datum/callback/condition)
+	if(!islist(list_to_filter) || !length(list_to_filter) || !istype(condition))
+		return list()
+	. = list()
+	for(var/i in list_to_filter)
+		if(condition.Invoke(i))
+			. |= LIST_VALUE_WRAP_LISTS(i)
 
 /proc/move_range(list/inserted_list, from_index, to_index, len = 1)
 	var/distance = abs(to_index - from_index)
