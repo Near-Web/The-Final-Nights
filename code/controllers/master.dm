@@ -718,6 +718,9 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 
 			queue_node.state = SS_RUNNING
 
+			if(queue_node.profiler_focused)
+				world.Profile(PROFILE_START)
+
 			tick_usage = TICK_USAGE
 			var/state = queue_node.ignite(queue_node_paused)
 			tick_usage = TICK_USAGE - tick_usage
