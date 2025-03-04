@@ -32,19 +32,18 @@
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		admin = TRUE
 
-
+	// TFN EDIT START: I can't be bothered to set up a database soley so panic bunker works, so we'll use this instead.
 	//Whitelist
-	if(!real_bans_only && !C && CONFIG_GET(flag/usewhitelist))
-		if(!check_whitelist(ckey))
-			if (admin)
-				log_admin("The admin [key] has been allowed to bypass the whitelist")
-				if (message)
-					message_admins("<span class='adminnotice'>The admin [key] has been allowed to bypass the whitelist</span>")
-					addclientmessage(ckey,"<span class='adminnotice'>You have been allowed to bypass the whitelist</span>")
-			else
-				log_access("Failed Login: [key] - Not on whitelist")
-				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
-
+	if(!real_bans_only && !C && !bunker_bypass_check(ckey))
+		if (admin)
+			log_admin("The admin [key] has been allowed to bypass the whitelist")
+			if (message)
+				message_admins("<span class='adminnotice'>The admin [key] has been allowed to bypass the whitelist</span>")
+				addclientmessage(ckey,"<span class='adminnotice'>You have been allowed to bypass the whitelist</span>")
+		else
+			log_access("Failed Login: [key] - Not on whitelist")
+			return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
+	// TFN EDIT END
 	//Guest Checking
 	if(!real_bans_only && !C && IsGuestKey(key))
 		if (CONFIG_GET(flag/guest_ban))

@@ -488,6 +488,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//Quirks
 	READ_FILE(S["all_quirks"], all_quirks)
 
+	READ_FILE(S["headshot_link"], headshot_link) // TFN EDIT: headshot loading
 	//try to fix any outdated data if necessary
 	//preference updating will handle saving the updated data for us.
 	if(needs_update >= 0)
@@ -600,8 +601,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	enemy				= sanitize_integer(enemy, 0, 1, initial(enemy))
 	lover				= sanitize_integer(lover, 0, 1, initial(lover))
 	masquerade				= sanitize_integer(masquerade, 0, 5, initial(masquerade))
-	generation				= sanitize_integer(generation, 3, 13, initial(generation))
-	generation_bonus				= sanitize_integer(generation_bonus, 0, 6, initial(generation_bonus))
+	// TFN EDIT START: gen tweaks
+	generation				= sanitize_integer(generation, 8, 14, initial(generation))
+	generation_bonus				= sanitize_integer(generation_bonus, 0, 5, initial(generation_bonus))
+	// TFN EDIT END
 	hair_color			= sanitize_hexcolor(hair_color, 3, 0)
 	facial_hair_color			= sanitize_hexcolor(facial_hair_color, 3, 0)
 	underwear_color			= sanitize_hexcolor(underwear_color, 3, 0)
@@ -637,7 +640,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	all_quirks = SANITIZE_LIST(all_quirks)
 	validate_quirks()
-
+	// TFN EDIT ADDITION START: sanitize headshot
+	if(!valid_headshot_link(null, headshot_link, TRUE))
+		headshot_link = null
+	// TFN EDIT ADDITION END
 	//Convert jank old Discipline system to new Discipline system
 	if ((istype(pref_species, /datum/species/kindred) || istype(pref_species, /datum/species/ghoul)) && !discipline_types.len)
 		if (discipline1type && discipline1level)
@@ -795,6 +801,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	WRITE_FILE(S["all_quirks"]			, all_quirks)
+
+	WRITE_FILE(S["headshot_link"], headshot_link) // TFN EDIT: headshot saving
 
 	return TRUE
 

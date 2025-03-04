@@ -24674,10 +24674,9 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/giovanni)
 "bGG" = (
-/obj/item/clothing/head/vampire/skull,
-/obj/effect/decal/cleanable/gasoline,
-/turf/open/floor/plating/rough,
-/area/vtm/interior/mansion)
+/obj/item/clothing/mask/vampire/fomori_chaser,
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/endron_facility)
 "bGH" = (
 /obj/structure/railing,
 /obj/structure/railing{
@@ -50132,6 +50131,10 @@
 /obj/item/trash/vampirenugget,
 /turf/open/floor/plating/vampbeach,
 /area/vtm/northbeach)
+"nBM" = (
+/obj/item/clothing/suit/hooded/robes/black,
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/endron_facility)
 "nCe" = (
 /obj/effect/decal/bordur,
 /obj/structure/vampfence{
@@ -59076,17 +59079,9 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police)
 "rWh" = (
-/obj/effect/decal/cleanable/gasoline,
-/obj/item/clothing/suit/bunnysuit{
-	color = "#808000"
-	},
-/obj/item/clothing/head/bunnyhead{
-	color = "#808000";
-	pixel_x = -1;
-	pixel_y = 13
-	},
-/turf/open/floor/plating/rough,
-/area/vtm/interior/mansion)
+/obj/item/clothing/shoes/vampire/jackboots,
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/endron_facility)
 "rWj" = (
 /obj/structure/fuelstation,
 /obj/effect/decal/bordur{
@@ -68043,12 +68038,9 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/financialdistrict)
 "wnn" = (
-/obj/item/paper{
-	info = "MICHAEL, DON'T LEAVE ME HERE, MICHAEL!!!!"
-	},
-/obj/effect/decal/cleanable/gasoline,
-/turf/open/floor/plating/rough,
-/area/vtm/interior/mansion)
+/obj/item/clothing/gloves/vampire/work,
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/endron_facility)
 "wnH" = (
 /obj/structure/railing{
 	dir = 8;
@@ -115330,7 +115322,7 @@ xLv
 xLv
 xLv
 xLv
-xLv
+wnn
 xLv
 rJS
 xLv
@@ -115585,7 +115577,7 @@ pXG
 jJb
 kTK
 kTK
-xLv
+rWh
 xLv
 rJS
 xLv
@@ -115840,12 +115832,12 @@ aaa
 aab
 eZm
 xLv
-xLv
+nBM
 xLv
 jJb
 xLv
 xLv
-xLv
+bGG
 eLE
 xLv
 eZm
@@ -129356,9 +129348,9 @@ aaa
 aaa
 aab
 ahU
-bGG
-wnn
-rWh
+ahZ
+ahZ
+ahZ
 ahU
 ahV
 ahV

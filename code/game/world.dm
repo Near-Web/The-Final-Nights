@@ -289,10 +289,10 @@ GLOBAL_VAR(restart_counter)
 	if(config)
 		var/server_name = CONFIG_GET(string/servername)
 		if (server_name)
-			s += "<a href=\"https://discord.gg/invite/WU92NG2Me8\"><b>[server_name] &#8212; Werewolf-Friendly</b></a>"
+			s += "<a href=\"https://discord.gg/invite/hQHAK67Drd\"><b>[server_name] &#8212; 18+ Only</b></a>"
 		hostedby = CONFIG_GET(string/hostedby)
-	s += "<br>Persistent roleplaying server in the World of Darkness."
-	s += "<br>Active development, pretty art, and a gothic atmosphere."
+
+	s += "<br>18+ immersive roleplay set in the World of Darkness, running modified WoD13 code."
 
 	var/players = GLOB.clients.len
 

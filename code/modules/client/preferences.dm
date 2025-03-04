@@ -84,7 +84,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/features = list("mcolor" = "FFF", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "moth_antennae" = "Plain", "moth_markings" = "None")
 	var/list/randomise = list(RANDOM_UNDERWEAR = TRUE, RANDOM_UNDERWEAR_COLOR = TRUE, RANDOM_UNDERSHIRT = TRUE, RANDOM_SOCKS = TRUE, RANDOM_BACKPACK = TRUE, RANDOM_JUMPSUIT_STYLE = TRUE, RANDOM_HAIRSTYLE = TRUE, RANDOM_HAIR_COLOR = TRUE, RANDOM_FACIAL_HAIRSTYLE = TRUE, RANDOM_FACIAL_HAIR_COLOR = TRUE, RANDOM_SKIN_TONE = TRUE, RANDOM_EYE_COLOR = TRUE)
 	var/phobia = "spiders"
-
+	var/list/genders = list(MALE, FEMALE, PLURAL)
 	var/list/custom_names = list()
 	var/preferred_ai_core_display = "Blue"
 	var/prefered_security_department = SEC_DEPT_RANDOM
@@ -145,7 +145,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/broadcast_login_logout = TRUE
 
 	//Generation
-	var/generation = 13
+	var/generation = DEFAULT_GENERATION
 	var/generation_bonus = 0
 
 	//Masquerade
@@ -279,6 +279,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	body_model = rand(1, 3)
 	true_experience = 50
 	real_name = random_unique_name(gender)
+	headshot_link = null // TFN EDIT
 	save_character()
 
 /proc/reset_shit(mob/M)
@@ -452,43 +453,43 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<table width='100%'><tr><td width='24%' valign='top'>"
 
 			dat += "<b>Species:</b><BR><a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a><BR>"
-			if(pref_species.name == "Vampire")
-				dat += "<b>Path of [enlightenment ? "Enlightenment" : "Humanity"]:</b> [humanity]/10"
-				//if(SSwhitelists.is_whitelisted(parent.ckey, "enlightenment") && !slotlocked)
-				if ((true_experience >= (humanity * 2)) && (humanity < 10))
-					dat += " <a href='?_src_=prefs;preference=path;task=input'>Increase [enlightenment ? "Enlightenment" : "Humanity"] ([humanity * 2])</a>"
-				dat += "<br>"
-				if(!slotlocked)
-					dat += "<a href='?_src_=prefs;preference=pathof;task=input'>Switch Path</a><BR>"
-			if(pref_species.name == "Kuei-Jin")
-				var/datum/dharma/D = new dharma_type()
-				dat += "<b>Dharma:</b> [D.name] [dharma_level]/6 <a href='?_src_=prefs;preference=dharmatype;task=input'>Switch</a><BR>"
-				dat += "[D.desc]<BR>"
-				if(true_experience >= 20 && (dharma_level < 6))
-					dat += " <a href='?_src_=prefs;preference=dharmarise;task=input'>Learn (20)</a><BR>"
-				dat += "<b>P'o Personality</b>: [po_type] <a href='?_src_=prefs;preference=potype;task=input'>Switch</a><BR>"
-				dat += "<b>Awareness:</b> [masquerade]/5<BR>"
-				dat += "<b>Yin/Yang</b>: [yin]/[yang] <a href='?_src_=prefs;preference=chibalance;task=input'>Adjust</a><BR>"
-				dat += "<b>Hun/P'o</b>: [hun]/[po] <a href='?_src_=prefs;preference=demonbalance;task=input'>Adjust</a><BR>"
-			if(pref_species.name == "Werewolf")
-				dat += "<b>Veil:</b> [masquerade]/5<BR>"
-			if(pref_species.name == "Vampire" || pref_species.name == "Ghoul")
-				dat += "<b>Masquerade:</b> [masquerade]/5<BR>"
-			if(pref_species.name == "Vampire")
-				dat += "<b>Generation:</b> [generation]"
-				var/generation_allowed = TRUE
-				if(clane)
-					if(clane.name == "Caitiff")
+			switch(pref_species.name)
+				if("Vampire")
+					dat += "<b>Path of [enlightenment ? "Enlightenment" : "Humanity"]:</b> [humanity]/10"
+					if ((true_experience >= (humanity * 2)) && (humanity < 10))
+						dat += " <a href='?_src_=prefs;preference=path;task=input'>Increase [enlightenment ? "Enlightenment" : "Humanity"] ([humanity * 2])</a>"
+					dat += "<br>"
+					if(!slotlocked)
+						dat += "<a href='?_src_=prefs;preference=pathof;task=input'>Switch Path</a><BR>"
+					dat += "<b>Masquerade:</b> [masquerade]/5<BR>"
+					dat += "<b>Generation:</b> [generation]"
+					var/generation_allowed = TRUE
+					if(clane?.name == CLAN_NONE)
 						generation_allowed = FALSE
-				if(generation_allowed)
-					if(generation_bonus)
-						dat += " (+[generation_bonus]/[min(6, generation-7)])"
-					if(true_experience >= 20 && generation_bonus < max(0, generation-7))
-						dat += " <a href='?_src_=prefs;preference=generation;task=input'>Claim generation bonus (20)</a><BR>"
+					if(generation_allowed)
+						if(generation_bonus)
+							dat += " (+[generation_bonus]/[min(MAX_PUBLIC_GENERATION-1, generation-MAX_PUBLIC_GENERATION)])"
+						if(true_experience >= 20 && generation_bonus < max(0, generation-MAX_PUBLIC_GENERATION))
+							dat += " <a href='?_src_=prefs;preference=generation;task=input'>Claim generation bonus (20)</a><BR>"
+						else
+							dat += "<BR>"
 					else
 						dat += "<BR>"
-				else
-					dat += "<BR>"
+				if("Kuei-Jin")
+					var/datum/dharma/D = new dharma_type()
+					dat += "<b>Dharma:</b> [D.name] [dharma_level]/6 <a href='?_src_=prefs;preference=dharmatype;task=input'>Switch</a><BR>"
+					dat += "[D.desc]<BR>"
+					if(true_experience >= 20 && (dharma_level < 6))
+						dat += " <a href='?_src_=prefs;preference=dharmarise;task=input'>Learn (20)</a><BR>"
+					dat += "<b>P'o Personality</b>: [po_type] <a href='?_src_=prefs;preference=potype;task=input'>Switch</a><BR>"
+					dat += "<b>Awareness:</b> [masquerade]/5<BR>"
+					dat += "<b>Yin/Yang</b>: [yin]/[yang] <a href='?_src_=prefs;preference=chibalance;task=input'>Adjust</a><BR>"
+					dat += "<b>Hun/P'o</b>: [hun]/[po] <a href='?_src_=prefs;preference=demonbalance;task=input'>Adjust</a><BR>"
+				if("Werewolf")
+					dat += "<b>Veil:</b> [masquerade]/5<BR>"
+				if("Ghoul")
+					dat += "<b>Masquerade:</b> [masquerade]/5<BR>"
+
 			dat += "<h2>[make_font_cool("ATTRIBUTES")]</h2>"
 
 			dat += "<b>Archetype</b><BR>"
@@ -703,13 +704,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			if(true_experience >= 3 && slotlocked)
 				dat += "<a href='?_src_=prefs;preference=change_appearance;task=input'>Change Appearance (3)</a><BR>"
-			if(clane)
-				if(clane.name != "Caitiff")
-					if(generation_bonus)
-						dat += "<a href='?_src_=prefs;preference=reset_with_bonus;task=input'>Create new character with generation bonus ([generation]-[generation_bonus])</a><BR>"
+			if(generation_bonus)
+				dat += "<a href='?_src_=prefs;preference=reset_with_bonus;task=input'>Create new character with generation bonus ([generation]-[generation_bonus])</a><BR>"
+			// TFN EDIT ADDITION START
+			if(length(flavor_text) <= 110)
+				dat += "<BR><b>Flavor Text:</b> [flavor_text] <a href='?_src_=prefs;preference=flavor_text;task=input'>Change</a><BR>"
+			else
+				dat += "<BR><b>Flavor Text:</b> [copytext_char(flavor_text, 1, 110)]... <a href='?_src_=prefs;preference=flavor_text;task=input'>Change</a>"
+				dat += "<a href='?_src_=prefs;preference=view_flavortext;task=input'>Show More</a><BR>"
 
-			dat += "<BR><b>Flavor Text:</b> [flavor_text] <a href='?_src_=prefs;preference=flavor_text;task=input'>Change</a><BR>"
-
+			dat += "<br><b>Headshot(1:1):</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
+			if(headshot_link != null)
+				dat += "<a href='?_src_=prefs;preference=view_headshot;task=input'>View</a>"
+			// TFN EDIT ADDITION END
 			dat += "<h2>[make_font_cool("EQUIP")]</h2>"
 
 			dat += "<b>Underwear:</b><BR><a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a>"
@@ -1964,6 +1971,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						new_undershirt = input(user, "Choose your character's undershirt:", "Character Preference") as null|anything in GLOB.undershirt_f
 					else
 						new_undershirt = input(user, "Choose your character's undershirt:", "Character Preference") as null|anything in GLOB.undershirt_list
+
 					if(new_undershirt)
 						undershirt = new_undershirt
 
@@ -2362,7 +2370,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						return
 
 					true_experience -= 20
-					generation_bonus = min(generation_bonus + 1, max(0, generation-7))
+					generation_bonus = min(generation_bonus + 1, max(0, generation-MAX_PUBLIC_GENERATION))
 
 				if("friend_text")
 					var/new_text = input(user, "What a Friend knows about me:", "Character Preference") as text|null
@@ -2376,12 +2384,46 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/new_text = input(user, "What a Lover knows about me:", "Character Preference") as text|null
 					if(new_text)
 						lover_text = trim(copytext_char(sanitize(new_text), 1, 512))
-
+				// TODO: Completely revamp flavor text into a more expansive system - TFN
+				// TFN EDIT ADDITION START: character headshots & flavortext
 				if("flavor_text")
-					var/new_flavor = input(user, "Choose your character's flavor text:", "Character Preference") as text|null
-					if(new_flavor)
-						flavor_text = trim(copytext_char(sanitize(new_flavor), 1, 512))
+					var/new_flavor = input(user, "Choose your character's flavor text:", "Character Preference") as message|null
+					if(!length(new_flavor))
+						return
+					flavor_text = new_flavor
 
+				if("view_flavortext")
+					var/datum/browser/popup = new(user, "[real_name]'s Description", real_name, 500, 200)
+					popup.set_content(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", "[real_name]", replacetext(flavor_text, "\n", "<BR>")))
+					popup.open(FALSE)
+					return
+
+				if("view_headshot")
+					var/list/dat = list("<img src='[headshot_link]' width='250px' height='250px'>")
+					var/datum/browser/popup = new(user, "[real_name]'s Headshot", "<div align='center'>Headshot</div>", 310, 320)
+					popup.set_content(dat.Join())
+					popup.open(FALSE)
+					return
+
+				if("headshot")
+					to_chat(user, span_notice("Please use a relatively SFW image of the head and shoulder area to maintain immersion level. Lastly, ["<b>do not use a real life photo or use any image that is less than serious.</b>"]"))
+					to_chat(user, span_notice("If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser."))
+					to_chat(user, span_notice("Resolution: 250x250 pixels."))
+					var/new_headshot_link = input(user, "Input the headshot link (https, hosts: gyazo, discord, lensdump, imgbox, catbox):", "Headshot", headshot_link) as text|null
+					if(isnull(new_headshot_link))
+						return
+					if(!length(new_headshot_link))
+						headshot_link = null
+						ShowChoices(user)
+						return
+					if(!valid_headshot_link(user, new_headshot_link))
+						headshot_link = null
+						ShowChoices(user)
+						return
+					headshot_link = new_headshot_link
+					to_chat(user, span_notice("Successfully updated headshot picture!"))
+					log_game("[user] has set their Headshot image to '[headshot_link]'.")
+				// TFN EDIT ADDITION END
 				if("change_appearance")
 					if((true_experience < 3) || !slotlocked)
 						return
@@ -2397,7 +2439,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					slotlocked = 0
 					torpor_count = 0
 					masquerade = initial(masquerade)
-					generation = bonus
+					generation = clamp(bonus, LOWEST_GENERATION_LIMIT, HIGHEST_GENERATION_LIMIT)
 					generation_bonus = 0
 					save_character()
 
@@ -2649,7 +2691,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(slotlocked)
 						return
 
-					var/list/friendlyGenders = list("Male" = "male", "Female" = "female")
+					var/list/friendlyGenders = list("Masculine (He/Him)" = "male", "Feminine (She/Her)" = "female", "Other (They/Them)" = "plural")
 					var/pickedGender = input(user, "Choose your gender.", "Character Preference", gender) as null|anything in friendlyGenders
 					if(pickedGender && friendlyGenders[pickedGender] != gender)
 						gender = friendlyGenders[pickedGender]
@@ -3019,7 +3061,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.true_real_name = real_name
 	character.name = character.real_name
 	character.diablerist = diablerist
-
+	character.headshot_link = headshot_link // TFN EDIT
 	character.physique = physique
 	character.dexterity = dexterity
 	character.social = social
@@ -3067,7 +3109,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	if(pref_species.name == "Werewolf")
 		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
-		character.health = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique )))
+		character.health = character.maxHealth
 		switch(tribe)
 			if("Wendigo")
 				character.yin_chi = 1
