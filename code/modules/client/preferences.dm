@@ -482,8 +482,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/datum/dharma/D = new dharma_type()
 					dat += "<b>Dharma:</b> [D.name] [dharma_level]/6 <a href='?_src_=prefs;preference=dharmatype;task=input'>Switch</a><BR>"
 					dat += "[D.desc]<BR>"
-					if(true_experience >= 20 && (dharma_level < 6))
-						dat += " <a href='?_src_=prefs;preference=dharmarise;task=input'>Learn (20)</a><BR>"
+					if(true_experience >= min((dharma_level * 5), 20) && (dharma_level < 6))
+						var/dharma_cost = min((dharma_level * 5), 20)
+						dat += " <a href='?_src_=prefs;preference=dharmarise;task=input'>Raise Dharmic Enlightenment ([dharma_cost])</a><BR>"
 					dat += "<b>P'o Personality</b>: [po_type] <a href='?_src_=prefs;preference=potype;task=input'>Switch</a><BR>"
 					dat += "<b>Awareness:</b> [masquerade]/5<BR>"
 					dat += "<b>Yin/Yang</b>: [yin]/[yang] <a href='?_src_=prefs;preference=chibalance;task=input'>Adjust</a><BR>"
@@ -2306,10 +2307,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					enlightenment = !enlightenment
 
 				if("dharmarise")
-					if ((true_experience < 20) || (dharma_level >= 6) || !(pref_species.id == "kuei-jin"))
+					if ((true_experience < min((dharma_level * 5), 20)) || (dharma_level >= 6) || !(pref_species.id == "kuei-jin"))
 						return
 
-					true_experience -= 20
+					true_experience -= min((dharma_level * 5), 20)
 					dharma_level = clamp(dharma_level + 1, 1, 6)
 
 					if (dharma_level >= 6)
@@ -3139,10 +3140,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				character.max_yin_chi = 1 + auspice_level * 2
 				character.yang_chi = 5
 				character.max_yang_chi = 5
-	else
+	if(pref_species.name == "Kuei-Jin")
 		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
 		character.health = character.maxHealth
 	if(pref_species.name == "Vampire")
+		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
+		character.health = character.maxHealth
 		character.humanity = humanity
 	character.masquerade = masquerade
 	if(!character_setup)
