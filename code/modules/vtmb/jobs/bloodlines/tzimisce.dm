@@ -29,6 +29,11 @@
 	jobtype = /datum/job/vamp/tzimisce
 	l_pocket = /obj/item/vamp/phone
 	id = /obj/item/cockclock
+	backpack_contents = list(
+		/obj/item/passport=1,
+		/obj/item/flashlight=1,
+		/obj/item/vamp/creditcard=1,
+	)
 
 /datum/outfit/job/tzimisce/pre_equip(mob/living/carbon/human/H)
 	..()

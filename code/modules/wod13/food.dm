@@ -284,16 +284,18 @@
 	anchored = TRUE
 	density = TRUE
 	owner_needed = FALSE
-	prize_list = list(new /datum/data/mining_equipment("cola",	/obj/item/reagent_containers/food/drinks/soda_cans/vampirecola,	10),
-		new /datum/data/mining_equipment("soda", /obj/item/reagent_containers/food/drinks/soda_cans/vampiresoda, 5)
+	prize_list = list(
+		new /datum/data/mining_equipment("cola", /obj/item/reagent_containers/food/drinks/soda_cans/vampirecola, 10),
+		new /datum/data/mining_equipment("soda", /obj/item/reagent_containers/food/drinks/soda_cans/vampiresoda, 5),
 	)
 
 /obj/machinery/mineral/equipment_vendor/fastfood/sodavendor/blue
 	icon_state = "vend_c"
-	prize_list = list(new /datum/data/mining_equipment("cola",	/obj/item/reagent_containers/food/drinks/soda_cans/vampirecola/blue,10),
+	prize_list = list(
+		new /datum/data/mining_equipment("cola", /obj/item/reagent_containers/food/drinks/soda_cans/vampirecola/blue, 10),
 		new /datum/data/mining_equipment("soda", /obj/item/reagent_containers/food/drinks/soda_cans/vampirecola/blue, 5),
 		new /datum/data/mining_equipment("summer thaw", /obj/item/reagent_containers/food/drinks/bottle/vampirecola/summer_thaw, 5),
-		new /datum/data/mining_equipment("thaw club soda", /obj/item/reagent_containers/food/drinks/bottle/vampirecola/thaw_club, 7)
+		new /datum/data/mining_equipment("thaw club soda", /obj/item/reagent_containers/food/drinks/bottle/vampirecola/thaw_club, 7),
 	)
 /obj/machinery/mineral/equipment_vendor/fastfood/coffeevendor
 	name = "Coffee Vendor"
@@ -303,8 +305,9 @@
 	anchored = TRUE
 	density = TRUE
 	owner_needed = FALSE
-	prize_list = list(new /datum/data/mining_equipment("coffee",	/obj/item/reagent_containers/food/drinks/coffee/vampire,	10),
-		new /datum/data/mining_equipment("strong coffee", /obj/item/reagent_containers/food/drinks/coffee/vampire/robust, 5)
+	prize_list = list(
+		new /datum/data/mining_equipment("coffee", /obj/item/reagent_containers/food/drinks/coffee/vampire, 10),
+		new /datum/data/mining_equipment("strong coffee", /obj/item/reagent_containers/food/drinks/coffee/vampire/robust, 5),
 	)
 
 /obj/machinery/mineral/equipment_vendor/fastfood/AltClick(mob/user)
@@ -321,87 +324,93 @@
 	anchored = TRUE
 	density = TRUE
 	owner_needed = FALSE
-	prize_list = list(new /datum/data/mining_equipment("chocolate bar",	/obj/item/food/vampire/bar,	3),
-		new /datum/data/mining_equipment("chips",	/obj/item/food/vampire/crisps,	5)
+	prize_list = list(
+		new /datum/data/mining_equipment("chocolate bar", /obj/item/food/vampire/bar, 3),
+		new /datum/data/mining_equipment("chips", /obj/item/food/vampire/crisps, 5),
 	)
 
 /obj/machinery/mineral/equipment_vendor/fastfood/bacotell
-	prize_list = list(new /datum/data/mining_equipment("square pizza",	/obj/item/food/vampire/pizza,	15),
-		new /datum/data/mining_equipment("taco",	/obj/item/food/vampire/taco,	10),
-		new /datum/data/mining_equipment("burger",	/obj/item/food/vampire/burger,	20),
-		new /datum/data/mining_equipment("two liter cola bottle",	/obj/item/reagent_containers/food/drinks/bottle/vampirecola,	10),
-		new /datum/data/mining_equipment("cola can",	/obj/item/reagent_containers/food/drinks/soda_cans/vampirecola,	5),
+	prize_list = list(
+		new /datum/data/mining_equipment("square pizza", /obj/item/food/vampire/pizza, 15),
+		new /datum/data/mining_equipment("taco", /obj/item/food/vampire/taco, 10),
+		new /datum/data/mining_equipment("burger", /obj/item/food/vampire/burger, 20),
+		new /datum/data/mining_equipment("two liter cola bottle", /obj/item/reagent_containers/food/drinks/bottle/vampirecola, 10),
+		new /datum/data/mining_equipment("cola can", /obj/item/reagent_containers/food/drinks/soda_cans/vampirecola, 5),
 		new /datum/data/mining_equipment("summer thaw", /obj/item/reagent_containers/food/drinks/bottle/vampirecola/summer_thaw, 5),
 		new /datum/data/mining_equipment("thaw club soda", /obj/item/reagent_containers/food/drinks/bottle/vampirecola/thaw_club, 8),
 	)
 
 /obj/machinery/mineral/equipment_vendor/fastfood/bubway
-	prize_list = list(new /datum/data/mining_equipment("donut",	/obj/item/food/vampire/donut,	5),
-		new /datum/data/mining_equipment("burger",	/obj/item/food/vampire/burger,	10),
-		new /datum/data/mining_equipment("coffee",	/obj/item/reagent_containers/food/drinks/coffee/vampire,	5),
-		new /datum/data/mining_equipment("robust coffee",	/obj/item/reagent_containers/food/drinks/coffee/vampire/robust,	10),
+	prize_list = list(
+		new /datum/data/mining_equipment("donut", /obj/item/food/vampire/donut, 5),
+		new /datum/data/mining_equipment("burger", /obj/item/food/vampire/burger, 10),
+		new /datum/data/mining_equipment("coffee", /obj/item/reagent_containers/food/drinks/coffee/vampire,	5),
+		new /datum/data/mining_equipment("robust coffee", /obj/item/reagent_containers/food/drinks/coffee/vampire/robust, 10),
 		new /datum/data/mining_equipment("thaw club soda", /obj/item/reagent_containers/food/drinks/bottle/vampirecola/thaw_club, 8)
 	)
 
 /obj/machinery/mineral/equipment_vendor/fastfood/gummaguts
-	prize_list = list(new /datum/data/mining_equipment("five-piece chicken wing box",	/obj/item/storage/fancy/nugget_box,	5),
-		new /datum/data/mining_equipment("burger",	/obj/item/food/vampire/burger,	15),
-		new /datum/data/mining_equipment("square pizza",	/obj/item/food/vampire/pizza,	10),
-		new /datum/data/mining_equipment("two liter cola bottle",	/obj/item/reagent_containers/food/drinks/bottle/vampirecola,	10),
-		new /datum/data/mining_equipment("cola can",	/obj/item/reagent_containers/food/drinks/soda_cans/vampirecola,	5)
+	prize_list = list(
+		new /datum/data/mining_equipment("five-piece chicken wing box",	/obj/item/storage/fancy/nugget_box,	5),
+		new /datum/data/mining_equipment("burger", /obj/item/food/vampire/burger, 15),
+		new /datum/data/mining_equipment("square pizza", /obj/item/food/vampire/pizza, 10),
+		new /datum/data/mining_equipment("two liter cola bottle", /obj/item/reagent_containers/food/drinks/bottle/vampirecola, 10),
+		new /datum/data/mining_equipment("cola can", /obj/item/reagent_containers/food/drinks/soda_cans/vampirecola, 5),
 	)
 
 /obj/machinery/mineral/equipment_vendor/fastfood/products
 	desc = "Purchase junkfood and crap."
-	prize_list = list(new /datum/data/mining_equipment("chocolate bar",	/obj/item/food/vampire/bar,	3),
-		new /datum/data/mining_equipment("chips",	/obj/item/food/vampire/crisps,	5),
-		new /datum/data/mining_equipment("water bottle",	/obj/item/reagent_containers/food/drinks/bottle/vampirewater,	3),
-		new /datum/data/mining_equipment("soda can",	/obj/item/reagent_containers/food/drinks/soda_cans/vampiresoda,	3),
-		new /datum/data/mining_equipment("two liter cola bottle",	/obj/item/reagent_containers/food/drinks/bottle/vampirecola,	7),
-		new /datum/data/mining_equipment("cola can",	/obj/item/reagent_containers/food/drinks/soda_cans/vampirecola,	5),
+	prize_list = list(
+		new /datum/data/mining_equipment("chocolate bar", /obj/item/food/vampire/bar, 3),
+		new /datum/data/mining_equipment("chips", /obj/item/food/vampire/crisps, 5),
+		new /datum/data/mining_equipment("water bottle", /obj/item/reagent_containers/food/drinks/bottle/vampirewater, 3),
+		new /datum/data/mining_equipment("soda can", /obj/item/reagent_containers/food/drinks/soda_cans/vampiresoda, 3),
+		new /datum/data/mining_equipment("two liter cola bottle", /obj/item/reagent_containers/food/drinks/bottle/vampirecola, 7),
+		new /datum/data/mining_equipment("cola can", /obj/item/reagent_containers/food/drinks/soda_cans/vampirecola, 5),
 		new /datum/data/mining_equipment("summer thaw", /obj/item/reagent_containers/food/drinks/bottle/vampirecola/summer_thaw, 5),
-		new /datum/data/mining_equipment("milk",	/obj/item/reagent_containers/food/condiment/vampiremilk,	5),
-		new /datum/data/mining_equipment("beer bottle",	/obj/item/reagent_containers/food/drinks/beer/vampire,	10),
+		new /datum/data/mining_equipment("milk", /obj/item/reagent_containers/food/condiment/vampiremilk, 5),
+		new /datum/data/mining_equipment("beer bottle", /obj/item/reagent_containers/food/drinks/beer/vampire, 10),
 		new /datum/data/mining_equipment("blue stripe", /obj/item/reagent_containers/food/drinks/beer/vampire/blue_stripe, 8),
 		new /datum/data/mining_equipment("candle pack",	/obj/item/storage/fancy/candle_box,	12),
 		new /datum/data/mining_equipment("bruise pack", /obj/item/stack/medical/bruise_pack, 100),
-		new /datum/data/mining_equipment("respirator",	/obj/item/clothing/mask/vampire,	35)
+		new /datum/data/mining_equipment("respirator", /obj/item/clothing/mask/vampire,	35),
 	)
 
 /obj/machinery/mineral/equipment_vendor/fastfood/clothing
 	desc = "Purchase all the finest outfits.. Or don't wagie.."
-	prize_list = list(new /datum/data/mining_equipment("crimson red dress",	/obj/item/clothing/under/vampire/primogen_toreador/female	,	350),
-		new /datum/data/mining_equipment("black dress",	/obj/item/clothing/under/vampire/business,	250),
-		new /datum/data/mining_equipment("leather pants", /obj/item/clothing/under/vampire/leatherpants,	200),
-		new /datum/data/mining_equipment("fancy gray suit",	/obj/item/clothing/under/vampire/fancy_gray,	150),
-		new /datum/data/mining_equipment("fancy red suit",	/obj/item/clothing/under/vampire/fancy_red,	150),
-		new /datum/data/mining_equipment("black luxury suit",	/obj/item/clothing/under/vampire/ventrue,	50),
-		new /datum/data/mining_equipment("black luxury suit skirt",	/obj/item/clothing/under/vampire/ventrue/female,	50),
-		new /datum/data/mining_equipment("white buisness suit",	/obj/item/clothing/under/vampire/office,	50),
-		new /datum/data/mining_equipment("black overcoat",	/obj/item/clothing/under/vampire/rich,	45),
-		new /datum/data/mining_equipment("burgundy suit",	/obj/item/clothing/under/vampire/tremere,	35),
-		new /datum/data/mining_equipment("burgundy suit skirt",	/obj/item/clothing/under/vampire/tremere/female,	35),
-		new /datum/data/mining_equipment("plain black suit",	 /obj/item/clothing/under/vampire/suit,	50),
-		new /datum/data/mining_equipment("plain black suitskirt",	 /obj/item/clothing/under/vampire/suit/female,	50),
-		new /datum/data/mining_equipment("plain red suit",	 /obj/item/clothing/under/vampire/sheriff,	80),
-		new /datum/data/mining_equipment("plain red suitskirt",	 /obj/item/clothing/under/vampire/sheriff/female,	80),
-		new /datum/data/mining_equipment("plain blue suit",	 /obj/item/clothing/under/vampire/clerk,	90),
-		new /datum/data/mining_equipment("plain blue suitskirt",	 /obj/item/clothing/under/vampire/clerk/female,	90),
-		new /datum/data/mining_equipment("brown suit",	 /obj/item/clothing/under/vampire/archivist,	60),
-		new /datum/data/mining_equipment("brown suitskirt",	 /obj/item/clothing/under/vampire/archivist/female,	60),
-		new /datum/data/mining_equipment("flamboyant outfit",	/obj/item/clothing/under/vampire/toreador,	30),
-		new /datum/data/mining_equipment("female flamboyant outfit",	/obj/item/clothing/under/vampire/toreador/female,	30),
-		new /datum/data/mining_equipment("purple and black outfit",	/obj/item/clothing/under/vampire/sexy,	25),
-		new /datum/data/mining_equipment("slick jacket",	/obj/item/clothing/under/vampire/slickback,		25),
-		new /datum/data/mining_equipment("tracksuit",	/obj/item/clothing/under/vampire/sport,	25),
-		new /datum/data/mining_equipment("grimey pants",	/obj/item/clothing/under/vampire/malkavian,	20),
-		new /datum/data/mining_equipment("odd Goth schoolgirl attire",	/obj/item/clothing/under/vampire/malkavian/female,	20),
-		new /datum/data/mining_equipment("gothic clothes",	/obj/item/clothing/under/vampire/gothic,	20),
-		new /datum/data/mining_equipment("gothic attire",	/obj/item/clothing/under/vampire/brujah,	20),
+	prize_list = list(
+		new /datum/data/mining_equipment("crimson red dress", /obj/item/clothing/under/vampire/primogen_toreador/female, 350),
+		new /datum/data/mining_equipment("black dress",	/obj/item/clothing/under/vampire/business, 250),
+		new /datum/data/mining_equipment("leather pants", /obj/item/clothing/under/vampire/leatherpants, 200),
+		new /datum/data/mining_equipment("fancy gray suit", /obj/item/clothing/under/vampire/fancy_gray, 150),
+		new /datum/data/mining_equipment("fancy red suit", /obj/item/clothing/under/vampire/fancy_red, 150),
+		new /datum/data/mining_equipment("black luxury suit", /obj/item/clothing/under/vampire/ventrue,	50),
+		new /datum/data/mining_equipment("black luxury suit skirt",	/obj/item/clothing/under/vampire/ventrue/female, 50),
+		new /datum/data/mining_equipment("white buisness suit",	/obj/item/clothing/under/vampire/office, 50),
+		new /datum/data/mining_equipment("black overcoat", /obj/item/clothing/under/vampire/rich, 45),
+		new /datum/data/mining_equipment("burgundy suit", /obj/item/clothing/under/vampire/tremere,	35),
+		new /datum/data/mining_equipment("burgundy suit skirt",	/obj/item/clothing/under/vampire/tremere/female, 35),
+		new /datum/data/mining_equipment("plain black suit", /obj/item/clothing/under/vampire/suit,	50),
+		new /datum/data/mining_equipment("plain black suitskirt", /obj/item/clothing/under/vampire/suit/female,	50),
+		new /datum/data/mining_equipment("plain red suit", /obj/item/clothing/under/vampire/sheriff, 80),
+		new /datum/data/mining_equipment("plain red suitskirt", /obj/item/clothing/under/vampire/sheriff/female, 80),
+		new /datum/data/mining_equipment("plain blue suit",	 /obj/item/clothing/under/vampire/clerk, 90),
+		new /datum/data/mining_equipment("plain blue suitskirt", /obj/item/clothing/under/vampire/clerk/female,	90),
+		new /datum/data/mining_equipment("brown suit", /obj/item/clothing/under/vampire/archivist, 60),
+		new /datum/data/mining_equipment("brown suitskirt", /obj/item/clothing/under/vampire/archivist/female, 60),
+		new /datum/data/mining_equipment("flamboyant outfit", /obj/item/clothing/under/vampire/toreador, 30),
+		new /datum/data/mining_equipment("female flamboyant outfit", /obj/item/clothing/under/vampire/toreador/female, 30),
+		new /datum/data/mining_equipment("purple and black outfit",	/obj/item/clothing/under/vampire/sexy, 25),
+		new /datum/data/mining_equipment("slick jacket", /obj/item/clothing/under/vampire/slickback, 25),
+		new /datum/data/mining_equipment("tracksuit", /obj/item/clothing/under/vampire/sport, 25),
+		new /datum/data/mining_equipment("grimey pants", /obj/item/clothing/under/vampire/malkavian, 20),
+		new /datum/data/mining_equipment("odd Goth schoolgirl attire", /obj/item/clothing/under/vampire/malkavian/female, 20),
+		new /datum/data/mining_equipment("gothic clothes",	/obj/item/clothing/under/vampire/gothic, 20),
+		new /datum/data/mining_equipment("gothic attire",	/obj/item/clothing/under/vampire/brujah, 20),
 		new /datum/data/mining_equipment("female punk attire ",	/obj/item/clothing/under/vampire/brujah/female,	20),
 		new /datum/data/mining_equipment("pentagram shirt",	/obj/item/clothing/under/vampire/baali,	20),
-		new /datum/data/mining_equipment("pentagram skirt",	/obj/item/clothing/under/vampire/baali/female,	20),
-		new /datum/data/mining_equipment("punk outfit",	/obj/item/clothing/under/vampire/emo,	20),
+		new /datum/data/mining_equipment("pentagram skirt",	/obj/item/clothing/under/vampire/baali/female, 20),
+		new /datum/data/mining_equipment("punk outfit",	/obj/item/clothing/under/vampire/emo, 20),
 		new /datum/data/mining_equipment("red hipster outfit",	/obj/item/clothing/under/vampire/red,	20),
 		new /datum/data/mining_equipment("messy shirt",	/obj/item/clothing/under/vampire/bouncer,	15),
 		new /datum/data/mining_equipment("blue overals",	/obj/item/clothing/under/vampire/mechanic,	20),
@@ -464,7 +473,16 @@
 		new /datum/data/mining_equipment("blue scarf",	/obj/item/clothing/neck/vampire/scarf/blue,	10),
 		new /datum/data/mining_equipment("green scarf",	/obj/item/clothing/neck/vampire/scarf/green,	10),
 		new /datum/data/mining_equipment("white scarf",	/obj/item/clothing/neck/vampire/scarf/white,	10),
-		new /datum/data/mining_equipment("cross",	/obj/item/card/id/hunter,  25)
+		new /datum/data/mining_equipment("cross",	/obj/item/card/id/hunter,  25),
+		new /datum/data/mining_equipment("white robes",	/obj/item/clothing/suit/hooded/robes,	40),
+		new /datum/data/mining_equipment("black robes",	/obj/item/clothing/suit/hooded/robes/black,	40),
+		new /datum/data/mining_equipment("grey robes",	/obj/item/clothing/suit/hooded/robes/grey,	40),
+		new /datum/data/mining_equipment("dark red robes",	/obj/item/clothing/suit/hooded/robes/darkred,	40),
+		new /datum/data/mining_equipment("yellow robes",	/obj/item/clothing/suit/hooded/robes/yellow,	40),
+		new /datum/data/mining_equipment("green robes",	/obj/item/clothing/suit/hooded/robes/green,	40),
+		new /datum/data/mining_equipment("red robes",	/obj/item/clothing/suit/hooded/robes/red,	40),
+		new /datum/data/mining_equipment("blue robes", /obj/item/clothing/suit/hooded/robes/blue,	40),
+		new /datum/data/mining_equipment("purple robes",	/obj/item/clothing/suit/hooded/robes/purple,	40),
 	)
 
 /obj/machinery/mineral/equipment_vendor/fastfood/costumes
@@ -490,8 +508,16 @@
 		new /datum/data/mining_equipment("jester mask",	/obj/item/clothing/mask/vampire/venetian_mask/jester,	50),
 		new /datum/data/mining_equipment("bloody mask",	/obj/item/clothing/mask/vampire/venetian_mask/scary,	30),
 		new /datum/data/mining_equipment("comedy mask", /obj/item/clothing/mask/vampire/comedy,	25),
-		new /datum/data/mining_equipment("tragedy mask", /obj/item/clothing/mask/vampire/tragedy,	25)
-
+		new /datum/data/mining_equipment("tragedy mask", /obj/item/clothing/mask/vampire/tragedy, 25),
+		new /datum/data/mining_equipment("blue wizard hat",	/obj/item/clothing/head/vampire/wizard/blue, 25),
+		new /datum/data/mining_equipment("red wizard hat",	/obj/item/clothing/head/vampire/wizard/red, 25),
+		new /datum/data/mining_equipment("yellow wizard hat",	/obj/item/clothing/head/vampire/wizard/yellow, 25),
+		new /datum/data/mining_equipment("green wizard hat",	/obj/item/clothing/head/vampire/wizard/green, 25),
+		new /datum/data/mining_equipment("dark red wizard hat",	/obj/item/clothing/head/vampire/wizard/darkred, 25),
+		new /datum/data/mining_equipment("grey wizard hat",	/obj/item/clothing/head/vampire/wizard/grey, 25),
+		new /datum/data/mining_equipment("white wizard hat",	/obj/item/clothing/head/vampire/wizard/white, 25),
+		new /datum/data/mining_equipment("black wizard hat",	/obj/item/clothing/head/vampire/wizard/black, 25),
+		new /datum/data/mining_equipment("purple wizard hat",	/obj/item/clothing/head/vampire/wizard/purple, 25),
 	)
 
 /obj/food_cart

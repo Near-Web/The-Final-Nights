@@ -61,7 +61,7 @@ And it also helps for the character set panel
 				H.forceMove(LM.loc)
 
 	if(clan_keys)
-		H.put_in_r_hand(new clan_keys(H))
+		H.put_in_hands(new clan_keys(H))
 
 /mob/living/carbon
 	var/datum/relationship/Myself

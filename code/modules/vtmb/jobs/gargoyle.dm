@@ -29,20 +29,22 @@
 	jobtype = /datum/job/vamp/gargoyle
 
 	id = /obj/item/card/id/archive
-	glasses = /obj/item/clothing/glasses/vampire/perception
+	glasses = /obj/item/clothing/glasses/vampire/red
 	shoes = /obj/item/clothing/shoes/vampire
-	gloves = /obj/item/clothing/gloves/vampire/latex
-	uniform = /obj/item/clothing/under/vampire/archivist
+	gloves = /obj/item/clothing/gloves/vampire/work
+	uniform = /obj/item/clothing/under/vampire/turtleneck_black
+	suit = /obj/item/clothing/suit/hooded/robes/tremere
+	mask = /obj/item/clothing/mask/vampire/venetian_mask
 	r_pocket = /obj/item/vamp/keys/archive
 	l_pocket = /obj/item/vamp/phone/archivist
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
-	backpack_contents = list(/obj/item/passport=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/arcane_tome=1, /obj/item/vamp/creditcard=1, /obj/item/melee/vampirearms/katana/kosa=1)
-
-/datum/outfit/job/gargoyle/pre_equip(mob/living/carbon/human/H)
-	..()
-	if(H.gender == FEMALE)
-		uniform = /obj/item/clothing/under/vampire/archivist/female
-		shoes = /obj/item/clothing/shoes/vampire/heels
+	backpack_contents = list(
+		/obj/item/cockclock=1,
+		/obj/item/flashlight=1,
+		/obj/item/arcane_tome=1,
+		/obj/item/vamp/creditcard=1,
+		/obj/item/melee/vampirearms/katana/kosa=1,
+	)
 
 /obj/effect/landmark/start/gargoyle
 	name = "Chantry Gargoyle"
