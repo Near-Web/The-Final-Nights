@@ -146,7 +146,7 @@
 		"Tremere",
 		"Anarch",
 		"Giovanni",
-		"Old Clan Tzimisce",
+		"Clan Tzimisce",
 		"Law Enforcement",
 		"Warehouse",
 		"Triad"
@@ -157,7 +157,7 @@
 		"Tremere" = GLOB.tremere_positions,
 		"Anarch" = GLOB.anarch_positions,
 		"Giovanni" = GLOB.giovanni_positions,
-		"Old Clan Tzimisce" = GLOB.tzimisce_positions,
+		"Clan Tzimisce" = GLOB.tzimisce_positions,
 		"Law Enforcement" = GLOB.police_positions + GLOB.national_security_positions,
 		"Warehouse" = GLOB.warehouse_positions,
 		"Triad" = GLOB.gang_positions

@@ -343,33 +343,6 @@
 	name = "fbi special agent badge"
 	desc = "Sponsored by the Government. This one has all the bells and whistles."
 
-/obj/item/card/id/voivode
-	name = "ancient badge"
-	id_type_name ="ancient badge"
-	desc = "You have to wear this filthy thing to be recognized."
-	icon = 'code/modules/wod13/items.dmi'
-	icon_state = "id12"
-	inhand_icon_state = "card-id"
-	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'code/modules/wod13/onfloor.dmi'
-	worn_icon = 'code/modules/wod13/worn.dmi'
-	worn_icon_state = "id12"
-
-/obj/item/card/id/bogatyr
-	name = "dusty badge"
-	id_type_name ="dusty badge"
-	desc = "You have to wear this because the Voivode wants you to."
-	icon = 'code/modules/wod13/items.dmi'
-	icon_state = "id12"
-	inhand_icon_state = "card-id"
-	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'code/modules/wod13/onfloor.dmi'
-	worn_icon = 'code/modules/wod13/worn.dmi'
-	worn_icon_state = "id12"
-
-
 /obj/item/card/id/bahari
 	name = "cultist badge"
 	id_type_name = "cultist badge"
@@ -397,6 +370,32 @@
 	worn_icon_state = "id15"
 
 //TZIMISCE ROLES
+
+/obj/item/card/id/voivode
+	name = "ancient badge"
+	id_type_name ="ancient badge"
+	desc = "You have to wear this filthy thing to be recognized."
+	icon = 'code/modules/wod13/items.dmi'
+	icon_state = "id12"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	worn_icon = 'code/modules/wod13/worn.dmi'
+	worn_icon_state = "id12"
+
+/obj/item/card/id/bogatyr
+	name = "dusty badge"
+	id_type_name ="dusty badge"
+	desc = "You have to wear this because the Voivode wants you to."
+	icon = 'code/modules/wod13/items.dmi'
+	icon_state = "id12"
+	inhand_icon_state = "card-id"
+	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
+	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	worn_icon = 'code/modules/wod13/worn.dmi'
+	worn_icon_state = "id12"
 
 // PRIMOGEN STAFF (Distributed in game by Primogen)
 

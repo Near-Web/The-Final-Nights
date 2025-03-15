@@ -552,13 +552,13 @@ Dancer
 	desc = "You have a small, ancient secret, somehow related to Diablerie, and this decreases your chance to survive another one. <b>This isn't a licence to diablerie anyone you want!</b>"
 	value = -3
 	allowed_species = list("Vampire")
-*/
+
 /datum/quirk/diablerist/on_spawn()
 	if(iswerewolf(quirk_holder) || isgarou(quirk_holder))
 		return
 	var/mob/living/carbon/human/H = quirk_holder
 	H.diablerist = TRUE
-
+*/
 /datum/quirk/badvision
 	name = "Nearsighted"
 	desc = "Your eye illness somehow did not become cured after the Embrace, and you need to wear perception glasses."
