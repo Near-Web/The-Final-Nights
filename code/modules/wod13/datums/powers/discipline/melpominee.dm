@@ -17,6 +17,7 @@
 	desc = "Throw your voice to any place you can see."
 
 	level = 1
+	vitae_cost = 0
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_SPEAK
 	target_type = TARGET_OBJ | TARGET_LIVING
 	range = 7
@@ -75,6 +76,7 @@
 	desc = "Project your voice to anyone you've met, speaking to them from afar."
 
 	level = 2
+	vitae_cost = 0
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_SPEAK
 
 	cooldown_length = 5 SECONDS
