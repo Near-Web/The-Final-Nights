@@ -190,7 +190,7 @@
 								P.reason_of_death = "Failed the Diablerie ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
 //							ghostize(FALSE)
 //							key = K.key
-//							generation = K.generation
+//							generation = K.generfation
 //							maxHealth = initial(maxHealth)+100*(13-generation)
 //							health = initial(health)+100*(13-generation)
 //							mob.death()
@@ -232,7 +232,7 @@
 					SEND_SOUND(src, sound('code/modules/wod13/sounds/feed_failed.ogg', 0, 0, 75))
 					to_chat(src, "<span class='warning'>This sad sacrifice for your own pleasure affects something deep in your mind.</span>")
 					AdjustMasquerade(-1)
-					AdjustHumanity(-1, 0)
+					AdjustHumanity(-1, 3)
 					mob.death()
 			if(!ishuman(mob))
 				if(mob.stat != DEAD)

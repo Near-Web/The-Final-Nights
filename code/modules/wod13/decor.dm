@@ -612,7 +612,7 @@
 			if(starter)
 				if(ishuman(starter))
 					var/mob/living/carbon/human/H = starter
-					H.AdjustHumanity(-1, 0)
+					H.AdjustHumanity(-1, 2)
 		L.gib()
 	..()
 
