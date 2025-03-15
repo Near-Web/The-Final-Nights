@@ -133,10 +133,10 @@
 
 		dat += "[humanity]<BR>"
 
-		if(host.clane.name == "Brujah")
-			if(GLOB.brujahname != "")
-				if(host.real_name != GLOB.brujahname)
-					dat += " My primogen is:  [GLOB.brujahname].<BR>"
+		if(host.clane.name == "Banu Haqim")
+			if(GLOB.banuname != "")
+				if(host.real_name != GLOB.banuname)
+					dat += " My primogen is:  [GLOB.banuname].<BR>"
 		if(host.clane.name == "Malkavian")
 			if(GLOB.malkavianname != "")
 				if(host.real_name != GLOB.malkavianname)
