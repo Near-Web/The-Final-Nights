@@ -106,7 +106,8 @@
 	shake_camera(src, 5, 4)
 
 /mob/living/carbon/werewolf/Initialize()
-	var/datum/action/gift/rage_heal/GH = new()
+	var/datum/action/gift/minor_rage_heal/GH = new()
+	var/datum/action/gift/major_rage_heal/GH = new()
 	GH.Grant(src)
 	add_verb(src, /mob/living/proc/mob_sleep)
 	add_verb(src, /mob/living/proc/toggle_resting)
@@ -186,15 +187,15 @@
 	possible_a_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
 	limb_destroyer = 1
 	hud_type = /datum/hud/werewolf
-	melee_damage_lower = 35
-	melee_damage_upper = 65
+	melee_damage_lower = 40
+	melee_damage_upper = 45
 	health = 250
 	maxHealth = 250
 //	speed = -1  doesn't work on carbons
 	var/obj/item/r_store = null
 	var/obj/item/l_store = null
 	var/pounce_cooldown = 0
-	var/pounce_cooldown_time = 30
+	var/pounce_cooldown_time = 60
 	pixel_w = -8
 //	deathsound = 'sound/voice/hiss6.ogg'
 	bodyparts = list(
@@ -206,13 +207,13 @@
 		/obj/item/bodypart/l_leg,
 		)
 
-	werewolf_armor = 30
+	werewolf_armor = 25
 
 /datum/movespeed_modifier/crinosform
-	multiplicative_slowdown = -0.2
+	multiplicative_slowdown = -0.3
 
 /datum/movespeed_modifier/silver_slowdown
-	multiplicative_slowdown = 0.3
+	multiplicative_slowdown = 0.6
 
 /mob/living/carbon/werewolf/crinos/Initialize()
 	. = ..()
