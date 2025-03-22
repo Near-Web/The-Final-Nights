@@ -109,7 +109,7 @@
 	var/obj/item/clothing/head/helmet/space/hardsuit/helmet
 	actions_types = list(/datum/action/item_action/toggle_spacesuit, /datum/action/item_action/toggle_helmet)
 	var/helmettype = /obj/item/clothing/head/helmet/space/hardsuit
-	var/obj/item/tank/jetpack/suit/jetpack = null
+	var/obj/item/jetpack/suit/jetpack = null
 	var/hardsuit_type
 
 
@@ -128,7 +128,7 @@
 		. += "<span class='notice'>The helmet on [src] seems to be malfunctioning. Its light bulb needs to be replaced.</span>"
 
 /obj/item/clothing/suit/space/hardsuit/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/tank/jetpack/suit))
+	if(istype(I, /obj/item/jetpack/suit))
 		if(jetpack)
 			to_chat(user, "<span class='warning'>[src] already has a jetpack installed.</span>")
 			return
@@ -263,7 +263,7 @@
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/engine/elite
-	jetpack = /obj/item/tank/jetpack/suit
+	jetpack = /obj/item/jetpack/suit
 	cell = /obj/item/stock_parts/cell/super
 
 	//Mining hardsuit
@@ -421,7 +421,7 @@
 	armor = list(MELEE = 40, BULLET = 50, LASER = 30, ENERGY = 40, BOMB = 35, BIO = 100, RAD = 50, FIRE = 50, ACID = 90, WOUND = 25)
 	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/transforming/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi
-	jetpack = /obj/item/tank/jetpack/suit
+	jetpack = /obj/item/jetpack/suit
 	cell = /obj/item/stock_parts/cell/hyper
 
 //Elite Syndie suit

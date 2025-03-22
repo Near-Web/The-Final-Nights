@@ -255,14 +255,6 @@
 /obj/structure/chrono_field/assume_air()
 	return 0
 
-/obj/structure/chrono_field/return_air() //we always have nominal air and temperature
-	var/datum/gas_mixture/GM = new
-	GM.add_gases(/datum/gas/oxygen, /datum/gas/nitrogen)
-	GM.gases[/datum/gas/oxygen][MOLES] = MOLES_O2STANDARD
-	GM.gases[/datum/gas/nitrogen][MOLES] = MOLES_N2STANDARD
-	GM.temperature = T20C
-	return GM
-
 /obj/structure/chrono_field/singularity_act()
 	return
 

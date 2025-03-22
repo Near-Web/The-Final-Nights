@@ -38,20 +38,6 @@
 /obj/effect/particle_effect/foam/firefighting/process()
 	..()
 
-	var/turf/open/T = get_turf(src)
-	var/obj/effect/hotspot/hotspot = (locate(/obj/effect/hotspot) in T)
-	if(hotspot && istype(T) && T.air)
-		qdel(hotspot)
-		var/datum/gas_mixture/G = T.air
-		if(G.gases[/datum/gas/plasma])
-			var/plas_amt = min(30,G.gases[/datum/gas/plasma][MOLES]) //Absorb some plasma
-			G.gases[/datum/gas/plasma][MOLES] -= plas_amt
-			absorbed_plasma += plas_amt
-		if(G.temperature > T20C)
-			G.temperature = max(G.temperature/2,T20C)
-		G.garbage_collect()
-		T.air_update_turf(FALSE, FALSE)
-
 /obj/effect/particle_effect/foam/firefighting/kill_foam()
 	STOP_PROCESSING(SSfastprocess, src)
 
@@ -316,22 +302,6 @@
 	if(isopenturf(loc))
 		var/turf/open/O = loc
 		O.ClearWet()
-		if(O.air)
-			var/datum/gas_mixture/G = O.air
-			G.temperature = 293.15
-			for(var/obj/effect/hotspot/H in O)
-				qdel(H)
-			var/list/G_gases = G.gases
-			for(var/I in G_gases)
-				if(I == /datum/gas/oxygen || I == /datum/gas/nitrogen)
-					continue
-				G_gases[I][MOLES] = 0
-			G.garbage_collect()
-		for(var/obj/machinery/atmospherics/components/unary/U in O)
-			if(!U.welded)
-				U.welded = TRUE
-				U.update_icon()
-				U.visible_message("<span class='danger'>[U] sealed shut!</span>")
 		for(var/mob/living/L in O)
 			L.extinguish_mob()
 		for(var/obj/item/Item in O)

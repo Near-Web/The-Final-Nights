@@ -18,24 +18,10 @@
 	. = ..()
 
 /datum/component/rot/process(delta_time)
-	var/atom/A = parent
-	
 	//SSprocessing goes off per 1 second
 	time_remaining -= delta_time * 1 SECONDS
 	if(time_remaining <= 0)
 		qdel(src)
-		return
-
-	var/turf/open/T = get_turf(A)
-	if(!istype(T) || T.planetary_atmos || T.return_air().return_pressure() > (WARNING_HIGH_PRESSURE - 10))
-		return
-
-	var/datum/gas_mixture/stank = new
-	ADD_GAS(/datum/gas/miasma, stank.gases)
-	stank.gases[/datum/gas/miasma][MOLES] = amount * delta_time
-	stank.temperature = BODYTEMP_NORMAL // otherwise we have gas below 2.7K which will break our lag generator
-	T.assume_air(stank)
-	T.air_update_turf(FALSE, FALSE)
 
 /datum/component/rot/corpse
 	amount = MIASMA_CORPSE_MOLES

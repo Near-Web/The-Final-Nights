@@ -58,13 +58,7 @@ All ShuttleMove procs go here
 	newT.CopyOnTop(src, 1, depth, TRUE)
 	//Air stuff
 	newT.blocks_air = TRUE
-	newT.air_update_turf(TRUE, FALSE)
 	blocks_air = TRUE
-	air_update_turf(TRUE, TRUE)
-	if(isopenturf(newT))
-		var/turf/open/new_open = newT
-		new_open.copy_air_with_tile(src)
-
 	return TRUE
 
 // Called on the new turf after everything has been moved
