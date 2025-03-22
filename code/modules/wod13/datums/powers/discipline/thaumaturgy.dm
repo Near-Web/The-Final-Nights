@@ -71,27 +71,37 @@
 		var/mob/living/carbon/human/VH = firer
 		if(isliving(target))
 			var/mob/living/VL = target
-			if(isgarou(VL))
+			var/sucked = min(VL.bloodpool, level)
+			if(!ishuman(VL))
 				if(VL.bloodpool >= 1 && VL.stat != DEAD)
-					var/sucked = min(VL.bloodpool, 2)
 					VL.bloodpool = max(VL.bloodpool - sucked, 0)
-					VL.apply_damage(45, BURN)
-					VL.visible_message(span_danger("[target]'s wounds spray boiling hot blood!"), "<span class='userdanger'>Your blood boils!</span>")
-					VL.add_splatter_floor(get_turf(target))
-					VL.add_splatter_floor(get_turf(get_step(target, target.dir)))
-				if(!iskindred(target))
-					if(VL.bloodpool >= 1 && VL.stat != DEAD)
-						var/sucked = min(VL.bloodpool, 2)
+					if(isgarou(VL))
+						VL.apply_damage(45, BURN)
+						VL.visible_message(span_danger("[target]'s wounds spray boiling hot blood!"), "<span class='userdanger'>Your blood boils!</span>")
+						VL.add_splatter_floor(get_turf(target))
+						VL.add_splatter_floor(get_turf(get_step(target, target.dir)))
+					else
 						VL.bloodpool = max(VL.bloodpool - sucked, 0)
-					if(ishuman(VL))
-						if(VL.bloodpool >= 1 && VL.stat != DEAD)
-							var/mob/living/carbon/human/VHL = VL
-							VHL.bloodpool = max(VHL.bloodpool - 1, 0)
+						VH.bloodpool = min(VH.bloodpool + sucked, VH.maxbloodpool)
+						VL.visible_message(span_danger("[target]'s wounds spill out, returning to [VH]!"), "<span class='userdanger'>Your blood sprays out towards [VH]!</span>")
 			else
-				if(VL.bloodpool >= 1)
-					var/sucked = min(VL.bloodpool, level)
-					VL.bloodpool = max(VL.bloodpool - sucked, 0)
-					VH.bloodpool = min(VH.bloodpool + sucked, VH.maxbloodpool)
+				var/mob/living/carbon/human/VLL = VL
+				if(!iskindred(VLL))
+					VLL.blood_volume = max(H.blood_volume-35, 150)
+					VLL.bloodpool = max(VLL.bloodpool - 1, 0)
+					if(isgarou(VLL))
+						VLL.visible_message(span_danger("[target]'s wounds spray boiling hot blood!"), "<span class='userdanger'>Your blood boils!</span>")
+						VL.apply_damage(45, BURN)
+						VLL.add_splatter_floor(get_turf(target))
+						VLL.add_splatter_floor(get_turf(get_step(target, target.dir)))
+					else
+						VLL.visible_message(span_danger("[target]'s wounds spill out, blood flowing to [VH]!"), "<span class='userdanger'>Your blood sprays out towards [VH]!</span>")
+						VH.bloodpool = min(VH.bloodpool + max(1, VLL.bloodquality-1), VH.maxbloodpool)
+				else
+					if(VLL.bloodpool >= 1)
+						VLL.bloodpool = max(VLL.bloodpool - sucked, 0)
+						VH.bloodpool = min(VH.bloodpool + sucked, VH.maxbloodpool)
+						VLL.visible_message(span_danger("[target]'s wounds spill out, returning to [VH]!"), "<span class='userdanger'>Your blood sprays out towards [VH]!</span>")
 
 /datum/discipline_power/thaumaturgy/a_taste_for_blood
 	name = "A Taste for Blood"
