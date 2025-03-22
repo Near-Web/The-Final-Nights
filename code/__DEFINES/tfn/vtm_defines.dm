@@ -66,3 +66,10 @@
  */
 
 #define TRUSTED_PLAYER "trusted_player"
+
+/**
+ * Cooldown defines
+ */
+
+// Rituals
+#define COOLDOWN_RITUAL_INVOKE "ritual_invoke"
