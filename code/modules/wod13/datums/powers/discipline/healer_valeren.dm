@@ -62,6 +62,7 @@
 	desc = "Lay hands on your patient and heal their wounds."
 
 	level = 3
+	effect_sound = 'code/modules/wod13/sounds/corporesano.ogg'
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
 	target_type = TARGET_LIVING
 	range = 1
@@ -78,6 +79,15 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
 		if(length(human_target.all_wounds))
+			if(target.stat == DEAD && !iskindred(target))
+				target.grab_ghost()
+				target.revive(full_heal = FALSE, admin_revive = FALSE)
+				target.Jitter(100)
+				to_chat(target, span_notice("SOMETHING PULLS YOU FROM THE BRINK."))
+			else if(HAS_TRAIT(target, TRAIT_TORPOR))
+				target.cure_torpor()
+				to_chat(target, span_notice("YOUR DREAMS ARE RUDELY INTERRUPTED."))
+
 			var/datum/wound/wound = pick(human_target.all_wounds)
 			wound.remove_wound()
 
