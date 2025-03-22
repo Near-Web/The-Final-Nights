@@ -133,10 +133,6 @@
 
 		dat += "[humanity]<BR>"
 
-		if(host.clane.name == "Banu Haqim")
-			if(GLOB.banuname != "")
-				if(host.real_name != GLOB.banuname)
-					dat += " My primogen is:  [GLOB.banuname].<BR>"
 		if(host.clane.name == "Malkavian")
 			if(GLOB.malkavianname != "")
 				if(host.real_name != GLOB.malkavianname)
@@ -153,6 +149,18 @@
 			if(GLOB.ventruename != "")
 				if(host.real_name != GLOB.ventruename)
 					dat += " My primogen is:  [GLOB.ventruename].<BR>"
+		if(host.clane.name == "Lasombra")
+			if(GLOB.lasombraname != "")
+				if(host.real_name != GLOB.lasombraname)
+					dat += " My primogen is:  [GLOB.lasombraname].<BR>"
+		if(host.clane.name == "Banu Haqim")
+			if(GLOB.banuname != "")
+				if(host.real_name != GLOB.banuname)
+					dat += " My primogen is:  [GLOB.banuname].<BR>"
+		if(host.clane.name == "Tzimisce")
+			if(GLOB.voivodename != "")
+				if(host.real_name != GLOB.voivodename)
+					dat += " The Voivode of the Manor is:  [GLOB.voivodename].<BR>"
 
 		dat += "<b>Physique</b>: [host.physique] + [host.additional_physique]<BR>"
 		dat += "<b>Dexterity</b>: [host.dexterity] + [host.additional_dexterity]<BR>"

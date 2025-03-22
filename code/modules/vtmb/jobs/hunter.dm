@@ -4,7 +4,7 @@
 	r_pocket = /obj/item/flashlight
 	id = /obj/item/card/id/hunter
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
-	l_pocket = /obj/item/vamp/keys/church
+	l_pocket = /obj/item/vamp/keys/hunter
 	backpack_contents = list(
 		/obj/item/storage/book/bible = 1,
 		/obj/item/vampire_stake = 3,

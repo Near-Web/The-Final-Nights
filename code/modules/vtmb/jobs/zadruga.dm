@@ -1,7 +1,7 @@
 /datum/job/vamp/zadruga
 	title = "Zadruga"
 	department_head = list("Voivode")
-	faction = "Ghoul" //[Lucifernix] - Change this to vampire when I actually fix this.
+	faction = "Vampire" //[Lucifernix] - Change this to vampire when I actually fix this.
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = " the Laws of Hospitality"

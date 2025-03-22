@@ -232,6 +232,7 @@
 	jobs_allowed = list(
 		"Doctor" = 1000,
 		"Clinic Director" = 5000,
+		"Primogen Malkavian" = 5000,
 	)
 	prize_list = list(
 		new /datum/data/mining_equipment("iron pill bottle", /obj/item/storage/pill_bottle/iron, 5),
@@ -258,7 +259,7 @@
 /obj/machinery/mineral/equipment_vendor/restricted/police
 	jobs_allowed = list(
 		"Police Officer" = 200,
-		"Federal Investigator" = 400,
+		"Federal Investigator" = 300,
 		"Police Sergeant" = 500,
 		"Police Chief" = 15000,	// don't you love the militirization of the police?
 	)

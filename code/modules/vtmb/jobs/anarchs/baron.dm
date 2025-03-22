@@ -26,7 +26,8 @@
 		"Dealer",
 		"Bouncer",
 		"Emissary",
-		"Sweeper"
+		"Sweeper",
+		"Voivode"
 	)
 
 	v_duty = "You lead the Anarchs in the City. A Camarilla faction that values freedom and individuality. While not a fan of the traditions, you still respect the Masquerade."
