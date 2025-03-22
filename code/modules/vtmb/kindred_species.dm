@@ -96,13 +96,9 @@
 				masquerade_level = "'m danger to the Masquerade and my own kind."
 		dat += "Camarilla thinks I[masquerade_level]<BR>"
 		var/humanity = "I'm out of my mind."
-		var/enlight = FALSE
-		if(host.clane)
-			if(host.clane.enlightenment)
-				enlight = TRUE
 
-		if(!enlight)
-			switch(host.humanity)
+		if(!host.clane.is_enlightened)
+			switch(host.morality_path.score)
 				if(8 to 10)
 					humanity = "I'm saintly."
 				if(7)
@@ -117,7 +113,7 @@
 					humanity = "Blood. Feed. Hunger. It gnaws. Must <b>FEED!</b>"
 
 		else
-			switch(host.humanity)
+			switch(host.morality_path.score)
 				if(8 to 10)
 					humanity = "I'm <b>ENLIGHTENED</b>, my <b>BEAST</b> and I are in complete harmony."
 				if(7)
@@ -443,7 +439,7 @@
 						childe.create_disciplines(FALSE, disciplines_to_give)
 						// TODO: Rework the max blood pool calculations.
 						childe.maxbloodpool = 10+((13-min(13, childe.generation))*3)
-						childe.clane.enlightenment = sire.clane.enlightenment
+						childe.clane.is_enlightened = sire.clane.is_enlightened
 
 						//Verify if they accepted to save being a vampire
 						if(iskindred(childe) && save_data_v)
@@ -459,7 +455,7 @@
 								childe_prefs_v.generation = 14
 
 							childe_prefs_v.skin_tone = get_vamp_skin_color(childe.skin_tone)
-							childe_prefs_v.clane.enlightenment = sire.clane.enlightenment
+							childe_prefs_v.clane.is_enlightened = sire.clane.is_enlightened
 
 							//Rarely the new mid round vampires get the 3 brujah skil(it is default)
 							//This will remove if it happens

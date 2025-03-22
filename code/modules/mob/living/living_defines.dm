@@ -257,7 +257,6 @@
 	var/bloodpool = 5
 	var/maxbloodpool = 5
 	var/generation = 13
-	var/humanity = 7
 	var/masquerade = 5
 	var/last_masquerade_violation = 0
 	var/last_nonraid = 0

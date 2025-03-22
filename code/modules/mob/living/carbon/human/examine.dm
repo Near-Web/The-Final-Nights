@@ -448,10 +448,10 @@
 				var/mob/living/carbon/human/vampire = src
 				weaver_taint++
 				msg += "<span class='purple'><i>You recognize their scent as cold and lifeless.</i></span><br>"
-				if ((humanity < 7) || client?.prefs?.enlightenment)
+				if ((vampire.morality_path.score < 7) || client?.prefs?.is_enlightened)
 					wyrm_taint++
 
-				if ((vampire.clane?.name == "Baali") || ( (client?.prefs?.enlightenment && (humanity > 7)) || (!client?.prefs?.enlightenment && (humanity < 4)) ))
+				if ((vampire.clane?.name == "Baali") || ( (client?.prefs?.is_enlightened && (vampire.morality_path.score > 7)) || (!client?.prefs?.is_enlightened && (vampire.morality_path.score < 4)) ))
 					wyrm_taint++
 
 			if (isgarou(src) || iswerewolf(src)) //werewolves have the taint of whatever Triat member they venerate most

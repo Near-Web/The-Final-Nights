@@ -744,7 +744,7 @@
 			if(isnpc(target))
 				var/mob/living/carbon/human/npc/N = target
 				if(N.last_damager != src)
-					AdjustHumanity(1, 10)
+					SEND_SIGNAL(src, COMSIG_PATH_HIT, PATH_SCORE_UP)
 					call_dharma("savelife", src)
 //			if(key)
 //				var/datum/preferences/P = GLOB.preferences_datums[ckey(key)]

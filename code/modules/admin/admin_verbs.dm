@@ -59,7 +59,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/cmd_admin_subtle_message,	/*send a message to somebody as a 'voice in their head'*/
 	/client/proc/cmd_admin_adjust_masquerade, /*adjusts the masquerade level of a player*/
 	/client/proc/cmd_admin_global_adjust_masquerade, /*adjusts the global masquerade*/
-	/client/proc/cmd_admin_adjust_humanity, /*adjusts the humanity level of a player*/
+//	/client/proc/cmd_admin_adjust_humanity, /*adjusts the humanity level of a player*/
 	/client/proc/cmd_admin_headset_message,	/*send a message to somebody through their headset as CentCom*/
 	/client/proc/cmd_admin_delete,		/*delete an instance/object/mob/etc*/
 	/client/proc/cmd_admin_check_contents,	/*displays the contents of an instance*/
@@ -227,7 +227,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_admin_subtle_message,
 	/client/proc/cmd_admin_adjust_masquerade,
 	/client/proc/cmd_admin_global_adjust_masquerade,
-	/client/proc/cmd_admin_adjust_humanity,
+//	/client/proc/cmd_admin_adjust_humanity,
 	/client/proc/cmd_admin_headset_message,
 	/client/proc/cmd_admin_check_contents,
 	/datum/admins/proc/access_news_network,
@@ -521,7 +521,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	message_admins(msg)
 	admin_ticket_log(M, msg)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Adjust Masquerade")
-
+/*
 /client/proc/cmd_admin_adjust_humanity(mob/living/carbon/human/M in GLOB.player_list)
 	set name = "Adjust Humanity"
 	set category = "Admin"
@@ -534,23 +534,21 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		return
 
 	var/is_enlightenment = FALSE
-	if (M.client?.prefs?.enlightenment)
+	if (M.client?.prefs?.is_enlightened)
 		is_enlightenment = TRUE
 
 	var/value = input(usr, "Enter the [is_enlightenment ? "Enlightenment" : "Humanity"] adjustment value for [M.key]:", "Humanity Adjustment", 0) as num|null
 	if(value == null)
 		return
-	if (is_enlightenment)
-		value = -value
 
-	M.AdjustHumanity(value, 0, forced = TRUE)
+	M.morality_path.adjust_humanity(value, M)
 
-	var/msg = "<span class='adminnotice'><b>Humanity Adjustment: [key_name_admin(usr)] adjusted [key_name(M)]'s [is_enlightenment ? "Enlightenment" : "Humanity"] by [is_enlightenment ? -value : value] to [M.humanity]</b></span>"
-	log_admin("HumanityAdjust: [key_name_admin(usr)] has adjusted [key_name(M)]'s [is_enlightenment ? "Enlightenment" : "Humanity"] by [is_enlightenment ? -value : value] to [M.humanity]")
+	var/msg = "<span class='adminnotice'><b>Humanity Adjustment: [key_name_admin(usr)] adjusted [key_name(M)]'s [is_enlightenment ? "Enlightenment" : "Humanity"] by [is_enlightenment ? -value : value] to [M.morality_path.score]</b></span>"
+	log_admin("HumanityAdjust: [key_name_admin(usr)] has adjusted [key_name(M)]'s [is_enlightenment ? "Enlightenment" : "Humanity"] by [is_enlightenment ? -value : value] to [M.morality_path.score]")
 	message_admins(msg)
 	admin_ticket_log(M, msg)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Adjust Humanity")
-
+*/
 /client/proc/reward_exp()
 	set name = "Reward Experience"
 	set category = "Admin"

@@ -87,6 +87,7 @@
 
 	//Shitty VtM vars I'm moving here so they're not strewn around the codebase
 	var/datum/vampireclane/clane
+	var/datum/morality/morality_path
 
 	var/last_repainted_mark
 
