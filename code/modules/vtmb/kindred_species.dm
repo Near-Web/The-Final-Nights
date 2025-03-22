@@ -386,7 +386,7 @@
 								message_admins("[ADMIN_LOOKUPFLW(sire)] has turned [ADMIN_LOOKUPFLW(childe)] into an Abomination through an admin setting the force_abomination var.")
 								log_game("[key_name(sire)] has turned [key_name(childe)] into an Abomination through an admin setting the force_abomination var.")
 							else
-								switch(storyteller_roll(childe.auspice.level))
+								switch(SSroll.storyteller_roll(childe.auspice.level))
 									if(ROLL_BOTCH)
 										to_chat(sire, span_danger("Something terrible is happening."))
 										to_chat(childe, span_userdanger("Gaia has forsaken you."))
