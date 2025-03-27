@@ -110,8 +110,11 @@
 		if(hurt)
 			victim.take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
 			take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
-			victim.Paralyze(1 SECONDS)
-			Paralyze(1 SECONDS)
+			if(mob_size == MOB_SIZE_HUGE)
+				victim.Knockdown(5)
+				victim.drop_all_held_items() //Half a second knockdown + disarm
+			Knockdown(5)
+			Immobilize(3)
 			visible_message("<span class='danger'>[src] crashes into [victim][extra_speed ? " really hard" : ""], knocking them both over!</span>",\
 				"<span class='userdanger'>You violently crash into [victim][extra_speed ? " extra hard" : ""]!</span>")
 		playsound(src,'sound/weapons/punch1.ogg',50,TRUE)

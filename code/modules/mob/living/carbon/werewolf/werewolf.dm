@@ -93,17 +93,16 @@
 			playsound(get_turf(src), 'code/modules/wod13/sounds/werewolf_step.ogg', 50, FALSE)
 	..()
 
-/mob/living/carbon/proc/epic_fall(var/apply_stun_self = TRUE, var/apply_stun_others = TRUE)
+/mob/living/carbon/proc/epic_fall(var/apply_stun_self = TRUE, var/apply_stun_others = TRUE) //This proc is only called for Potence jumps. I have no idea why its stored here.
 	playsound(get_turf(src), 'code/modules/wod13/sounds/werewolf_fall.ogg', 100, FALSE)
 	new /obj/effect/temp_visual/dir_setting/crack_effect(get_turf(src))
 	new /obj/effect/temp_visual/dir_setting/fall_effect(get_turf(src))
-	for(var/mob/living/carbon/C in range(5, src))
+	for(var/mob/living/carbon/C in range(3, src))
 		if(apply_stun_others)
 			C.Knockdown(20)
-			C.Stun(10)
 		shake_camera(C, (6-get_dist(C, src))+1, (6-get_dist(C, src)))
 	if(apply_stun_self)
-		Knockdown(20)
+		Immobilize(20)
 	shake_camera(src, 5, 4)
 
 /mob/living/carbon/werewolf/Initialize()

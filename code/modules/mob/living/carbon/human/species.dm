@@ -1385,6 +1385,8 @@ GLOBAL_LIST_EMPTY(selectable_races)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>You don't want to harm [target]!</span>")
 		return FALSE
+	if(user.blocking)
+		return FALSE
 	if(target.check_block())
 		target.visible_message("<span class='warning'>[target] blocks [user]'s attack!</span>", \
 						"<span class='userdanger'>You block [user]'s attack!</span>", "<span class='hear'>You hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, user)
@@ -1424,7 +1426,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 			if(atk_verb == ATTACK_EFFECT_KICK || HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER)) //kicks never miss (provided your species deals more than 0 damage)
 				miss_chance = 0
 			else
-				miss_chance = min((user.dna.species.punchdamagehigh/user.dna.species.punchdamagelow) + user.getStaminaLoss() + (user.getBruteLoss()*0.5), 100) //old base chance for a miss + various damage. capped at 100 to prevent weirdness in prob()
+				miss_chance = min((user.dna.species.punchdamagehigh/user.dna.species.punchdamagelow) + user.getStaminaLoss() + (user.getBruteLoss()*0.1), 100) //Tweaked for FN, keeps stamina loss for future non-lethals, but brute damage impact lowered a lot to account for higher health pool and damages.
 
 		if(!damage || !affecting || prob(miss_chance))//future-proofing for species that have 0 damage/weird cases where no zone is targeted
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
@@ -1454,12 +1456,11 @@ GLOBAL_LIST_EMPTY(selectable_races)
 		if(user.limb_destroyer)
 			target.dismembering_strike(user, affecting.body_zone)
 
-		if(atk_verb == ATTACK_EFFECT_KICK)//kicks deal 1.5x raw damage
-			target.apply_damage(damage*1.5, user.dna.species.attack_type, affecting, armor_block)
+		if(atk_verb == ATTACK_EFFECT_KICK)//kicks deal 1.1x raw damage
+			target.apply_damage(damage*1.1, user.dna.species.attack_type, affecting, armor_block)
 			log_combat(user, target, "kicked")
-		else//other attacks deal full raw damage + 1.5x in stamina damage
+		else//other attacks deal full damage
 			target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block)
-			target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
 			log_combat(user, target, "punched")
 		//Punches have a chance (by default 10%, up to 30%) to knock down a target for about 2 seconds depending on physique and dexterity.
 		//Checks if the target is already knocked down to prevent stunlocking.
