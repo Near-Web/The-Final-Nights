@@ -19,14 +19,6 @@ SUBSYSTEM_DEF(cityweather)
 		if(C)
 			qdel(C)
 
-//	if(raining)
-//		var/turf/T = pick(affected_turfs)
-//		T.wash(CLEAN_SCRUB)
-
-//	for(var/i in 1 to 9)
-//		var/weath = forecast[i]
-//		to_chat(world, "DEBUG, [i], [weath]")
-
 	var/cityhour = 1
 	switch(SScity_time.hour)
 		if(21)
