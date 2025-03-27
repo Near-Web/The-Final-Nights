@@ -59,7 +59,7 @@
 		if(-10 to -7)
 			message = "<span class='warning'>This door looks extremely complicated. You figure you will have to be lucky to break it open."
 		if(-6 to -3)
-			message = "<span class='notice'>This door looks very complicated. You might need a few tries to lockpick it."
+			message = "<span class='notice'>This door looks very complicated. You might need a few tries to lockpick it.</span>"
 		if(-2 to 0) //Only 3 numbers here instead of 4.
 			message = "<span class='notice'>This door looks mildly complicated. It shouldn't be too hard to lockpick it.</span>"
 		if(1 to 4) //Impossible to break the lockpick from here on because minimum rand(1,20) will always move the value to 2.
@@ -196,3 +196,35 @@
 						playsound(src, lock_sound, 75, TRUE)
 						to_chat(user, "[src] is now unlocked.")
 						locked = FALSE
+
+/obj/structure/vampdoor/Click(location, control, params)
+	var/list/modifiers = params2list(params)
+	if(!modifiers["right"])
+		return ..()
+
+	if(!ishuman(usr) || !usr.canUseTopic(src, BE_CLOSE))
+		return
+
+	var/mob/living/carbon/human/H = usr
+	var/obj/item/vamp/keys/found_key = locate(/obj/item/vamp/keys) in H.contents
+	if(!found_key)
+		to_chat(usr, span_warning("You need a key to lock/unlock this door!"))
+		return
+
+	if(found_key.roundstart_fix)
+		found_key.roundstart_fix = FALSE
+		lock_id = pick(found_key.accesslocks)
+
+	if(!found_key.accesslocks)
+		to_chat(usr, span_warning("Your key doesn't fit this lock!"))
+		return
+
+	for(var/i in found_key.accesslocks)
+		if(i == lock_id)
+			locked = !locked
+			playsound(src, lock_sound, 75, TRUE)
+			to_chat(usr, span_notice("You [locked ? "lock" : "unlock"] [src]."))
+			return
+
+	to_chat(usr, span_warning("Your key doesn't fit this lock!"))
+	return ..()
