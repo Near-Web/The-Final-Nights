@@ -1533,16 +1533,14 @@ GLOBAL_LIST_EMPTY(selectable_races)
 
 /datum/species/proc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, intent, mob/living/carbon/human/H)
 	// Allows you to put in item-specific reactions based on species
-	var/modifikator = 1
+	var/meleemod = 1
 	if(ishuman(user))
-		var/mob/living/carbon/human/USR = user
-		if(USR.dna)
-			if(USR.dna.species)
-				modifikator = USR.dna.species.meleemod
-		if(USR.age < 16)
-			modifikator = modifikator/2
-		if(ishuman(user))
-			modifikator = (modifikator/3)*(user.get_total_physique())
+		var/mob/living/carbon/human/M = user
+		if(M.dna)
+			if(M.dna.species)
+				meleemod = M.dna.species.meleemod
+		//if(ishuman(user)) //Commented due to the prevalence of Physique 5 turning this into unaccounted math. Reutilize if stat XP caps ever become a thing, idk.
+			//meleemod = (meleemod/3)*(user.get_total_physique())
 	if(user != H)
 		if(H.check_shields(I, I.force, "the [I.name]", MELEE_ATTACK, I.armour_penetration))
 			return FALSE
@@ -1577,7 +1575,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 					if(H.bloodpool)
 						H.bloodpool = max(0, H.bloodpool-1)
 						OC.stored_blood = OC.stored_blood+1
-	apply_damage((I.force*modifikator) * weakness, I.damtype, def_zone, armor_block, H, wound_bonus = Iwound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness())
+	apply_damage((I.force*meleemod) * weakness, I.damtype, def_zone, armor_block, H, wound_bonus = Iwound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness())
 
 	if(!I.force)
 		return FALSE //item force is zero
