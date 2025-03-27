@@ -237,6 +237,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/chi_types = list()
 	var/list/chi_levels = list()
 
+	// Add a flag to track if stats have been initialized
+	var/stats_initialized = FALSE
+
 /datum/preferences/proc/add_experience(amount)
 	true_experience = clamp(true_experience + amount, 0, 1000)
 
@@ -271,6 +274,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	blood = A.start_blood
 	lockpicking = A.start_lockpicking
 	athletics = A.start_athletics
+	stats_initialized = TRUE  // Mark stats as initialized when resetting character
 	qdel(clane)
 	clane = new /datum/vampireclane/brujah()
 	qdel(morality_path)
@@ -314,6 +318,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	C?.set_macros()
 //	pref_species = new /datum/species/kindred()
 	real_name = pref_species.random_name(gender,1)
+	stats_initialized = TRUE  // Mark stats as initialized for a new character
 	if(!loaded_preferences_successfully)
 		save_preferences()
 	save_character()		//let's save this new random character so it doesn't keep generating new ones.
@@ -1288,13 +1293,25 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 //
 /datum/preferences/proc/build_attribute_score(var/attribute, var/bonus_number, var/price, var/variable_name)
 	var/dat
-	for(var/a in 1 to attribute)
+
+	// For visual representation purposes, show actual dots based on real attribute value
+	var/display_attribute = attribute
+
+	// For visual representation only - show dots for actual value
+	for(var/a in 1 to display_attribute)
 		dat += "•"
+
+	// Show bonus dots from archetype with a different formatting
 	for(var/b in 1 to bonus_number)
-		dat += "•"
-	var/leftover_circles = 5 - attribute //5 is the default number of blank circles
+		dat += "<span style='color: #8888ff;'>•</span>"
+
+	var/leftover_circles = 5 - display_attribute //5 is the default number of blank circles
 	for(var/c in 1 to leftover_circles)
 		dat += "o"
+
+	// Show the effective value (base + bonus)
+	dat += " <small>([display_attribute + bonus_number] effective)</small> "
+
 	var/real_price = attribute ? (attribute*price) : price //In case we have an attribute of 0, we don't multiply by 0
 	if((true_experience >= real_price) && (attribute < ATTRIBUTE_BASE_LIMIT))
 		dat += "<a href='?_src_=prefs;preference=[variable_name];task=input'>Increase ([real_price])</a>"
@@ -1422,7 +1439,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				continue
 			// TFN EDIT START: alt job titles
 			var/rank_title_line = "[displayed_rank]"
-			if(length(job.alt_titles) && (rank in GLOB.leader_positions))//Bold head jobs
+			if(length(job.alt_titles) && (rank in alt_titles_preferences))//Bold head jobs
 				rank_title_line = "<b><a href='?_src_=prefs;preference=job;task=alt_title;job_title=[job.title]'>[rank_title_line]</a></b>"
 			else if(length(job.alt_titles))
 				rank_title_line = "<a href='?_src_=prefs;preference=job;task=alt_title;job_title=[job.title]'>[rank_title_line]</a>"
@@ -2302,7 +2319,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(slotlocked)
 						return
 
-					if (tgui_alert(user, "Are you sure you want to change Archetype? This will reset your attributes.", "Confirmation", list("Yes", "No")) != "Yes")
+					if (tgui_alert(user, "Are you sure you want to change Archetype? This will reset your attributes only if they haven't been initialized yet.", "Confirmation", list("Yes", "No")) != "Yes")
 						return
 
 					var/list/archetypes = list()
@@ -2312,14 +2329,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/result = tgui_input_list(user, "Select an archetype", "Attributes Selection", sortList(archetypes))
 					if(result)
 						archetype = archetypes[result]
-						var/datum/archetype/archetip = new archetype()
-						physique = archetip.start_physique
-						dexterity = archetip.start_dexterity
-						mentality = archetip.start_mentality
-						social = archetip.start_social
-						blood = archetip.start_blood
-						lockpicking = archetip.start_lockpicking
-						athletics = archetip.start_athletics
+						// Only initialize stats if they haven't been initialized yet
+						if(!stats_initialized)
+							var/datum/archetype/archetip = new archetype()
+							physique = archetip.start_physique
+							dexterity = archetip.start_dexterity
+							mentality = archetip.start_mentality
+							social = archetip.start_social
+							blood = archetip.start_blood
+							lockpicking = archetip.start_lockpicking
+							athletics = archetip.start_athletics
+							// Mark stats as initialized
+							stats_initialized = TRUE
+
+						// Force a UI refresh to display the new archetype's stat bonuses
+						ShowChoices(user)
 
 				if("discipline")
 					if(pref_species.id == "kindred")
@@ -2521,6 +2545,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						return
 
 					slotlocked = FALSE
+					stats_initialized = TRUE
 
 				if("reset_with_bonus")
 					if((clane?.name == "Caitiff") || !generation_bonus)
@@ -2538,7 +2563,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(slotlocked)
 						return
 
-					if (tgui_alert(user, "Are you sure you want to change species? This will reset species-specific stats.", "Confirmation", list("Yes", "No")) != "Yes")
+					if (tgui_alert(user, "Are you sure you want to change species? This will reset species-specific stats but not your attributes if already initialized.", "Confirmation", list("Yes", "No")) != "Yes")
 						return
 
 					var/list/choose_species = list()
@@ -2561,6 +2586,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						SetQuirks(user)
 						var/newtype = GLOB.species_list[result]
 						pref_species = new newtype()
+
+						// If stats were not initialized before, initialize them based on the archetype
+						if(!stats_initialized)
+							var/datum/archetype/archetip = new archetype()
+							physique = archetip.start_physique
+							dexterity = archetip.start_dexterity
+							mentality = archetip.start_mentality
+							social = archetip.start_social
+							blood = archetip.start_blood
+							lockpicking = archetip.start_lockpicking
+							athletics = archetip.start_athletics
+							// Mark stats as initialized
+							stats_initialized = TRUE
+
 						switch(pref_species.id)
 							if("ghoul","human","kuei-jin")
 								discipline_types.Cut()
