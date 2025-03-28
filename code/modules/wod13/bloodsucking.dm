@@ -39,6 +39,11 @@
 		NPC.danger_source = null
 		mob.Stun(40) //NPCs don't get to resist
 
+	// Send the blood drinking signal and get the modified blood gain
+	var/modified_bloodgain = SEND_SIGNAL(src, COMSIG_MOB_DRINK_BLOOD, mob, src, bloodgain)
+	if(modified_bloodgain)
+		bloodgain = modified_bloodgain
+
 	if(mob.bloodpool <= 1 && mob.maxbloodpool > 1)
 		to_chat(src, "<span class='warning'>You feel small amount of <b>BLOOD</b> in your victim.</span>")
 		if(iskindred(mob) && iskindred(src))
