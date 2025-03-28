@@ -32,7 +32,7 @@
 		if(light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD)
 			if(!activating)
 				activating = TRUE
-				if(do_mob(user, user, 50))
+				if(do_mob(user, user, 0))
 					activating = FALSE
 					playsound(get_turf(user), 'sound/magic/ethereal_enter.ogg', 50, TRUE, -1)
 					visible_message("<span class='boldwarning'>[user] melts into the shadows!</span>")
@@ -70,7 +70,7 @@
 
 
 /obj/effect/dummy/phased_mob/shadow/relaymove(mob/living/user, direction)
-	if(last_go+5 > world.time)
+	if(last_go+2 > world.time)
 		return
 	last_go = world.time
 	var/turf/oldloc = loc
