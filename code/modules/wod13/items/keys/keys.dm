@@ -320,6 +320,13 @@
 	)
 	color = "#e8ff29"
 
+/obj/item/vamp/keys/cappadocian
+	name = "Eroded keys"
+	accesslocks = list(
+		"cappadocian"
+	)
+	color = "#99620e"
+
 //===========================CLINIC KEYS===========================
 /obj/item/vamp/keys/clinic
 	name = "Clinic keys"

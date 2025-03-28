@@ -434,6 +434,17 @@
 	yin_chi = 2
 	wall_rating = HIGH_WALL_RATING
 
+/area/vtm/sewer/cappadocian
+	name = "Cappadocian Crypt"
+	icon_state = "graveyard"
+	ambience_index = AMBIENCE_INTERIOR
+	music = /datum/vampiremusic/hollywood
+	upper = FALSE
+	zone_type = "elysium"
+	yang_chi = 0
+	yin_chi = 2
+	wall_rating = LOW_WALL_RATING
+
 // GAROU CENTRIC AREAS
 /area/vtm/forest
 	name = "Forest"
