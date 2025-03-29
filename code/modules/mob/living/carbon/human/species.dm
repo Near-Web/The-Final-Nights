@@ -1724,17 +1724,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 // ENVIRONMENT HANDLERS //
 //////////////////////////
 
-/**
- * Environment handler for species
- *
- * vars:
- * * environment (required) The environment gas mix
- * * humi (required)(type: /mob/living/carbon/human) The mob we will target
- */
-/datum/species/proc/handle_environment(datum/gas_mixture/environment, mob/living/carbon/human/humi)
-	handle_environment_pressure(environment, humi)
-
-/**
+/*
  * Body temperature handler for species
  *
  * These procs manage body temp, bamage, and alerts
@@ -1743,9 +1733,6 @@ GLOBAL_LIST_EMPTY(selectable_races)
  * * humi (required)(type: /mob/living/carbon/human) The mob we will target
  */
 /datum/species/proc/handle_body_temperature(mob/living/carbon/human/humi)
-	//when in a cryo unit we suspend all natural body regulation
-	if(istype(humi.loc, /obj/machinery/atmospherics/components/unary/cryo_cell))
-		return
 
 	//Only stabilise core temp when alive and not in statis
 	if(humi.stat < DEAD && !IS_IN_STASIS(humi))
@@ -1787,14 +1774,8 @@ GLOBAL_LIST_EMPTY(selectable_races)
 
 	humi.adjust_coretemperature(skin_core_change)
 
-	// get the enviroment details of where the mob is standing
-	var/turf/T = get_turf(humi)
-	var/datum/gas_mixture/environment = T.return_air()
-	if(!environment) // if there is no environment (nullspace) drop out here.
-		return
-
 	// Get the temperature of the environment for area
-	var/area_temp = humi.get_temperature(environment)
+	var/area_temp = humi.get_temperature()
 
 	// Get the insulation value based on the area's temp
 	var/thermal_protection = humi.get_insulation_protection(area_temp)
@@ -1972,49 +1953,6 @@ GLOBAL_LIST_EMPTY(selectable_races)
 		burn_damage = HEAT_DAMAGE_LEVEL_3
 
 	humi.apply_damage(burn_damage, BURN, bodypart)
-
-/// Handle the air pressure of the environment
-/datum/species/proc/handle_environment_pressure(datum/gas_mixture/environment, mob/living/carbon/human/H)
-	var/pressure = environment.return_pressure()
-	var/adjusted_pressure = H.calculate_affecting_pressure(pressure)
-
-	// Set alerts and apply damage based on the amount of pressure
-	switch(adjusted_pressure)
-
-		// Very high pressure, show an alert and take damage
-		if(HAZARD_HIGH_PRESSURE to INFINITY)
-			if(!HAS_TRAIT(H, TRAIT_RESISTHIGHPRESSURE))
-				H.adjustBruteLoss(min(((adjusted_pressure / HAZARD_HIGH_PRESSURE) -1 ) * \
-					PRESSURE_DAMAGE_COEFFICIENT, MAX_HIGH_PRESSURE_DAMAGE) * H.physiology.pressure_mod)
-				H.throw_alert("pressure", /atom/movable/screen/alert/highpressure, 2)
-			else
-				H.clear_alert("pressure")
-
-		// High pressure, show an alert
-		if(WARNING_HIGH_PRESSURE to HAZARD_HIGH_PRESSURE)
-			H.throw_alert("pressure", /atom/movable/screen/alert/highpressure, 1)
-
-		// No pressure issues here clear pressure alerts
-		if(WARNING_LOW_PRESSURE to WARNING_HIGH_PRESSURE)
-			H.clear_alert("pressure")
-
-		// Low pressure here, show an alert
-		if(HAZARD_LOW_PRESSURE to WARNING_LOW_PRESSURE)
-			// We have low pressure resit trait, clear alerts
-			if(HAS_TRAIT(H, TRAIT_RESISTLOWPRESSURE))
-				H.clear_alert("pressure")
-			else
-				H.throw_alert("pressure", /atom/movable/screen/alert/lowpressure, 1)
-
-		// Very low pressure, show an alert and take damage
-		else
-			// We have low pressure resit trait, clear alerts
-			if(HAS_TRAIT(H, TRAIT_RESISTLOWPRESSURE))
-				H.clear_alert("pressure")
-			else
-				H.adjustBruteLoss(LOW_PRESSURE_DAMAGE * H.physiology.pressure_mod)
-				H.throw_alert("pressure", /atom/movable/screen/alert/lowpressure, 2)
-
 
 //////////
 // FIRE //
@@ -2205,12 +2143,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 	if(!T)
 		return FALSE
 
-	var/datum/gas_mixture/environment = T.return_air()
-	if(environment && !(environment.return_pressure() > 30))
-		to_chat(H, "<span class='warning'>The atmosphere is too thin for you to fly!</span>")
-		return FALSE
-	else
-		return TRUE
+	return TRUE
 
 /datum/species/proc/flyslip(mob/living/carbon/human/H)
 	var/obj/buckled_obj
