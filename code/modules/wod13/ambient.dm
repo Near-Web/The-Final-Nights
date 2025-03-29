@@ -166,6 +166,20 @@
 	yin_chi = 2
 	wall_rating = LOW_WALL_RATING
 
+/area/vtm/interior/apartment
+	name = "Millenium Apartments"
+	icon_state = "camarilla_interior"
+	upper = FALSE
+	fire_controled = TRUE
+	wall_rating = HIGH_WALL_RATING
+
+/area/vtm/interior/ghetto
+	name = "Ghetto Apartments"
+	icon_state = "ghetto_interior"
+	upper = FALSE
+	fire_controled = TRUE
+	wall_rating = HIGH_WALL_RATING
+
 /area/vtm/financialdistrict
 	name = "Financial District"
 	icon_state = "financialdistrict"

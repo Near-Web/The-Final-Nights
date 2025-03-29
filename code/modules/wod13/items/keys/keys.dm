@@ -444,3 +444,8 @@
 		"taxi"
 	)
 	color = "#fffb8b"
+
+/obj/item/vamp/keys/apartment
+	name = "Apartment keys"
+	desc = "The key to someone's home. Hope it's not lost."
+	accesslocks = "apartment"
