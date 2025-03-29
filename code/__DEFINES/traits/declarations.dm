@@ -306,3 +306,5 @@
 /// A trait gained by leaning against a wall
 #define TRAIT_LEANING "leaning"
 
+//Trait for when a kindred turns on obfuscate. Supposed to make them invisible to normal sight.area
+#define TRAIT_OBFUSCATED "trait_obfuscated"
