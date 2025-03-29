@@ -498,20 +498,18 @@
 					caster.update_body()
 					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
 		if(2)
-			var/initial_hair = caster.hairstyle
-			var/initial_facial = caster.facial_hairstyle
-			caster.unique_body_sprite = "nothing"
-			caster.hairstyle = "Bald"
-			caster.facial_hairstyle = "Shaved"
-			caster.update_body()
-			spawn()
-				freezing_aura_loop(caster, delay + caster.discipline_time_plus)
-			spawn(delay+caster.discipline_time_plus)
-				if(caster)
-					caster.unique_body_sprite = null
-					caster.hairstyle = initial_hair
-					caster.facial_hairstyle = initial_facial
-					caster.update_body()
+			caster.visible_message("<span class='danger'>[caster] is smearing blood over themselves!!!</span>", "<span class='danger'>You begin to smear blood over yourself and your clothing to become invisible</span>")
+			if (do_after(caster, 15 SECONDS))
+				caster.yin_chi -= 1
+				animate(caster, alpha = 10, time = 1 SECONDS)
+				spawn(delay+caster.discipline_time_plus + 18 SECONDS)
+					if(caster)
+						if(caster.alpha != 255)
+							caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/obfuscate_deactivate.ogg', 50, FALSE)
+							caster.alpha = 255
+			else
+				to_chat(caster, "<span class='notice'>You fail to properly cover yourself in blood</span>")
+				caster.yin_chi += 1
 		if(3)
 			var/obj/item/melee/vampirearms/knife/bone_shintai/righthand_boneknife = new (caster)
 			var/obj/item/melee/vampirearms/knife/bone_shintai/lefthand_boneknife = new (caster)
