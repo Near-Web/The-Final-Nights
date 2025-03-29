@@ -436,6 +436,7 @@
 	inhand_icon_state = "rifle"
 	worn_icon_state = "rifle"
 	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/vamp556
 	burst_size = 2
 	fire_delay = 2
@@ -455,6 +456,7 @@
 	inhand_icon_state = "huntrifle"
 	worn_icon_state = "huntrifle"
 	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/vamp556/hunt
 	burst_size = 1
 	fire_delay = 1
@@ -487,6 +489,7 @@
 	inhand_icon_state = "ak74"
 	worn_icon_state = "ak74"
 	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/vamp545
 	recoil = 5
 	burst_size = 3
@@ -520,6 +523,7 @@
 	inhand_icon_state = "aug"
 	worn_icon_state = "aug"
 	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM //Bullpup makes it easy to fire with one hand, but we still don't want these dual-wielded
 	mag_type = /obj/item/ammo_box/magazine/vampaug
 	burst_size = 3
 	fire_delay = 2
@@ -553,6 +557,7 @@
 	inhand_icon_state = "thompson"
 	worn_icon_state = "thompson"
 	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/vampthompson
 	recoil = 7
 	burst_size = 5
@@ -621,6 +626,7 @@
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM
 	icon_state = "pomp"
 	inhand_icon_state = "pomp"
 	worn_icon_state = "pomp"
@@ -654,6 +660,7 @@
 	inhand_icon_state = "spas15"
 	worn_icon_state = "rifle"
 	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	mag_type = /obj/item/ammo_box/magazine/vampautoshot
 	burst_size = 1
 	fire_delay = 2
