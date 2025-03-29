@@ -377,7 +377,7 @@
 				if (getToxLoss() >= 10)
 					msg += "[t_He] seem[p_s()] sickly.\n"
 				var/datum/component/mood/mood = src.GetComponent(/datum/component/mood)
-				if(mood.sanity <= SANITY_DISTURBED)
+				if(mood?.sanity <= SANITY_DISTURBED)
 					msg += "[t_He] seem[p_s()] distressed.\n"
 					SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "empath", /datum/mood_event/sad_empath, src)
 				if (is_blind())
@@ -520,6 +520,25 @@
 		else
 			. += span_notice("[copytext(sanitize_text(flavor_text), 1, 110)]... <a href='?src=[REF(src)];view_flavortext=1'>More...</a>")
 	// TFN EDIT ADDITION END
+
+	var/datum/antagonist/marauder/marauder = IS_MARAUDER(user)
+	if(marauder)
+		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+		if(heart)
+			var/inscryption_key = LAZYACCESS(heart.inscryption_keys, marauder) // SPECIFICALLY the key that WE wrote
+			if(inscryption_key && (inscryption_key in marauder.key_nums))
+				. += span_danger("[t_He] know[p_s()] [inscryption_key], I AM SURE OF IT!")
+
+	var/aghost_privilege = isAdminObserver(user)
+	if(aghost_privilege)
+		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+		if(heart && heart.marauders)
+			for(var/datum/antagonist/marauder/M in heart.marauders)
+				var/inscryptions = LAZYACCESS(heart.inscryptions, M)
+				var/wonder_id = LAZYACCESS(heart.marauders2wonder_ids, M)
+				var/marauder_name = M.owner?.name
+				. += span_notice("Inscryption[marauder_name ? " by [marauder_name]'s " : ""][wonder_id ? "Wonder #[wonder_id]" : ""]: [inscryptions ? inscryptions : ""]")
+
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.general)

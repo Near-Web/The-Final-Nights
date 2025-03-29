@@ -169,6 +169,14 @@
 			return FALSE
 	return TRUE
 
+/atom/proc/OnCrafted(dirin, mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	return
+
+/obj/structure/OnCrafted(dirin, mob/user)
+	obj_flags |= CAN_BE_HIT
+	. = ..()
+
 /datum/component/personal_crafting/proc/construct_item(atom/a, datum/crafting_recipe/R)
 	var/list/contents = get_surroundings(a,R.blacklist)
 	var/send_feedback = 1
@@ -202,6 +210,8 @@
 					if(V.upper)
 						PIS.AdjustMasquerade(-1)
 			I.CheckParts(parts, R)
+			if(ishuman(a))
+				I.OnCrafted(PIS.dir, PIS)
 			if(send_feedback)
 				SSblackbox.record_feedback("tally", "object_crafted", 1, I.type)
 			return I //Send the item back to whatever called this proc so it can handle whatever it wants to do with the new item
@@ -484,3 +494,8 @@
 	if(!learned_recipes)
 		learned_recipes = list()
 	learned_recipes |= R
+
+/datum/mind/proc/forget_crafting_recipe(R)
+	if(!learned_recipes)
+		return
+	learned_recipes -= R

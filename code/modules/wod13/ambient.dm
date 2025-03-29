@@ -32,8 +32,11 @@
 /area/vtm/proc/break_elysium()
 	if(zone_type == "masquerade")
 		zone_type = "battle"
-		spawn(1800)
-			zone_type = "masquerade"
+
+		addtimer(CALLBACK(src, PROC_REF(reset_elysium)), 3 MINUTES)
+
+/area/vtm/proc/reset_elysium()
+	zone_type = "masquerade"
 
 /area/vtm/interior
 	name = "Interior"
@@ -522,6 +525,12 @@
 /area/vtm/interior/penumbra/enoch
 	name = "???"
 
+// The Marauder's fake world
+/area/vtm/interior/penumbra/fake_world
+	name = "???"
+	ambience_index = AMBIENCE_INTERIOR
+	music = null
+
 /area/vtm/interior/chantry
 	name = "Chantry"
 	icon_state = "theatre"
@@ -708,14 +717,8 @@
 	if(istype(get_area(T), /area/vtm))
 		var/area/vtm/VTM = get_area(T)
 		if(VTM)
-			/*
-			if(VTM.upper)
-				if(SScityweather.raining)
-					SEND_SOUND(src, sound('code/modules/wod13/sounds/rain.ogg', 0, 0, CHANNEL_RAIN, 25))
-					wash(CLEAN_WASH)
-			*/
-
 			var/cacophony = FALSE
+			var/dreamer = FALSE
 
 			if(iskindred(src))
 				var/mob/living/carbon/human/H = src
@@ -723,7 +726,12 @@
 					if(H.clane.name == "Daughters of Cacophony")
 						cacophony = FALSE //This Variable was TRUE, which makes the DoC music loop play.
 
-			if(!cacophony)
+			if(ishuman(src))
+				var/mob/living/carbon/human/H = src
+				if(HAS_TRAIT(H, TRAIT_SCHIZO_AMBIENCE))
+					dreamer = TRUE
+
+			if(!cacophony && !dreamer)
 				if(!(client && (client.prefs.toggles & SOUND_AMBIENCE)))
 					return
 
@@ -750,10 +758,15 @@
 					client << sound(VMPMSC.sound, 0, 0, CHANNEL_LOBBYMUSIC, 10)
 					last_vampire_ambience = world.time
 				qdel(VMPMSC)
-			else
+			else if(cacophony)
 				if(last_vampire_ambience+wait_for_music+10 < world.time)
 					wait_for_music = 1740
 					client << sound('code/modules/wod13/sounds/daughters.ogg', 0, 0, CHANNEL_LOBBYMUSIC, 5)
+					last_vampire_ambience = world.time
+			else if(dreamer)
+				if(last_vampire_ambience+wait_for_music+10 < world.time)
+					wait_for_music = 1620
+					SEND_SOUND(src, sound('sound/marauder/dreamer_is_still_asleep.ogg', 0, 0, CHANNEL_LOBBYMUSIC, 10))
 					last_vampire_ambience = world.time
 
 #undef VERY_HIGH_WALL_RATING

@@ -306,3 +306,11 @@
 /// A trait gained by leaning against a wall
 #define TRAIT_LEANING "leaning"
 
+// Marauder stuff
+
+/// Replaces all ambience with creepy shit
+#define TRAIT_SCHIZO_AMBIENCE "schizo_ambience"
+/// Screen will always be shaking, you cannot stop it
+#define TRAIT_SCREENSHAKE "screenshake"
+/// The Marauder has awoken!
+#define TRAIT_MARAUDER_AWOKEN "Awoken"

@@ -51,6 +51,10 @@
 	to_chat(usr, "<span class='info'>You pray to the gods: \"[msg_tmp]\"</span>", confidential = TRUE)
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Prayer") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	// Check if this is a Marauder summing the keys
+	var/datum/antagonist/marauder/marauder = mind?.has_antag_datum(/datum/antagonist/marauder)
+	if(marauder && (text2num(msg_tmp) == marauder.sum_keys))
+		marauder.wake_up()
 	//log_admin("HELP: [key_name(src)]: [msg]")
 
 /// Used by communications consoles to message CentCom
