@@ -5,26 +5,26 @@
  */
 
 const createBabelConfig = options => {
-  const { mode, presets = [], plugins = [] } = options;
+  const { presets = [], plugins = [], removeConsole } = options;
   return {
     presets: [
       ['@babel/preset-env', {
         modules: 'commonjs',
         useBuiltIns: 'entry',
-        corejs: '3.8',
+        corejs: '3',
         spec: false,
         loose: true,
         targets: [],
       }],
       ...presets,
-    ],
+    ].filter(Boolean),
     plugins: [
       '@babel/plugin-transform-jscript',
       'babel-plugin-inferno',
-      'babel-plugin-transform-remove-console',
+      removeConsole && require.resolve('babel-plugin-transform-remove-console'),
       'common/string.babel-plugin.cjs',
       ...plugins,
-    ],
+    ].filter(Boolean),
   };
 };
 

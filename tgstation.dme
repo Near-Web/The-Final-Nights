@@ -14,6 +14,7 @@
 
 // BEGIN_INCLUDE
 #include "_maps\_basemap.dm"
+#include "_maps\templates\unit_tests.dmm"
 #include "code\__byond_version_compat.dm"
 #include "code\_compile_options.dm"
 #include "code\world.dm"
@@ -152,7 +153,6 @@
 #include "code\__DEFINES\wod13\discipline.dm"
 #include "code\__DEFINES\wod13\lockpick_difficulty.dm"
 #include "code\__DEFINES\wod13\signals_kindred.dm"
-#include "code\__DEFINES\wod13\status_effects.dm"
 #include "code\__DEFINES\wod13\status_effects_debuffs.dm"
 #include "code\__DEFINES\wod13\subsystems.dm"
 #include "code\__DEFINES\wod13\dcs\bouncer_signals.dm"
@@ -782,6 +782,7 @@
 #include "code\game\area\areas\centcom.dm"
 #include "code\game\area\areas\holodeck.dm"
 #include "code\game\area\areas\mining.dm"
+#include "code\game\area\areas\misc.dm"
 #include "code\game\area\areas\shuttles.dm"
 #include "code\game\area\areas\ruins\_ruins.dm"
 #include "code\game\area\areas\ruins\icemoon.dm"
@@ -2148,6 +2149,7 @@
 #include "code\modules\lighting\lighting_turf.dm"
 #include "code\modules\mapping\map_template.dm"
 #include "code\modules\mapping\mapping_helpers.dm"
+#include "code\modules\mapping\merge_conflicts.dm"
 #include "code\modules\mapping\modular_mapping.dm"
 #include "code\modules\mapping\preloader.dm"
 #include "code\modules\mapping\reader.dm"
