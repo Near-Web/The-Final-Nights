@@ -26,9 +26,9 @@ const NumpadWindow = (props, context) => {
   return (
     <Box m="6px">
       <Flex mb={1.5}>
-        <Flex.Item width="155px"> 
+        <Flex.Item width="155px">
           <Box height="60px" className="Telephone__displayBox">
-            {my_number} 
+            {my_number}
           </Box>
         </Flex.Item>
         <Flex.Item>
@@ -38,8 +38,8 @@ const NumpadWindow = (props, context) => {
               fontSize="20px"
               lineHeight={1}
               textAlign="center"
-              width="35px" 
-              height="40px" 
+              width="35px"
+              height="40px"
               className="Telephone__Button Telephone__Button--keypad"
               onClick={() => act('contacts')}
             />
@@ -48,8 +48,8 @@ const NumpadWindow = (props, context) => {
               fontSize="20px"
               lineHeight={1}
               textAlign="center"
-              width="35x" 
-              height="40px" 
+              width="35x"
+              height="40px"
               className="Telephone__Button Telephone__Button--settings"
               onClick={() => act('settings')}
             />
