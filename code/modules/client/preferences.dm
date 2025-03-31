@@ -237,6 +237,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/chi_types = list()
 	var/list/chi_levels = list()
 
+	//The color for character speech
+	var/voice_color = "#FFFFFF"
+
 /datum/preferences/proc/add_experience(amount)
 	true_experience = clamp(true_experience + amount, 0, 1000)
 
@@ -1166,6 +1169,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if(unlock_content || check_rights_for(user.client, R_ADMIN))
 					dat += "<b>OOC Color:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'>Change</a><br>"
+					dat += "<b>Voice Color:</b> <span style='border: 1px solid #161616; background-color: [voice_color ? voice_color : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=voice_color;task=input'>Change</a><br>"
 				if(hearted_until)
 					dat += "<a href='?_src_=prefs;preference=clear_heart'>Clear OOC Commend Heart</a><br>"
 
@@ -1639,14 +1643,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(GetQuirkBalance() < 0)
 		all_quirks = list()
 
-/datum/preferences/Topic(href, href_list, hsrc)			//yeah, gotta do this I guess..
-	. = ..()
+/datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(href_list["close"])
-		var/client/C = usr.client
+		var/client/C = user.client
 		if(C)
 			C.clear_character_previews()
-
-/datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(href_list["bancheck"])
 		var/list/ban_details = is_banned_from_with_details(user.ckey, user.client.address, user.client.computer_id, href_list["bancheck"])
 		var/admin = FALSE
@@ -1663,6 +1664,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				expires = " The ban is for [DisplayTimeText(text2num(ban_details["duration"]) MINUTES)] and expires on [ban_details["expiration_time"]] (server time)."
 			to_chat(user, "<span class='danger'>You, or another user of this computer or connection ([ban_details["key"]]) is banned from playing [href_list["bancheck"]].<br>The ban reason is: [ban_details["reason"]]<br>This ban (BanID #[ban_details["id"]]) was applied by [ban_details["admin_key"]] on [ban_details["bantime"]] during round ID [ban_details["round_id"]].<br>[expires]</span>")
 			return
+	if(href_list["voice_color"])
+		var/new_voice_color = input(user, "Choose your voice color:", "Character Preference", voice_color) as color|null
+		if(new_voice_color)
+			voice_color = sanitize_hexcolor(new_voice_color)
 	if(href_list["preference"] == "job")
 		switch(href_list["task"])
 			if("close")
@@ -2690,6 +2695,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference",ooccolor) as color|null
 					if(new_ooccolor)
 						ooccolor = sanitize_ooccolor(new_ooccolor)
+
+				if("voice_color")
+					var/new_voice_color = input(user, "Choose your voice color:", "Character Preference", voice_color) as color|null
+					if(new_voice_color)
+						voice_color = sanitize_ooccolor(new_voice_color)
 
 				if("asaycolor")
 					var/new_asaycolor = input(user, "Choose your ASAY color:", "Game Preference",asaycolor) as color|null

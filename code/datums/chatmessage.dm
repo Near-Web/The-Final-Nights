@@ -159,6 +159,14 @@
 	// We dim italicized text to make it more distinguishable from regular text
 	var/tgt_color = extra_classes.Find("italics") ? target.chat_color_darkened : target.chat_color
 
+	// Use voice color if available for human speakers
+	if(ismob(target))
+		var/mob/M = target
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			if(H.client?.prefs?.voice_color)
+				tgt_color = H.client.prefs.voice_color
+
 	// Approximate text height
 	var/complete_text = "<span class='center [extra_classes.Join(" ")]' style='color: [tgt_color]'>[owner.say_emphasis(text)]</span>"
 	var/mheight = WXH_TO_HEIGHT(owned_by.MeasureText(complete_text, null, CHAT_MESSAGE_WIDTH))
