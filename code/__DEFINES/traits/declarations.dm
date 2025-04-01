@@ -306,5 +306,14 @@
 /// A trait gained by leaning against a wall
 #define TRAIT_LEANING "leaning"
 
+// Marauder stuff
+
+/// Replaces all ambience with creepy shit
+#define TRAIT_SCHIZO_AMBIENCE "schizo_ambience"
+/// Screen will always be shaking, you cannot stop it
+#define TRAIT_SCREENSHAKE "screenshake"
+/// The Marauder has awoken!
+#define TRAIT_MARAUDER_AWOKEN "Awoken"
+
 //Trait for when a kindred turns on obfuscate. Supposed to make them invisible to normal sight.area
 #define TRAIT_OBFUSCATED "trait_obfuscated"

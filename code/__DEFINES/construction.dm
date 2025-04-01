@@ -97,6 +97,8 @@
 #define CAT_SPAGHETTI	"Spaghettis"
 #define CAT_ICE	"Frozen"
 #define CAT_DRINK "Drinks"
+#define CAT_MARAUDER "WAKE UP"
+#define CAT_WONDERS "Wonders"
 
 // these aren't even used as bitflags so who even knows why they are treated like them
 #define RCD_FLOORWALL (1<<0)
