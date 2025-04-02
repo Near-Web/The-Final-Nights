@@ -288,7 +288,7 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 
 
 /* Helper procs for building detailed log lines */
-/proc/key_name(whom, include_link = null, include_name = TRUE)
+/proc/key_name(whom, include_link = null, include_name = TRUE, href = "priv_msg")
 	var/mob/M
 	var/client/C
 	var/key
