@@ -4522,15 +4522,6 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/anarch/basement)
-"bma" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/machinery/light/blacklight{
-	dir = 8
-	},
-/turf/open/floor/plating/vampwood,
-/area/vtm/cabaret)
 "bme" = (
 /obj/machinery/light/small{
 	dir = 4;
@@ -8058,12 +8049,6 @@
 	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/bianchiBank)
-"cmf" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/plating/vampcarpet,
-/area/vtm/cabaret/basement)
 "cmg" = (
 /obj/effect/decal/wallpaper/red,
 /obj/effect/decal/painting/third,
@@ -9505,13 +9490,6 @@
 /obj/vampire_computer,
 /turf/open/floor/carpet/blue,
 /area/vtm/interior/strip/toreador)
-"cGv" = (
-/obj/item/kirbyplants/random,
-/obj/machinery/light/warm{
-	dir = 4
-	},
-/turf/open/floor/plating/parquetry,
-/area/vtm/cabaret)
 "cGB" = (
 /obj/machinery/light/small{
 	dir = 4;
@@ -10223,6 +10201,15 @@
 /obj/structure/curtain,
 /turf/open/floor/plating/vampcanalplating,
 /area/vtm/interior)
+"cPK" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/machinery/light/blacklight{
+	dir = 8
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/cabaret)
 "cPX" = (
 /turf/open/floor/plating/vampdirt,
 /area/vtm/interior/glasswalker)
@@ -12159,11 +12146,6 @@
 /obj/item/melee/vampirearms/tire,
 /turf/open/floor/carpet,
 /area/vtm/anarch)
-"dsb" = (
-/obj/effect/decal/wallpaper,
-/obj/structure/sign/poster/lacunacoil,
-/turf/closed/wall/vampwall/city,
-/area/vtm/cabaret/basement)
 "dsn" = (
 /obj/effect/decal/cleanable/ash,
 /obj/item/melee/vampirearms/knife,
@@ -12280,6 +12262,11 @@
 	},
 /turf/open/floor/plating/toilet,
 /area/vtm/interior/shop)
+"duC" = (
+/obj/effect/decal/wallpaper/red,
+/obj/machinery/light/cold,
+/turf/closed/wall/vampwall/city,
+/area/vtm/cabaret)
 "duI" = (
 /obj/effect/decal/wallpaper/paper,
 /obj/effect/decal/wallpaper/light,
@@ -17704,6 +17691,13 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/anarch)
+"fdu" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/light/warm{
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/cabaret)
 "fdv" = (
 /obj/structure/table/wood/poker,
 /turf/open/floor/plating/parquetry/old,
@@ -20918,6 +20912,11 @@
 	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/clinic)
+"fVe" = (
+/obj/effect/decal/wallpaper,
+/obj/structure/sign/poster/lacunacoil,
+/turf/closed/wall/vampwall/city,
+/area/vtm/cabaret/basement)
 "fVl" = (
 /obj/structure/closet,
 /obj/item/clothing/under/pentex/pentex_suitskirt,
@@ -21602,14 +21601,6 @@
 /obj/structure/chair/sofa/corp,
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior/tzimisce_manor)
-"ggk" = (
-/obj/structure/table/glass,
-/obj/item/food/grown/poppy,
-/obj/item/food/grown/poppy/lily{
-	pixel_y = 8
-	},
-/turf/open/floor/carpet/purple,
-/area/vtm/cabaret)
 "ggo" = (
 /obj/structure/bed/maint{
 	pixel_y = 2
@@ -22378,6 +22369,12 @@
 	},
 /turf/open/floor/plating/parquetry/rich,
 /area/vtm/interior/millennium_tower/f3)
+"gqD" = (
+/obj/machinery/light/warm{
+	dir = 4
+	},
+/turf/open/floor/carpet/black,
+/area/vtm/cabaret)
 "gqH" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 10
@@ -31801,13 +31798,6 @@
 "jcx" = (
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/clinic)
-"jcC" = (
-/obj/effect/decal/wallpaper/red,
-/obj/machinery/light/warm{
-	pixel_y = 1
-	},
-/turf/closed/wall/vampwall/city,
-/area/vtm/cabaret)
 "jcD" = (
 /obj/effect/decal/wallpaper/red,
 /obj/order4,
@@ -32114,13 +32104,6 @@
 	},
 /turf/open/floor/plating/vampwood,
 /area/vtm/jazzclub)
-"jjm" = (
-/obj/item/chair/stool/bar,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/plating/vampcarpet,
-/area/vtm/cabaret/basement)
 "jjt" = (
 /obj/effect/decal/bordur,
 /obj/effect/landmark/npcbeacon,
@@ -35511,6 +35494,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/bacotell,
 /area/vtm/clinic/haven)
+"khK" = (
+/obj/machinery/light/blacklight{
+	dir = 8
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/cabaret)
 "khN" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -39069,12 +39058,6 @@
 	},
 /turf/open/floor/plating/circled,
 /area/vtm/interior/laundromat)
-"liJ" = (
-/obj/machinery/light/warm{
-	dir = 4
-	},
-/turf/open/openspace,
-/area/vtm/cabaret)
 "liV" = (
 /obj/structure/table/wood,
 /obj/item/masquerade_contract,
@@ -41632,6 +41615,15 @@
 	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/clinic)
+"lXG" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/light/warm{
+	dir = 8
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/cabaret)
 "lXO" = (
 /obj/effect/landmark/npcbeacon,
 /obj/effect/landmark/npcability,
@@ -42350,11 +42342,10 @@
 /turf/open/floor/carpet/black,
 /area/vtm/cabaret)
 "mjx" = (
-/obj/machinery/light/blacklight{
-	dir = 4
-	},
-/turf/open/floor/plating/vampwood,
-/area/vtm/cabaret)
+/obj/effect/decal/wallpaper,
+/obj/structure/sign/poster/ministry,
+/turf/closed/wall/vampwall/city,
+/area/vtm/cabaret/basement)
 "mjA" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet,
@@ -45386,6 +45377,17 @@
 /obj/effect/decal/wallpaper/stone,
 /turf/closed/wall/vampwall/rich,
 /area/vtm/interior/strip/toreador)
+"naG" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8;
+	color = "#570090"
+	},
+/obj/machinery/light{
+	dir = 8;
+	bulb_colour = "#c892ec"
+	},
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/cabaret/basement)
 "naJ" = (
 /obj/structure/vampipe{
 	icon_state = "piping5";
@@ -45485,6 +45487,13 @@
 /obj/effect/landmark/npcactivity,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/financialdistrict)
+"nbQ" = (
+/obj/effect/decal/wallpaper/red,
+/obj/machinery/light/warm{
+	pixel_y = 1
+	},
+/turf/closed/wall/vampwall/city,
+/area/vtm/cabaret)
 "nbU" = (
 /obj/structure/table/rolling,
 /obj/item/stack/medical/bone_gel,
@@ -49986,11 +49995,6 @@
 /obj/effect/decal/graffiti,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/supply)
-"osz" = (
-/obj/effect/decal/wallpaper,
-/obj/structure/sign/poster/ministry,
-/turf/closed/wall/vampwall/city,
-/area/vtm/cabaret/basement)
 "osB" = (
 /obj/effect/landmark/npcability,
 /turf/open/floor/plating/sidewalkalt,
@@ -54996,6 +55000,12 @@
 /obj/item/stack/dollar/hundred,
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior/millennium_tower/f2)
+"pKG" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plating/vampcarpet,
+/area/vtm/cabaret/basement)
 "pKH" = (
 /obj/structure/hotelbanner,
 /turf/open/floor/plating/sidewalk,
@@ -56322,6 +56332,12 @@
 /obj/effect/decal/cardboard,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/supply)
+"qfb" = (
+/obj/machinery/light/blacklight{
+	dir = 4
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/cabaret)
 "qff" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -59505,11 +59521,6 @@
 	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/interior/giovanni/outside)
-"qVT" = (
-/obj/effect/decal/wallpaper/red,
-/obj/machinery/light/cold,
-/turf/closed/wall/vampwall/city,
-/area/vtm/cabaret)
 "qVW" = (
 /obj/fusebox,
 /obj/effect/decal/cleanable/dirt,
@@ -61444,15 +61455,6 @@
 /obj/item/cigbutt,
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
-"rwm" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/machinery/light/warm{
-	dir = 8
-	},
-/turf/open/floor/plating/parquetry,
-/area/vtm/cabaret)
 "rwq" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "safe";
@@ -63535,17 +63537,6 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/jazzclub)
-"rZl" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 8;
-	color = "#570090"
-	},
-/obj/machinery/light{
-	dir = 8;
-	bulb_colour = "#c892ec"
-	},
-/turf/open/floor/plating/vampplating/mono,
-/area/vtm/cabaret/basement)
 "rZr" = (
 /obj/structure/barrels/rand,
 /turf/open/floor/plating/vampcanalplating,
@@ -66795,6 +66786,18 @@
 /obj/effect/decal/cardboard,
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior/techshop)
+"sXb" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8;
+	color = "#570090"
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_y = 15;
+	bulb_colour = "#c892ec"
+	},
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/cabaret/basement)
 "sXd" = (
 /obj/effect/decal/bordur{
 	dir = 1
@@ -69385,10 +69388,12 @@
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/financialdistrict)
 "tJT" = (
-/obj/machinery/light/warm{
-	dir = 4
+/obj/structure/table/glass,
+/obj/item/food/grown/poppy,
+/obj/item/food/grown/poppy/lily{
+	pixel_y = 8
 	},
-/turf/open/floor/carpet/black,
+/turf/open/floor/carpet/purple,
 /area/vtm/cabaret)
 "tJU" = (
 /obj/structure/window/reinforced/indestructable{
@@ -70735,15 +70740,6 @@
 /obj/structure/table/reinforced,
 /turf/open/floor/plating/bacotell,
 /area/vtm/interior/bianchiBank)
-"ufF" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/machinery/light/blacklight{
-	dir = 4
-	},
-/turf/open/floor/plating/vampwood,
-/area/vtm/cabaret)
 "ufG" = (
 /obj/structure/vampdoor/glass{
 	dir = 8;
@@ -73236,6 +73232,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/strip)
+"uSl" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/machinery/light/blacklight{
+	dir = 4
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/cabaret)
 "uSn" = (
 /obj/structure/vampfence/rich{
 	dir = 1
@@ -75318,6 +75323,13 @@
 	},
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/ventrue)
+"vwl" = (
+/obj/item/chair/stool/bar,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating/vampcarpet,
+/area/vtm/cabaret/basement)
 "vwn" = (
 /obj/machinery/light/small{
 	pixel_y = 32
@@ -75413,17 +75425,11 @@
 /turf/closed/wall/vampwall/painted,
 /area/vtm/interior/banu)
 "vxx" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 8;
-	color = "#570090"
+/obj/machinery/light/warm{
+	dir = 4
 	},
-/obj/machinery/light{
-	dir = 8;
-	pixel_y = 15;
-	bulb_colour = "#c892ec"
-	},
-/turf/open/floor/plating/vampplating/mono,
-/area/vtm/cabaret/basement)
+/turf/open/openspace,
+/area/vtm/cabaret)
 "vxB" = (
 /obj/effect/landmark/npcbeacon/directed,
 /obj/effect/decal/bordur{
@@ -77054,12 +77060,6 @@
 	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/bianchiBank)
-"vUZ" = (
-/obj/machinery/light/blacklight{
-	dir = 8
-	},
-/turf/open/floor/plating/vampwood,
-/area/vtm/cabaret)
 "vVl" = (
 /obj/structure/statue/bone/rib{
 	dir = 1
@@ -86885,13 +86885,13 @@ nYS
 dfN
 jtr
 aJu
-cmf
+pKG
 gWw
 ePE
 gkp
-vxx
+sXb
 vTi
-rZl
+naG
 sFi
 dfN
 nYS
@@ -87139,7 +87139,7 @@ tSA
 nYS
 dhc
 nYS
-osz
+mjx
 mFs
 myZ
 gWw
@@ -87653,7 +87653,7 @@ tSA
 nYS
 dhc
 nYS
-dsb
+fVe
 fLs
 gWw
 bLw
@@ -87913,7 +87913,7 @@ nYS
 dfN
 jtr
 gWw
-jjm
+vwl
 gWw
 xTA
 lpD
@@ -154494,7 +154494,7 @@ mRz
 fiz
 qVw
 mvL
-rwm
+lXG
 bbP
 jpb
 mSW
@@ -158596,7 +158596,7 @@ wmm
 uqy
 uEL
 oFd
-tJT
+gqD
 egr
 vqY
 dHD
@@ -220029,13 +220029,13 @@ vEe
 vEe
 gKG
 oIq
-vUZ
+khK
 ahW
 ahW
-bma
+cPK
 ahW
 ahW
-bma
+cPK
 dIX
 cFm
 ntq
@@ -220537,7 +220537,7 @@ iEG
 bBv
 cfn
 aLY
-qVT
+duC
 vDd
 bBv
 bBv
@@ -220793,7 +220793,7 @@ uEL
 iwQ
 kHd
 jur
-liJ
+vxx
 cmg
 qwT
 bBv
@@ -221308,7 +221308,7 @@ aZc
 xDP
 xjm
 wir
-qVT
+duC
 mjv
 cgl
 iEG
@@ -221828,13 +221828,13 @@ aep
 exn
 prv
 oIq
-mjx
+qfb
 snx
 snx
-ufF
+uSl
 snx
 snx
-ufF
+uSl
 dIX
 cFm
 ntq
@@ -222331,7 +222331,7 @@ ntq
 ntq
 ntq
 ntq
-jcC
+nbQ
 hyX
 bbP
 uQl
@@ -222849,7 +222849,7 @@ xGK
 nBn
 bbP
 uQl
-ggk
+tJT
 xRn
 jnC
 izR
@@ -223618,7 +223618,7 @@ ntq
 ntq
 uEL
 bbP
-cGv
+fdu
 uQl
 yjf
 xqu
@@ -285297,26 +285297,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
@@ -285554,26 +285554,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
@@ -285811,26 +285811,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
+kno
+vqu
+kno
+kno
+vqu
 kno
 kno
 kno
+vqu
 kno
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+vqu
+kno
+kno
+vqu
+kno
+kno
+vqu
+kno
 ntq
 ntq
 ntq
@@ -286068,26 +286068,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
+kno
+pEQ
+kno
+kno
+pEQ
 kno
 kno
 kno
+pEQ
 kno
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+pEQ
+kno
+kno
+pEQ
+kno
+kno
+pEQ
+kno
 ntq
 ntq
 ntq
@@ -286325,26 +286325,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
 kno
 kno
 kno
 kno
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
@@ -286582,26 +286582,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
 kno
 kno
 kno
 kno
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
@@ -286839,26 +286839,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
 kno
 kno
 kno
 kno
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+fuh
+kno
+kno
+kno
+fuh
+kno
+kno
+fuh
+kno
+kno
+fuh
+kno
 ntq
 ntq
 ntq
@@ -287096,26 +287096,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+bgM
+kno
+kno
+kno
+bgM
+kno
+kno
+bgM
+kno
+kno
+bgM
+kno
 ntq
 ntq
 ntq
@@ -287353,26 +287353,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
@@ -287610,26 +287610,26 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+fuh
+kno
+fuh
+kno
+fuh
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
@@ -287867,14 +287867,14 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+bgM
+kno
+bgM
+kno
+bgM
+kno
+kno
 ntq
 ntq
 ntq
@@ -288124,14 +288124,14 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
@@ -288381,14 +288381,14 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
@@ -288638,14 +288638,14 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+fuh
+kno
+fuh
+kno
+fuh
+kno
+kno
 ntq
 ntq
 ntq
@@ -288895,14 +288895,14 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+bgM
+kno
+bgM
+kno
+bgM
+kno
+kno
 ntq
 ntq
 ntq
@@ -289152,14 +289152,14 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
@@ -289409,14 +289409,14 @@ ntq
 ntq
 ntq
 ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
-ntq
+kno
+kno
+kno
+kno
+kno
+kno
+kno
+kno
 ntq
 ntq
 ntq
