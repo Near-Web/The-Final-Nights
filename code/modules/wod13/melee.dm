@@ -661,7 +661,6 @@
 	resistance_flags = FIRE_PROOF
 	wound_bonus = -15
 	bare_wound_bonus = 15
-	block_chance = 25
 	armour_penetration = 30
 	pixel_w = -8
 	actions_types = list(/datum/action/item_action/eguitar)
@@ -692,7 +691,7 @@
 
 /obj/item/melee/vampirearms/eguitar/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded=38, force_wielded=20, icon_wielded="rock1")
+	AddComponent(/datum/component/two_handed, force_unwielded=40, force_wielded=10, icon_wielded="rock1")
 
 /obj/item/melee/vampirearms/eguitar/proc/on_wield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
