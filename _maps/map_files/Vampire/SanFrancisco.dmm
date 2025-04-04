@@ -1449,7 +1449,7 @@
 	dir = 1
 	},
 /obj/structure/curtain/cloth/fancy/mechanical{
-	id = daughters_music
+	id = daughtersmusic
 	},
 /turf/open/floor/carpet/black,
 /area/vtm/cabaret)
@@ -4430,7 +4430,7 @@
 	dir = 9
 	},
 /obj/structure/curtain/cloth/fancy/mechanical{
-	id = daughters_music
+	id = daughtersmusic
 	},
 /turf/open/floor/carpet/black,
 /area/vtm/cabaret)
@@ -7242,7 +7242,7 @@
 	dir = 5
 	},
 /obj/structure/curtain/cloth/fancy/mechanical{
-	id = daughters_music
+	id = daughtersmusic
 	},
 /turf/open/floor/carpet/black,
 /area/vtm/cabaret)
@@ -7576,6 +7576,9 @@
 "cgs" = (
 /obj/structure/table/glass,
 /obj/item/instrument/piano_synth/headphones/spacepods,
+/obj/item/bouquet{
+	pixel_x = -20
+	},
 /turf/open/floor/carpet/purple,
 /area/vtm/cabaret)
 "cgt" = (
@@ -10396,6 +10399,10 @@
 /obj/structure/big_vamprocks,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/pacificheights/forest)
+"cSz" = (
+/obj/effect/decal/wallpaper/red/low,
+/turf/closed/wall/vampwall/city/low/window,
+/area/vtm/cabaret)
 "cSC" = (
 /obj/item/vamp/phone/street{
 	pixel_z = 24
@@ -11466,6 +11473,13 @@
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/anarch)
+"dhM" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_x = -16
+	},
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/cabaret)
 "dhN" = (
 /obj/machinery/light/small/red{
 	pixel_y = 24
@@ -29761,12 +29775,12 @@
 /obj/item/instrument/harmonica,
 /obj/item/instrument/saxophone,
 /obj/item/instrument/recorder,
-/obj/item/instrument/trumpet,
 /obj/item/instrument/trombone,
 /obj/structure/closet,
 /obj/effect/turf_decal/siding/white{
 	color = "#570090"
 	},
+/obj/item/instrument/trumpet,
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/cabaret/basement)
 "iyV" = (
@@ -29817,7 +29831,7 @@
 /area/vtm/interior/strip/toreador)
 "izR" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = daughters_living
+	id = daughtersliving
 	},
 /turf/closed/wall/vampwall/city/low/window,
 /area/vtm/cabaret)
@@ -32604,7 +32618,7 @@
 /area/vtm/interior)
 "jpb" = (
 /obj/structure/curtain/cloth/fancy/mechanical{
-	id = daughters_music
+	id = daughtersmusic
 	},
 /turf/open/floor/plasteel/stairs{
 	dir = 1
@@ -36419,7 +36433,7 @@
 "kwW" = (
 /obj/structure/table/glass,
 /obj/machinery/button/curtain{
-	id = daughters_living
+	id = daughtersliving
 	},
 /turf/open/floor/carpet/purple,
 /area/vtm/cabaret)
@@ -41928,7 +41942,9 @@
 /turf/open/floor/plating/vampplating,
 /area/vtm/interior/millennium_tower/f4)
 "mdj" = (
-/obj/machinery/vending/dinnerware,
+/obj/machinery/vending/dinnerware{
+	default_price = 0
+	},
 /turf/open/floor/carpet/black,
 /area/vtm/cabaret)
 "mdm" = (
@@ -43413,7 +43429,7 @@
 /area/vtm/sewer)
 "myZ" = (
 /obj/item/paper/crumpled{
-	info = "So, bye-bye, Miss American Pie -- Drove my Chevy to the levee, but the levee was dry -- And them good ol' boys were drinkin' whiskey and rye -- Singin', "This'll be the day that I die" "
+	info = "So, bye-bye, Miss American Pie -- Drove my Chevy to the levee, but the levee was dry -- And them good ol' boys were drinkin' whiskey and rye -- Singin', "This'llbethedaythatIdie" "
 	},
 /turf/open/floor/plating/vampcarpet,
 /area/vtm/cabaret/basement)
@@ -44812,7 +44828,9 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
 "mSL" = (
-/obj/structure/railing,
+/obj/structure/railing{
+	layer = 3
+	},
 /obj/structure/fluff/hedge,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/cabaret)
@@ -48268,7 +48286,7 @@
 /area/vtm/interior/laundromat)
 "nQP" = (
 /obj/machinery/button/curtain{
-	id = daughters_music
+	id = daughtersmusic
 	},
 /turf/closed/wall/vampwall/city,
 /area/vtm/cabaret)
@@ -57268,6 +57286,7 @@
 "qtC" = (
 /obj/effect/decal/wallpaper/red,
 /obj/effect/decal/painting,
+/obj/effect/decal/wallpaper/red,
 /turf/closed/wall/vampwall/city,
 /area/vtm/cabaret)
 "qtE" = (
@@ -64981,10 +65000,13 @@
 "ssZ" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin{
-	pixel_y = -5;
+	pixel_y = 3;
 	pixel_x = 5
 	},
-/obj/item/pen,
+/obj/item/pen{
+	pixel_y = 4;
+	pixel_x = 6
+	},
 /obj/effect/turf_decal/siding/white{
 	pixel_y = -1;
 	color = "#570090"
@@ -68927,7 +68949,9 @@
 /area/vtm/interior/baali)
 "tDi" = (
 /obj/structure/table/glass,
-/obj/item/food/grown/moonflower,
+/obj/item/food/grown/moonflower{
+	pixel_x = -13
+	},
 /turf/open/floor/carpet/purple,
 /area/vtm/cabaret)
 "tDp" = (
@@ -69485,7 +69509,9 @@
 /turf/closed/wall/vampwall/painted,
 /area/vtm/interior/banu/haven)
 "tLq" = (
-/obj/structure/railing,
+/obj/structure/railing{
+	layer = 3
+	},
 /obj/structure/railing{
 	dir = 4
 	},
@@ -75413,7 +75439,7 @@
 /area/vtm/interior/shop)
 "vxs" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = daughters_living
+	id = daughtersliving
 	},
 /turf/closed/wall/vampwall/rich/old/low/window/reinforced,
 /area/vtm/cabaret)
@@ -76505,7 +76531,7 @@
 	dir = 9
 	},
 /obj/structure/curtain/cloth/fancy/mechanical{
-	id = daughters_music
+	id = daughtersmusic
 	},
 /turf/open/floor/carpet/black,
 /area/vtm/cabaret)
@@ -82168,6 +82194,7 @@
 	pixel_y = -2;
 	pixel_x = 16
 	},
+/obj/item/wire_cutters,
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/cabaret)
 "xtg" = (
@@ -83108,7 +83135,7 @@
 /area/vtm/church/interior/haven)
 "xGK" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = daughters_living
+	id = daughtersliving
 	},
 /obj/effect/decal/wallpaper/red/low,
 /turf/closed/wall/vampwall/city/low/window,
@@ -84973,7 +85000,7 @@
 "yid" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button/curtain{
-	id = daughters_music;
+	id = daughtersmusic;
 	name = "scene curtain button"
 	},
 /obj/effect/turf_decal/siding/white{
@@ -154744,7 +154771,7 @@ tPt
 nFf
 cFm
 cFm
-cFm
+uEL
 fAv
 uEL
 mRz
@@ -220275,7 +220302,7 @@ ntq
 ntq
 ntq
 ntq
-dZZ
+cSz
 wVH
 bBv
 sEP
@@ -220532,7 +220559,7 @@ ntq
 ntq
 ntq
 ntq
-dZZ
+cSz
 iEG
 bBv
 cfn
@@ -224132,7 +224159,7 @@ ntq
 ntq
 ivj
 hSZ
-hSZ
+dhM
 hSZ
 hSZ
 qix
