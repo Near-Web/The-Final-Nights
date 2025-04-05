@@ -422,6 +422,20 @@
 					msg += "<span class='danger'><b>[p_they(TRUE)] [p_are()] a decayed corpse!</b></span><br>"
 				if ("rotten4")
 					msg += "<span class='danger'><b>[p_they(TRUE)] [p_are()] a skeletonised corpse!</b></span><br>"
+			//Low humanity now makes you look ghoulish
+			if(!clane.enlightenment)
+				if(humanity <= 1)//The mandatory cryptid feature
+					msg += "<span class='danger'><b>Thin, jaundiced skin, gums as red as a ground cherry...</b></span><br>"
+				else if(humanity <= 3)
+					msg += "<span class='danger'>[p_their(TRUE)] skin is a thin membrane, wrapped taut over bone.</span><br>"
+				else if(humanity <= 5)
+					msg += "[p_they(TRUE)] seem[p_s()] sickly and malnourished.<br>"
+			//Path of enlightenmentoids now seem inhuman at every step of the journey.
+			else
+				if(humanity <= 3)
+					msg += "[p_their(TRUE)] eyes are dim, functuating to an unknown calculus.<br>"
+				else if(humanity <= 5)
+					msg += "[p_their(TRUE)] posture and movements are eerily controlled.<br>"
 
 		if(getorgan(/obj/item/organ/brain))
 			if(ai_controller?.ai_status == AI_STATUS_ON)
