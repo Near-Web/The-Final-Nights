@@ -2123,6 +2123,7 @@
 #include "code\modules\language\french.dm"
 #include "code\modules\language\greek.dm"
 #include "code\modules\language\hebrew.dm"
+#include "code\modules\language\high-falutin.dm"
 #include "code\modules\language\italian.dm"
 #include "code\modules\language\japanese.dm"
 #include "code\modules\language\language.dm"
