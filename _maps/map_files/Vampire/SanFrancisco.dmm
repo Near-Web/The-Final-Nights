@@ -6448,7 +6448,7 @@
 /obj/structure/table/wood,
 /obj/item/vtm_artifact/rand,
 /obj/machinery/button/curtain{
-	id = malkav
+	id = "malkav"
 	},
 /obj/item/paper_bin{
 	pixel_y = 8;
@@ -13809,9 +13809,7 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/ghetto)
 "dXN" = (
-/obj/machinery/camera{
-	dir = 8
-	},
+/obj/machinery/camera/directional/east,
 /turf/open/floor/plating/vampplating,
 /area/vtm/interior/techshop)
 "dXR" = (
@@ -20487,7 +20485,7 @@
 /area/vtm)
 "fTM" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = malkav
+	id = "malkav"
 	},
 /turf/closed/wall/vampwall/painted/low/window,
 /area/vtm/clinic/haven)
@@ -22751,7 +22749,7 @@
 /area/vtm/interior/techshop)
 "gBp" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = lasombraprim
+	id = "lasombraprim"
 	},
 /turf/closed/wall/vampwall/rich/old/low/window/reinforced,
 /area/vtm/church/interior/haven)
@@ -29917,7 +29915,7 @@
 /obj/effect/decal/trash,
 /obj/transfer_point_vamp{
 	name = "Shadowlands Portal";
-	id = Enoch
+	id = "Enoch"
 	},
 /turf/open/floor/wood,
 /area/vtm/interior/penumbra/enoch)
@@ -30382,7 +30380,7 @@
 	dir = 1
 	},
 /obj/transfer_point_vamp{
-	id = Graveyard4
+	id = "Graveyard4"
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
@@ -33024,7 +33022,7 @@
 /area/vtm/sewer)
 "jBQ" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = ventrueprim
+	id = "ventrueprim"
 	},
 /turf/closed/wall/vampwall/rich/low/window,
 /area/vtm/interior/millennium_tower/ventrue)
@@ -33278,7 +33276,7 @@
 "jGV" = (
 /obj/effect/decal/wallpaper/paper/darkred/low,
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = sheriffcurtain
+	id = "sheriffcurtain"
 	},
 /turf/closed/wall/vampwall/rich/low/window/reinforced,
 /area/vtm/interior/millennium_tower/f3)
@@ -40345,13 +40343,13 @@
 /area/vtm/interior/millennium_tower)
 "lNi" = (
 /obj/transfer_point_vamp{
-	id = Graveyard3
+	id = "Graveyard3"
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm)
 "lNj" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = lasombra
+	id = "lasombra"
 	},
 /turf/closed/wall/vampwall/rich/old/low/window,
 /area/vtm/church/interior/haven)
@@ -52324,7 +52322,7 @@
 /area/vtm/interior/banu/haven)
 "pjT" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = lasombra
+	id = "lasombra"
 	},
 /obj/effect/decal/wallpaper/blue/low,
 /turf/closed/wall/vampwall/rich/old/low/window,
@@ -57434,7 +57432,7 @@
 /area/vtm/church)
 "qGl" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = sheriffcurtain
+	id = "sheriffcurtain"
 	},
 /turf/closed/wall/vampwall/rich/low/window/reinforced,
 /area/vtm/interior/millennium_tower/f3)
@@ -58685,7 +58683,7 @@
 "qWc" = (
 /obj/structure/table/wood/fancy/black,
 /obj/machinery/button/curtain{
-	id = lasombraprim
+	id = "lasombraprim"
 	},
 /turf/open/floor/plating/church,
 /area/vtm/church/interior/haven)
@@ -59934,7 +59932,7 @@
 /area/vtm/hotel)
 "ron" = (
 /obj/structure/curtain/cloth/fancy/mechanical{
-	id = banu
+	id = "banu"
 	},
 /turf/closed/wall/vampwall/painted/low/window/reinforced,
 /area/vtm/interior/banu/haven)
@@ -65394,7 +65392,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/fountain,
 /obj/machinery/button/curtain{
-	id = lasombraprim;
+	id = "lasombraprim";
 	pixel_y = 11
 	},
 /turf/open/floor/carpet/royalblack,
@@ -65673,7 +65671,7 @@
 /area/vtm/pacificheights/forest)
 "sUs" = (
 /obj/transfer_point_vamp{
-	id = Graveyard2
+	id = "Graveyard2"
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm)
@@ -66007,7 +66005,7 @@
 "sZF" = (
 /obj/transfer_point_vamp{
 	name = "Shadowlands Portal";
-	id = Enoch
+	id = "Enoch"
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/trujah)
@@ -70058,7 +70056,7 @@
 "ulq" = (
 /obj/effect/decal/bordur,
 /obj/transfer_point_vamp{
-	id = Graveyard1
+	id = "Graveyard1"
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
@@ -71248,7 +71246,7 @@
 /area/vtm/interior/millennium_tower)
 "uDd" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = lasombraprim
+	id = "lasombraprim"
 	},
 /obj/effect/decal/wallpaper/blue/low,
 /turf/closed/wall/vampwall/rich/old/low/window/reinforced,
@@ -71528,7 +71526,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/fountain,
 /obj/machinery/button/curtain{
-	id = banu;
+	id = "banu";
 	pixel_y = 12
 	},
 /turf/open/floor/plating/parquetry/old,
@@ -74116,7 +74114,7 @@
 /area/vtm/interior/banu/haven)
 "vvx" = (
 /obj/structure/curtain/cloth/fancy/mechanical{
-	id = banu
+	id = "banu"
 	},
 /turf/closed/wall/vampwall/painted/low/window,
 /area/vtm/interior/banu/haven)
@@ -76278,7 +76276,7 @@
 /area/vtm/sewer)
 "wag" = (
 /obj/machinery/button/curtain{
-	id = ventrueprim
+	id = "ventrueprim"
 	},
 /obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/carpet/royalblue,
@@ -77601,7 +77599,7 @@
 /obj/item/stack/dollar/hundred,
 /obj/item/stack/dollar/hundred,
 /obj/machinery/button/curtain{
-	id = sheriffcurtain
+	id = "sheriffcurtain"
 	},
 /turf/open/floor/carpet/black,
 /area/vtm/interior/millennium_tower/f3)
@@ -79068,7 +79066,7 @@
 "wRj" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/machinery/button/curtain{
-	id = lasombra
+	id = "lasombra"
 	},
 /turf/open/floor/plating/church,
 /area/vtm/church/interior/haven)
@@ -81978,7 +81976,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/melee/vampirearms/baseball,
-/obj/machinery/camera,
+/obj/machinery/camera/directional/north,
 /obj/machinery/cell_charger{
 	pixel_y = 10
 	},
@@ -82610,7 +82608,7 @@
 "xSy" = (
 /obj/effect/decal/wallpaper/gold/low,
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = ventrueprim
+	id = "ventrueprim"
 	},
 /turf/closed/wall/vampwall/rich/low/window,
 /area/vtm/interior/millennium_tower/ventrue)
