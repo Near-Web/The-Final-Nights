@@ -12,9 +12,9 @@
 	/// The last entry in the list for a type of NPC should always have 100 as the index
 	var/static/list/role_weapons_chances = list(
 		BANDIT_TYPE_NPC = list(
-			 /obj/item/gun/ballistic/automatic/vampire/deagle = 33,
-			 /obj/item/gun/ballistic/vampire/revolver/snub = 33,
-			 /obj/item/melee/vampirearms/baseball = 100,
+			/obj/item/gun/ballistic/automatic/vampire/deagle = 33,
+			/obj/item/gun/ballistic/vampire/revolver/snub = 33,
+			/obj/item/melee/vampirearms/baseball = 100,
 		),
 		POLICE_TYPE_NPC = list(
 			/obj/item/gun/ballistic/vampire/revolver = 66,
@@ -343,13 +343,13 @@
 /mob/living/carbon/human/npc/proc/AssignSocialRole(var/datum/socialrole/S, var/dont_random = FALSE)
 	if(!S)
 		return
-	physique = rand(1, max_stat)
-	social = rand(1, max_stat)
-	mentality = rand(1, max_stat)
-	lockpicking = rand(1, max_stat)
-	blood = rand(1, 2)
-	maxHealth = round(initial(maxHealth)+(initial(maxHealth)/3)*(physique))
-	health = round(initial(health)+(initial(health)/3)*(physique))
+	character_sheet.physique = rand(1, max_stat)
+	character_sheet.social = rand(1, max_stat)
+	character_sheet.mentality = rand(1, max_stat)
+	character_sheet.lockpicking = rand(1, max_stat)
+	character_sheet.blood = rand(1, 2)
+	maxHealth = round(initial(maxHealth)+(initial(maxHealth)/3)*(character_sheet.physique))
+	health = round(initial(health)+(initial(health)/3)*(character_sheet.physique))
 	last_health = health
 	socialrole = new S()
 

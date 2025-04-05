@@ -37,9 +37,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/see_chat_non_mob = TRUE
 	///Whether emotes will be displayed on runechat. Requires chat_on_map to have effect. Boolean.
 	var/see_rc_emotes = TRUE
-	//Клан вампиров
+	// References to objects we'll use later on
 	var/datum/vampireclane/clane = new /datum/vampireclane/brujah()
 	var/datum/morality/morality_path = new /datum/morality/humanity()
+	var/datum/character_sheet/character_sheet
 	// Custom Keybindings
 	var/list/key_bindings = list()
 
@@ -184,16 +185,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///Ranks of the Disciplines this character knows, corresponding to discipline_types.
 	var/list/discipline_levels = list()
 
-	var/physique = 1
-	var/dexterity = 1
-	var/social = 1
-	var/mentality = 1
-	var/blood = 1
-
-	//Skills
-	var/lockpicking = 0
-	var/athletics = 0
-
 	var/info_known = INFO_KNOWN_UNKNOWN
 
 	var/friend = FALSE
@@ -238,21 +229,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/chi_types = list()
 	var/list/chi_levels = list()
 
+	/// Used for keeping track of characters
+	var/unique_id
+
 /datum/preferences/proc/add_experience(amount)
 	true_experience = clamp(true_experience + amount, 0, 1000)
 
-/datum/preferences/proc/reset_character()
+/datum/preferences/proc/reset_character(client/parent)
+	unique_id = rustg_hash_string(RUSTG_HASH_XXH64, "[parent.ckey][rand(2,999)][rustg_unix_timestamp()]")
 	slotlocked = 0
 	diablerist = 0
 	torpor_count = 0
 	generation_bonus = 0
-	physique = 1
-	dexterity = 1
-	mentality = 1
-	social = 1
-	blood = 1
-	lockpicking = 0
-	athletics = 0
+	// Generate character's UID somewhere before this, so it can be set in the new()
+	qdel(character_sheet)
+	character_sheet = new(unique_id)
 	info_known = INFO_KNOWN_UNKNOWN
 	masquerade = initial(masquerade)
 	generation = initial(generation)
@@ -265,13 +256,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	chi_levels = list()
 	archetype = pick(subtypesof(/datum/archetype))
 	var/datum/archetype/A = new archetype()
-	physique = A.start_physique
-	dexterity = A.start_dexterity
-	social = A.start_social
-	mentality = A.start_mentality
-	blood = A.start_blood
-	lockpicking = A.start_lockpicking
-	athletics = A.start_athletics
+	character_sheet.physique = A.start_physique
+	character_sheet.dexterity = A.start_dexterity
+	character_sheet.social = A.start_social
+	character_sheet.mentality = A.start_mentality
+	character_sheet.blood = A.start_blood
+	character_sheet.lockpicking = A.start_lockpicking
+	character_sheet.athletics = A.start_athletics
 	qdel(clane)
 	clane = new /datum/vampireclane/brujah()
 	qdel(morality_path)
@@ -323,7 +314,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 #define APPEARANCE_CATEGORY_COLUMN "<td valign='top' width='14%'>"
 #define MAX_MUTANT_ROWS 4
-#define ATTRIBUTE_BASE_LIMIT 5 //Highest level that a base attribute can be upgraded to. Bonus attributes can increase the actual amount past the limit.
 
 /proc/make_font_cool(text)
 	if(text)
@@ -502,28 +492,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<h2>[make_font_cool("ATTRIBUTES")]</h2>"
 
-			dat += "<b>Archetype</b><BR>"
-			var/datum/archetype/A = new archetype()
-			dat += "<a href='byond://?_src_=prefs;preference=archetype;task=input'>[A.name]</a> [A.specialization]<BR>"
+			var/attribute_cost = 5
+			var/skill_price = 3
 
-			//Prices for each ability, can be adjusted, multiplied by current attribute level
-			var/physique_price = 4
-			var/dexterity_price = 4
-			var/social_price = 4
-			var/mentality_price = 4
-			var/blood_price = 6
-			//Lockpicking and Athletics have an initial price of 3
-			var/lockpicking_price = !lockpicking ? 3 : 2
-			var/athletics_price = !athletics ? 3 : 2
+			// Key,value pair loop to map the character's attributes
+			for(var/attribute, attribute_id in character_sheet.attributes_cache)
+				debug_world("[attribute] - [attribute_id]")
+				dat += "<b>[attribute]:</b> [build_attribute_score(attribute_id, attribute_cost)]"
 
-			dat += "<b>Physique:</b> [build_attribute_score(physique, A.archetype_additional_physique, physique_price, "physique")]"
-			dat += "<b>Dexterity:</b> [build_attribute_score(dexterity, A.archetype_additional_dexterity, dexterity_price, "dexterity")]"
-			dat += "<b>Social:</b> [build_attribute_score(social, A.archetype_additional_social, social_price, "social")]"
-			dat += "<b>Mentality:</b> [build_attribute_score(mentality, A.archetype_additional_mentality, mentality_price, "mentality")]"
-			dat += "<b>Cruelty:</b> [build_attribute_score(blood, A.archetype_additional_blood, blood_price, "blood")]"
-			dat += "<b>Lockpicking:</b> [build_attribute_score(lockpicking, A.archetype_additional_lockpicking, lockpicking_price, "lockpicking")]"
-			dat += "<b>Athletics:</b> [build_attribute_score(athletics, A.archetype_additional_athletics, athletics_price, "athletics")]"
-			dat += "Experience rewarded: [true_experience]<BR>"
+			dat += "<h3>[make_font_cool("SKILLS")]</h3>"
+
+			// Key,value pair loop to map the character's skills
+			for(var/skill, skill_id in character_sheet.skills_cache)
+				debug_world("[skill] - [skill_id]")
+				dat += "<b>[skill]:</b> [build_attribute_score(skill_id, skill_price)]"
+
+			dat += "<BR>Experience rewarded: [true_experience]<BR>"
 			if(pref_species.name == "Werewolf")
 				dat += "<h2>[make_font_cool("TRIBE")]</h2>"
 				dat += "<br><b>Werewolf Name:</b> "
@@ -738,6 +722,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<br><b>Headshot(1:1):</b> <a href='byond://?_src_=prefs;preference=headshot;task=input'>Change</a>"
 			if(headshot_link != null)
 				dat += "<a href='byond://?_src_=prefs;preference=view_headshot;task=input'>View</a>"
+			dat += "<BR><b>Character ID:</b> [unique_id]"
 			// TFN EDIT ADDITION END
 			dat += "<h2>[make_font_cool("EQUIP")]</h2>"
 
@@ -1289,18 +1274,25 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 //A proc that creates the score circles based on attribute and the additional bonus for the attribute
 //
-/datum/preferences/proc/build_attribute_score(var/attribute, var/bonus_number, var/price, var/variable_name)
-	var/dat
-	for(var/a in 1 to attribute)
+/datum/preferences/proc/build_attribute_score(attribute, price, bonus)
+	var/attribute_score = LAZYACCESS(character_sheet.attributes, attribute)
+
+	var/dat = ""
+	for(var/a in 1 to attribute_score)
 		dat += "•"
-	for(var/b in 1 to bonus_number)
-		dat += "•"
-	var/leftover_circles = 5 - attribute //5 is the default number of blank circles
+
+	if(bonus)
+		for(var/b in 1 to bonus)
+			dat += "•"
+
+	var/leftover_circles = 5 - attribute_score //5 is the default number of blank circles
 	for(var/c in 1 to leftover_circles)
 		dat += "o"
-	var/real_price = attribute ? (attribute*price) : price //In case we have an attribute of 0, we don't multiply by 0
-	if((true_experience >= real_price) && (attribute < ATTRIBUTE_BASE_LIMIT))
-		dat += "<a href='byond://?_src_=prefs;preference=[variable_name];task=input'>Increase ([real_price])</a>"
+
+	// New level X price, ex: Composure (2 + 1) * 5 = 15
+	var/real_price = ((attribute_score + 1) * price)
+	if((true_experience >= real_price) && (attribute_score < MAX_ATTRIBUTE_SCORE))
+		dat += "<a href='?_src_=prefs;preference=stats_set;task=update;stat=[attribute];cost=[real_price]'>Increase ([real_price])</a>"
 	dat += "<br>"
 	return dat
 
@@ -1749,6 +1741,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			else
 				SetQuirks(user)
 		return TRUE
+
+	else if(href_list["preference"] == "stats_set")
+		switch(href_list["task"])
+			if("update")
+				var/target_stat = href_list["stat"]
+				var/stat_score = LAZYACCESS(character_sheet.attributes, target_stat)
+				var/cost = text2num(href_list["cost"])
+
+				if(!stat_score)
+					return
+				if((true_experience < cost) || (stat_score >= MAX_ATTRIBUTE_SCORE))
+					return
+
+				true_experience -= cost
+				LAZYADDVALUE(character_sheet.attributes, target_stat, 1)
+				true_experience = clamp(true_experience, 0, 1000)
 
 	switch(href_list["task"])
 		if("random")
@@ -2257,34 +2265,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					true_experience -= cost
 					auspice_level = max(1, auspice_level + 1)
 
-				if("physique")
-					if(handle_upgrade(physique, physique * 4))
-						physique++
-
-				if("dexterity")
-					if(handle_upgrade(dexterity, dexterity * 4))
-						dexterity++
-
-				if("social")
-					if(handle_upgrade(social, social * 4))
-						social++
-
-				if("mentality")
-					if(handle_upgrade(mentality, mentality * 4))
-						mentality++
-
-				if("blood")
-					if(handle_upgrade(blood, blood * 6))
-						blood++
-
-				if("lockpicking")
-					if(handle_upgrade(lockpicking, lockpicking ? lockpicking*2 : 3))
-						lockpicking++
-
-				if("athletics")
-					if(handle_upgrade(athletics, athletics ? athletics*2 : 3))
-						athletics++
-
 				if("tribe")
 					if(slotlocked || !(pref_species.id == "garou"))
 						return
@@ -2316,26 +2296,26 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(result)
 						archetype = archetypes[result]
 						var/datum/archetype/archetip = new archetype()
-						physique = archetip.start_physique
-						dexterity = archetip.start_dexterity
-						mentality = archetip.start_mentality
-						social = archetip.start_social
-						blood = archetip.start_blood
-						lockpicking = archetip.start_lockpicking
-						athletics = archetip.start_athletics
+						character_sheet.physique = archetip.start_physique
+						character_sheet.dexterity = archetip.start_dexterity
+						character_sheet.mentality = archetip.start_mentality
+						character_sheet.social = archetip.start_social
+						character_sheet.blood = archetip.start_blood
+						character_sheet.lockpicking = archetip.start_lockpicking
+						character_sheet.athletics = archetip.start_athletics
 
 				if("discipline")
 					if(pref_species.id == "kindred")
 						var/i = text2num(href_list["upgradediscipline"])
 
 						var/discipline_level = discipline_levels[i]
-						var/cost = discipline_level * 7
+						var/cost = (discipline_level + 1) * 7
 						if (discipline_level <= 0)
 							cost = 10
 						else if (clane.name == "Caitiff")
-							cost = discipline_level * 6
+							cost = (discipline_level + 1) * 6
 						else if (clane.clane_disciplines.Find(discipline_types[i]))
-							cost = discipline_level * 5
+							cost = (discipline_level + 1) * 5
 
 						if ((true_experience < cost) || (discipline_level >= 5))
 							return
@@ -2347,7 +2327,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						var/a = text2num(href_list["upgradechidiscipline"])
 
 						var/discipline_level = discipline_levels[a]
-						var/cost = discipline_level * 6
+						var/cost = (discipline_level + 1) * 6
 						if (discipline_level <= 0)
 							cost = 10
 
@@ -3112,11 +3092,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("reset_all")
 					if (tgui_alert(user, "Are you sure you want to reset your character?", "Confirmation", list("Yes", "No")) != "Yes")
 						return
-					reset_character()
+					reset_character(parent)
 
 				if("changeslot")
 					if(!load_character(text2num(href_list["num"])))
-						reset_character()
+						reset_character(parent)
 
 				if("tab")
 					if (href_list["tab"])
@@ -3131,12 +3111,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	save_preferences()
 	save_character()
 	ShowChoices(user)
-	return TRUE
-
-/datum/preferences/proc/handle_upgrade(var/number, var/cost)
-	if ((true_experience < cost) || (number >= ATTRIBUTE_BASE_LIMIT))
-		return FALSE
-	true_experience -= cost
 	return TRUE
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, icon_updates = 1, roundstart_checks = TRUE, character_setup = FALSE, antagonist = FALSE, is_latejoiner = TRUE)
@@ -3172,24 +3146,18 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.true_real_name = real_name
 	character.name = character.real_name
 	character.diablerist = diablerist
-	character.headshot_link = headshot_link // TFN EDIT
-	character.physique = physique
-	character.dexterity = dexterity
-	character.social = social
-	character.mentality = mentality
-	character.blood = blood
-	character.lockpicking = lockpicking
-	character.athletics = athletics
+	character.headshot_link = headshot_link
+	character.character_sheet = character_sheet
 	character.info_known = info_known
 
 	var/datum/archetype/A = new archetype()
-	character.additional_physique = A.archetype_additional_physique
-	character.additional_dexterity = A.archetype_additional_dexterity
-	character.additional_social = A.archetype_additional_social
-	character.additional_mentality = A.archetype_additional_mentality
-	character.additional_blood = A.archetype_additional_blood
-	character.additional_lockpicking = A.archetype_additional_lockpicking
-	character.additional_athletics = A.archetype_additional_athletics
+	character.character_sheet.additional_physique = A.archetype_additional_physique
+	character.character_sheet.additional_dexterity = A.archetype_additional_dexterity
+	character.character_sheet.additional_social = A.archetype_additional_social
+	character.character_sheet.additional_mentality = A.archetype_additional_mentality
+	character.character_sheet.additional_blood = A.archetype_additional_blood
+	character.character_sheet.additional_lockpicking = A.archetype_additional_lockpicking
+	character.character_sheet.additional_athletics = A.archetype_additional_athletics
 	A.special_skill(character)
 
 	if(pref_species.name == "Vampire")
@@ -3223,7 +3191,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			character.max_yin_chi = 2
 
 	if(pref_species.name == "Werewolf")
-		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
+		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.character_sheet.physique + character.character_sheet.additional_physique)))
 		character.health = character.maxHealth
 		switch(tribe)
 			if("Wendigo")
@@ -3242,10 +3210,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				character.yang_chi = 5
 				character.max_yang_chi = 5
 	if(pref_species.name == "Kuei-Jin")
-		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
+		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.character_sheet.physique + character.character_sheet.additional_physique)))
 		character.health = character.maxHealth
 	if(pref_species.name == "Vampire")
-		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
+		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.character_sheet.physique + character.character_sheet.additional_physique)))
 		character.health = character.maxHealth
 		character.morality_path.score = path_score
 	character.masquerade = masquerade
@@ -3351,21 +3319,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					character.transformator.crinos_form.name = real_name
 					character.transformator.lupus_form.name = real_name
 
-				character.transformator.crinos_form.physique = physique
-				character.transformator.crinos_form.dexterity = dexterity
-				character.transformator.crinos_form.mentality = mentality
-				character.transformator.crinos_form.social = social
-				character.transformator.crinos_form.blood = blood
+				character.transformator.crinos_form.character_sheet.physique = character_sheet.physique
+				character.transformator.crinos_form.character_sheet.dexterity = character_sheet.dexterity
+				character.transformator.crinos_form.character_sheet.mentality = character_sheet.mentality
+				character.transformator.crinos_form.character_sheet.social = character_sheet.social
+				character.transformator.crinos_form.character_sheet.blood = character_sheet.blood
 
-				character.transformator.lupus_form.physique = physique
-				character.transformator.lupus_form.dexterity = dexterity
-				character.transformator.lupus_form.mentality = mentality
-				character.transformator.lupus_form.social = social
-				character.transformator.lupus_form.blood = blood
+				character.transformator.lupus_form.character_sheet.physique = character_sheet.physique
+				character.transformator.lupus_form.character_sheet.dexterity = character_sheet.dexterity
+				character.transformator.lupus_form.character_sheet.mentality = character_sheet.mentality
+				character.transformator.lupus_form.character_sheet.social = character_sheet.social
+				character.transformator.lupus_form.character_sheet.blood = character_sheet.blood
 
-				character.transformator.lupus_form.maxHealth = round((initial(character.transformator.lupus_form.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique )))+(character.auspice.level-1)*50
+				character.transformator.lupus_form.maxHealth = round((initial(character.transformator.lupus_form.maxHealth)+(initial(character.maxHealth)/4)*(character.character_sheet.physique + character.character_sheet.additional_physique )))+(character.auspice.level-1)*50
 				character.transformator.lupus_form.health = character.transformator.lupus_form.maxHealth
-				character.transformator.crinos_form.maxHealth = round((initial(character.transformator.crinos_form.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique )))+(character.auspice.level-1)*50
+				character.transformator.crinos_form.maxHealth = round((initial(character.transformator.crinos_form.maxHealth)+(initial(character.maxHealth)/4)*(character.character_sheet.physique + character.character_sheet.additional_physique )))+(character.auspice.level-1)*50
 				character.transformator.crinos_form.health = character.transformator.crinos_form.maxHealth
 //		character.transformator.crinos_form.update_icons()
 //		character.transformator.lupus_form.update_icons()
