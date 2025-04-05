@@ -269,15 +269,6 @@
 	contains = list(/obj/item/gun/ballistic/shotgun/toy/crossbow/vampire)
 	crate_name = "weapon crate"
 
-/datum/supply_pack/vampire/weapondeagle50
-	name = "Weapon (desert eagle 50AE)"
-	desc = "Contains a .50 caliber desert eagle."
-	cost = 5000
-	contains = list(
-		/obj/item/gun/ballistic/automatic/vampire/deagle/c50,
-		/obj/item/ammo_box/magazine/m50,
-	)
-
 /datum/supply_pack/vampire/weaponsniper
 	name = "Weapon (sniper rifle)"
 	desc = "Contains a sniper rifle."
