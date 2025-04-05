@@ -101,7 +101,7 @@
 
 //====================Sticky Item Handling====================
 /mob/living/carbon/human/npc/proc/register_sticky_item(obj/item/my_item)
-	ADD_TRAIT(my_item, TRAIT_NODROP, NPC_ITEM_TRAIT)
+	//ADD_TRAIT(my_item, TRAIT_NODROP, NPC_ITEM_TRAIT)
 	if(!drop_on_death_list?.len)
 		drop_on_death_list = list()
 	drop_on_death_list += my_item
