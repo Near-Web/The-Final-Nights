@@ -19020,6 +19020,13 @@
 "fpX" = (
 /turf/open/floor/plating/vampgrass,
 /area/vtm/graveyard)
+"fpZ" = (
+/obj/machinery/light/small{
+	pixel_y = 32
+	},
+/obj/machinery/computer/slot_machine,
+/turf/open/floor/plating/rough,
+/area/vtm/sewer/nosferatu_town)
 "fqd" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/sidewalk,
@@ -23518,6 +23525,7 @@
 /obj/machinery/light{
 	pixel_y = 32
 	},
+/obj/machinery/computer/slot_machine,
 /turf/open/floor/carpet,
 /area/vtm/interior/shop)
 "gzE" = (
@@ -34849,6 +34857,10 @@
 	},
 /turf/open/floor/carpet,
 /area/vtm/interior/strip/toreador)
+"jMQ" = (
+/obj/machinery/computer/slot_machine,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/laundromat)
 "jNc" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet,
@@ -49496,6 +49508,13 @@
 /obj/structure/closet/secure_closet/freezer,
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
+"nSo" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/computer/slot_machine,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/laundromat)
 "nSp" = (
 /obj/structure/pole,
 /mob/living/carbon/human/npc/stripper,
@@ -97763,7 +97782,7 @@ uuF
 fZO
 hZO
 eZa
-jVA
+fpZ
 sfd
 eir
 sfd
@@ -196085,8 +196104,8 @@ rfe
 rfe
 rfe
 rfe
-rfe
-rfe
+pyy
+jMQ
 rGm
 gSG
 gSG
@@ -196342,8 +196361,8 @@ rfe
 rfe
 rfe
 rfe
-rfe
-lva
+pyy
+nSo
 rGm
 gSG
 gSG
@@ -196852,11 +196871,11 @@ jTk
 oNJ
 rfe
 rfe
-rfe
+jMQ
 rfe
 kAm
 rfe
-rfe
+jMQ
 rfe
 rGm
 rGm
@@ -197364,7 +197383,7 @@ gGS
 jTk
 wdq
 wWZ
-rfe
+jMQ
 rfe
 pyy
 rfe
@@ -197623,11 +197642,11 @@ wdq
 acI
 ePP
 rfe
-rfe
+jMQ
 rfe
 kAm
 rfe
-rfe
+jMQ
 rfe
 rGm
 rGm

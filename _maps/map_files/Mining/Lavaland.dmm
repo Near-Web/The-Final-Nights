@@ -1283,6 +1283,16 @@
 	umbra = 1
 	},
 /area/vtm/interior/penumbra)
+"wl" = (
+/obj/transfer_point_vamp{
+	alpha = 0;
+	density = 0;
+	id = 321
+	},
+/turf/open/floor/plating/asphalt{
+	umbra = 1
+	},
+/area/vtm/interior/penumbra)
 "wr" = (
 /obj/structure/trashbag,
 /turf/open/floor/plating/umbra,
@@ -34106,7 +34116,7 @@ CV
 CV
 CV
 CV
-CV
+wl
 CV
 CV
 CV

@@ -2003,6 +2003,19 @@
 		affected_mob.throw_at(target, 5, 1)
 		boing = FALSE
 
+
+//UMBRA PORTALS HOORAY!!
+/obj/transfer_point_vamp/umbral/tapestry
+	name = "Tapestry Portal"
+	icon = 'code/modules/wod13/48x48.dmi'
+	desc = "A strange rift in space and time. Seeing it makes you feel like you're being drawn into another reality."
+	icon_state = "portal"
+	plane = ABOVE_LIGHTING_PLANE
+	layer = ABOVE_LIGHTING_LAYER
+	id = 321 //currently just testing If I can get a portal at all
+
+
+
 /datum/chi_discipline/tapestry/activate(mob/living/target, mob/living/carbon/human/caster)
 	..()
 	switch(level_casting)
@@ -2017,6 +2030,10 @@
 		if(2)
 			caster.yin_chi += 1
 			caster.yang_chi += 1
+			//STUPID ATTEMPT TO MAKING PORTALS!!
+			var/obj/transfer_point_vamp/umbral/tapestry/portal = new (get_turf(caster))
+			spawn(15 SECONDS)
+				qdel(portal)
 		if(3)
 			ADD_TRAIT(caster, TRAIT_SUPERNATURAL_LUCK, "tapestry 3")
 			to_chat(caster, "<b>You feel insanely lucky!</b>")

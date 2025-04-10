@@ -110,6 +110,7 @@
 "xC" = (/obj/effect/decal/litter,/turf/open/floor/plating/concrete,/area/vtm/interior/shop)
 "xE" = (/obj/structure/table,/obj/item/storage/firstaid/advanced,/obj/item/storage/firstaid/advanced,/turf/open/floor/plating/rough,/area/vtm/pacificheights)
 "xH" = (/obj/structure/table,/obj/lombard,/turf/closed/wall/vampwall/brick/low,/area/vtm/interior/shop)
+"xT" = (/obj/machinery/computer/slot_machine,/turf/open/floor/plating/rough,/area/vtm/pacificheights)
 "xU" = (/obj/structure/table,/obj/item/ammo_box/magazine/vampthompson,/obj/item/ammo_box/magazine/vampthompson,/obj/item/ammo_box/magazine/vampthompson,/obj/item/gun/ballistic/automatic/vampire/thompson,/turf/open/floor/plating/rough,/area/vtm/pacificheights)
 "xZ" = (/obj/machinery/light/floor,/turf/open/floor/plating/rough,/area/vtm/pacificheights)
 "yk" = (/turf/closed/wall/vampwall/brick,/area/vtm/supply)
@@ -281,7 +282,7 @@ semwFGNRMSKBPOPOUuPOPOPOegPOPOPOPOPOPOPOMSPOMSNRiDNOXriDNRNRNRNRNRNRNRNRNRNRNRNR
 seokNRokMSWlPOPOCaPOPOPOPOPOPOPOPOPOPOswMSMSMSNREToWoWriNRNRNRFgRiYJFgDGYJFgNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRse
 seNRwOgbMSOZPOPOxUPOPOPOPOPOPOPOPOPOPOPOrNrNMSNRiDOLBLKtNRNRNRQvBLxCVPsyYAMyNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRse
 seNRNRBfMSTLPOPOODPOPOPOPOPOPOPOPOPOPOPOPOPOAoNRiDiDiDiDNRNRNRYJieTYoWeJBLbaNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRse
-seNRNRUJMSXfPOPOOfPOPOPOPOPOxZPOPOPOPOPOzTzTMSNRNRNRNRNRNRNRNRFgoWFgFgDNDNGuNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRse
+seNRNRUJMSXfPOPOOfPOPOPOxTPOxZPOxTPOPOPOzTzTMSNRNRNRNRNRNRNRNRFgoWFgFgDNDNGuNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRse
 seNRNRUJMSJGPOPOhuPOPOPOPOPOPOPOPOPOPOMJWsSYMSNRFgGmFgFgNRNRNRVaBLdAkSkSkSkSNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRse
 sefnNRJPMSuCPOPOPOPOPOPOPOPOPOPOPOPOPOGOSgswMSBtFggFNwYJNRNRNRGHoWoWkSDFTqBXNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRse
 seokNRJPMSavPOnmXzPOPOPOPOPOPOPOPOPOPOPOPOBQMSBtFggFOnIpNRNRNRFgFgoWkSyEptRoNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRNRse
