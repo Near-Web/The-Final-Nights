@@ -52,7 +52,7 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	damage = 5
 	damage_type = BURN
-	hitsound = 'code/modules/wod13/sounds/drinkblood1.ogg'
+	hitsound = 'code/modules/wod13/sounds/bloodbeam.ogg'
 	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
 	flag = LASER
 	light_system = MOVABLE_LIGHT
@@ -168,6 +168,8 @@
 
 	level = 1
 
+	cooldown_length = 3 SECONDS
+
 	grouped_powers = list(
 		/datum/discipline_power/thaumaturgy/blood_rage,
 		/datum/discipline_power/thaumaturgy/blood_of_potency,
@@ -190,6 +192,8 @@
 
 	level = 2
 
+	cooldown_length = 2.5 SECONDS
+
 	grouped_powers = list(
 		/datum/discipline_power/thaumaturgy/a_taste_for_blood,
 		/datum/discipline_power/thaumaturgy/blood_of_potency,
@@ -202,7 +206,7 @@
 	var/turf/start = get_turf(owner)
 	var/obj/projectile/thaumaturgy/H = new(start)
 	H.firer = owner
-	H.damage = 10 + owner.thaum_damage_plus
+	H.damage = 10 + owner.thaum_damage_plus + owner.get_total_mentality()
 	H.preparePixelProjectile(target, start)
 	H.level = 2
 	H.fire(direct_target = target)
@@ -213,6 +217,8 @@
 	desc = "Supernaturally thicken your vitae as if you were of a lower Generation."
 
 	level = 3
+
+	cooldown_length = 1 SECONDS
 
 	grouped_powers = list(
 		/datum/discipline_power/thaumaturgy/a_taste_for_blood,
@@ -226,7 +232,7 @@
 	var/turf/start = get_turf(owner)
 	var/obj/projectile/thaumaturgy/H = new(start)
 	H.firer = owner
-	H.damage = 15 + owner.thaum_damage_plus
+	H.damage = 15 + owner.thaum_damage_plus + owner.get_total_mentality()
 	H.preparePixelProjectile(target, start)
 	H.level = 2
 	H.fire(direct_target = target)
@@ -268,10 +274,12 @@
 /datum/discipline_power/thaumaturgy/theft_of_vitae/activate(mob/living/target)
 	. = ..()
 	if(iscarbon(target))
-		target.Stun(2.5 SECONDS)
 		target.visible_message(span_danger("[target] throws up!"), "<span class='userdanger'>You throw up!</span>")
 		target.add_splatter_floor(get_turf(target))
 		target.add_splatter_floor(get_turf(get_step(target, target.dir)))
+		if(target.bloodpool >= 2)
+			target.bloodpool -= 2
+			owner.bloodpool += 2
 	else
 		owner.bloodpool = min(owner.bloodpool + target.bloodpool, owner.maxbloodpool)
 		if(!istype(target, /mob/living/simple_animal/hostile/megafauna))
@@ -284,7 +292,7 @@
 
 	level = 5
 
-	effect_sound = 'code/modules/wod13/sounds/vomit.ogg'
+	effect_sound = 'code/modules/wod13/sounds/bloodcauldron.ogg'
 
 	grouped_powers = list(
 		/datum/discipline_power/thaumaturgy/a_taste_for_blood,
@@ -296,10 +304,21 @@
 /datum/discipline_power/thaumaturgy/cauldron_of_blood/activate(mob/living/target)
 	. = ..()
 	if(iscarbon(target))
-		target.Stun(2.5 SECONDS)
-		target.visible_message(span_danger("[target] throws up!"), "<span class='userdanger'>You throw up!</span>")
-		target.add_splatter_floor(get_turf(target))
-		target.add_splatter_floor(get_turf(get_step(target, target.dir)))
+		target.visible_message(span_danger("[target] reddens and quakes!"), "<span class='userdanger'>Your veins feel like they're on fire!</span>")
+		//Add a prob roll here, we want it to have a bias towards succeeding than not, but there's still an advantage to having higher phys.
+		if(!prob(clamp((target.get_total_physique() * 10), 10, 30)))
+			target.Stun(2.5 SECONDS)
+			target.apply_damage(10, BURN, owner.zone_selected)
+			sleep(2.5 SECONDS)
+			//It's a little heinous
+			if(!prob(clamp((target.get_total_physique() * 10), 20, 40)))
+				to_chat(target, "<span class='userdanger'>Your blood continues to burn!</span>")
+				target.apply_damage(15, BURN, owner.zone_selected)
+				sleep(2.5 SECONDS)
+				if(!prob(clamp((target.get_total_physique() * 10 + 20), 40, 80)))
+					target.Stun(2.5 SECONDS)
+					to_chat(target, "<span class='userdanger'>IT BURNS! IT BURNS!! IT BURNS!!!</span>")
+					target.apply_damage(20, BURN, owner.zone_selected)
 	else
 		owner.bloodpool = min(owner.bloodpool + target.bloodpool, owner.maxbloodpool)
 		if(!istype(target, /mob/living/simple_animal/hostile/megafauna))
@@ -334,7 +353,7 @@
 		var/ritual = input(owner, "Choose rune to draw:", "Thaumaturgy") as null|anything in shit
 		if(ritual)
 			drawing = TRUE
-			if(do_after(H, 3 SECONDS * max(1, 5 - H.mentality), H))
+			if(do_after(H, 3 SECONDS * max(1, 5 - H.get_total_mentality()), H))
 				drawing = FALSE
 				new ritual(H.loc)
 				H.bloodpool = max(H.bloodpool - 2, 0)
@@ -352,7 +371,7 @@
 		var/ritual = input(owner, "Choose rune to draw (You need an Arcane Tome to reduce random):", "Thaumaturgy") as null|anything in list("???")
 		if(ritual)
 			drawing = TRUE
-			if(do_after(H, 3 SECONDS * max(1, 5 - H.mentality), H))
+			if(do_after(H, 3 SECONDS * max(1, 5 - H.get_total_mentality()), H))
 				drawing = FALSE
 				var/rune = pick(shit)
 				new rune(H.loc)
