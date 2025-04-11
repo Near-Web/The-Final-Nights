@@ -5,7 +5,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	38
+#define SAVEFILE_VERSION_MAX	39
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -88,7 +88,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			LAZYADD(key_bindings["Ctrl"], "block_movement")
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
-	return
+	if(current_version < 39)
+		player_experience += true_experience
+		true_experience = 0
 
 /// checks through keybindings for outdated unbound keys and updates them
 /datum/preferences/proc/check_keybindings()
@@ -202,6 +204,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["pda_style"], pda_style)
 	READ_FILE(S["pda_color"], pda_color)
 
+	READ_FILE(S["player_experience"], player_experience)
+
 	// Custom hotkeys
 	READ_FILE(S["key_bindings"], key_bindings)
 	check_keybindings()
@@ -257,6 +261,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	pda_style		= sanitize_inlist(pda_style, GLOB.pda_styles, initial(pda_style))
 	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
 	key_bindings 	= sanitize_keybindings(key_bindings)
+
+	player_experience   = sanitize_integer(player_experience, 0, 1000, 0)
 
 	if(needs_update >= 0) //save the updated version
 		var/old_default_slot = default_slot
@@ -334,6 +340,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["pda_color"], pda_color)
 	WRITE_FILE(S["key_bindings"], key_bindings)
 	WRITE_FILE(S["hearted_until"], (hearted_until > world.realtime ? hearted_until : null))
+	WRITE_FILE(S["player_experience"], player_experience)
 	return TRUE
 
 /datum/preferences/proc/load_character(slot)
@@ -401,10 +408,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["auspice_level"], auspice_level)
 	READ_FILE(S["humanity"], path_score)
 	READ_FILE(S["enlightement"], is_enlightened)
-	READ_FILE(S["exper"], exper)
-	READ_FILE(S["exper_plus"], exper_plus)
 	READ_FILE(S["true_experience"], true_experience)
-	READ_FILE(S["physique"], physique)
 	READ_FILE(S["dexterity"], dexterity)
 	READ_FILE(S["social"], social)
 	READ_FILE(S["mentality"], mentality)
@@ -592,8 +596,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	slotlocked			= sanitize_integer(slotlocked, 0, 1, initial(slotlocked))
 	path_score				= sanitize_integer(path_score, 0, 10, initial(path_score))
 	is_enlightened				= sanitize_integer(is_enlightened, 0, 1, initial(is_enlightened))
-	exper				= sanitize_integer(exper, 0, 99999999, initial(exper))
-	exper_plus				= sanitize_integer(exper_plus, 0, 99999999, initial(exper_plus))
 	true_experience				= sanitize_integer(true_experience, 0, 99999999, initial(true_experience))
 	physique				= sanitize_integer(physique, 1, 10, initial(physique))
 	dexterity				= sanitize_integer(dexterity, 1, 10, initial(dexterity))
@@ -727,9 +729,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["diablerist"]			, diablerist)
 	WRITE_FILE(S["humanity"]			, path_score)
 	WRITE_FILE(S["enlightement"]			, is_enlightened)
-	WRITE_FILE(S["exper"]			, exper)
-	WRITE_FILE(S["exper_plus"]			, exper_plus)
-	WRITE_FILE(S["true_experience"]			, true_experience)
 	WRITE_FILE(S["auspice_level"]			, auspice_level)
 	WRITE_FILE(S["physique"]		, physique)
 	WRITE_FILE(S["dexterity"]		, dexterity)
