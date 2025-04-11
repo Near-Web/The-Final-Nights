@@ -427,3 +427,8 @@
 
 /obj/machinery/navbeacon/wayfinding/disposals
 	location = "Disposals"
+
+#undef COOLDOWN_SPAWN
+#undef COOLDOWN_INTERACT
+#undef COOLDOWN_SLOGAN
+#undef COOLDOWN_SPEW

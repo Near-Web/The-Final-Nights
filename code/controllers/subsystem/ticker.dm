@@ -689,3 +689,5 @@ SUBSYSTEM_DEF(ticker)
 		log_admin("[usr.ckey] blocked commendation from [heart_sender] ([heart_sender.ckey]) to [intended_recepient] ([intended_recepient.ckey])")
 		message_admins("[usr.ckey] blocked commendation from [heart_sender] ([heart_sender.ckey]) to [intended_recepient] ([intended_recepient.ckey])")
 		hearts[intended_recepient] = null
+
+#undef ROUND_START_MUSIC_LIST

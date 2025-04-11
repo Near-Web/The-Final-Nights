@@ -662,3 +662,7 @@
 				to_chat(src, "<span class='userdanger'><b>AS PRECIOUS VITAE ENTER YOUR MOUTH, YOU NOW ARE IN THE BLOODBOND OF [owner]. SERVE YOUR REGNANT CORRECTLY, OR YOUR ACTIONS WILL NOT BE TOLERATED.</b></span>")
 				return TRUE
 	return FALSE
+
+
+#undef BANDIT_TYPE_NPC
+#undef POLICE_TYPE_NPC

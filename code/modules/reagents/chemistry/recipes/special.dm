@@ -238,3 +238,8 @@ GLOBAL_LIST_INIT(medicine_reagents, build_medicine_reagents())
 	dat += "."
 	info = dat.Join("")
 	update_icon()
+
+
+#undef RNGCHEM_INPUT
+#undef RNGCHEM_CATALYSTS
+#undef RNGCHEM_OUTPUT

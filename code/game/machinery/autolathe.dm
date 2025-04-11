@@ -435,3 +435,7 @@
 //Has a reference to the autolathe so you can do !!FUN!! things with hacked lathes
 /obj/item/proc/autolathe_crafted(obj/machinery/autolathe/A)
 	return
+
+#undef AUTOLATHE_MAIN_MENU
+#undef AUTOLATHE_CATEGORY_MENU
+#undef AUTOLATHE_SEARCH_MENU

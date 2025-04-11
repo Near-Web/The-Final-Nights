@@ -65,3 +65,5 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	// Assign wayfinding pinpointer granting quirk if they're new
 	if(cli.get_exp_living(TRUE) < EXP_ASSIGN_WAYFINDER && !user.has_quirk(/datum/quirk/needswayfinder))
 		user.add_quirk(/datum/quirk/needswayfinder, TRUE)
+
+#undef EXP_ASSIGN_WAYFINDER
