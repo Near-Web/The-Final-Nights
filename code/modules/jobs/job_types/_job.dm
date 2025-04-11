@@ -138,10 +138,12 @@
 		for(var/i in roundstart_experience)
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
+	/*
 	if(my_contact_is_important)
-		for(var/obj/item/vamp/phone/PHONE in GLOB.phones_list)
+		for(var/obj/item/smartphone/PHONE in GLOB.phones_list)
 			if(PHONE)
 				PHONE.add_important_contacts()
+	*/
 
 	if(length(known_contacts) > 0)
 		H.knowscontacts = known_contacts

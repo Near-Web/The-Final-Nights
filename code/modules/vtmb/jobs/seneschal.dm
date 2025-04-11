@@ -57,7 +57,7 @@
 	id = /obj/item/card/id/clerk
 	uniform = /obj/item/clothing/under/vampire/clerk
 	shoes = /obj/item/clothing/shoes/vampire/brown
-	l_pocket = /obj/item/vamp/phone/clerk
+	l_pocket = /obj/item/smartphone/clerk
 	r_pocket = /obj/item/vamp/keys/clerk
 	backpack_contents = list(/obj/item/passport=1, /obj/item/phone_book=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/seneschal=1)
 
@@ -131,7 +131,7 @@
 	id = /obj/item/card/id/clerk/harpy
 	uniform = /obj/item/clothing/under/vampire/clerk
 	shoes = /obj/item/clothing/shoes/vampire/brown
-	l_pocket = /obj/item/vamp/phone/harpy
+	l_pocket = /obj/item/smartphone/harpy
 	r_pocket = /obj/item/vamp/keys/clerk
 	backpack_contents = list(/obj/item/passport=1, /obj/item/phone_book=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/seneschal=1)
 
@@ -190,7 +190,7 @@
 	suit = /obj/item/clothing/suit/vampire/trench
 	shoes = /obj/item/clothing/shoes/vampire
 	r_pocket = /obj/item/vamp/keys/camarilla/ghoul
-	l_pocket = /obj/item/vamp/phone/camarilla
+	l_pocket = /obj/item/smartphone/camarilla
 	backpack_contents = list(/obj/item/passport=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard=1)
 
 	backpack = /obj/item/storage/backpack

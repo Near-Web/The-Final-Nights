@@ -496,7 +496,7 @@
 /obj/machinery/light/blacklight{
 	pixel_y = 27
 	},
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalkalt,
@@ -979,7 +979,7 @@
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/park)
 "anE" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk/poor,
@@ -1701,11 +1701,11 @@
 /area/vtm/interior/tzimisce_manor)
 "axB" = (
 /obj/structure/table/wood,
-/obj/item/vamp/phone/anarch,
-/obj/item/vamp/phone/anarch,
-/obj/item/vamp/phone/anarch,
+/obj/item/smartphone/anarch,
+/obj/item/smartphone/anarch,
+/obj/item/smartphone/anarch,
 /obj/item/phone_book,
-/obj/item/vamp/phone/anarch,
+/obj/item/smartphone/anarch,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/anarch/basement)
 "axN" = (
@@ -3543,7 +3543,7 @@
 /area/vtm/interior/endron_facility/restricted)
 "aWp" = (
 /obj/structure/table,
-/obj/item/vamp/phone/clean{
+/obj/item/smartphone/clean{
 	desc = "A red landline phone."
 	},
 /obj/item/drinkable_bloodpack/vitae{
@@ -6209,7 +6209,7 @@
 /turf/open/openspace,
 /area/vtm/interior/millennium_tower/f2)
 "bJG" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalkalt,
@@ -7931,7 +7931,7 @@
 /obj/item/stack/dollar/hundred,
 /obj/item/stack/dollar/hundred,
 /obj/structure/table/wood/fancy/royalblue,
-/obj/item/vamp/phone/clean,
+/obj/item/smartphone/clean,
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
@@ -10574,7 +10574,7 @@
 /turf/open/floor/plating/vampgrass,
 /area/vtm/pacificheights/forest)
 "cSC" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk/poor,
@@ -15008,7 +15008,7 @@
 /area/vtm/interior/police/upstairs)
 "ehd" = (
 /obj/structure/table,
-/obj/item/vamp/phone/clean,
+/obj/item/smartphone/clean,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/vjanitor)
 "ehe" = (
@@ -16081,7 +16081,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/vtm/interior/millennium_tower/ventrue)
 "eyn" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /obj/effect/decal/bordur{
@@ -16626,7 +16626,7 @@
 /turf/closed/wall/vampwall/rich/old,
 /area/vtm/cabaret/basement)
 "eHj" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalkalt,
@@ -24550,7 +24550,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/sewer/cappadocian)
 "gOM" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk,
@@ -27437,7 +27437,7 @@
 /turf/open/floor/carpet,
 /area/vtm/interior/tzimisce_manor)
 "hGy" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk,
@@ -30417,7 +30417,7 @@
 /obj/effect/decal/bordur{
 	dir = 6
 	},
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk/old,
@@ -31097,7 +31097,7 @@
 /turf/open/floor/plating/toilet,
 /area/vtm/interior)
 "iIq" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalkalt,
@@ -38779,7 +38779,7 @@
 /area/vtm/chinatown)
 "kUH" = (
 /obj/structure/table/wood,
-/obj/item/vamp/phone/emergency,
+/obj/item/smartphone/emergency,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police)
 "kUK" = (
@@ -45488,7 +45488,7 @@
 /turf/open/floor/plating/rough/cave,
 /area/vtm/sewer)
 "mOr" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalkalt,
@@ -45883,7 +45883,7 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/clinic/haven)
 "mTm" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24;
 	dir = 4;
 	pixel_x = -10
@@ -48654,7 +48654,7 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/supply)
 "nHi" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk,
@@ -50096,7 +50096,7 @@
 	name = "elegant table";
 	desc = "An extremely fancy table"
 	},
-/obj/item/vamp/phone/clean{
+/obj/item/smartphone/clean{
 	desc = "A red landline phone."
 	},
 /obj/item/flashlight/lamp/green,
@@ -51499,16 +51499,16 @@
 /area/vtm/clinic)
 "owX" = (
 /obj/structure/rack,
-/obj/item/vamp/phone,
-/obj/item/vamp/phone{
+/obj/item/smartphone,
+/obj/item/smartphone{
 	pixel_x = 5;
 	pixel_y = 15
 	},
-/obj/item/vamp/phone{
+/obj/item/smartphone{
 	pixel_y = 10
 	},
-/obj/item/vamp/phone,
-/obj/item/vamp/phone{
+/obj/item/smartphone,
+/obj/item/smartphone{
 	pixel_y = 15
 	},
 /turf/open/floor/plating/vampplating/mono,
@@ -53425,7 +53425,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/fishermanswharf/lower)
 "oWX" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk,
@@ -55984,7 +55984,7 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/anarch)
 "pHC" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk/poor,
@@ -60288,7 +60288,7 @@
 	},
 /area/vtm/interior/tzimisce_manor)
 "qOY" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk/poor,
@@ -64809,7 +64809,7 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/financialdistrict/library)
 "rXs" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk/poor,
@@ -65686,7 +65686,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/sewer/cappadocian)
 "sjw" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk/rich,
@@ -66746,7 +66746,7 @@
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/ghetto/old)
 "sxL" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk,
@@ -68211,7 +68211,7 @@
 /turf/open/floor/plating/church,
 /area/vtm/church/interior/haven)
 "sWl" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /obj/item/newspaper,
@@ -72772,7 +72772,7 @@
 /obj/structure/table/wood/fancy/royalblack,
 /obj/effect/turf_decal/siding/wood,
 /obj/item/newspaper,
-/obj/item/vamp/phone/clean{
+/obj/item/smartphone/clean{
 	desc = "A red landline phone."
 	},
 /turf/open/floor/carpet/royalblack,
@@ -76422,7 +76422,7 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/trujah)
 "vps" = (
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk,
@@ -80008,7 +80008,7 @@
 /area/vtm/interior/millennium_tower/ventrue)
 "wpo" = (
 /obj/effect/decal/bordur,
-/obj/item/vamp/phone/street{
+/obj/item/smartphone/street{
 	pixel_z = 24
 	},
 /turf/open/floor/plating/sidewalk/old,

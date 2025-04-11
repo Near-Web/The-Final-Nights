@@ -37,7 +37,7 @@
 	gloves = /obj/item/clothing/gloves/vampire/latex
 	uniform = /obj/item/clothing/under/vampire/archivist
 	r_pocket = /obj/item/vamp/keys/regent
-	l_pocket = /obj/item/vamp/phone/tremere
+	l_pocket = /obj/item/smartphone/tremere
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 	backpack_contents = list(
 		/obj/item/passport=1,

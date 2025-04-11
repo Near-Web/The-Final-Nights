@@ -1,4 +1,4 @@
-"ap" = (/obj/item/vamp/phone/street{pixel_z = 24},/turf/open/floor/plating/vampbeach,/area/vtm/pacificheights)
+"ap" = (/obj/item/smartphone/street{pixel_z = 24},/turf/open/floor/plating/vampbeach,/area/vtm/pacificheights)
 "av" = (/obj/structure/table,/obj/item/ammo_box/magazine/vamp45acp,/obj/item/ammo_box/magazine/vamp45acp,/obj/item/ammo_box/magazine/vamp45acp,/obj/item/gun/ballistic/automatic/vampire/m1911,/turf/open/floor/plating/rough,/area/vtm/pacificheights)
 "ba" = (/obj/machinery/mineral/equipment_vendor/fastfood/clothing,/obj/structure/table,/turf/closed/wall/vampwall/brick/low,/area/vtm/interior/shop)
 "bh" = (/obj/structure/chair/greyscale{dir = 8},/turf/open/floor/plating/rough/cave,/area/vtm/pacificheights)
