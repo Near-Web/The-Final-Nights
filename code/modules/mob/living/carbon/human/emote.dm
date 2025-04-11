@@ -231,11 +231,17 @@
 	message = "blinks."
 	emote_type = EMOTE_VISIBLE
 
+/datum/emote/living/carbon/human/blink/get_sound(mob/living/user)
+	return 'sound/mobs/humanoids/human/blink/blink.ogg'
+
 /datum/emote/living/carbon/human/blink_r
 	key = "blink_r"
 	name = "blink (Rapid)"
 	message = "blinks rapidly."
 	emote_type = EMOTE_VISIBLE
+
+/datum/emote/living/carbon/human/blink_r/get_sound(mob/living/user)
+	return 'sound/mobs/humanoids/human/blink/blinkrapid.ogg'
 
 /datum/emote/living/carbon/human/snap
 	emote_type = EMOTE_AUDIBLE
