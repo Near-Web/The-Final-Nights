@@ -879,49 +879,71 @@
 	cost_demon = 1
 	discipline_type = "Demon"
 
+/obj/effect/black_wind
+	name = "Afterimage"
+	desc = "..."
+	anchored = TRUE
+
+/obj/effect/black_wind/Initialize()
+	. = ..()
+	spawn(0.5 SECONDS)
+		qdel(src)
+
+/mob/living/carbon/human/Move(atom/newloc, direct, glide_size_override)
+	..()
+	if(blackwind_visual)
+		var/obj/effect/black_wind/C = new(loc)
+		C.name = name
+		C.appearance = appearance
+		C.dir = dir
+		C.color = "#40ffb4"		////WE GIVE IT SANDEVISTAN LOOK YEEEHAAAAW
+		animate(C, pixel_x = rand(-16, 16), pixel_y = rand(-16, 16), color = "#00196e", time = 5)
+		if(CheckEyewitness(src, src, 7, FALSE))
+			AdjustMasquerade(-1)
+
 /datum/chi_discipline/black_wind/activate(mob/living/target, mob/living/carbon/human/caster)
 	..()
 	switch(level_casting)
 		if(1)
 			caster.add_movespeed_modifier(/datum/movespeed_modifier/celerity)
-			caster.celerity_visual = TRUE
+			caster.blackwind_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity)
-					caster.celerity_visual = FALSE
+					caster.blackwind_visual = FALSE
 		if(2)
 			caster.add_movespeed_modifier(/datum/movespeed_modifier/celerity2)
-			caster.celerity_visual = TRUE
+			caster.blackwind_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity2)
-					caster.celerity_visual = FALSE
+					caster.blackwind_visual = FALSE
 		if(3)
 			caster.add_movespeed_modifier(/datum/movespeed_modifier/celerity3)
-			caster.celerity_visual = TRUE
+			caster.blackwind_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity3)
-					caster.celerity_visual = FALSE
+					caster.blackwind_visual = FALSE
 		if(4)
 			caster.add_movespeed_modifier(/datum/movespeed_modifier/celerity4)
-			caster.celerity_visual = TRUE
+			caster.blackwind_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity4)
-					caster.celerity_visual = FALSE
+					caster.blackwind_visual = FALSE
 		if(5)
 			caster.add_movespeed_modifier(/datum/movespeed_modifier/celerity5)
-			caster.celerity_visual = TRUE
+			caster.blackwind_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity5)
-					caster.celerity_visual = FALSE
+					caster.blackwind_visual = FALSE
 
 /datum/chi_discipline/demon_shintai
 	name = "Demon Shintai"
