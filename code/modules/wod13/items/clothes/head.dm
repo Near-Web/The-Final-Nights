@@ -300,3 +300,68 @@
 	name = "chauffeur hat"
 	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
 	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/beret //temporary, red beret
+	name = "beret"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/beret/green //temporary
+	name = "beret"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/beret/white //temporary
+	name = "beret"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/fedora //temporary
+	name = "fedora"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/fedora/grey //temporary
+	name = "fedora"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/cap //temporary, NY cap
+	name = "cap"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/cap/brimless //temporary, NY cap
+	name = "cap"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/cap/mets //temporary
+	name = "cap"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/cap/grey //temporary
+	name = "cap"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/cap/red //temporary
+	name = "cap"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/cap/white //temporary
+	name = "cap"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/flatcap //temporary
+	name = "flatcap"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"
+
+/obj/item/clothing/head/vampire/flatcap/brown //temporary
+	name = "cap"
+	desc = "A fine hat like that is well-earned by opening car doors for rich people and driving them around the city."
+	icon_state = "chauffeur"

@@ -37,3 +37,13 @@
 	name = "prayer beads"
 	desc = "These beads are used for prayer."
 	icon_state = "beads"
+
+/obj/item/clothing/neck/vampire/spikedcollar
+	name = "spiked collar"
+	desc = "These beads are used for prayer."
+	icon_state = "beads"
+
+/obj/item/clothing/neck/vampire/choker
+	name = "choker"
+	desc = "These beads are used for prayer."
+	icon_state = "beads"
