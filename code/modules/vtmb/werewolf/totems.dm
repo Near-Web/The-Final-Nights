@@ -91,10 +91,10 @@
 				overlays |= totem_light_overlay
 
 /obj/structure/werewolf_totem/wendigo
-	name = "Wendigo Totem"
+	name = "Galestalkers Totem"
 	desc = "Gives power to all Garou of that tribe and steals it from others."
 	icon_state = "wendigo"
-	tribe = "Wendigo"
+	tribe = "Galestalkers"
 	totem_overlay_color = "#81ff4f"
 
 /obj/structure/werewolf_totem/children_of_gaia

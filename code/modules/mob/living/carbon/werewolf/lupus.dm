@@ -1,7 +1,7 @@
 /mob/living/carbon/werewolf/lupus
 	name = "wolf"
 	icon_state = "black"
-	icon = 'code/modules/wod13/werewolf_lupus.dmi'
+	icon = 'code/modules/wod13/tfn_lupus.dmi'
 	pass_flags = PASSTABLE
 	mob_size = MOB_SIZE_SMALL
 	butcher_results = list(/obj/item/food/meat/slab = 5)
@@ -26,12 +26,17 @@
 //		/obj/item/bodypart/l_leg,
 //		)
 	var/hispo = FALSE
+	var/is_dog = FALSE
 
 /datum/movespeed_modifier/lupusform
 	multiplicative_slowdown = -0.7
 
 /mob/living/carbon/werewolf/lupus/update_icons()
 	cut_overlays()
+	if(is_dog)
+		icon = 'code/modules/wod13/werewolf_lupus.dmi'
+	else
+		icon = 'code/modules/wod13/tfn_lupus.dmi'
 
 	var/laid_down = FALSE
 
@@ -69,5 +74,10 @@
 
 /mob/living/carbon/werewolf/lupus/Life()
 	if(hispo)
-		CheckEyewitness(src, src, 7, FALSE)
+		if(CheckEyewitness(src, src, 7, FALSE))
+			H.adjust_veil(-1,random = -1)
+	else
+		if(!is_dog)
+			if(CheckEyewitness(src, src, 4, FALSE))
+				H.adjust_veil(-1,threshold = 4)
 	..()

@@ -34,7 +34,7 @@
 
 /datum/action/gift/freezing_wind
 	name = "Freezing Wind"
-	desc = "Garou of Wendigo Tribe can create a stream of cold, freezing wind, and strike her foes with it."
+	desc = "Garou of Galestalkers Tribe can create a stream of cold, freezing wind, and strike her foes with it."
 	button_icon_state = "freezing_wind"
 	rage_req = 1
 
@@ -170,6 +170,17 @@
 		owner.visible_message("<span class='danger'>[owner.name] crackles with static electricity!</span>", "<span class='danger'>You crackle with static electricity, charging up your Gift!</span>")
 		if(do_after(owner, 3 SECONDS))
 			playsound(owner, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
+			if(CheckZoneMasquerade(owner))
+				var/mob/living/carbon/human/H
+				var/mob/living/carbon/werewolf/W
+				if(ishuman(owner))
+					H = owner
+				else
+					W = owner
+				if(H)
+					H.adjust_veil(-1)
+				if(W)
+					W.adjust_veil(-1)
 			for(var/mob/living/L in orange(6, owner))
 				if(L)
 					L.electrocute_act(30, owner, siemens_coeff = 1, flags = NONE)
@@ -220,3 +231,132 @@
 				H.werewolf_armor = initial(H.werewolf_armor)
 				to_chat(owner, "<span class='warning'>Your skin is natural again...</span>")
 				owner.color = "#FFFFFF"
+
+
+/datum/action/gift/guise_of_the_hound
+	name = "Guise of the Hound"
+	desc = "Wear the skin of the fleabitten dog to pass without concern."
+	button_icon_state = "guise_of_the_hound"
+	rage_req = 1
+
+/datum/action/gift/guise_of_the_hound/Trigger()
+	. = ..()
+	if(allowed_to_proceed)
+		if(!HAS_TRAIT(owner,TRAIT_DOGWOLF))
+			ADD_TRAIT(owner, TRAIT_DOGWOLF, src)
+			to_chat(owner, "<span class='notice'>You feel your canid nature softening!</span>")
+		else
+			REMOVE_TRAIT(owner, TRAIT_DOGWOLF, src)
+			to_chat(owner, "<span class='notice'>You feel your lupine nature intensifying!</span>")
+
+/datum/action/gift/infest
+	name = "Infest"
+	desc = "Call forth the vermin in the area to serve you against your enemies."
+	button_icon_state = "infest"
+	rage_req = 4
+
+/datum/action/gift/infest/Trigger()
+	. = ..()
+	if(allowed_to_proceed)
+		var/limit
+		if(ishuman(owner))
+			var/mob/living/carbon/human/H = owner
+			limit = H.social + H.additional_social + H.more_companions
+			if(HAS_TRAIT(owner, TRAIT_ANIMAL_REPULSION))
+				limit = max(1,limit-2)
+			if(length(H.beastmaster) >= limit)
+				var/mob/living/simple_animal/hostile/beastmaster/beast = pick(H.beastmaster)
+				beast.death()
+			if(!length(H.beastmaster))
+				var/datum/action/beastmaster_stay/stay = new()
+				stay.Grant(H)
+				var/datum/action/beastmaster_deaggro/deaggro = new()
+				deaggro.Grant(H)
+
+			if(prob(50))
+				var/mob/living/simple_animal/hostile/beastmaster/rat/ratto = new(get_turf(H))
+				ratto.my_creator = H
+				H.beastmaster |= ratto
+				ratto.beastmaster = H
+			else
+				var/mob/living/simple_animal/hostile/beastmaster/cockroach/roach = new(get_turf(H))
+				roach.my_creator = H
+				H.beastmaster |= roach
+				roach.beastmaster = H
+
+/datum/action/gift/gift_of_the_termite
+	name = "Gift of the Termite"
+	desc = "Eat through structures. Obey no laws but the litany."
+	button_icon_state = "gift_of_the_termite"
+	rage_req = 3
+	gnosis_req = 2
+
+/datum/action/gift/gift_of_the_termite/Trigger()
+	. = ..()
+	if(allowed_to_proceed)
+		var/mob/living/carbon/H = owner
+		H.put_in_active_hand(new /obj/item/melee/touch_attack/werewolf/gift_of_the_termite(H))
+
+
+/datum/action/gift/shroud
+	name = "Shroud"
+	desc = "Call together the shadows, blocking line of sight."
+	button_icon_state = "shroud"
+	rage_req = 1
+
+/datum/action/gift/shroud/Trigger()
+	. = ..()
+	if(allowed_to_proceed)
+		var/atom/movable/shadow
+		shadow = new(owner)
+		shadow.set_light(5, -10)
+		spawn(20 SECONDS)
+			if (shadow)
+				QDEL_NULL(shadow)
+
+/datum/action/gift/coils_of_the_serpent
+	name = "Coils of the Serpent"
+	desc = "Summon forth tendrils of shadow to assault an opponent."
+	button_icon_state = "coils_of_the_serpent"
+	rage_req = 1
+
+/datum/action/gift/coils_of_the_serpent/Trigger()
+	. = ..()
+	if(allowed_to_proceed)
+		if(ishuman(owner))
+			var/mob/living/carbon/human/H = owner
+			if(H.CheckEyewitness(H, H, 7, FALSE))
+				H.adjust_veil(-1)
+			H.drop_all_held_items()
+			H.put_in_r_hand(new /obj/item/melee/vampirearms/knife/gangrel/lasombra(owner))
+			H.put_in_l_hand(new /obj/item/melee/vampirearms/knife/gangrel/lasombra(owner))
+			for(var/obj/item/melee/vampirearms/knife/gangrel/lasombra/arm in H.contents)
+				arm.name = "\improper shadow coil"
+				arm.desc = "Squeeze tight."
+				spawn(20 SECONDS)
+					qdel(arm)
+
+/datum/action/gift/banish_totem
+	name = "Banish Totem"
+	desc = "Choose a target. Dissolve the gnosis and connection they hold temporarily to their totem."
+	button_icon_state = "banish_totem"
+	rage_req = 3
+	gnosis_req = 2
+
+/datum/action/gift/banish_totem/Trigger()
+	. = ..()
+	if(allowed_to_proceed)
+		var/valid_tribe = FALSE
+		var/list/targets = list()
+		for(var/mob/living/carbon/werewolf/wtarget in orange(7,owner))
+			targets += wtarget
+		for(var/mob/living/carbon/human/htarget in orange(7,owner))
+			targets += htarget
+		var/mob/living/carbon/target = tgui_input_list(owner, "Select a target", "Banish Totem", sortList(targets))
+		if(target && (iswerewolf(target) || isgarou(target)))
+			valid_tribe = target.auspice.tribe
+		for(var/mob/living/carbon/targetted in targets)
+			if(targetted && targetted.auspice.tribe == valid_tribe)
+				targetted.auspice.gnosis = 0
+				to_chat(targetted, "<span class='userdanger'>You feel your tie to your totem snap, gnosis leaving you...!</span>")
+				to_chat(owner, "<span class='danger'>You feel [target.name]'s gnostic ties fray...!</span>")

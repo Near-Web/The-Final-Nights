@@ -55,6 +55,19 @@
 			for(var/datum/antagonist/A in host.mind.antag_datums)
 				if(A.objectives)
 					dat += "[printobjectives(A.objectives)]<BR>"
+		var/masquerade_level = " have followed the rules tonight."
+		switch(host.masquerade)
+			if(4)
+				masquerade_level = " have made a faux pas tonight."
+			if(3)
+				masquerade_level = " have made a few issues tonight."
+			if(2)
+				masquerade_level = " have erred tonight."
+			if(1)
+				masquerade_level = " have acted foolishly and caused an uproar."
+			if(0)
+				masquerade_level = " should beg our totem for forgiveness."
+		dat += "My sect thinks I[masquerade_level]<BR>"
 
 		dat += "<b>Physique</b>: [host.physique] + [host.additional_physique]<BR>"
 		dat += "<b>Dexterity</b>: [host.dexterity] + [host.additional_dexterity]<BR>"
@@ -62,7 +75,17 @@
 		dat += "<b>Mentality</b>: [host.mentality] + [host.additional_mentality]<BR>"
 		dat += "<b>Cruelty</b>: [host.blood] + [host.additional_blood]<BR>"
 		dat += "<b>Lockpicking</b>: [host.lockpicking] + [host.additional_lockpicking]<BR>"
-		dat += "<b>Athletics</b>: [host.athletics] + [host.additional_athletics]<BR>"
+		dat += "<b>Athletics</b>: [host.athletics] + [host.additional_athletics]<BR><BR>"
+		dat += "<b>Gnosis</b>: [host.auspice.gnosis]<BR>"
+		dat += "<b>Rank</b>: [RankName(host.renownrank)]<BR>"
+		if(host.auspice.tribe == "Black Spiral Dancers")
+			dat += "<b>Power</b>: [host.honor]<BR>"
+			dat += "<b>Infamy</b>: [host.glory]<BR>"
+			dat += "<b>Cunning</b>: [host.wisdom]<BR>"
+		else
+			dat += "<b>Honor</b>: [host.honor]<BR>"
+			dat += "<b>Glory</b>: [host.glory]<BR>"
+			dat += "<b>Wisdom</b>: [host.wisdom]<BR>"
 		if(host.Myself)
 			if(host.Myself.Friend)
 				if(host.Myself.Friend.owner)
@@ -106,6 +129,8 @@
 	glabro.Grant(C)
 	var/datum/action/gift/rage_heal/GH = new()
 	GH.Grant(C)
+	var/datum/action/gift/howling/howl = new()
+	howl.Grant(C)
 	C.transformator = new(C)
 	C.transformator.human_form = WEAKREF(C)
 

@@ -86,6 +86,8 @@
 		var/mob/living/carbon/H = owner
 		playsound(get_turf(owner), 'code/modules/wod13/sounds/inspiration.ogg', 75, FALSE)
 		H.emote("scream")
+		if(H.CheckEyewitness(src, src, 7, FALSE))
+			H.adjust_veil(-1)
 		for(var/mob/living/carbon/C in range(5, owner))
 			if(C)
 				if(iswerewolf(C) || isgarou(C))
@@ -111,6 +113,8 @@
 			H.dna.species.punchdamagehigh = 20
 			H.agg_damage_plus = 5
 			to_chat(owner, "<span class='notice'>You feel your claws sharpening...</span>")
+			if(H.CheckEyewitness(H, H, 7, FALSE))
+				H.adjust_veil(-1)
 			spawn(150)
 				H.dna.species.attack_verb = initial(H.dna.species.attack_verb)
 				H.dna.species.attack_sound = initial(H.dna.species.attack_sound)
@@ -226,20 +230,29 @@
 	name = "Scent Of The True Form"
 	desc = "This Gift allows the Garou to determine the true nature of a person."
 	button_icon_state = "scent_of_the_true_form"
-	rage_req = 1
+	gnosis_req = 1
 
 /datum/action/gift/scent_of_the_true_form/Trigger()
 	. = ..()
 	if(allowed_to_proceed)
-		var/datum/atom_hud/abductor_hud = GLOB.huds[DATA_HUD_ABDUCTOR]
-		abductor_hud.add_hud_to(owner)
-		spawn(200)
-			abductor_hud.remove_hud_from(owner)
+		if(HAS_TRAIT(owner, TRAIT_SCENTTRUEFORM))
+			REMOVE_TRAIT(owner, TRAIT_SCENTTRUEFORM, src)
+			to_chat(owner, "<span class='notice'>You allow the essence of the spirit to leave your senses.</span>")
+
+		else
+			ADD_TRAIT(owner, TRAIT_SCENTTRUEFORM, src)
+			to_chat(owner, "<span class='notice'>Your nose gains a clarity for the supernal around you...</span>")
+
 
 /datum/action/gift/truth_of_gaia
 	name = "Truth Of Gaia"
 	desc = "As judges of the Litany, Philodox have the ability to sense whether others have spoken truth or falsehood."
 	button_icon_state = "truth_of_gaia"
+
+/datum/action/gift/truth_of_gaia/Trigger()
+	. = ..()
+//	if(allowed_to_proceed)
+//
 
 /datum/action/gift/mothers_touch
 	name = "Mother's Touch"
@@ -255,20 +268,37 @@
 
 /datum/action/gift/sense_wyrm
 	name = "Sense Wyrm"
-	desc = "This Gift allows the werewolf to sense the presence of Wyrm."
+	desc = "This Gift allows the werewolf to trace the location of all wyrm-tainted entities within the area."
 	button_icon_state = "sense_wyrm"
 	rage_req = 1
 
 /datum/action/gift/sense_wyrm/Trigger()
 	. = ..()
 	if(allowed_to_proceed)
-		var/mob/living/carbon/C = owner
-		C.sight = SEE_MOBS|SEE_OBJS
-		playsound(get_turf(owner), 'code/modules/wod13/sounds/sense_wyrm.ogg', 75, FALSE)
-		to_chat(owner, "<span class='notice'>You feel your sense sharpening...</span>")
-		spawn(200)
-			C.sight = initial(C.sight)
-			to_chat(owner, "<span class='warning'>You no longer sense anything more than normal...</span>")
+		var/target_area = get_area(owner)
+		var/list/target_turfs
+		if(target_area)
+			target_turfs = get_area_turfs(owner, target_z = 1, subtypes=FALSE)
+		for(var/mob/living/carbon/target in target_turfs)
+			var/is_wyrm = 0
+			if(iscathayan(target))
+				var/mob/living/carbon/human/kj = target
+				if(!kj.check_kuei_jin_alive())
+					is_wyrm = 1
+			if (iskindred(target))
+				var/mob/living/carbon/human/vampire = target
+				if ((vampire.morality_path.score < 7) || vampire.client?.prefs?.is_enlightened)
+					is_wyrm = 1
+				if ((vampire.clane?.name == "Baali") || ( (vampire.client?.prefs?.is_enlightened && (vampire.morality_path.score > 7)) || (!vampire.client?.prefs?.is_enlightened && (vampire.morality_path.score < 4)) ))
+					is_wyrm = 1
+			if (isgarou(target) || iswerewolf(target))
+				var/mob/living/carbon/wolf = target
+				switch(wolf.auspice.tribe)
+					if ("Black Spiral Dancers")
+						is_wyrm = 1
+			if(is_wyrm)
+				to_chat(owner, "A stain is found at [get_area_name(target)], X:[target.x] Y:[target.y].")
+				is_wyrm = 0
 
 /datum/action/gift/spirit_speech
 	name = "Spirit Speech"
@@ -461,3 +491,70 @@
 			animate(H, transform = M, time = 1 SECONDS)
 			G.glabro = TRUE
 			H.update_icons()
+
+/datum/action/gift/howling
+	name = "Howl"
+	desc = "The werewolf may send her howl far beyond the normal range of hearing and communicate a single word or concept to all other Garou across the city."
+	button_icon_state = "call_of_the_wyld"
+	rage_req = 1
+	cool_down = 5
+	check_flags = null
+	var/list/howls = list(
+		"attack" = list(
+			"menu" = "Attack",
+			"message" = "A wolf howls a fierce call to attack!"
+		),
+		"retreat" = list(
+			"menu" = "Retreat",
+			"message" = "A wolf howls a warning to retreat!"
+		),
+		"help" = list(
+			"menu" = "Help",
+			"message" = "A wolf howls a desperate plea for help!"
+		),
+		"gather" = list(
+			"menu" = "Gather",
+			"message" = "A wolf howls to gather the pack!"
+		),
+		"victory" = list(
+			"menu" = "Victory",
+			"message" = "A wolf howls in celebration of victory!"
+		),
+		"dying" = list(
+			"menu" = "Dying",
+			"message" = "A wolf howls in pain and despair!"
+		),
+		"mourning" = list(
+			"menu" = "Mourning",
+			"message" = "A wolf howls in deep mourning for the fallen!"
+		)
+	)
+
+/datum/action/gift/howling/Trigger()
+	. = ..()
+	if(allowed_to_proceed)
+		var/mob/living/carbon/C = owner
+		var/list/menu_options = list()
+		for (var/howl_key in howls)
+			menu_options += howls[howl_key]["menu"]
+		menu_options += "Cancel"
+
+		var/choice = input(owner, "Select a howl to use!", "Howl Selection") in menu_options
+		if(choice && choice != "Cancel")
+			var/howl
+			for (var/howl_key in howls)
+				if (howls[howl_key]["menu"] == choice)
+					howl = howls[howl_key]
+					break
+
+			var/message = howl["message"]
+			var/tribe = C.auspice.tribe
+			if (tribe)
+				message = replacetext(message, "tribe", tribe)
+
+			C.emote("howl")
+			playsound(get_turf(C), pick('code/modules/wod13/sounds/awo1.ogg', 'code/modules/wod13/sounds/awo2.ogg'), 100, FALSE)
+			for(var/mob/living/carbon/Garou in GLOB.player_list)
+				if(isgarou(Garou) || iswerewolf(Garou))
+					playsound(get_turf(Garou), pick('code/modules/wod13/sounds/awo1.ogg', 'code/modules/wod13/sounds/awo2.ogg'), 100, FALSE)
+					to_chat(Garou, message, confidential = TRUE)

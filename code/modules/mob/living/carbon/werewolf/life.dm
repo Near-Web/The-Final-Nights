@@ -60,33 +60,46 @@
 						rollfrenzy()
 
 			if(istype(get_area(src), /area/vtm/interior/penumbra))
-				if((last_veil_restore + 40 SECONDS) < world.time)
-					adjust_veil(1, src, TRUE)
+				if((last_veil_restore + 5000 SECONDS) < world.time)
+					adjust_veil(1, 4, -1)
 					last_veil_restore = world.time
 
 			switch(auspice.tribe)
-				if("Wendigo")
+				if("Galestalkers","Ghost Council","Hart Wardens")
 					if(istype(get_area(src), /area/vtm/forest))
-						if((last_veil_restore + 50 SECONDS) <= world.time)
-							adjust_veil(1, src, TRUE)
+						if((last_veil_restore + 8000 SECONDS) <= world.time && src.masquerade < 5)
+							adjust_veil(1, 3, -1)
 							last_veil_restore = world.time
 
-				if("Glasswalkers")
+				if("Glasswalkers","Bone Gnawers","Children of Gaia")
 					if(istype(get_area(src), /area/vtm/interior/glasswalker))
-						if((last_veil_restore + 50 SECONDS) <= world.time)
-							adjust_veil(1, src, TRUE)
+						if((last_veil_restore + 8000 SECONDS) <= world.time && src.masquerade < 5)
+							adjust_veil(1, 3, -1)
 							last_veil_restore = world.time
 
 				if("Black Spiral Dancers")
-					if(istype(get_area(src), /area/vtm/interior/endron_facility))
-						if((last_veil_restore + 50 SECONDS) <= world.time)
-							adjust_veil(1, src, TRUE)
+					if(istype(get_area(src), /area/vtm/interior/endron_facility) && src.masquerade < 5)
+						if((last_veil_restore + 8000 SECONDS) <= world.time)
+							adjust_veil(1, 3, -1)
 							last_veil_restore = world.time
+
+/datum/species/garou/spec_life(mob/living/carbon/human/H)
+	. = ..()
+	if(HAS_TRAIT(H, TRAIT_UNMASQUERADE))
+		if(H.CheckEyewitness(H, H, 7, FALSE))
+			H.adjust_veil(-1,random = -1)
+
+	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
+		H.last_bloodpool_restore = world.time
+		H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)
+	if(glabro)
+		if(H.CheckEyewitness(H, H, 3, FALSE))
+			H.adjust_veil(-1,random = -1)
 
 /mob/living/carbon/werewolf/crinos/Life()
 	. = ..()
 	if(CheckEyewitness(src, src, 5, FALSE))
-		adjust_veil(-1)
+		adjust_veil(-1, honoradj = -1)
 
 /mob/living/carbon/werewolf/handle_status_effects()
 	..()
@@ -103,7 +116,7 @@
 		return
 	adjust_bodytemperature(BODYTEMP_HEATING_MAX) //If you're on fire, you heat up!
 
-/mob/living/carbon/proc/adjust_veil(var/amount)
+/mob/living/carbon/proc/adjust_veil(var/amount,var/threshold,var/random,var/honoradj,var/gloryadj,var/wisdomadj)
 	if(!GLOB.canon_event)
 		return
 	if(last_veil_adjusting+200 >= world.time)
@@ -119,12 +132,154 @@
 	last_veil_adjusting = world.time
 	if(!is_special_character(src))
 		if(amount < 0)
-			if(masquerade > 0)
+			if(masquerade > 0 && masquerade > threshold)
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/veil_violation.ogg', 0, 0, 75))
 				to_chat(src, "<span class='boldnotice'><b>VEIL VIOLATION</b></span>")
+				if(masquerade+amount < threshold)
+					amount = threshold-masquerade
 				masquerade = max(0, masquerade+amount)
 		if(amount > 0)
 			if(masquerade < 5)
 				SEND_SOUND(src, sound('code/modules/wod13/sounds/humanity_gain.ogg', 0, 0, 75))
 				to_chat(src, "<span class='boldnotice'><b>VEIL REINFORCEMENT</b></span>")
+				if(masquerade+amount > threshold)
+					amount = threshold-masquerade
 				masquerade = min(5, masquerade+amount)
+		if(random < 0 || random > 0)
+			var/random_renown = pick("Honor","Wisdom","Glory")
+			switch(random_renown)
+				if("Honor")
+					adjust_honor(random)
+				if("Glory")
+					adjust_glory(random)
+				if("Wisdom")
+					adjust_wisdom(random)
+		else
+			if(honoradj)
+				adjust_honor(honoradj)
+			if(gloryadj)
+				adjust_glory(gloryadj)
+			if(wisdomadj)
+				adjust_wisdom(wisdomadj)
+
+/mob/living/carbon/proc/adjust_honor(var/amount,var/threshold)
+	if(!GLOB.canon_event)
+		return
+	if(!is_special_character(src))
+		if(amount < 0)
+			if(honor <= threshold)
+				return
+			if(honor+amount <= threshold)
+				amount = (threshold-honor)
+			to_chat(src,span_userdanger("You feel ashamed!"))
+			honor = max(0, honor+amount)
+			if(renownrank > AuspiceRankCheck(src))
+				renownrank = AuspiceRankCheck(src)
+				to_chat(src,span_userdanger("You are now a [RankName(src.renownrank)]."))
+		if(amount > 0)
+			if(honor >= threshold)
+				return
+			if(honor+amount >= threshold)
+				amount = (threshold-honor)
+			to_chat(src,span_bold("You feel vindicated!"))
+			honor = min(10, honor+amount)
+			if(renownrank < AuspiceRankCheck(src))
+				renownrank = AuspiceRankCheck(src)
+				to_chat(src,span_boldnotice("You are now a [RankName(src.renownrank)]."))
+
+
+/mob/living/carbon/proc/adjust_glory(var/amount,var/threshold)
+	if(!GLOB.canon_event)
+		return
+	if(!is_special_character(src))
+		if(amount < 0)
+			if(glory <= threshold)
+				return
+			if(glory+amount <= threshold)
+				amount = (threshold-glory)
+			to_chat(src,span_userdanger("You feel humiliated!"))
+			glory = max(0, glory+amount)
+			if(renownrank > AuspiceRankCheck(src))
+				renownrank = AuspiceRankCheck(src)
+				to_chat(src,span_userdanger("You are now a [RankName(src.renownrank)]."))
+		if(amount > 0)
+			if(glory >= threshold)
+				return
+			if(glory+amount >= threshold)
+				amount = (threshold-glory)
+			to_chat(src,span_bold("You feel brave!"))
+			glory = min(10, glory+amount)
+			if(renownrank < AuspiceRankCheck(src))
+				renownrank = AuspiceRankCheck(src)
+				to_chat(src,span_boldnotice("You are now a [RankName(src.renownrank)]."))
+
+/mob/living/carbon/proc/adjust_wisdom(var/amount,var/threshold)
+	if(!GLOB.canon_event)
+		return
+	if(!is_special_character(src))
+		if(amount < 0)
+			if(wisdom <= threshold)
+				return
+			if(wisdom+amount <= threshold)
+				amount = (threshold-wisdom)
+			to_chat(src,span_userdanger("You feel foolish!"))
+			wisdom = max(0, wisdom+amount)
+			if(renownrank > AuspiceRankCheck(src))
+				renownrank = AuspiceRankCheck(src)
+				to_chat(src,span_userdanger("You are now a [RankName(src.renownrank)]."))
+		if(amount > 0)
+			if(wisdom >= threshold)
+				return
+			if(wisdom+amount >= threshold)
+				amount = (threshold-wisdom)
+			to_chat(src,span_bold("You feel clever!"))
+			wisdom = min(10, wisdom+amount)
+			if(renownrank < AuspiceRankCheck(src))
+				renownrank = AuspiceRankCheck(src)
+				to_chat(src,span_boldnotice("You are now a [RankName(src.renownrank)]."))
+
+
+
+/mob/living/carbon/proc/AuspiceRankCheck(mob/living/carbon/user)
+	switch(auspice.name)
+		if("Ahroun")
+			if(glory >= 10 && honor >= 9 && wisdom >= 4) return 5
+			if(glory >= 9 && honor >= 4 && wisdom >= 2) return 4
+			if(glory >= 6 && honor >= 3 && wisdom >= 1) return 3
+			if(glory >= 4 && honor >= 1 && wisdom >= 1) return 2
+			if(glory >= 2 || honor >= 1) return 1
+			return FALSE
+
+		if("Galliard")
+			if(glory >= 9 && honor >= 5 && wisdom >= 9) return 5
+			if(glory >= 7 && honor >= 2 && wisdom >= 6) return 4
+			if(glory >= 4 && honor >= 2 && wisdom >= 4) return 3
+			if(glory >= 4 && wisdom >= 2) return 2
+			if(glory >= 2 && wisdom >= 1) return 1
+			return FALSE
+
+		if("Philodox")
+			if(glory >= 4 && honor >= 10 && wisdom >= 9) return 5
+			if(glory >= 3 && honor >= 8 && wisdom >= 4) return 4
+			if(glory >= 2 && honor >= 6 && wisdom >= 2) return 3
+			if(glory >= 1 && honor >= 4 && wisdom >= 1) return 2
+			if(honor >= 3) return 1
+			return FALSE
+
+		if("Theurge")
+			if(glory >= 4 && honor >= 9 && wisdom >= 10) return 5
+			if(glory >= 4 && honor >= 2 && wisdom >= 9) return 4
+			if(glory >= 2 && honor >= 1 && wisdom >= 7) return 3
+			if(glory >= 1 && wisdom >= 5) return 2
+			if(wisdom >= 3) return 1
+			return FALSE
+
+		if("Ragabash")
+			if((glory+honor+wisdom) >= 25) return 5
+			if((glory+honor+wisdom) >= 19) return 4
+			if((glory+honor+wisdom) >= 13) return 3
+			if((glory+honor+wisdom) >= 7) return 2
+			if((glory+honor+wisdom) >= 3) return 1
+			return FALSE
+
+	return FALSE

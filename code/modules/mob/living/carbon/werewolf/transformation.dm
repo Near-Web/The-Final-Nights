@@ -95,6 +95,7 @@
 				ntransform.Scale(0.75, 0.5)
 			if(islupus(trans))
 				ntransform.Scale(1, 1.5)
+
 	switch(form)
 		if("Lupus")
 			if(islupus(trans))
@@ -179,6 +180,12 @@
 	lupus.bloodpool = trans.bloodpool
 	lupus.masquerade = trans.masquerade
 	lupus.nutrition = trans.nutrition
+	if(trans.auspice.tribe == "Black Spiral Dancers" || HAS_TRAIT(trans, TRAIT_WYRMTAINTED))
+		lupus.wyrm_tainted = 1
+	if(HAS_TRAIT(trans, TRAIT_DOGWOLF))
+		lupus.is_dog = TRUE
+	else
+		lupus.is_dog = FALSE
 	lupus.mind = trans.mind
 	lupus.update_blood_hud()
 	transfer_damage(trans, lupus)
@@ -208,6 +215,8 @@
 	crinos.bloodpool = trans.bloodpool
 	crinos.masquerade = trans.masquerade
 	crinos.nutrition = trans.nutrition
+	if(trans.auspice.tribe == "Black Spiral Dancers" || HAS_TRAIT(trans, TRAIT_WYRMTAINTED))
+		crinos.wyrm_tainted = 1
 	crinos.mind = trans.mind
 	crinos.update_blood_hud()
 	crinos.physique = crinos.physique+3
@@ -246,3 +255,4 @@
 	transformating = FALSE
 	animate(trans, transform = null, color = "#FFFFFF", time = 1)
 	homid.update_body()
+

@@ -154,6 +154,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/generation = DEFAULT_GENERATION
 	var/generation_bonus = 0
 
+	//Renown
+	var/renownrank = 0
+	var/honor = 0
+	var/glory = 0
+	var/wisdom = 0
+
 	//Masquerade
 	var/masquerade = 5
 
@@ -161,6 +167,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/is_enlightened = FALSE
 
 	//Legacy
+	var/exper = 1440
+	var/exper_plus = 0
 
 	var/discipline1level = 1
 	var/discipline2level = 1
@@ -178,7 +186,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/experience_used_on_character = 0
 
 	//Character sheet stats
-	var/true_experience = 0
+	var/true_experience = 50
 	var/torpor_count = 0
 
 	//linked lists determining known Disciplines and their known ranks
@@ -219,7 +227,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/archetype = /datum/archetype/average
 
 	var/breed = "Homid"
-	var/tribe = "Wendigo"
+	var/tribe = "Galestalkers"
 	var/datum/auspice/auspice = new /datum/auspice/ahroun()
 	var/werewolf_color = "black"
 	var/werewolf_scar = 0
@@ -271,6 +279,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	yang = initial(yang)
 	chi_types = list()
 	chi_levels = list()
+	renownrank = 0
+	honor = 0
+	glory = 0
+	wisdom = 0
 	archetype = pick(subtypesof(/datum/archetype))
 	var/datum/archetype/A = new archetype()
 	physique = A.start_physique
@@ -337,6 +349,110 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(text)
 		var/coolfont = "<font face='Percolator'>[text]</font>"
 		return coolfont
+
+/proc/RankName(rank)
+	switch(rank)
+		if(0)
+			return "Cub"
+		if(1)
+			return "Cliath"
+		if(2)
+			return "Fostern"
+		if(3)
+			return "Adren"
+		if(4)
+			return "Athro"
+		if(5)
+			return "Elder"
+		if(6)
+			return "Legend"
+
+/proc/RankDesc(rank)
+	switch(rank)
+		if(0)
+			return "You are not known to other Garou. Why?"
+		if(1)
+			return "You have completed your rite of passage as a Cliath."
+		if(2)
+			return "Fosterns have challenged for their rank and become proven members of Garou society."
+		if(3)
+			return "With proven work, wit, and function, Adren are higher echelons of Garou society, better known for control."
+		if(4)
+			return "A disciplined lieutenant and trusted Garou to your peers, you have respect and renown within the city as an Athro."
+		if(5)
+			return "One of the renowned names of the region, you are known as outstanding in California to some degree, worthy of the title of Elder."
+		if(6)
+			return "You're a Legendary NPC."
+
+/datum/preferences/proc/AuspiceRankUp(mob/user,currentrank)
+	switch(auspice.name)
+		if("Ahroun")
+			switch(renownrank)
+				if(0)
+					if(glory >= 2 && honor >= 1) return TRUE
+				if(1)
+					if(glory >= 4 && honor >= 1 && wisdom >= 1) return TRUE
+				if(2)
+					if(glory >= 6 && honor >= 3 && wisdom >= 1) return TRUE
+				if(3)
+					if(glory >= 9 && honor >= 4 && wisdom >= 2) return TRUE
+				if(4)
+					if(glory >= 10 && honor >= 9 && wisdom >= 4) return TRUE
+
+		if("Galliard")
+			switch(renownrank)
+				if(0)
+					if(glory >= 2 && wisdom >= 1) return TRUE
+				if(1)
+					if(glory >= 4 && wisdom >= 2) return TRUE
+				if(2)
+					if(glory >= 4 && honor >= 2 && wisdom >= 4) return TRUE
+				if(3)
+					if(glory >= 7 && honor >= 2 && wisdom >= 6) return TRUE
+				if(4)
+					if(glory >= 9 && honor >= 5 && wisdom >= 9) return TRUE
+
+		if("Philodox")
+			switch(renownrank)
+				if(0)
+					if(honor >= 3) return TRUE
+				if(1)
+					if(glory >= 1 && honor >= 4 && wisdom >= 1) return TRUE
+				if(2)
+					if(glory >= 2 && honor >= 6 && wisdom >= 2) return TRUE
+				if(3)
+					if(glory >= 3 && honor >= 8 && wisdom >= 4) return TRUE
+				if(4)
+					if(glory >= 4 && honor >= 10 && wisdom >= 9) return TRUE
+
+		if("Theurge")
+			switch(renownrank)
+				if(0)
+					if(wisdom >= 3) return TRUE
+				if(1)
+					if(glory >= 1 && wisdom >= 5) return TRUE
+				if(2)
+					if(glory >= 2 && honor >= 1 && wisdom >= 7) return TRUE
+				if(3)
+					if(glory >= 4 && honor >= 2 && wisdom >= 9) return TRUE
+				if(4)
+					if(glory >= 4 && honor >= 9 && wisdom >= 10) return TRUE
+
+		if("Ragabash")
+			switch(renownrank)
+				if(0)
+					if((glory+honor+wisdom) >= 3) return TRUE
+				if(1)
+					if((glory+honor+wisdom) >= 7) return TRUE
+				if(2)
+					if((glory+honor+wisdom) >= 13) return TRUE
+				if(3)
+					if((glory+honor+wisdom) >= 19) return TRUE
+				if(4)
+					if((glory+honor+wisdom) >= 25) return TRUE
+
+	return FALSE
+
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!SSatoms.initialized)
@@ -471,7 +587,58 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "<b>Yin/Yang</b>: [yin]/[yang] <a href='byond://?_src_=prefs;preference=chibalance;task=input'>Adjust</a><BR>"
 					dat += "<b>Hun/P'o</b>: [hun]/[po] <a href='byond://?_src_=prefs;preference=demonbalance;task=input'>Adjust</a><BR>"
 				if("Werewolf")
+					if(!glory)
+						glory = 0
+					if(!honor)
+						honor = 0
+					if(!wisdom)
+						wisdom = 0
+					if(!renownrank)
+						renownrank = 0
+					var/gloryXP = max(5, glory * 10)
+					var/honorXP = max(5, honor * 10)
+					var/wisdomXP =  max(5, wisdom * 10)
 					dat += "<b>Veil:</b> [masquerade]/5<BR>"
+					switch(tribe)
+						if("Ronin")
+							dat += "Renown matters little to you, now."
+						if("Black Spiral Dancers")
+							dat += "<b>Infamy:</b> [glory]/10<BR>"
+							if(gloryXP <= player_experience && glory < 10)
+								dat +=" <a href='byond://?_src_=prefs;preference=renownglory;task=input'>Raise Infamy ([gloryXP])</a><BR>"
+							dat += "<b>Power:</b> [honor]/10<BR>"
+							if(honorXP <= player_experience && honor < 10)
+								dat +=" <a href='byond://?_src_=prefs;preference=renownhonor;task=input'>Raise Power ([honorXP])</a><BR>"
+							dat += "<b>Cunning:</b> [wisdom]/10<BR>"
+							if(wisdomXP <= player_experience && wisdom < 10)
+								dat +=" <a href='byond://?_src_=prefs;preference=renownwisdom;task=input'>Raise Cunning ([wisdomXP])</a><BR>"
+						else
+							dat += "<b>Glory:</b> [glory]/10<BR>"
+							if(gloryXP <= player_experience && glory < 10)
+								dat +=" <a href='byond://?_src_=prefs;preference=renownglory;task=input'>Raise Glory ([gloryXP])</a><BR>"
+							dat += "<b>Honor:</b> [honor]/10<BR>"
+							if(honorXP <= player_experience && honor < 10)
+								dat +=" <a href='byond://?_src_=prefs;preference=renownhonor;task=input'>Raise Honor ([honorXP])</a><BR>"
+							dat += "<b>Wisdom:</b> [wisdom]/10<BR>"
+							if(wisdomXP <= player_experience && wisdom < 10)
+								dat +=" <a href='byond://?_src_=prefs;preference=renownwisdom;task=input'>Raise Wisdom ([wisdomXP])</a><BR>"
+					dat += "<b>Renown Rank:</b> [RankName(renownrank)]<br>"
+					dat += "[RankDesc(renownrank)]<BR>"
+					var/canraise = 0
+					if(SSwhitelists.is_whitelisted(user.ckey, TRUSTED_PLAYER))
+						if(renownrank < MAX_TRUSTED_RANK)
+							canraise = 1
+					else
+						if(renownrank < MAX_PUBLIC_RANK)
+							canraise = 1
+					if(canraise)
+						canraise = AuspiceRankUp()
+					if(canraise)
+						var/rank_cost = 50
+						dat += " <a href='byond://?_src_=prefs;preference=renownrank;task=input'>Raise Renown Rank ([rank_cost])</a><BR>"
+
+					else
+						dat += "<BR>"
 				if("Ghoul")
 					dat += "<b>Masquerade:</b> [masquerade]/5<BR>"
 
@@ -516,10 +683,34 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					switch (tribe)
 						if ("Glasswalkers")
 							zalupa = auspice.glasswalker[i]
-						if ("Wendigo")
-							zalupa = auspice.wendigo[i]
+						if ("Galestalkers")
+							zalupa = auspice.galestalkers[i]
+						if ("Bone Gnawers")
+							zalupa = auspice.bonegnawer[i]
+						if ("Ghost Council")
+							zalupa = auspice.ghostcouncil[i]
+						if ("Hart Wardens")
+							zalupa = auspice.hartwardens[i]
+						if ("Silver Fangs")
+							zalupa = auspice.silverfangs[i]
+						if ("Red Talons")
+							zalupa = auspice.redtalons[i]
+						if ("Get of Fenris")
+							zalupa = auspice.getoffenris[i]
+						if ("Shadow Lords")
+							zalupa = auspice.shadowlords[i]
+						if ("Stargazers")
+							zalupa = auspice.stargazers[i]
+						if ("Silent Striders")
+							zalupa = auspice.silentstriders[i]
+						if ("Black Furies")
+							zalupa = auspice.blackfuries[i]
+						if ("Children of Gaia")
+							zalupa = auspice.childrenofgaia[i]
 						if ("Black Spiral Dancers")
 							zalupa = auspice.spiral[i]
+						if ("Ronin")
+							zalupa = auspice.ronin[i]
 					var/datum/action/T = new zalupa()
 					gifts_text += "[T.name], "
 				for(var/i in auspice.gifts)
@@ -559,7 +750,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				DAWOF.overlays |= hair_crinos
 
 				var/obj/effect/overlay/eyes_lupus = new(DAWOF2)
-				eyes_lupus.icon = 'code/modules/wod13/werewolf_lupus.dmi'
+				eyes_lupus.icon = 'code/modules/wod13/tfn_lupus.dmi'
 				eyes_lupus.icon_state = "eyes"
 				eyes_lupus.layer = ABOVE_HUD_LAYER
 				eyes_lupus.color = werewolf_eye_color
@@ -688,11 +879,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if (possible_new_disciplines.len && (player_experience >= 10))
 					dat += "<a href='byond://?_src_=prefs;preference=newchidiscipline;task=input'>Learn a new Discipline (10)</a><BR>"
 
-			if(slotlocked)
-				dat += "<a href='byond://?_src_=prefs;preference=change_appearance;task=input'>Change Appearance (Free)</a><BR>"
+			if(player_experience >= 3 && slotlocked)
+				dat += "<a href='byond://?_src_=prefs;preference=change_appearance;task=input'>Change Appearance (3)</a><BR>"
 			if(generation_bonus)
 				dat += "<a href='byond://?_src_=prefs;preference=reset_with_bonus;task=input'>Create new character with generation bonus ([generation]-[generation_bonus])</a><BR>"
-			// TFN EDIT ADDITION START: headshots, flavortext, morality system, and most other TFN specific prefs
+			// TFN EDIT ADDITION START: headshots, flavortext, and morality system
 			if(pref_species.name == "Vampire")
 				dat += "<h2>[make_font_cool("PATH")]</h2>"
 				dat += "<b>[morality_path.name]:</b> [path_score]/10"
@@ -702,28 +893,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "<a href='byond://?_src_=prefs;preference=pathof;task=input'>Switch Path</a>"
 				dat += "<BR><b>Description:</b> [morality_path.desc]<BR>"
 
-			var/preview_text = copytext_char(flavor_text, 1, 110)
-			var/preview_text_nsfw = copytext_char(flavor_text_nsfw, 1, 110)
-
-			dat += "<BR><a href='byond://?_src_=prefs;preference=view_flavortext;task=input'>Show Examine Panel</a>"
-
 			if(length(flavor_text) <= 110)
-				dat += "<BR><b>Flavor Text:</b> [flavor_text] <a href='byond://?_src_=prefs;preference=flavor_text;task=input'>Change</a>"
+				dat += "<BR><b>Flavor Text:</b> [flavor_text] <a href='byond://?_src_=prefs;preference=flavor_text;task=input'>Change</a><BR>"
 			else
-				dat += "<BR><b>Flavor Text:</b> [preview_text]... <a href='byond://?_src_=prefs;preference=flavor_text;task=input'>Change</a>"
+				dat += "<BR><b>Flavor Text:</b> [copytext_char(flavor_text, 1, 110)]... <a href='byond://?_src_=prefs;preference=flavor_text;task=input'>Change</a>"
+				dat += "<a href='byond://?_src_=prefs;preference=view_flavortext;task=input'>Show More</a><BR>"
 
-			dat += "<BR><b>Character Notes:</b> [character_notes] <a href='byond://?_src_=prefs;preference=character_notes;task=input'>Change</a>"
+			dat += "<BR><b>OOC Notes:</b> [ooc_notes] <a href='byond://?_src_=prefs;preference=ooc_notes;task=input'>Change</a><BR>"
 
-			dat += "<BR><b>Headshot(1:1):</b> <a href='byond://?_src_=prefs;preference=headshot;task=input'>Change</a>"
-
-			dat += "<BR><b>NSFW Content:</b> <a href='byond://?_src_=prefs;preference=nsfw_content_preference'>[(nsfw_content_pref) ? "Enabled" : "Disabled"]</A>"
-			if(nsfw_content_pref)
-				if(length(flavor_text_nsfw) <= 110)
-					dat += "<BR><b>Flavor Text (NSFW):</b> [flavor_text_nsfw] <a href='byond://?_src_=prefs;preference=flavor_text_nsfw;task=input'>Change</a>"
-				else
-					dat += "<BR><b>Flavor Text (NSFW):</b> [preview_text_nsfw]... <a href='byond://?_src_=prefs;preference=flavor_text_nsfw;task=input'>Change</a>"
-				dat += "<BR><b>OOC Notes:</b> [ooc_notes] <a href='byond://?_src_=prefs;preference=ooc_notes;task=input'>Change</a>"
-
+			dat += "<br><b>Headshot(1:1):</b> <a href='byond://?_src_=prefs;preference=headshot;task=input'>Change</a>"
+			if(headshot_link != null)
+				dat += "<a href='byond://?_src_=prefs;preference=view_headshot;task=input'>View</a>"
 			// TFN EDIT ADDITION END
 			dat += "<h2>[make_font_cool("EQUIP")]</h2>"
 
@@ -1406,6 +1586,26 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(!alloww && !bypass)
 						HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[clane.name] RESTRICTED\]</font></td></tr>"
 						continue
+			if(pref_species.name == "Werewolf")
+				if(tribe)
+					var/alloww = FALSE
+					for(var/i in job.allowed_tribes)
+						if(i == tribe)
+							alloww = TRUE
+					if(!alloww && !bypass)
+						HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[tribe] RESTRICTED\]</font></td></tr>"
+						continue
+				if(auspice)
+					var/alloww = FALSE
+					for(var/i in job.allowed_auspice)
+						if(i == auspice.name)
+							alloww = TRUE
+					if(!alloww && !bypass)
+						HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[auspice.name] RESTRICTED\]</font></td></tr>"
+						continue
+				if((renownrank < job.minimal_renownrank) && !bypass)
+					HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[job.minimal_renownrank] RENOWN RANK REQUIRED\]</font></td></tr>"
+					continue
 			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
 				HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
 				continue
@@ -1590,6 +1790,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							species_restricted = FALSE
 					if(species_restricted)
 						lock_reason = "[pref_species.name] restricted."
+						quirk_conflict = TRUE
+				if(length(Q.allowed_clans) && "Kindred" == pref_species.name)
+					var/clan_restricted = TRUE
+					for(var/i in Q.allowed_clans)
+						if(i == clane.name)
+							clan_restricted = FALSE
+					if(clan_restricted)
+						lock_reason = "[clane.name] restricted."
+						quirk_conflict = TRUE
+				if(length(Q.allowed_tribes) && "Werewolf" == pref_species.name)
+					var/tribe_restricted = TRUE
+					for(var/i in Q.allowed_tribes)
+						if(i == tribe)
+							tribe_restricted = FALSE
+					if(tribe_restricted)
+						lock_reason = "[tribe] restricted."
 						quirk_conflict = TRUE
 				qdel(Q)
 
@@ -2048,7 +2264,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						discipline_types += new_discipline
 						discipline_levels += 1
 						player_experience -= 10
-						experience_used_on_character += 10
 
 				if("newghouldiscipline")
 					if((player_experience < 10) || !(pref_species.id == "ghoul"))
@@ -2060,7 +2275,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						discipline_types += new_discipline
 						discipline_levels += 1
 						player_experience -= 10
-						experience_used_on_character += 10
 
 				if("newchidiscipline")
 					if((player_experience < 10) || !(pref_species.id == "kuei-jin"))
@@ -2096,7 +2310,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						discipline_types += new_discipline
 						discipline_levels += 1
 						player_experience -= 10
-						experience_used_on_character += 10
 
 				if("werewolf_color")
 					if(slotlocked || !(pref_species.id == "garou"))
@@ -2279,7 +2492,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(slotlocked || !(pref_species.id == "garou"))
 						return
 
-					var/new_tribe = tgui_input_list(user, "Choose your Tribe:", "Tribe", sortList(list("Wendigo", "Glasswalkers", "Black Spiral Dancers")))
+					var/new_tribe = tgui_input_list(user, "Choose your Tribe:", "Tribe", sortList(list("Galestalkers","Ghost Council","Hart Wardens", "Children of Gaia","Glasswalkers","Bone Gnawers","Ronin","Black Spiral Dancers","Get of Fenris","Black Furies","Silver Fangs","Silent Striders","Shadow Lords","Red Talons", "Stargazers")))
 					if (new_tribe)
 						tribe = new_tribe
 
@@ -2384,12 +2597,41 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							if(MORALITY_ENLIGHTENMENT)
 								is_enlightened = TRUE
 
+				if("renownrank")
+					var/cost = 50
+					if ((player_experience < cost) || (renownrank >= 5) || !(pref_species.id == "garou"))
+						return
+					player_experience -= cost
+					experience_used_on_character += cost
+					renownrank = renownrank+1
+
+				if("renownglory")
+					var/cost = max(5, glory * 10)
+					if ((player_experience < cost) || (glory >= 10) || !(pref_species.id == "garou"))
+						return
+					player_experience -= cost
+					experience_used_on_character += cost
+					glory = glory+1
+				if("renownhonor")
+					var/cost = max(5, honor * 10)
+					if ((player_experience < cost) || (honor >= 10) || !(pref_species.id == "garou"))
+						return
+					player_experience -= cost
+					experience_used_on_character += cost
+					honor = honor+1
+				if("renownwisdom")
+					var/cost = max(5, wisdom * 10)
+					if ((player_experience < cost) || (wisdom >= 10) || !(pref_species.id == "garou"))
+						return
+					player_experience -= cost
+					experience_used_on_character += cost
+					wisdom = wisdom+1
+
 				if("dharmarise")
 					if ((player_experience < min((dharma_level * 5), 20)) || (dharma_level >= 6) || !(pref_species.id == "kuei-jin"))
 						return
 
 					player_experience -= min((dharma_level * 5), 20)
-					experience_used_on_character += min((dharma_level * 5), 20)
 					dharma_level = clamp(dharma_level + 1, 1, 6)
 
 					if (dharma_level >= 6)
@@ -2397,6 +2639,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						po += 1
 						yin += 1
 						yang += 1
+
+				/*
+				if("torpor_restore")
+					if(torpor_count != 0 && player_experience >= 3*(14-generation))
+						torpor_count = 0
+						player_experience = player_experience-(3*(14-generation))
+				*/
+
 
 				if("dharmatype")
 					if(slotlocked)
@@ -2448,7 +2698,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						return
 
 					player_experience -= 20
-					experience_used_on_character += 20
 					if(SSwhitelists.is_whitelisted(user.ckey, TRUSTED_PLAYER))
 						generation_bonus = min(generation_bonus + 1, max(0, generation-MAX_TRUSTED_GENERATION))
 					else
@@ -2469,36 +2718,31 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				// TODO: Completely revamp flavor text into a more expansive system - TFN
 				// TFN EDIT ADDITION START: character headshots & flavortext
 				if("ooc_notes")
-					var/new_ooc_notes = tgui_input_text(user, "Choose your OOC notes:", "Character Preference", ooc_notes, MAX_FLAVOR_LEN, multiline = TRUE, encode = FALSE)
+					var/new_ooc_notes = tgui_input_text(user, "Choose your character's OOC notes:", "Character Preference", ooc_notes, MAX_MESSAGE_LEN, multiline = TRUE)
 					if(!length(new_ooc_notes))
 						return
-					ooc_notes = STRIP_HTML_SIMPLE(new_ooc_notes, MAX_FLAVOR_LEN)
-
-				if("character_notes")
-					var/new_character_notes = tgui_input_text(user, "Choose your character notes:", "Character Preference", character_notes, MAX_FLAVOR_LEN, multiline = TRUE, encode = FALSE)
-					if(!length(new_character_notes))
-						return
-					character_notes = STRIP_HTML_SIMPLE(new_character_notes, MAX_FLAVOR_LEN)
-					SSoverwatch.record_action(user, "**CHARACTER NOTES**: [character_notes]")
+					ooc_notes = new_ooc_notes
+					SSoverwatch.record_action(user, "**OOC NOTES**: [html_decode(ooc_notes)]")
 
 				if("flavor_text")
-					var/new_flavor = tgui_input_text(user, "Choose your character's flavor text:", "Character Preference", flavor_text, MAX_FLAVOR_LEN, multiline = TRUE, encode = FALSE)
+					var/new_flavor = tgui_input_text(user, "Choose your character's flavor text:", "Character Preference", flavor_text, MAX_FLAVOR_LEN, multiline = TRUE)
 					if(!length(new_flavor))
 						return
-					flavor_text = STRIP_HTML_SIMPLE(new_flavor, MAX_FLAVOR_LEN)
-					SSoverwatch.record_action(user, "**FLAVORTEXT**: [flavor_text]")
-
-				if("flavor_text_nsfw")
-					var/new_flavor_nsfw = tgui_input_text(user, "Choose your character's NSFW flavor text:", "Character Preference", flavor_text_nsfw, MAX_FLAVOR_LEN, multiline = TRUE, encode = FALSE)
-					if(!length(new_flavor_nsfw))
-						return
-					flavor_text_nsfw = STRIP_HTML_SIMPLE(new_flavor_nsfw, MAX_FLAVOR_LEN)
+					flavor_text = new_flavor
+					SSoverwatch.record_action(user, "**FLAVORTEXT**: [html_decode(flavor_text)]")
 
 				if("view_flavortext")
-					// The examine preview dummy will be cleaned up once the user closes the TGUI window.
-					var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy()
-					mannequin.setup_examine_preview(user.client)
-					mannequin.tgui?.ui_interact(usr)
+					var/datum/browser/popup = new(user, "[real_name]_flavortext", real_name, 500, 200)
+					popup.set_content(replacetext(flavor_text, "\n", "<BR>"))
+					popup.open(FALSE)
+					return
+
+				if("view_headshot")
+					var/list/dat = list("<table width='100%' height='100%'><td align='center' valign='middle'><img src='[headshot_link]' width='250px' height='250px'></td></table>")
+					var/datum/browser/popup = new(user, "[real_name]_headshot", "<div align='center'>Headshot</div>", 310, 330)
+					popup.set_content(dat.Join())
+					popup.open(FALSE)
+					return
 
 				if("headshot")
 					to_chat(user, span_notice("Please use a relatively SFW image of the head and shoulder area to maintain immersion level. Lastly, ["<b>do not use a real life photo or use any image that is less than serious.</b>"]"))
@@ -2970,9 +3214,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("lover")
 					lover = !lover
 
-				if("nsfw_content_preference")
-					nsfw_content_pref = !nsfw_content_pref
-
 				if("persistent_scars")
 					persistent_scars = !persistent_scars
 
@@ -3191,8 +3432,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.additional_lockpicking = A.archetype_additional_lockpicking
 	character.additional_athletics = A.archetype_additional_athletics
 	A.special_skill(character)
-	character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
-	character.health = character.maxHealth
 
 	if(pref_species.name == "Vampire")
 		var/datum/vampireclane/CLN = new clane.type()
@@ -3225,25 +3464,35 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			character.max_yin_chi = 2
 
 	if(pref_species.name == "Werewolf")
+		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
+		character.health = character.maxHealth
 		switch(tribe)
-			if("Wendigo")
+			if("Galestalkers","Children of Gaia","Ghost Council","Hart Wardens")
 				character.yin_chi = 1
 				character.max_yin_chi = 1
 				character.yang_chi = 5 + (auspice_level * 2)
 				character.max_yang_chi = 5 + (auspice_level * 2)
-			if("Glasswalkers")
+			if("Glasswalkers","Bone Gnawers")
 				character.yin_chi = 1 + auspice_level
 				character.max_yin_chi = 1 + auspice_level
 				character.yang_chi = 5 + auspice_level
 				character.max_yang_chi = 5 + auspice_level
-			if("Black Spiral Dancers")
+			if("Black Spiral Dancers","Ghost Council")
 				character.yin_chi = 1 + auspice_level * 2
 				character.max_yin_chi = 1 + auspice_level * 2
 				character.yang_chi = 5
 				character.max_yang_chi = 5
+		character.honor = honor
+		character.wisdom = wisdom
+		character.glory = glory
+		character.renownrank = renownrank
+	if(pref_species.name == "Kuei-Jin")
+		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
+		character.health = character.maxHealth
 	if(pref_species.name == "Vampire")
+		character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
+		character.health = character.maxHealth
 		character.morality_path.score = path_score
-
 	character.masquerade = masquerade
 	if(!character_setup)
 		if(character in GLOB.masquerade_breakers_list)
@@ -3253,9 +3502,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			GLOB.masquerade_breakers_list += character
 
 	character.flavor_text = sanitize_text(flavor_text)
-	character.flavor_text_nsfw = sanitize_text(flavor_text_nsfw)
 	character.ooc_notes = sanitize_text(ooc_notes)
-	character.character_notes = sanitize_text(character_notes)
 	character.gender = gender
 	character.age = age
 	character.chronological_age = total_age
