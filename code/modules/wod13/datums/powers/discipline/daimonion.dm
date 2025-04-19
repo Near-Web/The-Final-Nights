@@ -17,63 +17,200 @@
 	name = "Sense the Sin"
 	desc = "Become supernaturally resistant to fire."
 
+	target_type = TARGET_HUMAN
+	range = 12
 	level = 1
 
 	cancelable = TRUE
-	duration_length = 20 SECONDS
-	cooldown_length = 10 SECONDS
 
-/datum/discipline_power/daimonion/sense_the_sin/activate()
+/datum/discipline_power/daimonion/sense_the_sin/activate(mob/living/carbon/human/target)
 	. = ..()
-	owner.physiology.burn_mod /= 100
-	owner.color = "#884200"
+	if(target.get_total_social() <= 3)
+		to_chat(owner, "Victim is not social or influencing.")
+	if(target.get_total_mentality() <= 3)
+		to_chat(owner, "Victim lacks appropiate willpower.")
+	if(target.get_total_physique() <= 3)
+		to_chat(owner, "Victim's body is weak and feeble.")
+	if(target.get_total_dexterity() <= 3)
+		to_chat(owner, "Victim's lacks coordination.")
+	if(isgarou(target))
+		to_chat(owner, "Victim's natural banishment is silver...")
+	if(iskindred(target))
+		baali_get_clan_weakness(target, owner)
+		baali_get_stolen_disciplines(target, owner)
+		if(target.generation >= 10)
+			to_chat(owner, "Victim's vitae is weak and thin. You can clearly see their fear for fire, it seems that's a kindred.")
+		else
+			to_chat(owner, "Victim's vitae is thick and strong. You can clearly see their fear for fire, it seems that's a kindred.")
+	if(isghoul(target))
+		var/mob/living/carbon/human/ghoul = target
+		if(ghoul.mind.enslaved_to)
+			to_chat(owner, "Victim is addicted to vampiric vitae and its true master is [ghoul.mind.enslaved_to]")
+		else
+			to_chat(owner, "Victim is addicted to vampiric vitae, but is independent and free.")
+	if(iscathayan(target))
+		if(target.mind.dharma?.Po == "Legalist")
+			to_chat(owner, "[target] hates to be controlled!")
+		if(target.mind.dharma?.Po == "Rebel")
+			to_chat(owner, "[target] doesn't like to be touched.")
+		if(target.mind.dharma?.Po == "Monkey")
+			to_chat(owner, "[target] is too focused on money, toys and other sources of easy pleasure.")
+		if(target.mind.dharma?.Po == "Demon")
+			to_chat(owner, "[target] is addicted to pain, as well as to inflicting it to others.")
+		if(target.mind.dharma?.Po == "Fool")
+			to_chat(owner, "[target] doesn't like to be pointed at!")
+	if(!iskindred(target) && !isghoul(target) && !isgarou(target) && !iscathayan(target))
+		to_chat(owner, "[target] is a feeble worm with no strengths or visible weaknesses, a mere human.")
 
-/datum/discipline_power/daimonion/sense_the_sin/deactivate()
-	. = ..()
-	owner.color = initial(owner.color)
-	owner.physiology.burn_mod *= 100
+/datum/discipline_power/daimonion/sense_the_sin/proc/baali_get_clan_weakness(target, owner)
+	if(!owner || !target)
+		return
+	var/mob/living/carbon/human/vampire = target
+	if(iskindred(vampire))
+		var/datum/species/kindred/clan = vampire.dna.species
+		switch(vampire.clane?.name)
+			if("Toreador")
+				to_chat(owner, "[target] is too clingy to the art.")
+				return
+			if("Daughters of Cacophony")
+				to_chat(owner, "[target]'s mind is envelopped by nonstopping music.")
+			if("Ventrue")
+				to_chat(owner, "[target] finds no pleasure in poor's blood.")
+				return
+			if("Lasombra")
+				to_chat(owner, "[target] is afraid of modern technology.")
+				return
+			if("Tzimisce")
+				to_chat(owner, "[target] is tied to its domain.")
+				return
+			if("Gangrel")
+				to_chat(owner, "[target] is a feral being used to the nature.")
+				return
+			if("Malkavian")
+				to_chat(owner, "[target] is unstable, the mind is ill.")
+				return
+			if("Brujah")
+				to_chat(owner, "[target] is full of uncontrollable rage.")
+			if(vampire.clane?.name == "Nosferatu")
+				to_chat(owner, "[target] is ugly and nothing will save them.")
+				return
+			if("Tremere")
+				to_chat(owner, "[target] is weak to kindred blood and vulnerable to blood bonds.")
+				return
+			if("Baali")
+				to_chat(owner, "[target] is afraid that of the holy.")
+				return
+			if("Banu Haqim")
+				to_chat(owner, "[target] is addicted to kindred vitae...")
+				return
+			if("True Brujah")
+				to_chat(owner, "[target] cant express emotions.")
+				return
+			if("Salubri")
+				to_chat(owner, "[target] is unable to feed on unwilling.")
+				return
+			if("Giovanni")
+				to_chat(owner, "[target]'s bite inflicts too much harm.")
+				return
+			if("Cappadocian")
+				to_chat(owner, "[target]'s skin will stay pale and lifeless no matter what.")
+				return
+			if("Kiasyd")
+				to_chat(owner, "[target] is afraid of cold iron.")
+				return
+			if("Gargoyle")
+				to_chat(owner, "[target] is too dependent on its masters, its mind is feeble.")
+				return
+			if("Ministry")
+				to_chat(owner, "[target] is afraid of bright lights.")
+				return
 
+			to_chat(owner, "[target] is shunned by most as it lacks a clan.")
+
+
+/datum/discipline_power/daimonion/sense_the_sin/proc/baali_get_stolen_disciplines(target, owner)
+	if(!owner || !target)
+		return
+	var/mob/living/carbon/human/vampire = target
+	if(iskindred(vampire))
+		var/datum/species/kindred/clan = vampire.dna.species
+		if(clan.get_discipline("Quietus") && vampire.clane?.name != "Banu Haqim")
+			to_chat(owner, "[target] fears that the fact they stole Banu Haqim's Quietus will be known.")
+		if(clan.get_discipline("Protean") && vampire.clane?.name != "Gangrel")
+			to_chat(owner, "[target] fears that the fact they stole Gangrel's Protean will be known.")
+		if(clan.get_discipline("Serpentis") && vampire.clane?.name != "Ministry")
+			to_chat(owner, "[target] fears that the fact they stole Ministry's Serpentis will be known.")
+		if(clan.get_discipline("Necromancy") && vampire.clane?.name != "Giovanni" || clan.get_discipline("Necromancy") && vampire.clane?.name != "Cappadocian")
+			to_chat(owner, "[target] fears that the fact they stole Giovanni's Necromancy will be known.")
+		if(clan.get_discipline("Obtenebration") && vampire.clane?.name != "Lasombra" || clan.get_discipline("Obtenebration") && vampire.clane?.name != "Baali")
+			to_chat(owner, "[target] fears that the fact they stole Lasombra's Obtenebration will be known.")
+		if(clan.get_discipline("Dementation") && vampire.clane?.name != "Malkavian")
+			to_chat(owner, "[target] fears that the fact they stole Malkavian's Dementation will be known.")
+		if(clan.get_discipline("Vicissitude") && vampire.clane?.name != "Tzimisce")
+			to_chat(owner, "[target] fears that the fact they stole Tzimisce's Vicissitude will be known.")
+		if(clan.get_discipline("Melpominee") && vampire.clane?.name != "Daughters of Cacophony")
+			to_chat(owner, "[target] fears that the fact they stole Daughters of Cacophony's Melpominee will be known.")
+		if(clan.get_discipline("Daimonion") && vampire.clane?.name != "Baali")
+			to_chat(owner, "[target] fears that the fact they stole Baali's Daimonion will be known.")
+		if(clan.get_discipline("Temporis") && vampire.clane?.name != "True Brujah")
+			to_chat(owner, "[target] fears that the fact they stole True Brujah's Temporis will be known.")
+		if(clan.get_discipline("Valeren") && vampire.clane?.name != "Salubri")
+			to_chat(owner, "[target] fears that the fact they stole Salubri's Valeren will be known.")
+		if(clan.get_discipline("Mytherceria") && vampire.clane?.name != "Kiasyd")
+			to_chat(owner, "[target] fears that the fact they stole Kiasyd's Mytherceria will be known.")
 //FEAR OF THE VOID BELOW
 /datum/discipline_power/daimonion/fear_of_the_void_below
 	name = "Fear of the Void Below"
-	desc = "Sprout wings and become able to fly."
+	desc = "Induce fear in a target."
 
 	level = 2
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_LYING | DISC_CHECK_IMMOBILE
+	check_flags = DISC_CHECK_CONSCIOUS
 
-	violates_masquerade = TRUE
+	target_type = TARGET_HUMAN
+	range = 7
 
-	cancelable = TRUE
-	duration_length = 30 SECONDS
-	cooldown_length = 20 SECONDS
+	duration_length = 3 SECONDS
 
-/datum/discipline_power/daimonion/fear_of_the_void_below/activate()
+/datum/discipline_power/daimonion/fear_of_the_void_below/pre_activation_checks(mob/living/target)
+	var/mypower = owner.get_total_social()
+	var/theirpower = target.get_total_mentality()
+	if((theirpower >= mypower) || (owner.generation > target.generation))
+		to_chat(owner, "<span class='warning'>[target] has too much willpower to induce fear into them!</span>")
+		return FALSE
+	return TRUE
+
+/datum/discipline_power/daimonion/fear_of_the_void_below/activate(mob/living/carbon/human/target)
 	. = ..()
-	owner.dna.species.GiveSpeciesFlight(owner)
+	to_chat(target, span_warning("Your mind is enveloped by your greatest fear!"))
+	if(!target.in_frenzy) // Cause target to frenzy
+		target.enter_frenzymod()
+		target.Paralyze(3 SECONDS)
 
-/datum/discipline_power/daimonion/fear_of_the_void_below/deactivate()
+/datum/discipline_power/daimonion/fear_of_the_void_below/deactivate(mob/living/carbon/human/target)
 	. = ..()
-	owner.dna.species.RemoveSpeciesFlight(owner)
+	target.exit_frenzymod()
 
 //CONFLAGRATION
 /datum/discipline_power/daimonion/conflagration
 	name = "Conflagration"
-	desc = "Turn your hands into deadly claws."
+	desc = "Draw out the destructive essence of the Beyond."
 
 	level = 3
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
+	target_type = TARGET_LIVING
+	range = 7
 
+	aggravating = TRUE
+	hostile = TRUE
 	violates_masquerade = TRUE
 
-	cancelable = TRUE
-	duration_length = 30 SECONDS
-	cooldown_length = 10 SECONDS
-
-/datum/discipline_power/daimonion/conflagration/activate()
+/datum/discipline_power/daimonion/conflagration/activate(mob/living/target)
 	. = ..()
-	owner.drop_all_held_items()
-	owner.put_in_r_hand(new /obj/item/melee/vampirearms/knife/gangrel(owner))
-	owner.put_in_l_hand(new /obj/item/melee/vampirearms/knife/gangrel(owner))
+	var/turf/start = get_turf(owner)
+	var/obj/projectile/magic/aoe/fireball/baali/created_fireball = new(start)
+	created_fireball.firer = owner
+	created_fireball.preparePixelProjectile(target, start)
+	created_fireball.fire()
 
 /datum/discipline_power/daimonion/conflagration/deactivate()
 	. = ..()
@@ -107,85 +244,54 @@
 //PSYCHOMACHIA
 /datum/discipline_power/daimonion/psychomachia
 	name = "Psychomachia"
-	desc = "Become a bat."
+	desc = "Bring forth the target's greatest fear."
 
 	level = 4
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
+	target_type = TARGET_LIVING
+	range = 7
 
-	violates_masquerade = TRUE
+	violates_masquerade = FALSE
 
-	duration_length = 30 SECONDS
-	cooldown_length = 10 SECONDS
-	grouped_powers = list(/datum/discipline_power/daimonion/condemnation)
-
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/bat_shapeshift
-
-/datum/discipline_power/daimonion/psychomachia/activate()
+/datum/discipline_power/daimonion/psychomachia/activate(mob/living/target)
 	. = ..()
-	if(!bat_shapeshift)
-		bat_shapeshift = new(owner)
-
-	owner.drop_all_held_items()
-	bat_shapeshift.Shapeshift(owner)
-
-/datum/discipline_power/daimonion/psychomachia/deactivate()
-	. = ..()
-	bat_shapeshift.Restore(bat_shapeshift.myshape)
-	owner.Stun(1.5 SECONDS)
-	owner.do_jitter_animation(30)
+	to_chat(target, span_boldwarning("You hear an infernal laugh!"))
+	new /datum/hallucination/baali(target, TRUE)
 
 //CONDEMNTATION
 /datum/discipline_power/daimonion/condemnation
 	name = "Condemnation"
-	desc = "Become a bat."
+	desc = "Condemn a soul to suffering."
 
 	level = 5
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING
-
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
+	target_type = TARGET_LIVING
+	range = 7
 	violates_masquerade = TRUE
 
-	duration_length = 30 SECONDS
-	cooldown_length = 10 SECONDS
-	grouped_powers = list(/datum/discipline_power/daimonion/psychomachia)
+	var/list/curse_names = list()
+	var/list/curses = list()
 
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/bat_shapeshift
-
-/datum/discipline_power/daimonion/condemnation/activate()
+/datum/discipline_power/daimonion/condemnation/activate(mob/living/target)
 	. = ..()
-	if(!bat_shapeshift)
-		bat_shapeshift = new(owner)
+	if(LAZYLEN(GLOB.cursed_characters) == 0 || LAZYLEN(GLOB.cursed_characters) > 0 && !(GLOB.cursed_characters.Find(target)))
+		for(var/i in subtypesof(/datum/curse/daimonion))
+			var/datum/curse/daimonion/D = new i
+			curses += D
+			if(owner.generation <= D.genrequired)
+				curse_names += initial(D.name)
+		to_chat(owner, span_userdanger("The greatest of curses come with the greatest of costs. Are you willing to take the risk of total damnation?"))
+		var/chosencurse = tgui_input_list(owner, "Pick a curse to bestow:", "Daimonion", curse_names)
+		if(chosencurse)
+			for(var/datum/curse/daimonion/C in curses)
+				if(C.name == chosencurse)
+					C.activate(target)
+					owner.maxbloodpool -= C.bloodcurse
+					if(owner.bloodpool > owner.maxbloodpool)
+						owner.bloodpool = owner.maxbloodpool
+					GLOB.cursed_characters += target
+		for(var/datum/curse/daimonion/curse in curses)
+			qdel(curse)
+	else
+		to_chat(owner, span_warning("This one is already cursed!"))
 
-	owner.drop_all_held_items()
-	bat_shapeshift.Shapeshift(owner)
-
-/datum/discipline_power/daimonion/condemnation/deactivate()
-	. = ..()
-	bat_shapeshift.Restore(bat_shapeshift.myshape)
-	owner.Stun(1.5 SECONDS)
-	owner.do_jitter_animation(30)
-
-/datum/discipline_power/daimonion/condemnation/post_gain()
-	. = ..()
-	var/datum/action/antifrenzy/antifrenzy_contract = new()
-	antifrenzy_contract.Grant(owner)
-
-/datum/action/antifrenzy
-	name = "Resist Beast"
-	desc = "Resist Frenzy and Rotshreck by signing a contract with Demons."
-	button_icon_state = "resist"
-	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
-	vampiric = TRUE
-	var/used = FALSE
-
-/datum/action/antifrenzy/Trigger()
-	var/mob/living/carbon/human/user = owner
-	if(user.stat >= UNCONSCIOUS || user.IsSleeping() || user.IsUnconscious() || user.IsParalyzed() || user.IsKnockdown() || user.IsStun() || HAS_TRAIT(user, TRAIT_RESTRAINED) || !isturf(user.loc))
-		return
-	if(used)
-		to_chat(owner, span_warning("You've already signed this contract!"))
-		return
-	used = TRUE
-	user.antifrenzy = TRUE
-	SEND_SOUND(owner, sound('sound/magic/curse.ogg', 0, 0, 50))
-	to_chat(owner, span_warning("You feel control over your Beast, but at what cost..."))
-	qdel(src)
