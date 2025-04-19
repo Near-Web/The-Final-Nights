@@ -121,6 +121,7 @@
 	tackler = owner.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 5, speed = 1, skill_mod = 0, min_distance = 0)
 	owner.potential = 3
 
+
 /datum/discipline_power/potence/three/deactivate()
 	. = ..()
 	owner.dna.species.punchdamagelow -= 24
@@ -130,6 +131,7 @@
 	owner.remove_overlay(POTENCE_LAYER)
 	owner.potential = 0
 	qdel(tackler)
+
 
 //POTENCE 4
 /datum/discipline_power/potence/four
@@ -161,6 +163,7 @@
 	tackler = owner.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 6, speed = 1, skill_mod = 0, min_distance = 0)
 	owner.potential = 4
 
+
 /datum/discipline_power/potence/four/deactivate()
 	. = ..()
 	owner.dna.species.punchdamagelow -= 32
@@ -170,6 +173,7 @@
 	owner.remove_overlay(POTENCE_LAYER)
 	owner.potential = 0
 	qdel(tackler)
+
 
 //POTENCE 5
 /datum/discipline_power/potence/five
@@ -201,6 +205,7 @@
 	tackler = owner.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 7, speed = 1, skill_mod = 0, min_distance = 0)
 	owner.potential = 5
 
+
 /datum/discipline_power/potence/five/deactivate()
 	. = ..()
 	owner.dna.species.punchdamagelow -= 40
@@ -210,3 +215,4 @@
 	owner.remove_overlay(POTENCE_LAYER)
 	owner.potential = 0
 	qdel(tackler)
+
