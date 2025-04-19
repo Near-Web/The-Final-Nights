@@ -1,3 +1,5 @@
+/*
+
 /datum/action/chi_discipline
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS
 	button_icon = 'code/modules/wod13/UI/kuei_jin.dmi' //This is the file for the BACKGROUND icon
@@ -1670,7 +1672,7 @@
 				storm_aura_loop(caster, delay + caster.discipline_time_plus)
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
-					caster.remove_overlay(FORTITUDE_LAYER)
+					d
 
 /datum/chi_discipline/storm_shintai/proc/wind_aura_loop(mob/living/carbon/human/caster, duration)
 	var/loop_started_time = world.time
@@ -2207,3 +2209,5 @@
 				viewing_mantle.flash_act(affect_silicon = 1)
 
 		sleep(2 SECONDS)
+
+*/

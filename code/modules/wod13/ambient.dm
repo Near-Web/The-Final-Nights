@@ -10,6 +10,7 @@
 	//Chi stuff
 	var/yang_chi = 1
 	var/yin_chi = 1
+	var/demon_chi = 0
 	var/wall_rating = VERY_HIGH_WALL_RATING
 
 /area/vtm
@@ -72,7 +73,7 @@
 	upper = TRUE
 	zone_type = "elysium"
 	fire_controled = FALSE
-	yang_chi = 0
+	yang_chi = 1
 	yin_chi = 2
 	wall_rating = LOW_WALL_RATING
 
@@ -83,7 +84,7 @@
 	zone_type = "elysium"
 	fire_controled = TRUE
 	yang_chi = 0
-	yin_chi = 2
+	yin_chi = 3
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/techshop
@@ -91,6 +92,8 @@
 	icon_state = "shop"
 	upper = FALSE
 	fire_controled = TRUE
+	yang_chi = 1
+	yin_chi = 2
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/interior/bianchiBank
@@ -163,7 +166,7 @@
 	upper = FALSE
 	zone_type = "battle"
 	yang_chi = 0
-	yin_chi = 2
+	yin_chi = 3
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/apartment
@@ -216,6 +219,8 @@
 /area/vtm/pacificheights/forest
 	name = "Pacific Heights Forest Outskirts"
 	music = /datum/vampiremusic/forest
+	yang_chi = 2
+	yin_chi = 0
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/pacificheights/old
@@ -365,6 +370,8 @@
 	icon_state = "church"
 	music = /datum/vampiremusic/forest
 	upper = TRUE
+	yang_chi = 2
+	yin_chi = 2
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/church/interior
@@ -394,8 +401,9 @@
 	ambience_index = AMBIENCE_INTERIOR
 	upper = FALSE
 	fire_controled = TRUE
-	yang_chi = 0
+	yang_chi = 1
 	yin_chi = 2
+	demon_chi = 1
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/graveyard
@@ -434,8 +442,8 @@
 	music = /datum/vampiremusic/sewer
 	upper = FALSE
 	zone_type = "battle"
-	yang_chi = 0
-	yin_chi = 2
+	yang_chi = 1
+	yin_chi = 1
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/sewer/nosferatu_town
@@ -477,6 +485,8 @@
 	zone_type = "battle"
 	music = /datum/vampiremusic/forest
 	fire_controled = TRUE
+	yang_chi = 1
+	yin_chi = 2
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/endron_facility
@@ -485,8 +495,9 @@
 	zone_type = "battle"
 	music = /datum/vampiremusic/forest
 	fire_controled = FALSE
-	yang_chi = 0
+	yang_chi = 1
 	yin_chi = 1
+	demon_chi = 1
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/endron_facility/restricted
@@ -495,8 +506,9 @@
 	zone_type = "battle"
 	music = /datum/vampiremusic/forest
 	fire_controled = FALSE
-	yang_chi = 0
-	yin_chi = 2
+	yang_chi = 1
+	yin_chi = 1
+	demon_chi = 2
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/wyrm_corrupted
@@ -505,13 +517,16 @@
 	zone_type = "battle"
 	music = /datum/vampiremusic/forest
 	fire_controled = FALSE
-	yang_chi = 0
+	yang_chi = 2
 	yin_chi = 2
+	demon_chi = 4
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/cog
 	name = "Children of Gaia Generic"
 	icon_state = "cog_pantry"
+	yang_chi = 2
+	yin_chi = 0
 
 /area/vtm/interior/cog/pantry
 	name = "Earth's Bounty Food Pantry"
@@ -519,6 +534,8 @@
 	music = /datum/vampiremusic/forest
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
+	yang_chi = 2
+	yin_chi = 0
 
 /area/vtm/interior/cog/caern
 	name = "Children of Gaia Caern"
@@ -526,12 +543,16 @@
 	music = /datum/vampiremusic/forest
 	zone_type = "elysium"
 	wall_rating = LOW_WALL_RATING
+	yang_chi = 4
+	yin_chi = 0
 
 /area/vtm/interior/gnawer
 	name = "Bone Gnawer Shrine"
 	icon_state = "gnawer"
 	music = /datum/vampiremusic/forest
 	wall_rating = LOW_WALL_RATING
+	yang_chi = 3
+	yin_chi = 1
 
 //MISC AND CONTINUED AREAS
 /area/vtm/interior/penumbra
@@ -543,10 +564,13 @@
 	music = /datum/vampiremusic/penumbra
 	fire_controled = FALSE
 	wall_rating = LOW_WALL_RATING
+	yang_chi = 2
+	yin_chi = 2
 
 /area/vtm/interior/penumbra/enoch
 	name = "???"
-
+	yang_chi = 0
+	yin_chi = 4
 /area/vtm/interior/chantry
 	name = "Chantry"
 	icon_state = "theatre"
@@ -588,6 +612,8 @@
 	zone_type = "elysium"
 	music = /datum/vampiremusic/prince
 	fire_controled = TRUE
+	yang_chi = 0
+	yin_chi = 2
 	wall_rating = LOW_WALL_RATING // something-something safe house to the Shadowlands/Enoch?
 
 /area/vtm/interior/baali
@@ -596,6 +622,9 @@
 	zone_type = "elysium"
 	music = /datum/vampiremusic/prince
 	fire_controled = TRUE
+	yang_chi = 0
+	yin_chi = 2
+	demon_chi = 2
 	wall_rating = LOW_WALL_RATING // Holy "All hail Satan" Batman!
 
 /area/vtm/interior/salubri
@@ -604,6 +633,9 @@
 	zone_type = "elysium"
 	music = /datum/vampiremusic/prince
 	fire_controled = TRUE
+	yang_chi = 1
+	yin_chi = 1
+	demon_chi = -2
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/interior/banu
@@ -619,6 +651,8 @@
 	zone_type = "elysium"
 	music = /datum/vampiremusic/prince
 	fire_controled = TRUE
+	yang_chi = 0
+	yin_chi = 2
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/interior/tzimisce_manor
@@ -627,6 +661,8 @@
 	zone_type = "elysium"
 	music = /datum/vampiremusic/prince
 	wall_rating = HIGH_WALL_RATING
+	yang_chi = 0
+	yin_chi = 2
 
 /area/vtm/sewer/tzimisce_sanctum
 	name = "Clan Tzimisce Sanctum"
@@ -634,6 +670,8 @@
 	zone_type = "elysium"
 	music = /datum/vampiremusic/nosferatu
 	wall_rating = LOW_WALL_RATING
+	yang_chi = 1
+	yin_chi = 2
 
 /area/vtm/interior/setite
 	name = "Community Center"
@@ -641,6 +679,7 @@
 	upper = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
+	demon_chi = 1
 
 /area/vtm/interior/setite/basement
 	name = "Community Center Basement"

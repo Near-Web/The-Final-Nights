@@ -122,6 +122,7 @@
 	var/last_veil_adjusting = 0
 
 	var/celerity_visual = FALSE
+	var/black_wind_visual = FALSE
 	var/potential = 0
 
 	var/in_frenzy = FALSE
