@@ -25,16 +25,16 @@
 /datum/discipline_power/auspex/heightened_senses/activate()
 	. = ..()
 
-	ADD_TRAIT(owner, TRAIT_THERMAL_VISION, TRAIT_GENERIC)
 	ADD_TRAIT(owner, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
+	owner.client.view_size.zoomOut(1)
 
 	owner.update_sight()
 
 /datum/discipline_power/auspex/heightened_senses/deactivate()
 	. = ..()
 
-	REMOVE_TRAIT(owner, TRAIT_THERMAL_VISION, TRAIT_GENERIC)
 	REMOVE_TRAIT(owner, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
+	owner.client.view_size.zoomIn()
 
 	owner.update_sight()
 
