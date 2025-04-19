@@ -269,7 +269,7 @@
 		to_chat(user, "<span class='notice'>Your pinpointer fails to detect a signal.</span>")
 		return
 
-	var/A = input(user, "", "Pinpoint") as null|anything in sortList(beacons)
+	var/A = input(user, "", "Pinpoint") as null|anything in sort_list(beacons)
 	if(!A || QDELETED(src) || !user || !user.is_holding(src) || user.incapacitated())
 		return
 
@@ -427,3 +427,8 @@
 
 /obj/machinery/navbeacon/wayfinding/disposals
 	location = "Disposals"
+
+#undef COOLDOWN_SPAWN
+#undef COOLDOWN_INTERACT
+#undef COOLDOWN_SLOGAN
+#undef COOLDOWN_SPEW

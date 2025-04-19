@@ -1350,7 +1350,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if (check_rights_for(user.client, R_ADMIN))
 			bypass = TRUE
 
-		for(var/datum/job/job in sortList(SSjob.occupations, GLOBAL_PROC_REF(cmp_job_display_asc)))
+		for(var/datum/job/job in sort_list(SSjob.occupations, GLOBAL_PROC_REF(cmp_job_display_asc)))
 
 			index += 1
 			if((index >= limit) || (job.title in splitJobs))
@@ -1680,7 +1680,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				for(var/alternative_titles in J.alt_titles)
 					titles_list += alternative_titles
 				var/chosen_title
-				chosen_title = tgui_input_list(user, "Choose your job's title:", "Job Preference", sortList(titles_list))
+				chosen_title = tgui_input_list(user, "Choose your job's title:", "Job Preference", sort_list(titles_list))
 				if(chosen_title)
 					if(chosen_title == job_title)
 						if(alt_titles_preferences[job_title])
@@ -2043,7 +2043,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if (discipline.clan_restricted)
 							possible_new_disciplines -= discipline_type
 						qdel(discipline)
-					var/new_discipline = tgui_input_list(user, "Select your new Discipline", "Discipline Selection", sortList(possible_new_disciplines))
+					var/new_discipline = tgui_input_list(user, "Select your new Discipline", "Discipline Selection", sort_list(possible_new_disciplines))
 					if(new_discipline)
 						discipline_types += new_discipline
 						discipline_levels += 1
@@ -2055,7 +2055,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						return
 
 					var/list/possible_new_disciplines = subtypesof(/datum/discipline) - discipline_types - /datum/discipline/bloodheal
-					var/new_discipline = tgui_input_list(user, "Select your new Discipline", "Discipline Selection", sortList(possible_new_disciplines))
+					var/new_discipline = tgui_input_list(user, "Select your new Discipline", "Discipline Selection", sort_list(possible_new_disciplines))
 					if(new_discipline)
 						discipline_types += new_discipline
 						discipline_levels += 1
@@ -2091,7 +2091,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							if(initial(C.discipline_type) == "Chi")
 								if(has_chi_one)
 									possible_new_disciplines -= i
-					var/new_discipline = tgui_input_list(user, "Select your new Discipline", "Discipline Selection", sortList(possible_new_disciplines))
+					var/new_discipline = tgui_input_list(user, "Select your new Discipline", "Discipline Selection", sort_list(possible_new_disciplines))
 					if(new_discipline)
 						discipline_types += new_discipline
 						discipline_levels += 1
@@ -2103,7 +2103,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						return
 
 					var/list/colors = list("black", "gray", "red", "white", "ginger", "brown")
-					var/result = tgui_input_list(user, "Select fur color:", "Appearance Selection", sortList(colors))
+					var/result = tgui_input_list(user, "Select fur color:", "Appearance Selection", sort_list(colors))
 					if(result)
 						werewolf_color = result
 
@@ -2191,7 +2191,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						else
 							available_clans[V.name] += GLOB.clanes_list[i]
 						qdel(V)
-					var/result = tgui_input_list(user, "Select a clane", "Clane Selection", sortList(available_clans))
+					var/result = tgui_input_list(user, "Select a clane", "Clane Selection", sort_list(available_clans))
 					if(result)
 						var/newtype = GLOB.clanes_list[result]
 						clane = new newtype()
@@ -2208,7 +2208,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 									if (discipline.clan_restricted)
 										possible_new_disciplines -= discipline_type
 									qdel(discipline)
-								var/new_discipline = tgui_input_list(user, "Select a Discipline", "Discipline Selection", sortList(possible_new_disciplines))
+								var/new_discipline = tgui_input_list(user, "Select a Discipline", "Discipline Selection", sort_list(possible_new_disciplines))
 								if (new_discipline)
 									clane.clane_disciplines += new_discipline
 						for (var/i in 1 to clane.clane_disciplines.len)
@@ -2279,7 +2279,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(slotlocked || !(pref_species.id == "garou"))
 						return
 
-					var/new_tribe = tgui_input_list(user, "Choose your Tribe:", "Tribe", sortList(list("Wendigo", "Glasswalkers", "Black Spiral Dancers")))
+					var/new_tribe = tgui_input_list(user, "Choose your Tribe:", "Tribe", sort_list(list("Wendigo", "Glasswalkers", "Black Spiral Dancers")))
 					if (new_tribe)
 						tribe = new_tribe
 
@@ -2287,7 +2287,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(slotlocked || !(pref_species.id == "garou"))
 						return
 
-					var/new_breed = tgui_input_list(user, "Choose your Breed:", "Breed", sortList(list("Homid", "Metis", "Lupus")))
+					var/new_breed = tgui_input_list(user, "Choose your Breed:", "Breed", sort_list(list("Homid", "Metis", "Lupus")))
 					if (new_breed)
 						breed = new_breed
 
@@ -2302,7 +2302,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					for(var/i in subtypesof(/datum/archetype))
 						var/datum/archetype/the_archetype = i
 						archetypes[initial(the_archetype.name)] = i
-					var/result = tgui_input_list(user, "Select an archetype", "Attributes Selection", sortList(archetypes))
+					var/result = tgui_input_list(user, "Select an archetype", "Attributes Selection", sort_list(archetypes))
 					if(result)
 						archetype = archetypes[result]
 						var/datum/archetype/archetip = new archetype()
@@ -2373,7 +2373,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						available_paths[M.name] += GLOB.morality_list
 						qdel(M)
 
-					var/result = tgui_input_list(user, "Select a Path", "Path Selection", sortList(available_paths))
+					var/result = tgui_input_list(user, "Select a Path", "Path Selection", sort_list(available_paths))
 					if(result)
 						var/newtype = GLOB.morality_list[result]
 						morality_path = new newtype()
@@ -2407,7 +2407,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					for(var/i in subtypesof(/datum/dharma))
 						var/datum/dharma/dharma = i
 						dharmas += initial(dharma.name)
-					var/result = tgui_input_list(user, "Select Dharma", "Dharma", sortList(dharmas))
+					var/result = tgui_input_list(user, "Select Dharma", "Dharma", sort_list(dharmas))
 					if(result)
 						for(var/i in subtypesof(/datum/dharma))
 							var/datum/dharma/dharma = i
@@ -2423,7 +2423,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(slotlocked)
 						return
 					var/list/pos = list("Rebel", "Legalist", "Demon", "Monkey", "Fool")
-					var/result = tgui_input_list(user, "Select P'o", "P'o", sortList(pos))
+					var/result = tgui_input_list(user, "Select P'o", "P'o", sort_list(pos))
 					if(result)
 						po_type = result
 
@@ -2559,7 +2559,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						choose_species += key
 						qdel(selecting_species)
 
-					var/result = tgui_input_list(user, "Select a species", "Species Selection", sortList(choose_species))
+					var/result = tgui_input_list(user, "Select a species", "Species Selection", sort_list(choose_species))
 					if(result)
 						all_quirks.Cut()
 						SetQuirks(user)
@@ -2744,7 +2744,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							friendlyname += " (disabled)"
 						maplist[friendlyname] = VM.map_name
 					maplist[default] = null
-					var/pickedmap = input(user, "Choose your preferred map. This will be used to help weight random map selection.", "Character Preference")  as null|anything in sortList(maplist)
+					var/pickedmap = input(user, "Choose your preferred map. This will be used to help weight random map selection.", "Character Preference")  as null|anything in sort_list(maplist)
 					if (pickedmap)
 						preferred_map = maplist[pickedmap]
 
@@ -2755,7 +2755,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if(parent)
 							parent.fps = (clientfps < 0) ? RECOMMENDED_FPS : clientfps
 				if("ui")
-					var/pickedui = input(user, "Choose your UI style.", "Character Preference", UI_style)  as null|anything in sortList(GLOB.available_ui_styles)
+					var/pickedui = input(user, "Choose your UI style.", "Character Preference", UI_style)  as null|anything in sort_list(GLOB.available_ui_styles)
 					if(pickedui)
 						UI_style = pickedui
 						if (parent?.mob.hud_used)
@@ -2877,7 +2877,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if(!length(key_bindings[old_key]))
 							key_bindings -= old_key
 					key_bindings[full_key] += list(kb_name)
-					key_bindings[full_key] = sortList(key_bindings[full_key])
+					key_bindings[full_key] = sort_list(key_bindings[full_key])
 
 					user << browse(null, "window=capturekeypress")
 					user.client.set_macros()

@@ -595,7 +595,7 @@
 			for(var/i in C.network)
 				cameralist[i] = i
 	var/old_network = network
-	network = input(U, "Which network would you like to view?") as null|anything in sortList(cameralist)
+	network = input(U, "Which network would you like to view?") as null|anything in sort_list(cameralist)
 
 	if(!U.eyeobj)
 		U.view_core()
@@ -630,7 +630,7 @@
 				personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = t.fields["image"]//Pull names, rank, and image.
 
 			if(personnel_list.len)
-				input = input("Select a crew member:") as null|anything in sortList(personnel_list)
+				input = input("Select a crew member:") as null|anything in sort_list(personnel_list)
 				var/icon/character_icon = personnel_list[input]
 				if(character_icon)
 					qdel(holo_icon)//Clear old icon so we're not storing it in memory.
@@ -655,7 +655,7 @@
 			"spider" = 'icons/mob/animal.dmi'
 			)
 
-			input = input("Please select a hologram:") as null|anything in sortList(icon_list)
+			input = input("Please select a hologram:") as null|anything in sort_list(icon_list)
 			if(input)
 				qdel(holo_icon)
 				switch(input)
@@ -676,7 +676,7 @@
 				"clock" = 'icons/mob/ai.dmi'
 				)
 
-			input = input("Please select a hologram:") as null|anything in sortList(icon_list)
+			input = input("Please select a hologram:") as null|anything in sort_list(icon_list)
 			if(input)
 				qdel(holo_icon)
 				switch(input)
@@ -939,7 +939,7 @@
 		to_chat(src, "No usable AI shell beacons detected.")
 
 	if(!target || !(target in possible)) //If the AI is looking for a new shell, or its pre-selected shell is no longer valid
-		target = input(src, "Which body to control?") as null|anything in sortNames(possible)
+		target = input(src, "Which body to control?") as null|anything in sort_names(possible)
 
 	if (!target || target.stat == DEAD || target.deployed || !(!target.connected_ai ||(target.connected_ai == src)))
 		return

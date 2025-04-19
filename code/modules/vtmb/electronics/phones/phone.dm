@@ -362,7 +362,7 @@
 						if(CNT_REMOVE)
 							removing += CNT_REMOVE.name
 					if(length(removing) >= 1)
-						result = tgui_input_list(usr, "Select a contact", "Contact Selection", sortList(removing))
+						result = tgui_input_list(usr, "Select a contact", "Contact Selection", sort_list(removing))
 						if(result)
 							for(var/datum/phonecontact/CNT_REMOVE in contacts)
 								if(CNT_REMOVE.name == result)
@@ -373,7 +373,7 @@
 						if(CNTCT)
 							personal_contacts += CNTCT.name
 					if(length(personal_contacts) >= 1)
-						result = tgui_input_list(usr, "Select a contact", "Contact Selection", sortList(personal_contacts))
+						result = tgui_input_list(usr, "Select a contact", "Contact Selection", sort_list(personal_contacts))
 						if(result)
 							for(var/datum/phonecontact/CNTCT in contacts)
 								if(CNTCT.name == result)
@@ -401,7 +401,7 @@
 						if(CNT_UNBLOCK)
 							unblocking += CNT_UNBLOCK.name
 					if(length(unblocking) >= 1)
-						result = tgui_input_list(usr, "Select a blocked number", "Blocked Selection", sortList(unblocking))
+						result = tgui_input_list(usr, "Select a blocked number", "Blocked Selection", sort_list(unblocking))
 						if(result)
 							for(var/datum/phonecontact/CNT_UNBLOCK in blocked_contacts)
 								if(CNT_UNBLOCK.name == result)

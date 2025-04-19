@@ -149,7 +149,7 @@ GLOBAL_VAR_INIT(ghost_role_flags, (~0))
 //ie pais, posibrains
 #define GHOSTROLE_SILICONS			(1<<3)
 //ie mafia, ctf
-#define GHOSTROLE_MINIGAME 			(1<<4)
+#define GHOSTROLE_MINIGAME			(1<<4)
 
 //smite defines
 
@@ -167,3 +167,15 @@ GLOBAL_VAR_INIT(ghost_role_flags, (~0))
 /// Used in logging uses of admin verbs (and sometimes some non-admin or debug verbs) to the blackbox
 /// Only pass it a string key, the verb being used.
 #define BLACKBOX_LOG_ADMIN_VERB(the_verb) SSblackbox.record_feedback("tally", "admin_verb", 1, the_verb)
+
+//Migrated from deadchat_control.dm due to use outside local. Admin powers belong in adminstuff defines
+#define DEMOCRACY_MODE "democracy"
+#define ANARCHY_MODE "anarchy"
+
+//Migrated from interview.dm due to use outside local. This is used for the currently unused but existant ingame admin interview whitelisting subsystem
+/// State when an interview has been approved
+#define INTERVIEW_APPROVED	"interview_approved"
+/// State when an interview as been denied
+#define INTERVIEW_DENIED 	"interview_denied"
+/// State when an interview has had no action on it yet
+#define INTERVIEW_PENDING	"interview_pending"

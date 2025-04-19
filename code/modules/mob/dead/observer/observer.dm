@@ -700,7 +700,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(!(L in GLOB.player_list) && !L.mind)
 			possessible += L
 
-	var/mob/living/target = input("Your new life begins today!", "Possess Mob", null, null) as null|anything in sortNames(possessible)
+	var/mob/living/target = input("Your new life begins today!", "Possess Mob", null, null) as null|anything in sort_names(possessible)
 
 	if(!target)
 		return FALSE
