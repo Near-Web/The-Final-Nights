@@ -315,3 +315,6 @@
 
 //Trait for when a kindred turns on obfuscate. Supposed to make them invisible to normal sight.area
 #define TRAIT_OBFUSCATED "trait_obfuscated"
+
+//Stepping on glass shards immunity
+#define TRAIT_HARDENED_SOLES "trait_hardened_soles"
