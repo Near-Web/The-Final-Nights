@@ -43,3 +43,8 @@
 	locked = TRUE
 	lock_id = "cappadocian"
 	lockpick_difficulty = 8
+
+/obj/structure/vampdoor/wood/pentex/high_security
+	locked = TRUE
+	lock_id = "pentex"
+	lockpick_difficulty = 15
