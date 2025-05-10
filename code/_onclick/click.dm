@@ -62,7 +62,7 @@
  * * [mob/proc/UnarmedAttack] (atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves
  * * [atom/proc/attackby] (item,user) - used only when adjacent
  * * [obj/item/proc/afterattack] (atom,user,adjacent,params) - used both ranged and adjacent
- * * [mob/proc/RangedAttack] (atom,params) - used only ranged, only used for tk and laser eyes but could be changed
+ * * [mob/proc/RangedAttack] (atom,modifiers) - used only ranged, only used for tk and laser eyes but could be changed
  */
 
 /mob/proc/claw_swing()
@@ -133,22 +133,22 @@
 		return
 
 	var/list/modifiers = params2list(params)
-	if(modifiers["shift"] && modifiers["middle"])
-		ShiftMiddleClickOn(A)
-		return
-	if(modifiers["shift"] && modifiers["ctrl"])
-		CtrlShiftClickOn(A)
-		return
-	if(modifiers["middle"])
-		MiddleClickOn(A, params)
-		return
-	if(modifiers["shift"])
+	if(LAZYACCESS(modifiers, SHIFT_CLICK))
+		if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+			ShiftMiddleClickOn(A)
+			return
+		if(LAZYACCESS(modifiers, CTRL_CLICK))
+			CtrlShiftClickOn(A)
+			return
 		ShiftClickOn(A)
 		return
-	if(modifiers["alt"]) // alt and alt-gr (rightalt)
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+		MiddleClickOn(A, params)
+		return
+	if(LAZYACCESS(modifiers, ALT_CLICK)) // alt and alt-gr (rightalt)
 		AltClickOn(A)
 		return
-	if(modifiers["ctrl"])
+	if(LAZYACCESS(modifiers, CTRL_CLICK))
 		CtrlClickOn(A)
 		return
 
@@ -160,7 +160,7 @@
 	if(next_move > world.time) // in the year 2000...
 		return
 
-	if(!modifiers["catcher"] && A.IsObscured())
+	if(!LAZYACCESS(modifiers, "catcher") && A.IsObscured())
 		return
 
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
@@ -187,15 +187,9 @@
 			W.melee_attack_chain(src, A, params)
 		else
 			if(ismob(A))
-				if(isliving(src))
-					var/mob/living/L = src
-					if(L.melee_professional)
-						changeNext_move(CLICK_CD_RANGE)
-					else
-						changeNext_move(CLICK_CD_MELEE)
-				else
-					changeNext_move(CLICK_CD_MELEE)
-			UnarmedAttack(A)
+				changeNext_move(CLICK_CD_MELEE)
+
+			UnarmedAttack(A, FALSE, modifiers)
 		return
 
 	//Can't reach anything else in lockers or other weirdness
@@ -311,10 +305,12 @@
 			if(B)
 				W.melee_attack_chain(src, B, params)
 	else
-	//Standard reach turf to turf or reaching inside storage
-		if(CanReach(A,W))
-			if(W)
-				W.melee_attack_chain(src, A, params)
+		if(W)
+			if(LAZYACCESS(modifiers, RIGHT_CLICK))
+				var/after_attack_secondary_result = W.afterattack_secondary(A, src, FALSE, params)
+
+				if(after_attack_secondary_result == SECONDARY_ATTACK_CALL_NORMAL)
+					W.afterattack(A, src, FALSE, params)
 			else
 				if(ismob(A))
 					if(isliving(src))
@@ -327,13 +323,10 @@
 						changeNext_move(CLICK_CD_MELEE)
 				UnarmedAttack(A,1)
 		else
-			if(W)
-				W.afterattack(A,src,0,params)
+			if(LAZYACCESS(modifiers, RIGHT_CLICK))
+				ranged_secondary_attack(A, modifiers)
 			else
-				RangedAttack(A,params)
-
-	if(last_locc)
-		forceMove(last_locc)
+				RangedAttack(A,modifiers)
 
 /// Is the atom obscured by a PREVENT_CLICK_UNDER_1 object above it
 /atom/proc/IsObscured()
@@ -430,7 +423,10 @@
 
 
 /**
- * Translates into [atom/proc/attack_hand], etc.
+ * UnarmedAttack: The higest level of mob click chain discounting click itself.
+ *
+ * This handles, just "clicking on something" without an item. It translates
+ * into [atom/proc/attack_hand], [atom/proc/attack_animal] etc.
  *
  * Note: proximity_flag here is used to distinguish between normal usage (flag=1),
  * and usage when clicking on things telekinetically (flag=0).  This proc will
@@ -452,10 +448,18 @@
  * for things like ranged glove touches, spitting alien acid/neurotoxin,
  * animals lunging, etc.
  */
-/mob/proc/RangedAttack(atom/A, params)
-	if(SEND_SIGNAL(src, COMSIG_MOB_ATTACK_RANGED, A, params) & COMPONENT_CANCEL_ATTACK_CHAIN)
+/mob/proc/RangedAttack(atom/A, modifiers)
+	if(SEND_SIGNAL(src, COMSIG_MOB_ATTACK_RANGED, A, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TRUE
 
+/**
+ * Ranged secondary attack
+ *
+ * If the same conditions are met to trigger RangedAttack but it is
+ * instead initialized via a right click, this will trigger instead.
+ * Useful for mobs that have their abilities mapped to right click.
+ */
+/mob/proc/ranged_secondary_attack(atom/target, modifiers)
 
 /**
  * Middle click
@@ -507,14 +511,35 @@
 		ML.pulled(src)
 
 /mob/living/CtrlClick(mob/user)
-	if(ishuman(user) && Adjacent(user) && !user.incapacitated())
-		if(world.time < user.next_move)
-			return FALSE
-		var/mob/living/carbon/human/H = user
-		H.dna.species.grab(H, src, H.mind.martial_art)
-		H.changeNext_move(CLICK_CD_MELEE)
-	else
-		..()
+	if(!isliving(user) || !Adjacent(user) || user.incapacitated())
+		return ..()
+
+	if(world.time < user.next_move)
+		return FALSE
+
+	var/mob/living/user_living = user
+	if(user_living.apply_martial_art(src, null, is_grab=TRUE) == MARTIAL_ATTACK_SUCCESS)
+		user_living.changeNext_move(CLICK_CD_MELEE)
+		return TRUE
+
+	return ..()
+
+
+/mob/living/carbon/human/CtrlClick(mob/user)
+
+	if(!ishuman(user) ||!Adjacent(user) || user.incapacitated())
+		return ..()
+
+	if(world.time < user.next_move)
+		return FALSE
+
+	var/mob/living/carbon/human/human_user = user
+	if(human_user.dna.species.grab(human_user, src, human_user.mind.martial_art))
+		human_user.changeNext_move(CLICK_CD_MELEE)
+		return TRUE
+
+	return ..()
+
 /**
  * Alt click
  * Unused except for AI
@@ -626,11 +651,11 @@
 
 /atom/movable/screen/click_catcher/Click(location, control, params)
 	var/list/modifiers = params2list(params)
-	if(modifiers["middle"] && iscarbon(usr))
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		C.jump(C.loc) //Calls (jump) instead of swap_hand()
 	else
-		var/turf/T = params2turf(modifiers["screen-loc"], get_turf(usr.client ? usr.client.eye : usr), usr.client)
+		var/turf/T = params2turf(LAZYACCESS(modifiers, SCREEN_LOC), get_turf(usr.client ? usr.client.eye : usr), usr.client)
 		params += "&catcher=1"
 		if(T)
 			T.Click(location, control, params)
@@ -641,8 +666,8 @@
 	SEND_SIGNAL(src, COMSIG_MOUSE_SCROLL_ON, A, delta_x, delta_y, params)
 
 /mob/dead/observer/MouseWheelOn(atom/A, delta_x, delta_y, params)
-	var/list/modifier = params2list(params)
-	if(modifier["shift"])
+	var/list/modifiers = params2list(params)
+	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		var/view = 0
 		if(delta_y > 0)
 			view = -1
