@@ -133,3 +133,6 @@
 // Spans that use embedded tgui components:
 // Sorted alphabetically
 #define span_tooltip(tip, main_text) ("<span data-component=\"Tooltip\" data-content=\"" + tip + "\" class=\"tooltip\">" + main_text + "</span>")
+
+/// Handles text formatting for item use hints in examine text
+#define EXAMINE_HINT(text) ("<b>" + text + "</b>")
