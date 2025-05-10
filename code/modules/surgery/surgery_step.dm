@@ -78,7 +78,7 @@
 	if(implement_type)	//this means it isn't a require hand or any item step.
 		implement_speed_mod = implements[implement_type] / 100.0
 
-	speed_mod /= (get_location_modifier(target) * (1 + surgery.speed_modifier) * implement_speed_mod)
+	speed_mod /= (get_location_modifier(target) * (1 + surgery.speed_modifier) * implement_speed_mod) * target.mob_surgery_speed_mod
 	var/modded_time = time * speed_mod
 
 
@@ -149,21 +149,21 @@
 
 	if(require_all_chems)
 		. = TRUE
-		for(var/R in chems_needed)
-			if(!target.reagents.has_reagent(R))
+		for(var/reagent in chems_needed)
+			if(!target.reagents.has_reagent(reagent))
 				return FALSE
 	else
 		. = FALSE
-		for(var/R in chems_needed)
-			if(target.reagents.has_reagent(R))
+		for(var/reagent in chems_needed)
+			if(target.reagents.has_reagent(reagent))
 				return TRUE
 
 /datum/surgery_step/proc/get_chem_list()
 	if(!LAZYLEN(chems_needed))
 		return
 	var/list/chems = list()
-	for(var/R in chems_needed)
-		var/datum/reagent/temp = GLOB.chemical_reagents_list[R]
+	for(var/reagent in chems_needed)
+		var/datum/reagent/temp = GLOB.chemical_reagents_list[reagent]
 		if(temp)
 			var/chemname = temp.name
 			chems += chemname

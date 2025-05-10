@@ -55,6 +55,7 @@ There are several things that need to be remembered:
 //used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
 /mob/living/carbon/human/proc/update_mutant_bodyparts()
 	dna.species.handle_mutant_bodyparts(src)
+	update_body_parts() // basically a better and cooler handle_mutant_bodyparts (at least until handle_mutant_bodyparts is annihilated)
 
 /mob/living/carbon/human/update_body()
 	if(dna.species.id == "mannequin")
@@ -92,22 +93,8 @@ There are several things that need to be remembered:
 	update_inv_wear_suit()
 	update_inv_pockets()
 	update_inv_neck()
-//	update_body_parts_head_only()
 	remove_overlay(BODY_LAYER)
 	dna.species.handle_body(src)
-	/*
-	if(gender == MALE)
-		if(!given_penis)
-			var/obj/item/organ/replacement = new /obj/item/organ/penis()
-			replacement.Insert(src, TRUE, FALSE)
-			given_penis = TRUE
-	else
-		given_penis = FALSE
-		var/obj/item/organ/I = getorgan(/obj/item/organ/penis)
-		if(I)
-			I.Remove(src)
-			QDEL_NULL(I)
-	*/
 	..()
 
 /mob/living/carbon/human/update_fire()
@@ -618,6 +605,11 @@ generate/load female uniform sprites matching all previously decided variables
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X
 		. += "-[BP.body_zone]"
+
+		for(var/obj/item/organ/external/organ in BP.external_organs)
+			if(organ.can_draw_on_bodypart(src)) //make sure we're drawn before generating a key
+				. += "([organ.cache_key])"
+
 		if(BP.status == BODYPART_ORGANIC)
 			. += "-organic"
 		else
