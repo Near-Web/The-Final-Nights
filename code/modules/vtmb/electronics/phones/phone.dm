@@ -58,8 +58,13 @@
 	var/closed_state = "phone1"
 	var/folded_state = "phone0"
 
+	/// A list of contact networks to be added in. Order matters, as if members overlap they will only get the first contact.
+	var/list/datum/contact_networks/contact_networks = null
+	var/important_contact_of = null
+
 /obj/item/vamp/phone/Initialize()
-	. = ..()
+	. = INITIALIZE_HINT_LATELOAD
+	..()
 	RegisterSignal(src, COMSIG_MOVABLE_HEAR, PROC_REF(handle_hearing))
 	if(!number || number == "")
 		if(ishuman(loc))
@@ -73,11 +78,20 @@
 			if(H.Myself)
 				H.Myself.phone_number = number
 
+/obj/item/vamp/phone/LateInitialize()
+	. = ..()
+	for (var/datum/contact_networks/network as anything in contact_networks)
+		update_global_contacts(network)
+	if(important_contact_of && owner && number)
+		GLOB.important_contacts[important_contact_of] = new /datum/phonecontact(owner, number)
+
 /obj/item/vamp/phone/Destroy()
 	GLOB.phone_numbers_list -= number
 	GLOB.phones_list -= src
 	UnregisterSignal(src, COMSIG_MOVABLE_HEAR)
-	..()
+	for (var/datum/contact_networks/network as anything in contact_networks)
+		remove_from_phone_lists(network)
+	return ..()
 
 /obj/item/vamp/phone/attack_hand(mob/user)
 	. = ..()
@@ -378,9 +392,7 @@
 							for(var/datum/phonecontact/CNTCT in contacts)
 								if(CNTCT.name == result)
 									if(CNTCT.number == "")
-										CNTCT.check_global_contacts()
-										if(CNTCT.number == "")
-											to_chat(usr, "<span class='notice'>Sorry, [CNTCT.name] does not have a number.</span>")
+										to_chat(usr, "<span class='notice'>Sorry, [CNTCT.name] does not have a number.</span>")
 									choosed_number = CNTCT.number
 				if("Block")
 					var/block_number = tgui_input_text(usr, "Input phone number", "Block Number")
@@ -508,16 +520,6 @@
 	return FALSE
 
 
-/obj/item/vamp/phone/proc/add_important_contacts()
-	var/mob/living/L
-	if(isliving(loc))
-		L = loc
-	for(var/datum/phonecontact/PHNCNTCT in contacts)
-		if(PHNCNTCT)
-			if(PHNCNTCT.check_global_contacts())
-				if(L)
-					to_chat(L, "<span class='notice'>Some important contacts in your phone work again.</span>")
-
 /obj/item/vamp/phone/proc/Recall(obj/item/vamp/phone/abonent, mob/usar)
 	if(last_call+100 <= world.time && !talking)
 		last_call = 0
@@ -612,384 +614,340 @@
 
 /// Phone Types
 
+// CAMARILLA
+
 /obj/item/vamp/phone/prince
 	exchange_num = 267
 
 /obj/item/vamp/phone/prince/Initialize()
-	..()
-	GLOB.princenumber = number
-	GLOB.princename = owner
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/barkeeper/BARKEEPER = new()
-	contacts += BARKEEPER
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/dealer/DEALER = new()
-	contacts += DEALER
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/voivode/Z = new()
-	contacts += Z
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.millenium_tower_network, our_role = "C.E.O.")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Millenium Group C.E.O.")
+		)
+
+/obj/item/vamp/phone/seneschal
+	exchange_num = 267
+
+/obj/item/vamp/phone/seneschal/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.millenium_tower_network, our_role = "Vice President")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Millenium Group Vice President")
+		)
 
 /obj/item/vamp/phone/sheriff
 	exchange_num = 267
 
 /obj/item/vamp/phone/sheriff/Initialize()
-	..()
-	GLOB.sheriffnumber = number
-	GLOB.sheriffname = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/barkeeper/BARKEEPER = new()
-	contacts += BARKEEPER
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/dealer/DEALER = new()
-	contacts += DEALER
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/voivode/Z = new()
-	contacts += Z
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.millenium_tower_network, our_role = "Head of Security")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Millenium Group Head of Security")
+		)
 
-/obj/item/vamp/phone/clerk
+/obj/item/vamp/phone/harpy
 	exchange_num = 267
 
-/obj/item/vamp/phone/clerk/Initialize()
-	..()
-	GLOB.clerknumber = number
-	GLOB.clerkname = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/dealer/DEALER = new()
-	contacts += DEALER
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/voivode/Z = new()
-	contacts += Z
+/obj/item/vamp/phone/harpy/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.millenium_tower_network, our_role = "Public Relations")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Millenium Group Public Relations")
+		)
 
-/obj/item/vamp/phone/barkeeper
+/obj/item/vamp/phone/hound
+	exchange_num = 267
+
+/obj/item/vamp/phone/hound/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.millenium_tower_network, our_role = "Tower Security")
+		)
+
+/obj/item/vamp/phone/tower_employee
+	exchange_num = 267
+
+/obj/item/vamp/phone/tower_employee/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.millenium_tower_network, our_role = "Tower Employee")
+		)
+
+// VENTRUE
+
+/obj/item/vamp/phone/ventrue_primo
+	important_contact_of = CLAN_VENTRUE
+
+/obj/item/vamp/phone/ventrue_primo/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Crown Blue Jazz Club Owner")
+		)
+
+// TOREADOR
+
+/obj/item/vamp/phone/toreador_primo
+	important_contact_of = CLAN_TOREADOR
+
+/obj/item/vamp/phone/toreador_primo/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Rosebud Night Club Owner")
+		)
+
+// NOSFERATU
+
+/obj/item/vamp/phone/nosferatu_primo
+	important_contact_of = CLAN_NOSFERATU
+
+
+/obj/item/vamp/phone/nosferatu_primo/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Utility Administrator")
+		)
+
+// MALKAVIAN
+
+/obj/item/vamp/phone/malkavian_primo
+	important_contact_of = CLAN_MALKAVIAN
+
+/obj/item/vamp/phone/malkavian_primo/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Hospital Administrator")
+		)
+
+// LASOMBRA
+
+/obj/item/vamp/phone/lasombra_primo
+	important_contact_of = CLAN_LASOMBRA
+
+/obj/item/vamp/phone/lasombra_primo/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.lasombra_network, our_role = "Church Administrator")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Church Administrator")
+		)
+
+/obj/item/vamp/phone/lasombra_caretaker/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.lasombra_network, our_role = "Church Caretaker")
+		)
+
+// BANU HAQIM
+
+/obj/item/vamp/phone/banu_primo
+	important_contact_of = CLAN_BANU_HAQIM
+
+/obj/item/vamp/phone/banu_primo/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "SFPD Civilian Consultant")
+		)
+
+// TREMERE
+
+/obj/item/vamp/phone/tremere_regent
+	important_contact_of = CLAN_TREMERE
+
+/obj/item/vamp/phone/tremere_regent/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.tremere_network, our_role = "Library Manager")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Library Manager")
+		)
+
+/obj/item/vamp/phone/archivist/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.tremere_network, our_role = "Library Archivist")
+		)
+
+/obj/item/vamp/phone/gargoyle/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.tremere_network, our_role = "Library Maintenance")
+		)
+
+// GIOVANNI
+
+/obj/item/vamp/phone/giovanni_capo
+	important_contact_of = CLAN_GIOVANNI
+
+/obj/item/vamp/phone/giovanni_capo/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.giovanni_network, our_role = "Bank Manager")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Bank Manager")
+		)
+
+/obj/item/vamp/phone/giovanni_squadra/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.giovanni_network, our_role = "Bank Security")
+		)
+
+/obj/item/vamp/phone/giovanni_famiglia/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.giovanni_network, our_role = "Bank Employee")
+		)
+
+// TZMISCE
+
+/obj/item/vamp/phone/voivode
+	important_contact_of = CLAN_TZIMISCE
+
+/obj/item/vamp/phone/voivode/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.tzmisce_network, our_role = "Lord of the Manor")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Lord of the Manor")
+		)
+
+/obj/item/vamp/phone/bogatyr/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.tzmisce_network, our_role = "Resident of the Manor")
+		)
+
+/obj/item/vamp/phone/zadruga/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.tzmisce_network, our_role = "Servant of the Manor")
+		)
+
+// ANARCHS
+
+/obj/item/vamp/phone/baron
 	exchange_num = 485
 
-/obj/item/vamp/phone/barkeeper/Initialize()
-	..()
-	GLOB.barkeepernumber = number
-	GLOB.barkeepername = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/dealer/DEALER = new()
-	contacts += DEALER
-	var/datum/phonecontact/voivode/Z = new()
-	contacts += Z
+/obj/item/vamp/phone/baron/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.anarch_network, our_role = "Club Manager")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Anarchy Rose Manager")
+		)
+
+/obj/item/vamp/phone/emissary
+	exchange_num = 485
+
+/obj/item/vamp/phone/emissary/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.anarch_network, our_role = "Club Representative")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Anarchy Rose Representative")
+		)
+
+/obj/item/vamp/phone/bruiser
+	exchange_num = 485
+
+/obj/item/vamp/phone/bruiser/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.anarch_network, our_role = "Club Bouncer")
+		)
+
+/obj/item/vamp/phone/sweeper
+	exchange_num = 485
+
+/obj/item/vamp/phone/sweeper/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.anarch_network, our_role = "Club Bartender")
+		)
+
+// WAREHOUSE
 
 /obj/item/vamp/phone/dealer
 	exchange_num = 485
 
 /obj/item/vamp/phone/dealer/Initialize()
-	..()
-	GLOB.dealernumber = number
-	GLOB.dealername = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/barkeeper/BARKEEPER = new()
-	contacts += BARKEEPER
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.warehouse_network, our_role = "Warehouse Manager")
+		, new /datum/contact_networks(GLOB.vampire_leader_network, our_role = "Warehouse Manager")
+		)
 
-/obj/item/vamp/phone/supply_tech/Initialize()
-	..()
-	var/datum/phonecontact/dealer/DEALER = new()
-	contacts += DEALER
-
-/obj/item/vamp/phone/camarilla
-	exchange_num = 267
-
-/obj/item/vamp/phone/camarilla/Initialize()
-	..()
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
-
-/obj/item/vamp/phone/anarch
+/obj/item/vamp/phone/supply_tech
 	exchange_num = 485
 
-/obj/item/vamp/phone/anarch/Initialize()
-	..()
-	var/datum/phonecontact/barkeeper/BARKEEPER = new()
-	contacts += BARKEEPER
+/obj/item/vamp/phone/supply_tech/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.warehouse_network, our_role = "Supply Technician")
+		)
 
-/obj/item/vamp/phone/malkavian/Initialize()
-	..()
-	GLOB.malkaviannumber = number
-	GLOB.malkavianname = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
+// TRIADS
 
-/obj/item/vamp/phone/nosferatu/Initialize()
-	..()
-	GLOB.nosferatunumber = number
-	GLOB.nosferatuname = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
+/obj/item/vamp/phone/triads_soldier/Initialize()
+	. = ..()
+	contact_networks = list(
+		new /datum/contact_networks(GLOB.triads_network, our_role = "Chinatown Associate")
+		)
 
-/obj/item/vamp/phone/toreador/Initialize()
-	..()
-	GLOB.toreadornumber = number
-	GLOB.toreadorname = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
+// MISC PROCS
 
-/obj/item/vamp/phone/ventrue/Initialize()
-	..()
-	GLOB.ventruenumber = number
-	GLOB.ventruename = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
+/obj/item/vamp/phone/proc/update_global_contacts(datum/contact_networks/network)
+	var/datum/contact/our_contact = new(owner, number, network.our_role, WEAKREF(src))
 
-/obj/item/vamp/phone/tremere/Initialize()
-	..()
-	GLOB.tremerenumber = number
-	GLOB.tremerename = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
+	var/our_name = isnull(network.our_role) ? owner : "[owner] - [network.our_role]"
+	for (var/their_name in network.contacts)
+		if (their_name == owner)
+			continue
+		var/datum/contact/their_contact = network.contacts[their_name]
 
-/obj/item/vamp/phone/archivist/Initialize()
-	..()
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
+		var/obj/item/vamp/phone/their_phone = their_contact.phone_ref.resolve()
+		if (isnull(their_phone)) // Physical phone item was destroyed.
+			continue
+		
+		var/we_already_have_their_contact = FALSE
+		for (var/datum/phonecontact/phone_contact as anything in contacts)
+			if (phone_contact.number == their_phone.number)
+				we_already_have_their_contact = TRUE
+				break
+		if (!we_already_have_their_contact)
+			// We add their contact to our phone.
+			var/their_contact_name = isnull(their_contact.role) ? their_contact.name : "[their_contact.name] - [their_contact.role]"
+			contacts += new /datum/phonecontact(their_contact_name, their_contact.number)
 
-/obj/item/vamp/phone/lasombra/Initialize()
-	..()
-	GLOB.lasombranumber = number
-	GLOB.lasombraname = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
+		var/they_already_have_our_contact = FALSE
+		for (var/datum/phonecontact/phone_contact as anything in their_phone.contacts)
+			if (phone_contact.number == number)
+				they_already_have_our_contact = TRUE
+				break
+		if (!they_already_have_our_contact)
+			//We also add our contact to their phone.
+			their_phone.contacts += new /datum/phonecontact(our_name, our_contact.number)
+			if(isliving(their_phone.loc))
+				our_name
+				to_chat(their_phone.loc, span_notice("A phone contact works again: that of [our_name]."))
 
-/obj/item/vamp/phone/banu/Initialize()
-	..()
-	GLOB.banunumber = number
-	GLOB.banuname = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
+	network.contacts[owner] = our_contact
 
 
-/obj/item/vamp/phone/voivode/Initialize()
-	..()
-	GLOB.voivodenumber = number
-	GLOB.voivodename = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/sheriff/SHERIFF = new()
-	contacts += SHERIFF
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/barkeeper/BARKEEPER = new()
-	contacts += BARKEEPER
-	var/datum/phonecontact/harpy/H = new()
-	contacts += H
+/obj/item/vamp/phone/proc/remove_from_phone_lists(datum/contact_networks/network)
+	for (var/their_name in network.contacts)
+		var/datum/contact/their_contact = network.contacts[their_name]
 
-/obj/item/vamp/phone/harpy/Initialize()
-	..()
-	GLOB.harpynumber = number
-	GLOB.harpyname = owner
-	var/datum/phonecontact/prince/PRINCE = new()
-	contacts += PRINCE
-	var/datum/phonecontact/clerk/CLERK = new()
-	contacts += CLERK
-	var/datum/phonecontact/dealer/DEALER = new()
-	contacts += DEALER
-	var/datum/phonecontact/tremere/REGENT = new()
-	contacts += REGENT
-	var/datum/phonecontact/barkeeper/BARKEEPER = new()
-	contacts += BARKEEPER
-	var/datum/phonecontact/malkavian/M = new()
-	contacts += M
-	var/datum/phonecontact/nosferatu/N = new()
-	contacts += N
-	var/datum/phonecontact/toreador/T = new()
-	contacts += T
-	var/datum/phonecontact/lasombra/L = new()
-	contacts += L
-	var/datum/phonecontact/banu/B = new()
-	contacts += B
-	var/datum/phonecontact/voivode/Z = new()
-	contacts += Z
-	var/datum/phonecontact/ventrue/V = new()
-	contacts += V
+		var/obj/item/vamp/phone/their_phone = their_contact.phone_ref.resolve()
+		if (isnull(their_phone)) // Physical phone item was destroyed.
+			continue
+
+		for (var/datum/phonecontact/phone_contact as anything in their_phone.contacts)
+			if (phone_contact.number != number)
+				continue
+			their_phone.contacts -= phone_contact
+
+	var/datum/contact/our_contact = network.contacts[owner]
+	if (!isnull(our_contact) && our_contact.number == number)
+		our_contact.number = null
+		our_contact.phone_ref = null
+
+	if (important_contact_of)
+		our_contact = GLOB.important_contacts[important_contact_of]
+		if (!isnull(our_contact) && our_contact.number == number)
+			our_contact.number = null
