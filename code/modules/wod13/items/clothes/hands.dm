@@ -68,3 +68,9 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
+
+/obj/item/clothing/gloves/vampire/firstteam
+	name = "First Team gloves"
+	desc = "Provides protection from the good, the bad and the ugly."
+	icon_state = "ftgloves"
+	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 80, RAD = 80, FIRE = 80, ACID = 80)
