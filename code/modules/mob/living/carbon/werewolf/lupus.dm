@@ -27,8 +27,21 @@
 //		)
 	var/hispo = FALSE
 
+/mob/living/carbon/werewolf/lupus/corvid // yes, this is a subtype of lupus, god help us all
+	name = "corvid"
+	icon_state = "black"
+	icon = 'code/modules/wod13/corax_corvid.dmi'
+	verb_say = "caws"
+	verb_exclaim = "squawks"
+	verb_yell = "shrieks"
+	hud_type = /datum/hud/werewolf
+
+
 /datum/movespeed_modifier/lupusform
-	multiplicative_slowdown = -0.7
+	/*if(HAS_TRAIT(src, TRAIT_CORAX))
+		multiplicative_slowdown = 0.0 // you do not get bonuses for being a landed raven.
+	else*/
+		multiplicative_slowdown = -0.7
 
 /mob/living/carbon/werewolf/lupus/update_icons()
 	cut_overlays()
@@ -72,7 +85,7 @@
 		if(CheckEyewitness(src, src, 7, FALSE))
 			src.adjust_veil(-1,random = -1)
 	else
-		if(!(HAS_TRAIT(src, TRAIT_DOGWOLF)))
+		if(!(HAS_TRAIT(src, TRAIT_DOGWOLF) || !iscorax(src))) // ravens don't spook people
 			if(CheckEyewitness(src, src, 4, FALSE))
 				src.adjust_veil(-1,threshold = 4)
 	..()

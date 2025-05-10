@@ -80,6 +80,15 @@
 
 	var/assigned_quirks = FALSE
 
+/mob/living/carbon/werewolf/corax // the Corax variety of the Crinos form, a subtype of the main one
+	name = "Corax"
+	icon = 'code/modules/wod13/corax_crinos.dmi'
+	verb_say = "caws"
+	verb_exclaim = "squawks"
+	verb_yell = "shrieks"
+
+
+
 /mob/living/carbon/werewolf/update_resting()
 	if(resting)
 		ADD_TRAIT(src, TRAIT_IMMOBILIZED, RESTING_TRAIT)
@@ -192,6 +201,37 @@
 
 	werewolf_armor = 30
 
+/mob/living/carbon/werewolf/corax/corax_crinos // The specific stats for the Corax variation of Crinos
+	name = "corax"
+	icon_state = "black"
+	mob_size = MOB_SIZE_HUGE
+	butcher_results = list(/obj/item/food/meat/slab = 5)
+	possible_a_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
+	limb_destroyer = 1
+
+	hud_type = /datum/hud/werewolf
+	melee_damage_lower = 35
+	melee_damage_upper = 45 // less damage for were-ravens
+	health = 250
+	maxHealth = 250
+//	speed = -1  doesn't work on carbons
+	var/obj/item/r_store = null
+	var/obj/item/l_store = null
+	var/pounce_cooldown = 0
+	var/pounce_cooldown_time = 30
+	pixel_w = -8
+//	deathsound = 'sound/voice/hiss6.ogg'
+	bodyparts = list(
+		/obj/item/bodypart/chest/crinos,
+		/obj/item/bodypart/head/crinos,
+		/obj/item/bodypart/l_arm/crinos,
+		/obj/item/bodypart/r_arm/crinos,
+		/obj/item/bodypart/r_leg/crinos,
+		/obj/item/bodypart/l_leg/crinos,
+		)
+
+
+
 /datum/movespeed_modifier/crinosform
 	multiplicative_slowdown = -0.2
 
@@ -208,8 +248,11 @@
 /mob/living/carbon/werewolf/lupus/Initialize()
 	. = ..()
 	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_CLAW, 0.5, -11)
-	var/datum/action/gift/hispo/hispo = new()
-	hispo.Grant(src)
+	if(!iscorvid(src))
+		var/datum/action/gift/hispo/hispo = new()
+		hispo.Grant(src)
+
+
 
 /mob/living/carbon/werewolf/crinos/show_inv(mob/user)
 	user.set_machine(src)
@@ -232,6 +275,30 @@
 
 /mob/living/carbon/werewolf/crinos/can_hold_items(obj/item/I)
 	return TRUE
+
+/mob/living/carbon/werewolf/corax/corax_crinos/show_inv(mob/user)
+	user.set_machine(src)
+	var/list/dat = list()
+	dat += "<table>"
+	for(var/i in 1 to held_items.len)
+		var/obj/item/I = get_item_for_held_index(i)
+		dat += "<tr><td><B>[get_held_index_name(i)]:</B></td><td><A href='byond://?src=[REF(src)];item=[ITEM_SLOT_HANDS];hand_index=[i]'>[(I && !(I.item_flags & ABSTRACT)) ? I : "<font color=grey>Empty</font>"]</a></td></tr>"
+	dat += "</td></tr><tr><td>&nbsp;</td></tr>"
+	dat += "<tr><td><A href='byond://?src=[REF(src)];pouches=1'>Empty Pouches</A></td></tr>"
+
+	dat += {"</table>
+	<A href='byond://?src=[REF(user)];mach_close=mob[REF(src)]'>Close</A>
+	"}
+
+	var/datum/browser/popup = new(user, "mob[REF(src)]", "[src]", 440, 510)
+	popup.set_content(dat.Join())
+	popup.open()
+
+
+/mob/living/carbon/werewolf/corax/corax_crinos/can_hold_items(obj/item/I)
+	return TRUE
+
+
 
 /mob/living/carbon/werewolf/crinos/Topic(href, href_list)
 	//strip panel

@@ -47,6 +47,7 @@
 			//else if(auspice.rage == 0)
 			//	transformator.trans_gender(src, auspice.base_breed)
 
+
 			if(gaining_rage && client)
 				if(((last_rage_gain + RAGE_LIFE_COOLDOWN) < world.time) && (auspice.rage <= 6))
 					last_rage_gain = world.time
@@ -79,17 +80,17 @@
 			return
 
 	switch(auspice.tribe.name)
-		if("Galestalkers", "Ghost Council", "Hart Wardens", "Get of Fenris", "Black Furies", "Silent Striders", "Red Talons", "Silver Fangs", "Stargazers")
+		if("Galestalkers", "Ghost Council", "Hart Wardens", "Get of Fenris", "Black Furies", "Silent Striders", "Red Talons", "Silver Fangs", "Stargazers", "Corax")
 			if(istype(get_area(src), /area/vtm/forest))
 				adjust_veil(1, random = -1)
 				last_veil_restore = world.time
 
-		if("Bone Gnawers", "Children of Gaia", "Shadow Lords")
+		if("Bone Gnawers", "Children of Gaia", "Shadow Lords", "Corax")
 			if(istype(get_area(src), /area/vtm/interior/cog/caern))
 				adjust_veil(1, random = -1)
 				last_veil_restore = world.time
 
-		if("Glass Walkers")
+		if("Glass Walkers", "Corax")
 			if(istype(get_area(src), /area/vtm/interior/glasswalker))
 				adjust_veil(1, random = -1)
 				last_veil_restore = world.time
@@ -116,6 +117,12 @@
 	. = ..()
 	if(CheckEyewitness(src, src, 5, FALSE))
 		adjust_veil(-1, honoradj = -1)
+
+/mob/living/carbon/werewolf/corax/corax_crinos/Life() // realizing I screwed myself over by not making this a subtype, oh well.
+	. = ..()
+	if(CheckEyewitness(src, src, 5, FALSE))
+		adjust_veil(-1, honoradj = -1)
+
 
 /mob/living/carbon/werewolf/handle_status_effects()
 	..()
