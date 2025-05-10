@@ -2,7 +2,6 @@
 
 /obj/item/clothing
 	name = "clothing"
-	resistance_flags = FLAMMABLE
 	max_integrity = 200
 	integrity_failure = 0.4
 	var/damaged_clothes = CLOTHING_PRISTINE //similar to machine's BROKEN stat and structure's broken var
