@@ -9,6 +9,7 @@ And it also helps for the character set panel
 	var/desc = "The clanless. The rabble. Of no importance."
 	var/list/clane_disciplines = list() //discipline datums
 	var/list/restricted_disciplines = list()
+	var/list/common_disciplines = list() //Discs that you don't start with but are easier to purchase like catiff instead of non clan discs
 	var/datum/outfit/clane_outfit
 	var/curse = "None."
 	var/list/allowed_jobs = list()
@@ -33,6 +34,7 @@ And it also helps for the character set panel
 	var/accessories_layers = list()
 	var/current_accessory
 	var/clan_keys //Keys to your hideout
+	var/salubri = FALSE //used to determine if they're a Salubri or not for the Common Valeren Paths
 
 /datum/vampireclane/proc/on_gain(mob/living/carbon/human/H)
 	SHOULD_CALL_PARENT(TRUE)
