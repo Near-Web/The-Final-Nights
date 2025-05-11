@@ -1,17 +1,20 @@
 /datum/outfit/job/swat
 	name = "Swat Officer"
 	ears = /obj/item/p25radio/police/tactical
-	uniform = /obj/item/clothing/under/vampire/police/utility
+	uniform = /obj/item/clothing/under/vampire/police
 	mask = /obj/item/clothing/mask/vampire/balaclava
-	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
-	l_pocket = /obj/item/vamp/keys/hack
-	suit_store = /obj/item/flashlight/seclite
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/ammo_box/magazine/vamp556
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
-	belt = /obj/item/storage/belt/police/swat/full
-	suit = /obj/item/clothing/suit/vampire/vest
+	belt = /obj/item/gun/ballistic/automatic/vampire/ar15
+	suit = /obj/item/clothing/suit/vampire/vest/police
 	head = /obj/item/clothing/head/vampire/helmet
 	id = /obj/item/card/id/police
-	r_hand = /obj/item/gun/ballistic/automatic/vampire/ar15
+	backpack_contents = list(
+		/obj/item/ammo_box/magazine/vamp556 = 3,
+		/obj/item/radio/cop = 1,
+		/obj/item/vamp/keys/hack=2
+		)
 
 /datum/antagonist/swat/proc/equip_swat()
 	var/mob/living/carbon/human/H = owner.current

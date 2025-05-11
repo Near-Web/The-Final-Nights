@@ -234,11 +234,6 @@
 	desc = "The clothes of the boys in blue. Did you know that 44% of Cops have heard of Pentex? Google 44% of Cops for more information."
 	icon_state = "police"
 
-/obj/item/clothing/under/vampire/police/utility
-	name = "police fatigues"
-	desc = "The clothes of the boys in blue. Did you know that 44% of Cops have heard of Pentex? Google 44% of Cops for more information."
-	icon_state = "policeutil"
-
 /obj/item/clothing/under/vampire/guard
 	name = "security guard uniform"
 	desc = "Never let the stale, spongy cake of life keep you from getting to the tasty cream filling of success."
@@ -474,6 +469,11 @@
 	name = "Endron executive suitskirt"
 	desc = "A white designer suitskirt with a green dress shirt. This one has an Endron International tag on it!"
 	icon_state = "pentex_executiveskirt"
+
+/obj/item/clothing/under/pentex/firstteam_uniform
+	name = "First Team uniform"
+	desc = "A completely blacked out uniform with a large '1' symbol sewn onto the shoulder-pad."
+	icon_state = "ftuni"
 
 
 

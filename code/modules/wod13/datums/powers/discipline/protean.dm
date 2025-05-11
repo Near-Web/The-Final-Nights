@@ -28,11 +28,13 @@
 /datum/discipline_power/protean/eyes_of_the_beast/activate()
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_PROTEAN_VISION, TRAIT_GENERIC)
+	owner.add_client_colour(/datum/client_colour/glass_colour/red)
 	owner.update_sight()
 
 /datum/discipline_power/protean/eyes_of_the_beast/deactivate()
 	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_PROTEAN_VISION, TRAIT_GENERIC)
+	owner.remove_client_colour(/datum/client_colour/glass_colour/red)
 	owner.update_sight()
 
 //FERAL CLAWS
@@ -63,6 +65,7 @@
 	owner.drop_all_held_items()
 	owner.put_in_r_hand(new /obj/item/melee/vampirearms/knife/gangrel(owner))
 	owner.put_in_l_hand(new /obj/item/melee/vampirearms/knife/gangrel(owner))
+	owner.add_client_colour(/datum/client_colour/glass_colour/red)
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/protean2)
 
 /datum/discipline_power/protean/feral_claws/deactivate()

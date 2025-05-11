@@ -186,7 +186,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "bruiser_badge"
-	registered_name_is_public = FALSE
 
 /obj/item/card/id/sweeper
 	name = "sweeper badge"
@@ -200,7 +199,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "sweeper_badge"
-	registered_name_is_public = FALSE
 
 /obj/item/card/id/emissary
 	name = "emissary badge"
@@ -214,7 +212,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "emissary_badge"
-	registered_name_is_public = FALSE
 
 /obj/item/card/id/baron
 	name = "eagle badge"
@@ -228,7 +225,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "eagle_badge"
-	registered_name_is_public = FALSE
 
 /obj/item/card/id/clinic
 	name = "medical badge"
@@ -339,7 +335,6 @@
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "id11"
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_ID
-	registered_name_is_public = FALSE
 
 /obj/item/card/id/primogen
 	name = "mysterious primogen badge"
@@ -353,7 +348,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "id12"
-	registered_name_is_public = FALSE
 
 /obj/item/card/id/police
 	name = "police officer badge"
@@ -405,7 +399,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "id14"
-	registered_name_is_public = FALSE
 
 /obj/item/card/id/noddist
 	name = "cultist badge"
@@ -419,7 +412,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "id15"
-	registered_name_is_public = FALSE
 
 //TZIMISCE ROLES
 
@@ -435,7 +427,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "id12"
-	registered_name_is_public = FALSE
 
 /obj/item/card/id/bogatyr
 	name = "dusty badge"
@@ -449,7 +440,6 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	worn_icon = 'code/modules/wod13/worn.dmi'
 	worn_icon_state = "id12"
-	registered_name_is_public = FALSE
 
 // PRIMOGEN STAFF (Distributed in game by Primogen)
 
