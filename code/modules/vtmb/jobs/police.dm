@@ -36,7 +36,7 @@
 	belt = /obj/item/storage/belt/police/full
 	gloves = /obj/item/cockclock
 	id = /obj/item/card/id/police
-	l_pocket = /obj/item/vamp/phone
+	l_pocket = /obj/item/smartphone
 	r_pocket = /obj/item/vamp/keys/police
 	backpack_contents = list(/obj/item/passport=1, /obj/item/vamp/creditcard=1, /obj/item/restraints/handcuffs = 1,/obj/item/melee/classic_baton/vampire = 1, /obj/item/storage/firstaid/ifak = 1, /obj/item/reagent_containers/spray/pepper = 1, /obj/item/ammo_box/magazine/vamp45acp = 2)
 
@@ -76,7 +76,7 @@
 	belt = /obj/item/storage/belt/police/full
 	gloves = /obj/item/cockclock
 	id = /obj/item/card/id/police/sergeant
-	l_pocket = /obj/item/vamp/phone
+	l_pocket = /obj/item/smartphone
 	r_pocket = /obj/item/vamp/keys/police/secure
 	backpack_contents = list(/obj/item/passport=1, /obj/item/vamp/creditcard=1, /obj/item/restraints/handcuffs = 1,/obj/item/melee/classic_baton/vampire = 1, /obj/item/storage/firstaid/ifak = 1, /obj/item/reagent_containers/spray/pepper = 1, /obj/item/ammo_box/magazine/vamp45acp = 2)
 
@@ -115,7 +115,7 @@
 	belt = /obj/item/storage/belt/police/full
 	gloves = /obj/item/cockclock
 	id = /obj/item/card/id/police/chief
-	l_pocket = /obj/item/vamp/phone
+	l_pocket = /obj/item/smartphone
 	r_pocket = /obj/item/vamp/keys/police/secure/chief
 	backpack_contents = list(/obj/item/passport=1, /obj/item/vamp/creditcard=1, /obj/item/restraints/handcuffs = 1,/obj/item/melee/classic_baton/vampire = 1, /obj/item/storage/firstaid/ifak = 1, /obj/item/reagent_containers/spray/pepper = 1, /obj/item/ammo_box/magazine/vamp45acp = 2)
 

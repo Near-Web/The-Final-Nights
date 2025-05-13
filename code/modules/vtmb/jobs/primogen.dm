@@ -39,7 +39,7 @@
 	suit = /obj/item/clothing/suit/vampire/trench/malkav
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	head = /obj/item/clothing/head/vampire/malkav
-	l_pocket = /obj/item/vamp/phone/malkavian
+	l_pocket = /obj/item/smartphone/malkavian
 	r_pocket = /obj/item/cockclock
 	backpack_contents = list(/obj/item/vamp/keys/malkav/primogen=1, /obj/item/passport=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/elder=1, /obj/item/card/id/whip, /obj/item/card/id/steward, /obj/item/card/id/myrmidon)
 
@@ -91,7 +91,7 @@
 	uniform = /obj/item/clothing/under/vampire/suit
 	suit = /obj/item/clothing/suit/vampire/trench
 	shoes = /obj/item/clothing/shoes/vampire
-	l_pocket = /obj/item/vamp/phone/nosferatu
+	l_pocket = /obj/item/smartphone/nosferatu
 	r_pocket = /obj/item/cockclock
 	backpack_contents = list(/obj/item/vamp/keys/nosferatu/primogen=1, /obj/item/passport=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/elder=1, /obj/item/card/id/whip, /obj/item/card/id/steward, /obj/item/card/id/myrmidon)
 
@@ -139,7 +139,7 @@
 	uniform = /obj/item/clothing/under/vampire/suit
 	suit = /obj/item/clothing/suit/vampire/trench
 	shoes = /obj/item/clothing/shoes/vampire
-	l_pocket = /obj/item/vamp/phone/ventrue
+	l_pocket = /obj/item/smartphone/ventrue
 	r_pocket = /obj/item/cockclock
 	backpack_contents = list(/obj/item/vamp/keys/ventrue/primogen=1, /obj/item/passport=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/elder=1, /obj/item/card/id/whip, /obj/item/card/id/steward, /obj/item/card/id/myrmidon)
 
@@ -187,7 +187,7 @@
 	uniform = /obj/item/clothing/under/vampire/primogen_toreador
 	suit = /obj/item/clothing/suit/vampire/trench/alt
 	shoes = /obj/item/clothing/shoes/vampire
-	l_pocket = /obj/item/vamp/phone/toreador
+	l_pocket = /obj/item/smartphone/toreador
 	r_pocket = /obj/item/cockclock
 	backpack_contents = list(/obj/item/vamp/keys/toreador/primogen=1, /obj/item/passport=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/elder=1, /obj/item/card/id/whip, /obj/item/card/id/steward, /obj/item/card/id/myrmidon, /obj/item/gun/ballistic/automatic/vampire/beretta/toreador=1, /obj/item/ammo_box/magazine/semi9mm/toreador=1)
 
@@ -236,7 +236,7 @@
 	uniform = /obj/item/clothing/under/vampire/turtleneck_navy
 	suit = /obj/item/clothing/suit/vampire/vest
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
-	l_pocket = /obj/item/vamp/phone/banu
+	l_pocket = /obj/item/smartphone/banu
 	r_pocket = /obj/item/cockclock
 	backpack_contents = list(/obj/item/vamp/keys/banuhaqim/primogen=1, /obj/item/passport=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/elder=1, /obj/item/card/id/whip, /obj/item/card/id/steward, /obj/item/card/id/myrmidon)
 
@@ -283,7 +283,7 @@
 	uniform = /obj/item/clothing/under/vampire/turtleneck_black
 	suit = /obj/item/clothing/suit/vampire/trench
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
-	l_pocket = /obj/item/vamp/phone/lasombra
+	l_pocket = /obj/item/smartphone/lasombra
 	r_pocket = /obj/item/cockclock
 	backpack_contents = list(/obj/item/vamp/keys/lasombra/primogen=1,/obj/item/passport=1, /obj/item/vamp/creditcard/elder=1, /obj/item/card/id/whip, /obj/item/card/id/steward, /obj/item/card/id/myrmidon)
 
