@@ -6,7 +6,7 @@
 	ADD_TRAIT(puncher, TRAIT_PERFECT_ATTACKER, INNATE_TRAIT)
 
 	puncher.a_intent_change(INTENT_HARM)
-	victim.attack_hand(puncher)
+	victim.attack_hand(puncher, list(RIGHT_CLICK = FALSE))
 
 	TEST_ASSERT(victim.getBruteLoss() > 0, "Victim took no brute damage after being punched")
 
@@ -82,7 +82,7 @@
 
 	// First disarm, world should now look like:
 	// Attacker --> Empty space --> Victim --> Wall
-	victim.attack_hand(attacker)
+	victim.attack_hand(attacker, list(RIGHT_CLICK = TRUE))
 
 	TEST_ASSERT_EQUAL(victim.loc.x, run_loc_floor_bottom_left.x + 2, "Victim wasn't moved back after being pushed")
 	TEST_ASSERT(!victim.has_status_effect(STATUS_EFFECT_KNOCKDOWN), "Victim was knocked down despite not being against a wall")
@@ -91,8 +91,47 @@
 	attacker.forceMove(get_step(attacker, EAST))
 
 	// Second disarm, victim was against wall and should be down
-	victim.attack_hand(attacker)
+	victim.attack_hand(attacker, list(RIGHT_CLICK = TRUE))
 
 	TEST_ASSERT_EQUAL(victim.loc.x, run_loc_floor_bottom_left.x + 2, "Victim was moved after being pushed against a wall")
 	TEST_ASSERT(victim.has_status_effect(STATUS_EFFECT_KNOCKDOWN), "Victim was not knocked down after being pushed against a wall")
 	TEST_ASSERT_EQUAL(victim.get_active_held_item(), null, "Victim didn't drop toolbox after being pushed against a wall")
+
+/// Tests you can punch yourself
+/datum/unit_test/self_punch
+
+/datum/unit_test/self_punch/Run()
+	var/mob/living/carbon/human/dummy = allocate(/mob/living/carbon/human/consistent)
+	ADD_TRAIT(dummy, TRAIT_PERFECT_ATTACKER, TRAIT_SOURCE_UNIT_TESTS)
+	dummy.set_combat_mode(TRUE)
+	dummy.ClickOn(dummy)
+	TEST_ASSERT_NOTEQUAL(dummy.getBruteLoss(), 0, "Dummy took no brute damage after self-punching")
+
+/// Tests handcuffed (HANDS_BLOCKED) mobs cannot punch
+/datum/unit_test/handcuff_punch
+
+/datum/unit_test/handcuff_punch/Run()
+	var/mob/living/carbon/human/attacker = allocate(/mob/living/carbon/human/consistent)
+	var/mob/living/carbon/human/victim = allocate(/mob/living/carbon/human/consistent)
+	ADD_TRAIT(attacker, TRAIT_PERFECT_ATTACKER, TRAIT_SOURCE_UNIT_TESTS)
+	ADD_TRAIT(attacker, TRAIT_HANDS_BLOCKED, TRAIT_SOURCE_UNIT_TESTS)
+	attacker.set_combat_mode(TRUE)
+	attacker.ClickOn(victim)
+	TEST_ASSERT_EQUAL(victim.getBruteLoss(), 0, "Victim took brute damage from being punched by a handcuffed attacker")
+	attacker.next_move = -1
+	attacker.next_click = -1
+	attacker.ClickOn(attacker)
+	TEST_ASSERT_EQUAL(attacker.getBruteLoss(), 0, "Attacker took brute damage from self-punching while handcuffed")
+
+/// Tests handcuffed (HANDS_BLOCKED) monkeys can still bite despite being cuffed
+/datum/unit_test/handcuff_bite
+
+/datum/unit_test/handcuff_bite/Run()
+	var/mob/living/carbon/human/attacker = allocate(/mob/living/carbon/human/consistent)
+	var/mob/living/carbon/human/victim = allocate(/mob/living/carbon/human/consistent)
+	ADD_TRAIT(attacker, TRAIT_PERFECT_ATTACKER, TRAIT_SOURCE_UNIT_TESTS)
+	ADD_TRAIT(attacker, TRAIT_HANDS_BLOCKED, TRAIT_SOURCE_UNIT_TESTS)
+	attacker.set_combat_mode(TRUE)
+	attacker.set_species(/datum/species/monkey)
+	attacker.ClickOn(victim)
+	TEST_ASSERT_NOTEQUAL(victim.getBruteLoss(), 0, "Victim took no brute damage from being bit by a handcuffed monkey, which is incorrect, as it's a bite attack")

@@ -88,7 +88,10 @@
 		return
 	var/mob/living/silicon/pai/pAI = usr
 	if(iscarbon(pAI.card.loc))
-		pAI.hostscan.attack(pAI.card.loc, pAI)
+		if (LAZYACCESS(modifiers, RIGHT_CLICK))
+			pAI.hostscan.attack_secondary(pAI.card.loc, pAI)
+		else
+			pAI.hostscan.attack(pAI.card.loc, pAI)
 	else
 		to_chat(src, "<span class='warning'>You are not being carried by anyone!</span>")
 		return FALSE
@@ -142,7 +145,8 @@
 	required_software = "photography module"
 
 /atom/movable/screen/pai/image_take/Click()
-	if(!..())
+	. = ..()
+	if(!.)
 		return
 	var/mob/living/silicon/pai/pAI = usr
 	pAI.aicamera.toggle_camera_mode(usr)

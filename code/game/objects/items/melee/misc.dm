@@ -1,13 +1,6 @@
+// Deprecated, you do not need to use this type for melee weapons.
 /obj/item/melee
 	item_flags = NEEDS_PERMIT
-
-/obj/item/melee/proc/check_martial_counter(mob/living/carbon/human/target, mob/living/carbon/human/user)
-	if(target.check_block())
-		target.visible_message("<span class='danger'>[target.name] blocks [src] and twists [user]'s arm behind [user.p_their()] back!</span>",
-					"<span class='userdanger'>You block the attack!</span>")
-		user.Stun(40)
-		return TRUE
-
 
 /obj/item/melee/chainofcommand
 	name = "chain of command"
@@ -151,6 +144,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_EDGED
 	throwforce = 10
+	attack_speed = CLICK_CD_RAPID
 	block_chance = 20
 	armour_penetration = 65
 	attack_verb_continuous = list("slashes", "stings", "prickles", "pokes")
@@ -161,7 +155,6 @@
 	. = ..()
 	if(!proximity)
 		return
-	user.changeNext_move(CLICK_CD_RAPID)
 	if(iscarbon(target))
 		var/mob/living/carbon/H = target
 		H.reagents.add_reagent(/datum/reagent/toxin, 4)
@@ -284,8 +277,19 @@
 		return
 	if(!isliving(target))
 		return
-	if (user.a_intent == INTENT_HARM)
-		if(!..())
+	var/list/modifiers = params2list(params)
+
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		..()
+		return
+	if(cooldown_check > world.time)
+		var/wait_desc = get_wait_description()
+		if (wait_desc)
+			to_chat(user, wait_desc)
+		return
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		if (H.check_shields(src, 0, "[user]'s [name]", MELEE_ATTACK))
 			return
 		if(!iscyborg(target))
 			return
