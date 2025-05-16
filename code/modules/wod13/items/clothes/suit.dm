@@ -250,6 +250,7 @@
 /obj/item/clothing/suit/vampire/jacket/punk
 	icon_state = "punk"
 	armor = list(MELEE = 50, BULLET = 50, LASER = 10, ENERGY = 10, BOMB = 50, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
+	equip_delay_self = 5 SECONDS
 
 /obj/item/clothing/suit/vampire/jacket/better
 	name = "brown leather jacket"
@@ -259,6 +260,7 @@
 /obj/item/clothing/suit/vampire/jacket/better/armored
 	name = "armored leather jacket"
 	armor = list(MELEE = 45, BULLET = 45, LASER = 10, ENERGY = 10, BOMB = 35, BIO = 0, RAD = 0, FIRE = 45, ACID = 10,WOUND = 35);
+	equip_delay_self = 4.5 SECONDS
 
 /obj/item/clothing/suit/vampire/trench
 	name = "trenchcoat"
@@ -294,12 +296,14 @@
 	icon_state = "trench_tzi"
 	armor = list(MELEE = 50, BULLET = 50, LASER = 10, ENERGY = 10, BOMB = 25, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 50)
 	clothing_traits = list(TRAIT_UNMASQUERADE)
+	equip_delay_self = 5 SECONDS
 
 /obj/item/clothing/suit/vampire/trench/voivode
 	name = "regal coat"
 	desc = "A beautiful jacket. Whoever owns this must be important."
 	icon_state = "voicoat"
 	armor = list(MELEE = 60, BULLET = 60, LASER = 10, ENERGY = 10, BOMB = 55, BIO = 0, RAD = 0, FIRE = 45, ACID = 10, WOUND = 25)
+	equip_delay_self = 6 SECONDS
 
 /obj/item/clothing/suit/vampire/vest
 	name = "bulletproof vest"
@@ -312,6 +316,7 @@
 		/obj/item/melee/classic_baton/vampire,
 		/obj/item/restraints/handcuffs
 	)
+	equip_delay_self = 5.5 SECONDS
 
 /obj/item/clothing/suit/vampire/vest/medieval
 	name = "medieval vest"
@@ -350,6 +355,7 @@
 	armor = list(MELEE = 70, BULLET = 70, LASER = 10, ENERGY = 10, BOMB = 55, BIO = 0, RAD = 0, FIRE = 45, ACID = 10, WOUND = 25)
 //	clothing_traits = list(TRAIT_UNMASQUERADE)
 	masquerade_violating = TRUE
+	equip_delay_self = 7 SECONDS
 
 /obj/item/clothing/suit/vampire/eod
 	name = "EOD suit"
@@ -365,6 +371,7 @@
 	armor = list(MELEE = 90, BULLET = 90, LASER = 50, ENERGY = 50, BOMB = 100, BIO = 0, RAD = 0, FIRE = 70, ACID = 90, WOUND = 50)
 //	clothing_traits = list(TRAIT_UNMASQUERADE)
 	masquerade_violating = TRUE
+	equip_delay_self = 9 SECONDS
 
 /obj/item/clothing/suit/vampire/bogatyr
 	name = "bogatyr armor"
@@ -379,6 +386,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	armor = list(MELEE = 75, BULLET = 75, LASER = 15, ENERGY = 15, BOMB = 20, BIO = 0, RAD = 0, FIRE = 55, ACID = 70, WOUND = 35)
 //	clothing_traits = list(TRAIT_UNMASQUERADE)
+	equip_delay_self = 7.5 SECONDS
 
 /obj/item/clothing/suit/vampire/labcoat
 	name = "labcoat"
