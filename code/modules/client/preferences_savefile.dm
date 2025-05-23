@@ -5,7 +5,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	40
+#define SAVEFILE_VERSION_MAX	41
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -91,6 +91,23 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if(current_version < 40)
 		player_experience += true_experience
 		true_experience = 0
+	if(current_version < 41) //Gargoyles were changed from a clan to a species. Set their default subtype as well.
+		var/clane_id
+		READ_FILE(S["clane"], clane_id)
+		if(clane_id == "Gargoyle")
+			var/species_id
+			READ_FILE(S["species"], species_id)
+			species_id = "gargoyle"
+			var/new_species = GLOB.species_list[species_id]
+			if(new_species)
+				pref_species = new new_species
+
+			clane_id = "Sentinel"
+			var/new_clan = GLOB.clanes_list[clane_id]
+			if(new_clan)
+				clane = new new_clan
+			WRITE_FILE(S["clane"], clane.name)
+			WRITE_FILE(S["species"], species_id)
 
 /// checks through keybindings for outdated unbound keys and updates them
 /datum/preferences/proc/check_keybindings()

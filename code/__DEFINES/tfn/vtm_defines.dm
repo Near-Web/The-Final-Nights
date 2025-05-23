@@ -19,6 +19,8 @@
 /// The default generation everyone begins at
 #define DEFAULT_GENERATION 13
 
+#define LOWEST_GARGOYLE_GENERATION 8
+
 //Rank definitions.
 
 #define MAX_PUBLIC_RANK 4
@@ -51,10 +53,12 @@
 #define CLAN_SETITES "Ministry"
 #define CLAN_BANU_HAQIM "Banu Haqim"
 #define CLAN_GIOVANNI "Giovanni"
-#define CLAN_GARGOYLE "Gargoyle"
 #define CLAN_DAUGHTERS_OF_CACOPHONY "Daughters of Cacophony"
 #define CLAN_CAPPADOCIAN "Cappadocian"
 #define CLAN_NAGARAJA "Nagaraja"
+#define CLAN_GARGOYLE_SCOUT "Scout"
+#define CLAN_GARGOYLE_SENTINEL "Sentinel"
+#define CLAN_GARGOYLE_WARRIOR "Warrior"
 
 /**
  * Auspex aura defines

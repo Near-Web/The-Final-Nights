@@ -576,6 +576,29 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += "<BR>"
 				if("Ghoul")
 					dat += "<b>Masquerade:</b> [masquerade]/5<BR>"
+				if("Gargoyle")
+					dat += "<b>Masquerade:</b> [masquerade]/5<BR>"
+					dat += "<b>Generation:</b> [generation]"
+					var/generation_allowed = TRUE
+					if(clane?.name == CLAN_NONE)
+						generation_allowed = FALSE
+					if(generation_allowed)
+						if(SSwhitelists.is_whitelisted(user.ckey, TRUSTED_PLAYER))
+							if(generation_bonus)
+								dat += " (+[generation_bonus]/[min(LOWEST_GARGOYLE_GENERATION-1, generation-LOWEST_GARGOYLE_GENERATION)])"
+							if(player_experience >= 20 && generation_bonus < max(0, generation-LOWEST_GARGOYLE_GENERATION))
+								dat += " <a href='byond://?_src_=prefs;preference=generation;task=input'>Claim generation bonus (20)</a><BR>"
+							else
+								dat += "<BR>"
+						else
+							if(generation_bonus)
+								dat += " (+[generation_bonus]/[min(MAX_PUBLIC_GENERATION-1, generation-MAX_PUBLIC_GENERATION)])"
+							if(player_experience >= 20 && generation_bonus < max(0, generation-MAX_PUBLIC_GENERATION))
+								dat += " <a href='byond://?_src_=prefs;preference=generation;task=input'>Claim generation bonus (20)</a><BR>"
+							else
+								dat += "<BR>"
+					else
+						dat += "<BR>"
 
 			dat += "<h2>[make_font_cool("ATTRIBUTES")]</h2>"
 
@@ -725,7 +748,44 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						qdel(discipline)
 					if (possible_new_disciplines.len && (player_experience >= 10))
 						dat += "<a href='byond://?_src_=prefs;preference=newdiscipline;task=input'>Learn a new Discipline (10)</a><BR>"
+			if(pref_species.name == "Gargoyle")
+				dat += "<h2>[make_font_cool("CLANE")]</h2>"
+				dat += "<b>Subtype:</b> <a href='byond://?_src_=prefs;preference=subtype;task=input'>[clane.name]</a><BR>"
+				dat += "<b>Description:</b> [clane.desc]<BR>"
+				dat += "<b>Curse:</b> [clane.curse]<BR>"
+				if(length(clane.accessories))
+					if(clane_accessory in clane.accessories)
+						dat += "<b>Marks:</b> <a href='byond://?_src_=prefs;preference=clane_acc;task=input'>[clane_accessory]</a><BR>"
+					else
+						if("none" in clane_accessory)
+							clane_accessory = "none"
+						else
+							clane_accessory = pick(clane.accessories)
+						dat += "<b>Marks:</b> <a href='byond://?_src_=prefs;preference=clane_acc;task=input'>[clane_accessory]</a><BR>"
+				else
+					clane_accessory = null
+				dat += "<h2>[make_font_cool("DISCIPLINES")]</h2>"
 
+				for (var/i in 1 to discipline_types.len)
+					var/discipline_type = discipline_types[i]
+					var/datum/discipline/discipline = new discipline_type
+					var/discipline_level = discipline_levels[i]
+
+					var/cost
+					if (discipline_level <= 0)
+						cost = 10
+					else if (clane.clane_disciplines.Find(discipline_type))
+						cost = discipline_level * 5
+					else
+						cost = discipline_level * 7
+
+					dat += "<b>[discipline.name]</b>: [discipline_level > 0 ? "•" : "o"][discipline_level > 1 ? "•" : "o"][discipline_level > 2 ? "•" : "o"][discipline_level > 3 ? "•" : "o"][discipline_level > 4 ? "•" : "o"]([discipline_level])"
+					if((player_experience >= cost) && (discipline_level != 5))
+						dat += "<a href='byond://?_src_=prefs;preference=discipline;task=input;upgradediscipline=[i]'>Learn ([cost])</a><BR>"
+					else
+						dat += "<BR>"
+					dat += "-[discipline.desc]<BR>"
+					qdel(discipline)
 			if(pref_species.name == "Ghoul")
 				for (var/i in 1 to discipline_types.len)
 					var/discipline_type = discipline_types[i]
@@ -1103,9 +1163,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<a href='byond://?_src_=prefs;preference=phobia;task=input'>[phobia]</a><BR>"
 
-			if(CONFIG_GET(flag/join_with_mutant_humans))
-
-				if(pref_species.mutant_bodyparts["wings"] && GLOB.r_wings_list.len >1)
+			if(pref_species.mutant_bodyparts["wings"] && GLOB.r_wings_list.len >1)
+				if(pref_species.id == "gargoyle")
 					if(!mutant_category)
 						dat += APPEARANCE_CATEGORY_COLUMN
 
@@ -1587,43 +1646,53 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(!job.allowed_species.Find(pref_species.name) && !bypass)
 				HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[pref_species.name] RESTRICTED\]</font></td></tr>"
 				continue
-			if(pref_species.name == "Vampire")
-				if(clane)
-					var/alloww = FALSE
-					for(var/i in job.allowed_bloodlines)
-						if(i == clane.name)
-							alloww = TRUE
-					if(!alloww && !bypass)
-						HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[clane.name] RESTRICTED\]</font></td></tr>"
-						continue
-			if(pref_species.name == "Werewolf")
-				if(tribe)
-					var/alloww = FALSE
-					if(job.allowed_tribes.len)
-						for(var/i in job.allowed_tribes)
-							if(i == tribe.name)
+			switch(pref_species.id)
+				if("kindred")
+					if(clane)
+						var/alloww = FALSE
+						for(var/i in job.allowed_bloodlines)
+							if(i == clane.name)
 								alloww = TRUE
-					else
-						alloww = TRUE
-
-					if(!alloww && !bypass)
-						HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[tribe.name] RESTRICTED\]</font></td></tr>"
-						continue
-				if(auspice)
-					var/alloww = FALSE
-					for(var/i in job.allowed_auspice)
-						if(i == auspice.name)
+						if(!alloww && !bypass)
+							HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[clane.name] RESTRICTED\]</font></td></tr>"
+							continue
+				if("gargoyle")
+					if(clane)
+						var/alloww = FALSE
+						for(var/i in job.allowed_gargoyle_subtypes)
+							if(i == clane.name)
+								alloww = TRUE
+						if(!alloww && !bypass)
+							HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[clane.name] RESTRICTED\]</font></td></tr>"
+							continue
+				if("garou")
+					if(tribe)
+						var/alloww = FALSE
+						if(job.allowed_tribes.len)
+							for(var/i in job.allowed_tribes)
+								if(i == tribe.name)
+									alloww = TRUE
+						else
 							alloww = TRUE
-					if(!alloww && !bypass)
-						HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[auspice.name] RESTRICTED\]</font></td></tr>"
+
+						if(!alloww && !bypass)
+							HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[tribe.name] RESTRICTED\]</font></td></tr>"
+							continue
+					if(auspice)
+						var/alloww = FALSE
+						for(var/i in job.allowed_auspice)
+							if(i == auspice.name)
+								alloww = TRUE
+						if(!alloww && !bypass)
+							HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[auspice.name] RESTRICTED\]</font></td></tr>"
+							continue
+					var/renownlowed = TRUE
+					if(job.minimal_renownrank)
+						if((renownrank < job.minimal_renownrank) && !bypass)
+							renownlowed = FALSE
+					if(!renownlowed && !bypass)
+						HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[job.minimal_renownrank] RENOWN RANK REQUIRED\]</font></td></tr>"
 						continue
-				var/renownlowed = TRUE
-				if(job.minimal_renownrank)
-					if((renownrank < job.minimal_renownrank) && !bypass)
-						renownlowed = FALSE
-				if(!renownlowed && !bypass)
-					HTML += "<font color=#290204>[rank]</font></td><td><font color=#290204> \[[job.minimal_renownrank] RENOWN RANK REQUIRED\]</font></td></tr>"
-					continue
 			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
 				HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
 				continue
@@ -2444,9 +2513,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						auspice = Auspic
 
 				if("clane_acc")
-					if(pref_species.id != "kindred")	//Due to a lot of people being locked to furries
-						return
-
 					if(!length(clane.accessories))
 						clane_accessory = null
 						return
@@ -2455,7 +2521,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						clane_accessory = result
 
 				if("clane")
-					if(slotlocked || !(pref_species.id == "kindred"))
+					if(slotlocked)
 						return
 
 					if (tgui_alert(user, "Are you sure you want to change your Clan? This will reset your Disciplines.", "Confirmation", list("Yes", "No")) != "Yes")
@@ -2518,7 +2584,38 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 								clane_accessory = "none"
 							else
 								clane_accessory = pick(clane.accessories)
+				if("subtype")
+					if(slotlocked)
+						return
 
+					if (tgui_alert(user, "Are you sure you want to change your Subtype? This will reset your Disciplines.", "Confirmation", list("Yes", "No")) != "Yes")
+						return
+
+					var/list/available_subtypes = list()
+					for(var/datum/vampireclane/clans as anything in subtypesof(/datum/vampireclane/gargoyle))
+						if (clans.whitelisted)
+							if (SSwhitelists.is_whitelisted(user.ckey, clans.name))
+								available_subtypes += clans.name
+						else
+							available_subtypes += clans.name
+					var/result = tgui_input_list(user, "Select a subtype", "Subtype Selection", sort_list(available_subtypes))
+					if(result)
+						var/newtype = GLOB.clanes_list[result]
+						clane = new newtype()
+						discipline_types = list()
+						discipline_levels = list()
+						for (var/i in 1 to clane.clane_disciplines.len)
+							discipline_types += clane.clane_disciplines[i]
+							discipline_levels += 1
+						if(clane.no_hair)
+							hairstyle = "Bald"
+						if(clane.no_facial)
+							facial_hairstyle = "Shaved"
+						if(length(clane.accessories))
+							if("none" in clane.accessories)
+								clane_accessory = "none"
+							else
+								clane_accessory = pick(clane.accessories)
 				if("derangement")
 
 					if(!(pref_species.id == "kindred" ) || clane.name != CLAN_MALKAVIAN)
@@ -2617,39 +2714,40 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						athletics = archetip.start_athletics
 
 				if("discipline")
-					if(pref_species.id == "kindred")
-						var/i = text2num(href_list["upgradediscipline"])
+					switch(pref_species.id)
+						if("kindred", "gargoyle")
+							var/i = text2num(href_list["upgradediscipline"])
 
-						var/discipline_level = discipline_levels[i]
-						var/cost = discipline_level * 7
-						if (discipline_level <= 0)
-							cost = 10
-						else if (clane.name == "Caitiff")
-							cost = discipline_level * 6
-						else if (clane.clane_disciplines.Find(discipline_types[i]))
-							cost = discipline_level * 5
+							var/discipline_level = discipline_levels[i]
+							var/cost = discipline_level * 7
+							if (discipline_level <= 0)
+								cost = 10
+							else if (clane.name == "Caitiff")
+								cost = discipline_level * 6
+							else if (clane.clane_disciplines.Find(discipline_types[i]))
+								cost = discipline_level * 5
 
-						if ((player_experience < cost) || (discipline_level >= 5))
-							return
+							if ((player_experience < cost) || (discipline_level >= 5))
+								return
 
-						player_experience -= cost
-						experience_used_on_character += cost
-						discipline_levels[i] = min(5, max(1, discipline_levels[i] + 1))
+							player_experience -= cost
+							experience_used_on_character += cost
+							discipline_levels[i] = min(5, max(1, discipline_levels[i] + 1))
 
-					if(pref_species.id == "kuei-jin")
-						var/a = text2num(href_list["upgradechidiscipline"])
+						if("kuei-jin")
+							var/a = text2num(href_list["upgradechidiscipline"])
 
-						var/discipline_level = discipline_levels[a]
-						var/cost = discipline_level * 6
-						if (discipline_level <= 0)
-							cost = 10
+							var/discipline_level = discipline_levels[a]
+							var/cost = discipline_level * 6
+							if (discipline_level <= 0)
+								cost = 10
 
-						if ((player_experience < cost) || (discipline_level >= 5))
-							return
+							if ((player_experience < cost) || (discipline_level >= 5))
+								return
 
-						player_experience -= cost
-						experience_used_on_character += cost
-						discipline_levels[a] = min(5, max(1, discipline_levels[a] + 1))
+							player_experience -= cost
+							experience_used_on_character += cost
+							discipline_levels[a] = min(5, max(1, discipline_levels[a] + 1))
 
 				if("path")
 					var/cost = max(2, path_score * 2)
@@ -2904,6 +3002,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 								for (var/i in 1 to clane.clane_disciplines.len)
 									discipline_types += clane.clane_disciplines[i]
 									discipline_levels += 1
+							if("gargoyle")
+								qdel(clane)
+								clane = new /datum/vampireclane/gargoyle/sentinel()
+								discipline_types.Cut()
+								discipline_levels.Cut()
+								for (var/i in 1 to clane.clane_disciplines.len)
+									discipline_types += clane.clane_disciplines[i]
+									discipline_levels += 1
 						//Now that we changed our species, we must verify that the mutant colour is still allowed.
 						var/temp_hsv = RGBtoHSV(features["mcolor"])
 						if(features["mcolor"] == "#000" || (!(MUTCOLORS_PARTSONLY in pref_species.species_traits) && ReadHSV(temp_hsv)[3] < ReadHSV("#7F7F7F")[3]))
@@ -2963,7 +3069,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("wings")
 					var/new_wings
-					new_wings = input(user, "Choose your character's wings:", "Character Preference") as null|anything in GLOB.r_wings_list
+					new_wings = tgui_input_list(user, "Choose your character's wings:", "Character Preference", GLOB.r_wings_list)
 					if(new_wings)
 						features["wings"] = new_wings
 
@@ -3524,65 +3630,77 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.maxHealth = round((initial(character.maxHealth)+(initial(character.maxHealth)/4)*(character.physique + character.additional_physique)))
 	character.health = character.maxHealth
 
-	if(pref_species.name == "Vampire")
-		var/datum/vampireclane/CLN = new clane.type()
+	switch(pref_species.id)
+		if("kindred")
+			var/datum/vampireclane/CLN = new clane.type()
 
-		if(CLN.name == CLAN_MALKAVIAN)
-			var/datum/vampireclane/malkavian/malk = new clane.type()
-			malk.derangement = derangement
-			CLN = malk
+			if(CLN.name == CLAN_MALKAVIAN)
+				var/datum/vampireclane/malkavian/malk = new clane.type()
+				malk.derangement = derangement
+				CLN = malk
 
-		var/datum/morality/MOR = new morality_path.type()
-		character.clane = CLN
-		character.morality_path = MOR
-		character.clane.current_accessory = clane_accessory
-		character.maxbloodpool = 10 + ((13 - generation) * 3)
-		character.bloodpool = rand(2, character.maxbloodpool)
-		character.generation = generation
-		character.max_yin_chi = character.maxbloodpool
-		character.yin_chi = character.max_yin_chi
-		// TODO: detach is_enlightened from the clan datum
-		character.clane.is_enlightened = is_enlightened
-	else
-		character.clane = null
-		character.morality_path = null
-		character.generation = 13
-		character.bloodpool = character.maxbloodpool
-		if(pref_species.name == "Kuei-Jin")
+			var/datum/morality/MOR = new morality_path.type()
+			character.clane = CLN
+			character.morality_path = MOR
+			character.clane.current_accessory = clane_accessory
+			character.generation = generation
+			character.maxbloodpool = 10 + ((13 - generation) * 3)
+			character.bloodpool = rand(2, character.maxbloodpool)
+			character.max_yin_chi = character.maxbloodpool
+			character.yin_chi = character.max_yin_chi
+			// TODO: detach is_enlightened from the clan datum
+			character.clane.is_enlightened = is_enlightened
+			character.morality_path.score = path_score
+		if("kuei-jin")
 			character.yang_chi = yang
 			character.max_yang_chi = yang
 			character.yin_chi = yin
 			character.max_yin_chi = yin
 			character.max_demon_chi = po
-		else
-			character.yang_chi = 3
-			character.max_yang_chi = 3
-			character.yin_chi = 2
-			character.max_yin_chi = 2
+		if("gargoyle")
+			var/datum/vampireclane/CLN = new clane.type()
 
-	if(pref_species.name == "Werewolf")
-		switch(tribe.name)
-			if("Galestalkers","Children of Gaia","Ghost Council","Hart Wardens")
-				character.yin_chi = 1
-				character.max_yin_chi = 1
-				character.yang_chi = 5 + (auspice_level * 2)
-				character.max_yang_chi = 5 + (auspice_level * 2)
-			if("Glass Walkers","Bone Gnawers")
-				character.yin_chi = 1 + auspice_level
-				character.max_yin_chi = 1 + auspice_level
-				character.yang_chi = 5 + auspice_level
-				character.max_yang_chi = 5 + auspice_level
-			if("Black Spiral Dancers","Ghost Council")
-				character.yin_chi = 1 + auspice_level * 2
-				character.max_yin_chi = 1 + auspice_level * 2
-				character.yang_chi = 5
-				character.max_yang_chi = 5
-		character.honor = honor
-		character.wisdom = wisdom
-		character.glory = glory
-		character.renownrank = renownrank
-	if(pref_species.name == "Vampire")
-		character.morality_path.score = path_score
+			if(CLN.name == CLAN_MALKAVIAN)
+				var/datum/vampireclane/malkavian/malk = new clane.type()
+				malk.derangement = derangement
+				CLN = malk
+
+			var/bonus = generation-generation_bonus
+			character.clane = CLN
+			character.clane.current_accessory = clane_accessory
+			character.generation = generation
+			character.generation = clamp(bonus, LOWEST_GARGOYLE_GENERATION, HIGHEST_GENERATION_LIMIT) // The lowest generation a gargoyle can be is 8 due to lore reasons.
+			character.maxbloodpool = 10 + ((13 - generation) * 3)
+			character.bloodpool = rand(2, character.maxbloodpool)
+			character.max_yin_chi = character.maxbloodpool
+			character.yin_chi = character.max_yin_chi
+			character.morality_path = null
+		if("garou")
+			switch(tribe.name)
+				if("Galestalkers","Children of Gaia","Ghost Council","Hart Wardens")
+					character.yin_chi = 1
+					character.max_yin_chi = 1
+					character.yang_chi = 5 + (auspice_level * 2)
+					character.max_yang_chi = 5 + (auspice_level * 2)
+				if("Glass Walkers","Bone Gnawers")
+					character.yin_chi = 1 + auspice_level
+					character.max_yin_chi = 1 + auspice_level
+					character.yang_chi = 5 + auspice_level
+					character.max_yang_chi = 5 + auspice_level
+				if("Black Spiral Dancers","Ghost Council")
+					character.yin_chi = 1 + auspice_level * 2
+					character.max_yin_chi = 1 + auspice_level * 2
+					character.yang_chi = 5
+					character.max_yang_chi = 5
+			character.honor = honor
+			character.wisdom = wisdom
+			character.glory = glory
+			character.renownrank = renownrank
+		else
+			character.clane = null
+			character.morality_path = null
+			character.generation = 14 // Haha, thinbloods can dominate humans once more.
+			character.bloodpool = character.maxbloodpool
 
 	character.masquerade = masquerade
 	if(!character_setup)

@@ -220,17 +220,10 @@ GLOBAL_LIST_EMPTY(selectable_races)
  * If there are no available roundstart species, defaults to human.
  */
 /proc/generate_selectable_species()
-	//[Lucia] TODO: make this good what the fuck is wrong with the previous thing
-	GLOB.roundstart_races = list("human", "kindred", "ghoul")
-	GLOB.selectable_races = list("human", "kindred", "ghoul", "garou", "kuei-jin")
-	/*
-	for(var/I in subtypesof(/datum/species))
-		var/datum/species/S = new I
-		if(S.selectable)
-			GLOB.roundstart_races += S.id
-	if(!GLOB.roundstart_races.len)
-		GLOB.roundstart_races += "kindred"
-	*/
+	for(var/datum/species/species as anything in subtypesof(/datum/species))
+		if(species.selectable)
+			GLOB.selectable_races += species.id
+			GLOB.roundstart_races += species.id
 
 /proc/get_roundstart_species()
 	RETURN_TYPE(/list)
@@ -863,7 +856,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 			bodyparts_to_add -= "ears"
 
 	if(mutant_bodyparts["wings"])
-		if(!H.dna.features["wings"] || H.dna.features["wings"] == "None" || (H.wear_suit && (H.wear_suit.flags_inv & HIDEJUMPSUIT) && (!H.wear_suit.species_exception || !is_type_in_list(src, H.wear_suit.species_exception))))
+		if(!H.dna.features["wings"] || H.dna.features["wings"] == "None" || (H.wear_suit && (H.wear_suit.flags_inv & HIDEJUMPSUIT) && (!H.wear_suit.species_exception || !is_type_in_list(src, H.wear_suit.species_exception))) || (H.w_uniform && (H.w_uniform.body_parts_covered & CHEST)))
 			bodyparts_to_add -= "wings"
 
 	if(mutant_bodyparts["wings_open"])
