@@ -32,7 +32,7 @@
 /*
 	Overwriting of base procs
 */
-/datum/wound/blunt/wound_injury(datum/wound/old_wound = null)
+/datum/wound/blunt/wound_injury(datum/wound/old_wound = null, attack_direction = null)
 	// hook into gaining/losing gauze so crit bone wounds can re-enable/disable depending if they're slung or not
 	RegisterSignals(limb, list(COMSIG_BODYPART_GAUZED, COMSIG_BODYPART_GAUZE_DESTROYED), PROC_REF(update_inefficiencies))
 
@@ -61,7 +61,7 @@
 		UnregisterSignal(victim, COMSIG_HUMAN_EARLY_UNARMED_ATTACK)
 	return ..()
 
-/datum/wound/blunt/handle_process()
+/datum/wound/blunt/handle_process(delta_time, times_fired)
 	. = ..()
 	if(limb.body_zone == BODY_ZONE_HEAD && brain_trauma_group && world.time > next_trauma_cycle)
 		if(active_trauma)
@@ -75,12 +75,12 @@
 
 	regen_ticks_current++
 	if(victim.body_position == LYING_DOWN)
-		if(prob(50))
+		if(DT_PROB(30, delta_time))
 			regen_ticks_current += 0.5
-		if(victim.IsSleeping() && prob(50))
+		if(victim.IsSleeping() && DT_PROB(30, delta_time))
 			regen_ticks_current += 0.5
 
-	if(prob(severity * 3))
+	if(DT_PROB(severity * 1.5, delta_time))
 		victim.take_bodypart_damage(rand(1, severity * 2), stamina=rand(2, severity * 2.5), wound_bonus=CANT_WOUND)
 		if(prob(33))
 			to_chat(victim, "<span class='danger'>You feel a sharp pain in your body as your bones are reforming!</span>")
@@ -219,7 +219,7 @@
 		UnregisterSignal(victim, COMSIG_LIVING_DOORCRUSHED)
 	return ..()
 
-/datum/wound/blunt/moderate/wound_injury(datum/wound/old_wound)
+/datum/wound/blunt/moderate/wound_injury(datum/wound/old_wound, attack_direction = null)
 	. = ..()
 	RegisterSignal(victim, COMSIG_LIVING_DOORCRUSHED, PROC_REF(door_crush))
 
@@ -354,7 +354,7 @@
 	regen_ticks_needed = 240 // ticks every 2 seconds, 480 seconds, so roughly 8 minutes default
 
 // doesn't make much sense for "a" bone to stick out of your head
-/datum/wound/blunt/critical/apply_wound(obj/item/bodypart/L, silent, datum/wound/old_wound, smited)
+/datum/wound/blunt/critical/apply_wound(obj/item/bodypart/L, silent = FALSE, datum/wound/old_wound = null, smited = FALSE, attack_direction = null)
 	if(L.body_zone == BODY_ZONE_HEAD)
 		occur_text = "splits open, exposing a bare, cracked skull through the flesh and blood"
 		examine_desc = "has an unsettling indent, with bits of skull poking out"
