@@ -14,6 +14,9 @@
 	var/list/masq_breakers = list()
 	if(GLOB.masquerade_breakers_list.len)
 		for(var/mob/living/carbon/human/breakor in GLOB.masquerade_breakers_list)
+			//Masq contract shouldnt be used to insta-hunt all Sabbat players. Sabbat players should be allowed to unleash the Beast and have the Camarilla naturally hunt them down without GPS.
+			if(breakor.mind && is_sabbatist(breakor))
+				continue
 			masq_breakers += breakor
 
 	if(masq_breakers.len)

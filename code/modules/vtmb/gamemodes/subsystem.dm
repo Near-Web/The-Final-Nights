@@ -43,14 +43,6 @@ SUBSYSTEM_DEF(bad_guys_party)
 /datum/controller/subsystem/bad_guys_party/proc/get_badguys(level)
 	if(setting)
 		switch(setting)
-			if("caitiff")
-				if(Next)
-					qdel(Next)
-				threat = min(100, threat+60)
-				max_candidates = 1
-				go_on_next_fire = TRUE
-				Next = new /datum/outfit/job/caitiff()
-				setting = null
 			if("sabbat")
 				if(Next)
 					qdel(Next)
@@ -70,22 +62,13 @@ SUBSYSTEM_DEF(bad_guys_party)
 	else if(setting == null)
 		switch(level)
 			if(1)
-				if(prob(20))
-					//caitiff
-					if(Next)
-						qdel(Next)
-					threat = min(100, threat+60)
-					max_candidates = 1
-					go_on_next_fire = TRUE
-					Next = new /datum/outfit/job/caitiff()
-				else
-					//sabbat
-					if(Next)
-						qdel(Next)
-					threat = min(100, threat+30)
-					max_candidates = 2
-					go_on_next_fire = TRUE
-					Next = new /datum/outfit/job/sabbatist()
+				//sabbat
+				if(Next)
+					qdel(Next)
+				threat = min(100, threat+30)
+				max_candidates = 2
+				go_on_next_fire = TRUE
+				Next = new /datum/outfit/job/sabbatist()
 			if(2)
 				if(prob(30))
 					//sabbat
