@@ -2,13 +2,23 @@ Any time you make a change to the schema files, remember to increment the databa
 
 Make sure to also update `DB_MAJOR_VERSION` and `DB_MINOR_VERSION`, which can be found in `code/__DEFINES/subsystem.dm`.
 
-The latest database version is 5.22; The query to update the schema revision table is:
+The latest database version is 5.23; The query to update the schema revision table is:
 
-INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 22);
+INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 23);
 or
-INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 22);
+INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 23);
 
 In any query remember to add a prefix to the table names if you use one.
+
+-----------------------------------------------------
+
+Version 5.23, 23 May 2025, by XeonMations
+Modified the library action table to fit ckeys properly, and to properly store ips.
+
+```sql
+ ALTER TABLE `library_action` MODIFY COLUMN `ckey` varchar(32) NOT NULL;
+ ALTER TABLE `library_action` MODIFY COLUMN `ip_addr` int(10) unsigned NOT NULL;
+```
 
 -----------------------------------------------------
 
