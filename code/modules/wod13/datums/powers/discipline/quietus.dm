@@ -104,13 +104,11 @@
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING | DISC_CHECK_FREE_HAND
-	vitae_cost = 3
+	vitae_cost = 0
 	target_type = TARGET_OBJ
 	range = 1
 
 	violates_masquerade = TRUE
-
-	cooldown_length = 15 SECONDS
 
 /datum/discipline_power/quietus/baals_caress/can_activate(atom/target, alert = FALSE)
 	. = ..()
@@ -133,10 +131,15 @@
 	. = ..()
 	if(!target.quieted)
 		target.quieted = TRUE
-		target.armour_penetration = min(100, target.armour_penetration+30)
-		target.force += 20
+		target.damtype = CLONE
 		target.color = "#72b27c"
 		target.owner = WEAKREF(src.owner)
+		return
+	if(target.quieted)
+		target.quieted = FALSE
+		target.damtype = initial(target.damtype)
+		target.color = initial(target.color)
+		return
 
 //TASTE OF DEATH
 /obj/projectile/quietus
