@@ -9,6 +9,7 @@
 	name = "Melpominee power name"
 	desc = "Melpominee power description"
 
+
 	activate_sound = 'code/modules/wod13/sounds/melpominee.ogg'
 
 //THE MISSING VOICE
@@ -107,48 +108,186 @@
 //MADRIGAL
 /datum/discipline_power/melpominee/madrigal
 	name = "Madrigal"
-	desc = "Sing a siren song, calling all nearby to you."
-
+	desc = "Project raw emotion into nearby minds through your melodic voice, inspiring compelling emotional reactions."
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_SPEAK
-
-	cooldown_length = 5 SECONDS
+	cooldown_length = 6 SECONDS
 	duration_length = 2 SECONDS
 	duration_override = TRUE
+	multi_activate = TRUE
+
+// Helper function to check if a mob is alive
+/mob/proc/is_alive()
+	return istype(src, /mob/living) && !isdead(src)
 
 /datum/discipline_power/melpominee/madrigal/activate()
 	. = ..()
-	for(var/mob/living/carbon/human/listener in oviewers(7, owner))
-		listener.create_walk_to(2 SECONDS, owner)
 
+	// Prompt song and emotion
+	var/userSong = lowertext(trim(input(owner, "What are the words of your melodic voice, Madrigal?") as null|text))
+	if (!userSong || userSong == "")
+		return
+
+	var/emotion = lowertext(trim(input(owner, "What emotion do you wish to project through your voice? (fear, joy, sorrow, anger, awe, humor)") as null|text))
+	if (!emotion || emotion == "")
+		return
+
+	// Validate song input
+	var/song = sanitize(userSong)
+	var/min_message = 10
+	var/max_message = 4000
+
+	if (findtext(song, "*"))
+		to_chat(owner, span_danger("No *'s are allowed in vocal powers!"))
+		return
+	if (length(song) < min_message)
+		to_chat(owner, span_danger("Your song is too short! Must be at least [min_message] characters."))
+		return
+	if (length(song) > max_message)
+		to_chat(owner, span_danger("Your song is too long! Must be less than [max_message] characters."))
+		return
+	if (CHAT_FILTER_CHECK(song))
+		to_chat(owner, span_warning("That song contains a prohibited word. Naughty! Consider reviewing the server rules.\n<span replaceRegex='show_filtered_ic_chat'>\"[song]\"</span>"))
+		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
+		return
+	//Sings the Song for the user after checks.
+	owner.say(message = userSong, forced = "melpominee 3")
+
+	// Init effect vars
+	var/newEmote = ""
+	var/emote_text = ""
+	var/client_feedback = ""
+
+	//Emotional Storage <3
+	switch(emotion)
+		if ("fear")
+			newEmote = " begins to tremble, in response to [owner]'s melodic voice."
+			emote_text = "tremble"
+			client_feedback = "You feel fear begin to seep into the cracks of your mind, bringing with it pangs of anxiety about the subject of [owner]'s voice."
+		if ("joy")
+			newEmote = " begins to grin slightly, in response to [owner]'s melodic voice."
+			emote_text = "grin"
+			client_feedback = "You feel joy begin to warm your thoughts, an unmistakeable hint of genuine bliss, brought on by the topic of [owner]'s voice."
+		if ("sorrow")
+			newEmote = "'s eyes begin to water, in response to [owner]'s melodic voice."
+			emote_text = "mumble"
+			client_feedback = "You feel sorrow begin to weigh down your heart brought on by the subject of [owner]'s melodic words."
+		if ("anger")
+			newEmote = " starts to grumble angrily, in response to [owner]'s melodic voice."
+			emote_text = "grumble"
+			client_feedback = "You feel anger, as your blood begins to boil with sudden directionless rage, you turn to [owner]'s their voice guides it, somewhat."
+		if ("awe")
+			newEmote = " looks at [owner] with wide eyes, in response to [owner]'s melodic voice."
+			emote_text = "stare"
+			client_feedback = "You are struck with awe for [owner]'s melodic voice."
+		if ("humor")
+			newEmote = " begins chuckling slightly, in response to [owner]'s melodic voice."
+			emote_text = "chuckle"
+			client_feedback = "You feel overwhelming humor for the topic of [owner]'s voice.'"
+		else
+			to_chat(owner, span_warning("Invalid emotion. Try: fear, joy, sorrow, anger, awe, humor."))
+			return
+
+	var/super_fan_limit = 5
+	var/super_fans = 0
+	var/affectedCrowdmembers = 0
+
+	// Apply the Madrigal effect to all viewers within range
+	// Apply the Madrigal effect to all viewers within range
+	for (var/mob/living/carbon/human/listener in oviewers(7, owner))
+		//Is the listener alive?
+		if (!listener || !listener.is_alive())
+			continue
+
+		//Happens to everyone, even if they fail the roll.
+		//listener.emote(emote_text)
+		//listener.visible_message(span_warning("[listener][newEmote]"), span_userdanger("[client_feedback]"))
+		var/is_npc = istype(listener, /mob/living/carbon/human/npc)
+		var/is_player = listener.client != null
+
+		// Happens to everyone, even if they fail the roll.
+		listener.Stun(2 SECONDS)
+		affectedCrowdmembers++
+
+		//Cosmetic overlay
+		// Cosmetic overlay
 		listener.remove_overlay(MUTATIONS_LAYER)
 		var/mutable_appearance/song_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "song", -MUTATIONS_LAYER)
 		listener.overlays_standing[MUTATIONS_LAYER] = song_overlay
 		listener.apply_overlay(MUTATIONS_LAYER)
 
+		// Remove the overlay after a short duration. Effect is planned to last longer and be a icon.
 		addtimer(CALLBACK(src, PROC_REF(deactivate), listener), 2 SECONDS)
 
-/mob/living/carbon/human/proc/create_walk_to(duration, mob/living/walk_to)
-	var/datum/cb = CALLBACK(src, TYPE_PROC_REF(/mob/living/carbon/human, walk_to_caster), walk_to)
-	for(var/i in 1 to duration)
-		addtimer(cb, (i - 1) * total_multiplicative_slowdown())
+		if (is_npc)
+			var/mob/living/carbon/human/npc/N = listener
+			walk(N, 0)            // Stop NPC movement
+			N.old_movement = TRUE     // Prevent automatic ChoosePath() rerouting
+			N.walktarget = null       // Block handle_automated_movement()
+
+		var/is_kindred = iskindred(listener)
+		var/is_garou = isgarou(listener)
+
+		var/base_difficulty = 6
+
+		if (base_difficulty < 0)
+			if (is_npc)
+				var/mob/living/carbon/human/npc/N = listener
+				if (!N.is_talking)
+					spawn(rand(3, 7))
+						N.RealisticSay(pick(N.socialrole?.random_phrases))
+			else if (is_player)
+				listener.emote("stagger")
+				listener.visible_message(span_warning("[listener] stumbles!"), span_userdanger("The music shakes you."))
+			continue
+
+		var/critical_failure = FALSE
+
+		// Listener rolls to resist the emotional pull
+		if (base_difficulty > 0)
+			var/result = SSroll.storyteller_roll(listener.get_total_mentality(), base_difficulty, mobs_to_show_output = listener)
+
+			if (result > 0) // Success
+				to_chat(listener, span_notice("(Success) You resist the emotional pull."))
+				continue
+
+			else if (result == 0) // Failure
+				if (is_player && !is_kindred && !is_garou)
+					to_chat(listener, span_danger("(Failure) You feel [emotion] fill your mind."))
+					continue
+
+			else if (result < 0) // Critical Failure
+				critical_failure = TRUE
+				if (is_player)
+					to_chat(listener, span_danger("(Critical Failure) You are completely overwhelmed with emotion and enamored with [owner]!"))
+
+		// Superfan creation
+		if (super_fans < super_fan_limit)
+			if (!listener.client) // NPC superfan
+				listener.create_superfan(60, owner)
+				super_fans++
+			else if (critical_failure) // Player superfan
+				to_chat(listener, span_warning("You feel drawn toward [owner]..."))
+				listener.create_superfan(20, owner)
+				super_fans++
 
 /datum/discipline_power/melpominee/madrigal/deactivate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
+	if (istype(target, /mob/living/carbon/human/npc))
+		var/mob/living/carbon/human/npc/N = target
+		N.old_movement = FALSE
+		N.walktarget = N.ChoosePath()
+
 
 //SIREN'S BECKONING
 /datum/discipline_power/melpominee/sirens_beckoning
 	name = "Siren's Beckoning"
-	desc = "Sing an unearthly song to stun those around you."
-
+	desc = "Siren's Beckoning is a power that allows the user to stun and mesmerize those around them with their voice, drawing them in like moths to a flame."
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_SPEAK
-
-	effect_sound = 'code/modules/wod13/sounds/killscream.ogg'
-
+	cooldown_length = 6 SECONDS
 	duration_length = 2 SECONDS
-	cooldown_length = 7.5 SECONDS
 	duration_override = TRUE
 
 /datum/discipline_power/melpominee/sirens_beckoning/activate()
@@ -167,10 +306,12 @@
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 
+
+
 //SHATTERING CRESCENDO
 /datum/discipline_power/melpominee/shattering_crescendo
 	name = "Shattering Crescendo"
-	desc = "Scream at an unnatural pitch, shattering the bodies of your enemies."
+	desc = "Scream at an unnatural pitch, shattering the bodies of your enemies, and sending them into primal fear."
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_SPEAK
@@ -185,7 +326,8 @@
 	. = ..()
 	for(var/mob/living/carbon/human/listener in oviewers(7, owner))
 		listener.Stun(2 SECONDS)
-		listener.apply_damage(50, BRUTE, BODY_ZONE_HEAD)
+		listener.apply_damage(30, BRUTE, BODY_ZONE_HEAD)
+		//listener.effects.add_effect(/datum/add_effect/Frenzy, 2 SECONDS)
 
 		listener.remove_overlay(MUTATIONS_LAYER)
 		var/mutable_appearance/song_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "song", -MUTATIONS_LAYER)
