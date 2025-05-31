@@ -364,7 +364,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	add_fingerprint(usr)
 	return ..()
 
-/obj/item/attack_hand(mob/user)
+/obj/item/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)
 		return
@@ -428,7 +428,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/proc/allow_attack_hand_drop(mob/user)
 	return TRUE
 
-/obj/item/attack_paw(mob/user)
+/obj/item/attack_paw(mob/user, list/modifiers)
 	if(!user)
 		return
 	if(anchored)
@@ -447,15 +447,15 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(!user.put_in_active_hand(src, FALSE, FALSE))
 		user.dropItemToGround(src)
 
-/obj/item/attack_alien(mob/user)
-	var/mob/living/carbon/alien/A = user
+/obj/item/attack_alien(mob/user, list/modifiers)
+	var/mob/living/carbon/alien/ayy = user
 
 	if(!user.can_hold_items(src))
-		if(src in A.contents) // To stop Aliens having items stuck in their pockets
-			A.dropItemToGround(src)
+		if(src in ayy.contents) // To stop Aliens having items stuck in their pockets
+			ayy.dropItemToGround(src)
 		to_chat(user, "<span class='warning'>Your claws aren't capable of such fine manipulation!</span>")
 		return
-	attack_paw(A)
+	attack_paw(ayy, modifiers)
 
 /obj/item/attack_ai(mob/user)
 	if(istype(src.loc, /obj/item/robot_model))
@@ -626,7 +626,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "eye_stab", /datum/mood_event/eye_stab)
 
-	log_combat(user, M, "attacked", "[src.name]", "(INTENT: [uppertext(user.a_intent)])")
+	log_combat(user, M, "attacked", "[src.name]", "(Combat mode: [user.combat_mode ? "On" : "Off"])")
 
 	var/obj/item/organ/eyes/eyes = M.getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)
@@ -770,7 +770,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/attack_hulk(mob/living/carbon/human/user)
 	return FALSE
 
-/obj/item/attack_animal(mob/living/simple_animal/M)
+/obj/item/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	if (obj_flags & CAN_BE_HIT)
 		return ..()
 	return 0

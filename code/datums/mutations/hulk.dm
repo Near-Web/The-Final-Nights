@@ -27,12 +27,12 @@
 	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	RegisterSignal(owner, COMSIG_MOB_CLICKON, PROC_REF(check_swing))
 
-/datum/mutation/human/hulk/proc/on_attack_hand(mob/living/carbon/human/source, atom/target, proximity)
+/datum/mutation/human/hulk/proc/on_attack_hand(mob/living/carbon/human/source, atom/target, proximity, modifiers)
 	SIGNAL_HANDLER
 
 	if(!proximity)
 		return
-	if(source.a_intent != INTENT_HARM)
+	if(!source.combat_mode || LAZYACCESS(modifiers, RIGHT_CLICK))
 		return
 	if(target.attack_hulk(owner))
 		if(world.time > (last_scream + scream_delay))
@@ -97,14 +97,13 @@
 #define HULK_TAILTHROW_STEPS 28
 
 /// Run a barrage of checks to see if any given click is actually able to swing
-/datum/mutation/human/hulk/proc/check_swing(mob/living/carbon/human/user, atom/clicked_atom, params)
+/datum/mutation/human/hulk/proc/check_swing(mob/living/carbon/human/user, atom/clicked_atom, list/modifiers)
 	SIGNAL_HANDLER
 
 	/// Basically, we only proceed if we're in throw mode with a tailed carbon in our grasp with at least a neck grab and we're not restrained in some way
-	var/list/modifiers = params2list(params)
-	if(modifiers["alt"] || modifiers["shift"] || modifiers["ctrl"] || modifiers["middle"])
+	if(LAZYACCESS(modifiers, ALT_CLICK) || LAZYACCESS(modifiers, SHIFT_CLICK) || LAZYACCESS(modifiers, CTRL_CLICK) || LAZYACCESS(modifiers, MIDDLE_CLICK))
 		return
-	if(!user.in_throw_mode || user.get_active_held_item() || user.zone_selected != BODY_ZONE_PRECISE_GROIN)
+	if(!user.throw_mode || user.get_active_held_item() || user.zone_selected != BODY_ZONE_PRECISE_GROIN)
 		return
 	if(user.grab_state < GRAB_NECK || !iscarbon(user.pulling) || user.buckled || user.incapacitated())
 		return

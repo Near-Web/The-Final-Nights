@@ -131,16 +131,6 @@
 #define ATTACK_EFFECT_MECHTOXIN	"mech_toxin"
 #define ATTACK_EFFECT_BOOP		"boop" //Honk
 
-//intent defines
-#define INTENT_HELP   "help"
-#define INTENT_GRAB   "grab"
-#define INTENT_DISARM "disarm"
-#define INTENT_HARM   "harm"
-//NOTE: INTENT_HOTKEY_* defines are not actual intents!
-//they are here to support hotkeys
-#define INTENT_HOTKEY_LEFT  "left"
-#define INTENT_HOTKEY_RIGHT "right"
-
 //the define for visible message range in combat
 #define COMBAT_MESSAGE_RANGE 3
 #define DEFAULT_MESSAGE_RANGE 7
@@ -289,3 +279,14 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 
 /// If a carbon is thrown at a speed faster than normal and impacts something solid, they take extra damage for every extra speed up to this number (see [/mob/living/carbon/proc/throw_impact])
 #define CARBON_MAX_IMPACT_SPEED_BONUS	5
+
+/// Alternate attack defines. Return these at the end of procs like afterattack_secondary.
+/// Calls the normal attack proc. For example, if returned in afterattack_secondary, will call afterattack.
+/// Will continue the chain depending on the return value of the non-alternate proc, like with normal attacks.
+#define SECONDARY_ATTACK_CALL_NORMAL 1
+
+/// Cancels the attack chain entirely.
+#define SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN 2
+
+/// Proceed with the attack chain, but don't call the normal methods.
+#define SECONDARY_ATTACK_CONTINUE_CHAIN 3

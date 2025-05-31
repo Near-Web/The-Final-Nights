@@ -149,7 +149,7 @@
 
 /mob/living/carbon/human/proc/check_block()
 	if(mind)
-		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && in_throw_mode && !incapacitated(FALSE, TRUE))
+		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && throw_mode && !incapacitated(FALSE, TRUE))
 			return TRUE
 	return FALSE
 
@@ -198,7 +198,7 @@
 	SSblackbox.record_feedback("tally", "zone_targeted", 1, target_area)
 
 	// the attacked_by code varies among species
-	return dna.species.spec_attacked_by(I, user, affecting, a_intent, src)
+	return dna.species.spec_attacked_by(I, user, affecting, src)
 
 
 /mob/living/carbon/human/attack_hulk(mob/living/carbon/human/user)
@@ -206,7 +206,9 @@
 	if(!.)
 		return
 	var/hulk_verb = pick("smash","pummel")
-	if(check_shields(user, 15, "the [hulk_verb]ing"))
+	if(check_shields(user, 15, "the [hulk_verb]ing", attack_type = UNARMED_ATTACK))
+		return
+	if(check_block()) //everybody is kung fu fighting
 		return
 	playsound(loc, user.dna.species.attack_sound, 25, TRUE, -1)
 	visible_message("<span class='danger'>[user] [hulk_verb]ed [src]!</span>", \
@@ -214,107 +216,110 @@
 	to_chat(user, "<span class='danger'>You [hulk_verb] [src]!</span>")
 	apply_damage(15, BRUTE, wound_bonus=10)
 
-/mob/living/carbon/human/attack_hand(mob/user)
-	if(..())	//to allow surgery to return properly.
+/mob/living/carbon/human/attack_hand(mob/user, list/modifiers)
+	if(..()) //to allow surgery to return properly.
 		return
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.tox_damage_plus)
-			adjustToxLoss(H.tox_damage_plus)
-		dna.species.spec_attack_hand(H, src)
+		dna.species.spec_attack_hand(H, src, null, modifiers)
 
-/mob/living/carbon/human/attack_paw(mob/living/carbon/human/M)
+/mob/living/carbon/human/attack_paw(mob/living/carbon/human/user, list/modifiers)
 	var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))
 	if(!affecting)
 		affecting = get_bodypart(BODY_ZONE_CHEST)
-	if(M.a_intent == INTENT_HELP)
-		..() //shaking
-		return FALSE
 
-	if(M.a_intent == INTENT_DISARM) //Always drop item in hand, if no item, get stunned instead.
+
+	if(LAZYACCESS(modifiers, RIGHT_CLICK)) //Always drop item in hand, if no item, get stunned instead.
 		var/obj/item/I = get_active_held_item()
 		if(I && !(I.item_flags & ABSTRACT) && dropItemToGround(I))
 			playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
-			visible_message("<span class='danger'>[M] disarmed [src]!</span>", \
-							"<span class='userdanger'>[M] disarmed you!</span>", "<span class='hear'>You hear aggressive shuffling!</span>", null, M)
-			to_chat(M, "<span class='danger'>You disarm [src]!</span>")
-		else if(!M.client || prob(5)) // only natural monkeys get to stun reliably, (they only do it occasionaly)
+			visible_message("<span class='danger'>[user] disarmed [src]!</span>", \
+							"<span class='userdanger'>[user] disarmed you!</span>", "<span class='hear'>You hear aggressive shuffling!</span>", null, user)
+			to_chat(user, "<span class='danger'>You disarm [src]!</span>")
+		else if(!user.client || prob(5)) // only natural monkeys get to stun reliably, (they only do it occasionaly)
 			playsound(loc, 'sound/weapons/pierce.ogg', 25, TRUE, -1)
 			if (src.IsKnockdown() && !src.IsParalyzed())
 				Paralyze(40)
-				log_combat(M, src, "pinned")
-				visible_message("<span class='danger'>[M] pins [src] down!</span>", \
-								"<span class='userdanger'>[M] pins you down!</span>", "<span class='hear'>You hear shuffling and a muffled groan!</span>", null, M)
-				to_chat(M, "<span class='danger'>You pin [src] down!</span>")
+				log_combat(user, src, "pinned")
+				visible_message("<span class='danger'>[user] pins [src] down!</span>", \
+								"<span class='userdanger'>[user] pins you down!</span>", "<span class='hear'>You hear shuffling and a muffled groan!</span>", null, user)
+				to_chat(user, "<span class='danger'>You pin [src] down!</span>")
 			else
 				Knockdown(30)
-				log_combat(M, src, "tackled")
-				visible_message("<span class='danger'>[M] tackles [src] down!</span>", \
-								"<span class='userdanger'>[M] tackles you down!</span>", "<span class='hear'>You hear aggressive shuffling followed by a loud thud!</span>", null, M)
-				to_chat(M, "<span class='danger'>You tackle [src] down!</span>")
+				log_combat(user, src, "tackled")
+				visible_message("<span class='danger'>[user] tackles [src] down!</span>", \
+								"<span class='userdanger'>[user] tackles you down!</span>", "<span class='hear'>You hear aggressive shuffling followed by a loud thud!</span>", null, user)
+				to_chat(user, "<span class='danger'>You tackle [src] down!</span>")
 
-	if(M.limb_destroyer)
-		dismembering_strike(M, affecting.body_zone)
+	if(!user.combat_mode)
+		..() //shaking
+		return FALSE
 
-	if(can_inject(M, 1, affecting))//Thick suits can stop monkey bites.
+	if(user.limb_destroyer)
+		dismembering_strike(user, affecting.body_zone)
+
+	if(try_inject(user, affecting, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))//Thick suits can stop monkey bites.
 		if(..()) //successful monkey bite, this handles disease contraction.
-			var/damage = rand(M.dna.species.punchdamagelow, M.dna.species.punchdamagehigh)
+			var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
 			if(!damage)
 				return
-			if(check_shields(M, damage, "the [M.name]"))
+			if(check_shields(user, damage, "the [user.name]"))
 				return FALSE
 			if(stat != DEAD)
 				apply_damage(damage, BRUTE, affecting, run_armor_check(affecting, MELEE))
 		return TRUE
 
-/mob/living/carbon/human/attack_alien(mob/living/carbon/alien/humanoid/M)
-	if(check_shields(M, 0, "the M.name"))
-		visible_message("<span class='danger'>[M] attempts to touch [src]!</span>", \
-						"<span class='danger'>[M] attempts to touch you!</span>", "<span class='hear'>You hear a swoosh!</span>", null, M)
-		to_chat(M, "<span class='warning'>You attempt to touch [src]!</span>")
+/mob/living/carbon/human/attack_alien(mob/living/carbon/alien/humanoid/user, list/modifiers)
+	if(check_shields(user, 0, "the [user.name]"))
+		visible_message("<span class='danger'>[user] attempts to touch [src]!</span>", \
+						"<span class='danger'>[user] attempts to touch you!</span>", "<span class='hear'>You hear a swoosh!</span>", null, user)
+		to_chat(user, "<span class='warning'>You attempt to touch [src]!</span>")
 		return FALSE
 	. = ..()
 	if(!.)
 		return
-	if(M.a_intent == INTENT_HARM)
+
+	if(LAZYACCESS(modifiers, RIGHT_CLICK)) //Always drop item in hand, if no item, get stun instead.
+		var/obj/item/I = get_active_held_item()
+		if(I && dropItemToGround(I))
+			playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
+			visible_message("<span class='danger'>[user] disarms [src]!</span>", \
+							"<span class='userdanger'>[user] disarms you!</span>", "<span class='hear'>You hear aggressive shuffling!</span>", null, user)
+			to_chat(user, "<span class='danger'>You disarm [src]!</span>")
+		else
+			playsound(loc, 'sound/weapons/pierce.ogg', 25, TRUE, -1)
+			Paralyze(100)
+			log_combat(user, src, "tackled")
+			visible_message("<span class='danger'>[user] tackles [src] down!</span>", \
+							"<span class='userdanger'>[user] tackles you down!</span>", "<span class='hear'>You hear aggressive shuffling followed by a loud thud!</span>", null, user)
+			to_chat(user, "<span class='danger'>You tackle [src] down!</span>")
+
+	if(user.combat_mode)
 		if (w_uniform)
-			w_uniform.add_fingerprint(M)
-		var/damage = prob(90) ? rand(M.melee_damage_lower, M.melee_damage_upper) : 0
+			w_uniform.add_fingerprint(user)
+		var/damage = prob(90) ? rand(user.melee_damage_lower, user.melee_damage_upper) : 0
 		if(!damage)
 			playsound(loc, 'sound/weapons/slashmiss.ogg', 50, TRUE, -1)
-			visible_message("<span class='danger'>[M] lunges at [src]!</span>", \
-							"<span class='userdanger'>[M] lunges at you!</span>", "<span class='hear'>You hear a swoosh!</span>", null, M)
-			to_chat(M, "<span class='danger'>You lunge at [src]!</span>")
+			visible_message("<span class='danger'>[user] lunges at [src]!</span>", \
+							"<span class='userdanger'>[user] lunges at you!</span>", "<span class='hear'>You hear a swoosh!</span>", null, user)
+			to_chat(user, "<span class='danger'>You lunge at [src]!</span>")
 			return FALSE
-		var/obj/item/bodypart/affecting = get_bodypart(ran_zone(M.zone_selected))
+		var/obj/item/bodypart/affecting = get_bodypart(ran_zone(user.zone_selected))
 		if(!affecting)
 			affecting = get_bodypart(BODY_ZONE_CHEST)
 		var/armor_block = run_armor_check(affecting, MELEE,"","",10)
 
 		playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
-		visible_message("<span class='danger'>[M] slashes at [src]!</span>", \
-						"<span class='userdanger'>[M] slashes at you!</span>", "<span class='hear'>You hear a sickening sound of a slice!</span>", null, M)
-		to_chat(M, "<span class='danger'>You slash at [src]!</span>")
-		log_combat(M, src, "attacked")
-		if(!dismembering_strike(M, M.zone_selected)) //Dismemberment successful
+		visible_message("<span class='danger'>[user] slashes at [src]!</span>", \
+						"<span class='userdanger'>[user] slashes at you!</span>", "<span class='hear'>You hear a sickening sound of a slice!</span>", null, user)
+		to_chat(user, "<span class='danger'>You slash at [src]!</span>")
+		log_combat(user, src, "attacked")
+		if(!dismembering_strike(user, user.zone_selected)) //Dismemberment successful
 			return TRUE
 		apply_damage(damage, BRUTE, affecting, armor_block)
 
-	if(M.a_intent == INTENT_DISARM) //Always drop item in hand, if no item, get stun instead.
-		var/obj/item/I = get_active_held_item()
-		if(I && dropItemToGround(I))
-			playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
-			visible_message("<span class='danger'>[M] disarms [src]!</span>", \
-							"<span class='userdanger'>[M] disarms you!</span>", "<span class='hear'>You hear aggressive shuffling!</span>", null, M)
-			to_chat(M, "<span class='danger'>You disarm [src]!</span>")
-		else
-			playsound(loc, 'sound/weapons/pierce.ogg', 25, TRUE, -1)
-			Paralyze(100)
-			log_combat(M, src, "tackled")
-			visible_message("<span class='danger'>[M] tackles [src] down!</span>", \
-							"<span class='userdanger'>[M] tackles you down!</span>", "<span class='hear'>You hear aggressive shuffling followed by a loud thud!</span>", null, M)
-			to_chat(M, "<span class='danger'>You tackle [src] down!</span>")
+
 
 
 /mob/living/carbon/human/attack_larva(mob/living/carbon/alien/larva/L)
@@ -335,21 +340,21 @@
 		apply_damage(damage, BRUTE, affecting, armor_block)
 
 
-/mob/living/carbon/human/attack_animal(mob/living/simple_animal/M)
+/mob/living/carbon/human/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	. = ..()
 	if(!.)
 		return
-	var/damage = rand(M.melee_damage_lower, M.melee_damage_upper)
-	if(check_shields(M, damage, "the [M.name]", MELEE_ATTACK, M.armour_penetration))
+	var/damage = rand(user.melee_damage_lower, user.melee_damage_upper)
+	if(check_shields(user, damage, "the [user.name]", MELEE_ATTACK, user.armour_penetration))
 		return FALSE
-	var/dam_zone = dismembering_strike(M, pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
+	var/dam_zone = dismembering_strike(user, pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
 	if(!dam_zone) //Dismemberment successful
 		return TRUE
 	var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))
 	if(!affecting)
 		affecting = get_bodypart(BODY_ZONE_CHEST)
-	var/armor = run_armor_check(affecting, MELEE, armour_penetration = M.armour_penetration)
-	apply_damage(damage, M.melee_damage_type, affecting, armor, wound_bonus = M.wound_bonus, bare_wound_bonus = M.bare_wound_bonus, sharpness = M.sharpness)
+	var/armor = run_armor_check(affecting, MELEE, armour_penetration = user.armour_penetration)
+	apply_damage(damage, user.melee_damage_type, affecting, armor, wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, sharpness = user.sharpness)
 
 
 /mob/living/carbon/human/attack_slime(mob/living/simple_animal/slime/M)

@@ -48,7 +48,9 @@
 #define COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE "atom_init_success"
 ///from base of atom/attackby(): (/obj/item, /mob/living, params)
 #define COMSIG_PARENT_ATTACKBY "atom_attackby"
-///from base of atom/examine(): (/mob)
+/// From base of [atom/proc/attacby_secondary()]: (/obj/item/weapon, /mob/user, params)
+#define COMSIG_PARENT_ATTACKBY_SECONDARY "atom_attackby_secondary"
+///from base of atom/examine(): (/mob, list/examine_text)
 #define COMSIG_PARENT_EXAMINE "atom_examine"
 ///from base of atom/get_examine_name(): (/mob, list/overrides)
 #define COMSIG_ATOM_GET_EXAMINE_NAME "atom_examine_name"
@@ -268,24 +270,6 @@
 #define COMSIG_ENTER_AREA "enter_area"
 ///from base of area/Exited(): (/area)
 #define COMSIG_EXIT_AREA "exit_area"
-///from base of atom/Click(): (location, control, params, mob/user)
-#define COMSIG_CLICK "atom_click"
-///from base of atom/ShiftClick(): (/mob)
-#define COMSIG_CLICK_SHIFT "shift_click"
-	#define COMPONENT_ALLOW_EXAMINATE (1<<0) 							//Allows the user to examinate regardless of client.eye.
-///from base of atom/CtrlClickOn(): (/mob)
-#define COMSIG_CLICK_CTRL "ctrl_click"
-///from base of atom/AltClick(): (/mob)
-#define COMSIG_CLICK_ALT "alt_click"
-///from base of atom/CtrlShiftClick(/mob)
-#define COMSIG_CLICK_CTRL_SHIFT "ctrl_shift_click"
-///from base of atom/MouseDrop(): (/atom/over, /mob/user)
-#define COMSIG_MOUSEDROP_ONTO "mousedrop_onto"
-	#define COMPONENT_NO_MOUSEDROP (1<<0)
-///from base of atom/MouseDrop_T: (/atom/from, /mob/user)
-#define COMSIG_MOUSEDROPPED_ONTO "mousedropped_onto"
-///from base of mob/MouseWheelOn(): (/atom, delta_x, delta_y, params)
-#define COMSIG_MOUSE_SCROLL_ON "mousescroll_on"
 
 // /area signals
 
@@ -389,13 +373,6 @@
 #define COMSIG_MOB_LOGOUT "mob_logout"
 ///from base of mob/set_stat(): (new_stat)
 #define COMSIG_MOB_STATCHANGE "mob_statchange"
-///from base of mob/clickon(): (atom/A, params)
-#define COMSIG_MOB_CLICKON "mob_clickon"
-///from base of mob/MiddleClickOn(): (atom/A)
-#define COMSIG_MOB_MIDDLECLICKON "mob_middleclickon"
-///from base of mob/AltClickOn(): (atom/A)
-#define COMSIG_MOB_ALTCLICKON "mob_altclickon"
-	#define COMSIG_MOB_CANCEL_CLICKON (1<<0)
 
 ///from base of obj/allowed(mob/M): (/obj) returns bool, if TRUE the mob has id access to the obj
 #define COMSIG_MOB_ALLOWED "mob_allowed"
@@ -606,6 +583,10 @@
 #define COMSIG_MACHINERY_POWER_RESTORED "machinery_power_restored"
 ///from /obj/machinery/set_occupant(atom/movable/O): (new_occupant)
 #define COMSIG_MACHINERY_SET_OCCUPANT "machinery_set_occupant"
+
+// /obj/machinery/computer/teleporter
+/// from /obj/machinery/computer/teleporter/proc/set_target(target, old_target)
+#define COMSIG_TELEPORTER_NEW_TARGET "teleporter_new_target"
 
 // /obj/machinery/power/supermatter_crystal signals
 /// from /obj/machinery/power/supermatter_crystal/process_atmos(); when the SM delam reaches the point of sounding alarms
@@ -1032,22 +1013,20 @@
 #define COMSIG_ITEM_ATTACK_SELF "item_attack_self"
 //from base of obj/item/attack_self_secondary(): (/mob)
 #define COMSIG_ITEM_ATTACK_SELF_SECONDARY "item_attack_self_secondary"
-///from base of obj/item/attack_atom(): (/obj, /mob)
+///from base of obj/item/attack_obj(): (/obj, /mob)
 #define COMSIG_ITEM_ATTACK_OBJ "item_attack_obj"
 ///from base of obj/item/pre_attack(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_PRE_ATTACK "item_pre_attack"
+/// From base of [/obj/item/proc/pre_attack_secondary()]: (atom/target, mob/user, params)
+#define COMSIG_ITEM_PRE_ATTACK_SECONDARY "item_pre_attack_secondary"
+	#define COMPONENT_SECONDARY_CANCEL_ATTACK_CHAIN (1<<0)
+	#define COMPONENT_SECONDARY_CONTINUE_ATTACK_CHAIN (1<<1)
+	#define COMPONENT_SECONDARY_CALL_NORMAL_ATTACK_CHAIN (1<<2)
 ///from base of obj/item/afterattack(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_AFTERATTACK "item_afterattack"
 ///from base of obj/item/attack_qdeleted(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_ATTACK_QDELETED "item_attack_qdeleted"
-///from base of /mob/proc/melee_swing()
-#define COMSIG_MOB_MELEE_SWING "mob_melee_swing"
-///from base of /mob/living/attackby(obj/item/I, mob/living/user, params)
-///	SEND_SIGNAL(src, COMSIG_MOB_ATTACKED_BY_MELEE, /*attacker =*/user, /*item =*/I, /*params =*/params)
-#define COMSIG_MOB_ATTACKED_BY_MELEE "mob_attacked_by_melee"
-///	SEND_SIGNAL(user, COMSIG_MOB_ATTACKING_MELEE, /*target =*/src, /*item =*/I, params)
-#define COMSIG_MOB_ATTACKING_MELEE "mob_attacking_melee"
-///from base of atom/attack_hand(): (mob/user)
+///from base of atom/attack_hand(): (mob/user, modifiers)
 #define COMSIG_MOB_ATTACK_HAND "mob_attack_hand"
 ///from base of /mob/living/attack_hand(mob/living/carbon/human/user)
 ///SEND_SIGNAL(user, COMSIG_MOB_LIVING_ATTACK_HAND, /*target =*/src)
@@ -1060,7 +1039,7 @@
 #define COMSIG_MOB_ITEM_AFTERATTACK "mob_item_afterattack"
 ///from base of obj/item/attack_qdeleted(): (atom/target, mob/user, proxiumity_flag, click_parameters)
 #define COMSIG_MOB_ITEM_ATTACK_QDELETED "mob_item_attack_qdeleted"
-///from base of mob/RangedAttack(): (atom/A, params)
+///from base of mob/RangedAttack(): (atom/A, modifiers)
 #define COMSIG_MOB_ATTACK_RANGED "mob_attack_ranged"
 ///From base of atom/ctrl_click(): (atom/A)
 #define COMSIG_MOB_CTRL_CLICKED "mob_ctrl_clicked"
