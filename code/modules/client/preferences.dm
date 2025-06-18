@@ -237,6 +237,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/werewolf_name
 	var/auspice_level = 1
+	var/extra_gnosis = 0
 	var/clane_accessory
 
 	var/dharma_type = /datum/dharma
@@ -643,6 +644,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<b>Power:</b> •[auspice_level > 1 ? "•" : "o"][auspice_level > 2 ? "•" : "o"]([auspice_level])"
 				if(player_experience >= 10*auspice_level && auspice_level != 3)
 					dat += "<a href='byond://?_src_=prefs;preference=auspice_level;task=input'>Increase ([10*auspice_level])</a>"
+				dat += "<b>Athletics:</b> [build_attribute_score(athletics, A.archetype_additional_athletics, athletics_price, "athletics")]"
 				dat += "<b>Initial Rage:</b> •[auspice.start_rage > 1 ? "•" : "o"][auspice.start_rage > 2 ? "•" : "o"][auspice.start_rage > 3 ? "•" : "o"][auspice.start_rage > 4 ? "•" : "o"]([auspice.start_rage])<BR>"
 				var/gifts_text = ""
 				var/num_of_gifts = 0
@@ -1512,6 +1514,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 //A proc that creates the score circles based on attribute and the additional bonus for the attribute
 //
 /datum/preferences/proc/build_attribute_score(attribute, bonus_number, price, variable_name)
+	var/dat
+	for(var/a in 1 to attribute)
+		dat += "•"
+	for(var/b in 1 to bonus_number)
+		dat += "•"
+	var/leftover_circles = 5 - attribute //5 is the default number of blank circles
+	for(var/c in 1 to leftover_circles)
+		dat += "o"
+	var/real_price = attribute ? (attribute*price) : price //In case we have an attribute of 0, we don't multiply by 0
+	if((player_experience >= real_price) && (attribute < ATTRIBUTE_BASE_LIMIT))
+		dat += "<a href='byond://?_src_=prefs;preference=[variable_name];task=input'>Increase ([real_price])</a>"
+	dat += "<br>"
+	return dat
+
+/datum/preferences/proc/build_gnosis_score(attribute, bonus_number, price, variable name)
 	var/dat
 	for(var/a in 1 to attribute)
 		dat += "•"
