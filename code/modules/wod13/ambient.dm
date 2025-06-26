@@ -146,6 +146,7 @@
 /area/vtm/interior/ranger
 	name = "Firewatch Tower"
 	icon_state = "police"
+	music = /datum/vampiremusic/forest
 	upper = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
