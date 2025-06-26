@@ -137,7 +137,14 @@
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/interior/police/fed
-	name = "Hotel"
+	name = "Reserved Room"
+	icon_state = "police"
+	upper = FALSE
+	fire_controled = TRUE
+	wall_rating = HIGH_WALL_RATING
+
+/area/vtm/interior/ranger
+	name = "Firewatch Tower"
 	icon_state = "police"
 	upper = FALSE
 	fire_controled = TRUE
