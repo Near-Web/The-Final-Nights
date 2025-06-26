@@ -30961,6 +30961,10 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/apartment)
+"kDX" = (
+/obj/item/supplypod_beacon_origin,
+/turf/open/floor/plating/vampdirt/rails,
+/area/vtm/supply)
 "kEa" = (
 /obj/structure/stairs/west{
 	layer = 3.1
@@ -112420,7 +112424,7 @@ vCJ
 fLI
 qur
 eku
-iCp
+kDX
 xSA
 bkQ
 eku
