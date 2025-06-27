@@ -69,7 +69,7 @@
 "abg" = (
 /obj/structure/fluff/hedge,
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "abt" = (
 /obj/effect/turf_decal/siding/white{
 	color = "#828282";
@@ -313,7 +313,7 @@
 	pixel_y = 19
 	},
 /turf/closed/wall/vampwall/brick/low,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "aeT" = (
 /obj/effect/decal/cleanable/oil,
 /turf/open/floor/plating/asphalt,
@@ -3072,7 +3072,7 @@
 "baj" = (
 /obj/structure/chair/green,
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "bal" = (
 /turf/closed/wall/vampwall/rock,
 /area/vtm/forest)
@@ -3301,7 +3301,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "bdI" = (
 /obj/effect/decal/bordur{
 	dir = 4
@@ -4779,7 +4779,7 @@
 	pixel_y = 19
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "bDY" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
@@ -5314,7 +5314,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/wallpaper/light/low,
 /turf/closed/wall/vampwall/brick/low,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "bMT" = (
 /obj/effect/decal/stock{
 	dir = 4
@@ -5944,7 +5944,7 @@
 "bZO" = (
 /obj/structure/chair/green,
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "cab" = (
 /obj/item/surgical_drapes{
 	pixel_y = 23;
@@ -6192,7 +6192,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "cdB" = (
 /obj/structure/closet/cabinet,
 /turf/open/floor/plating/parquetry/old,
@@ -7963,7 +7963,7 @@
 "cFY" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "cFZ" = (
 /obj/structure/bricks{
 	pixel_y = 11;
@@ -8099,7 +8099,7 @@
 	color = "#574d46"
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "cJO" = (
 /obj/structure/table/wood,
 /obj/item/melee/vampirearms/knife,
@@ -8324,7 +8324,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "cNM" = (
 /obj/structure/vampdoor/chantry{
 	dir = 4
@@ -10579,7 +10579,7 @@
 /area/vtm/interior/millennium_tower/f3)
 "dAL" = (
 /turf/closed/wall/vampwall/redbrick,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "dAO" = (
 /obj/effect/decal/litter,
 /turf/open/floor/plating/sidewalk,
@@ -12030,7 +12030,7 @@
 	color = "#574d46"
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "ebd" = (
 /turf/open/floor/plating/vampcarpet,
 /area/vtm/interior/shop)
@@ -13601,7 +13601,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "eDu" = (
 /obj/structure/coclock,
 /turf/open/floor/plating/parquetry/rich,
@@ -14186,7 +14186,7 @@
 	dir = 2;
 	color = "#635d52"
 	},
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "eMw" = (
 /obj/effect/decal/bordur,
 /turf/open/floor/plating/sidewalk,
@@ -16884,7 +16884,7 @@
 "fHm" = (
 /obj/structure/fluff/hedge,
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "fHp" = (
 /obj/machinery/shower{
 	pixel_y = 29
@@ -17291,7 +17291,7 @@
 "fOO" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "fPo" = (
 /obj/structure/vampdoor/chantry{
 	dir = 8;
@@ -20126,7 +20126,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "gOi" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
@@ -20936,7 +20936,7 @@
 "hbp" = (
 /obj/structure/table/wood,
 /turf/closed/wall/vampwall/brick/low,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "hbR" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/vampwood,
@@ -20944,7 +20944,7 @@
 "hca" = (
 /obj/structure/chair/office,
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "hcd" = (
 /obj/structure/stone_tile/surrounding_tile{
 	dir = 4
@@ -22123,7 +22123,7 @@
 	pixel_y = 24
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "hvq" = (
 /obj/structure/chair/office,
 /turf/open/floor/plating/circled{
@@ -23806,7 +23806,7 @@
 	color = "#004136"
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "hWh" = (
 /obj/structure/railing/metal{
 	dir = 8
@@ -24498,7 +24498,7 @@
 	pixel_y = -26
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "ijh" = (
 /obj/effect/turf_decal/siding/white{
 	color = "#636363";
@@ -24512,7 +24512,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "ijj" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
@@ -24580,7 +24580,7 @@
 	layer = 2.9
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "ikg" = (
 /obj/structure/vampfence/rich{
 	dir = 4
@@ -26309,7 +26309,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "iMB" = (
 /obj/structure/table,
 /obj/structure/extinguisher_cabinet{
@@ -26626,7 +26626,7 @@
 "iRM" = (
 /obj/machinery/photocopier,
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "iRV" = (
 /obj/effect/decal/bordur{
 	dir = 4
@@ -26810,7 +26810,7 @@
 /area/vtm/interior)
 "iTJ" = (
 /turf/closed/wall/vampwall/brick/low/window,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "iTP" = (
 /obj/effect/turf_decal/siding/wood{
 	color = "#503e28"
@@ -27268,7 +27268,7 @@
 	pixel_y = 9
 	},
 /turf/closed/wall/vampwall/low,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "jbG" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -29177,7 +29177,7 @@
 	},
 /obj/effect/decal/bordur,
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "jLI" = (
 /obj/structure/railing/metal/corner{
 	dir = 8
@@ -29262,7 +29262,7 @@
 	lockpick_difficulty = 12
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "jNE" = (
 /obj/structure/stone_tile/block,
 /turf/open/floor/plating/rough/cave,
@@ -29500,7 +29500,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "jRB" = (
 /obj/structure/table/wood,
 /turf/closed/wall/vampwall/rich/old/low,
@@ -30449,7 +30449,7 @@
 /turf/open/floor/plasteel/stairs{
 	color = "#838383"
 	},
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "kgx" = (
 /obj/structure/table/wood/fancy/red,
 /obj/item/vtm_artifact/rand,
@@ -30683,7 +30683,7 @@
 	color = "#004136"
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "kkZ" = (
 /obj/effect/decal/asphaltline/alt{
 	pixel_x = -14
@@ -31022,7 +31022,7 @@
 	},
 /obj/effect/decal/shadow,
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "koR" = (
 /obj/structure/sink{
 	pixel_y = 16;
@@ -33158,7 +33158,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "laD" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/pallet,
@@ -33222,7 +33222,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "lbz" = (
 /obj/elevator_door,
 /obj/elevator_door,
@@ -34170,7 +34170,7 @@
 	pixel_x = 11
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "lrt" = (
 /obj/effect/decal/wallpaper/padded,
 /turf/closed/wall/vampwall/city,
@@ -35304,7 +35304,7 @@
 "lLO" = (
 /obj/effect/decal/wallpaper/light,
 /turf/closed/wall/vampwall/redbrick,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "lLS" = (
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#aa4f25";
@@ -37661,7 +37661,7 @@
 	dir = 2;
 	color = "#635d52"
 	},
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "mwn" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/white{
@@ -38375,7 +38375,7 @@
 	},
 /obj/effect/decal/bordur,
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "mHq" = (
 /obj/effect/decal/wallpaper/red,
 /turf/closed/wall/vampwall/rich,
@@ -41450,7 +41450,7 @@
 	pixel_y = 7
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "nFA" = (
 /obj/effect/decal/bordur{
 	dir = 4
@@ -43526,7 +43526,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/wallpaper/stone/low,
 /turf/closed/wall/vampwall/low,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "ole" = (
 /obj/structure/vamptree{
 	icon_state = "tree3"
@@ -44495,6 +44495,9 @@
 /obj/item/storage/box/zipties,
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/endron_facility/restricted)
+"oAm" = (
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/police/court)
 "oAn" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp{
@@ -46823,7 +46826,7 @@
 	pixel_y = 19
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "plF" = (
 /turf/closed/wall/vampwall/market,
 /area/vtm/financialdistrict/library)
@@ -47185,7 +47188,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "pse" = (
 /obj/structure/chair/plastic,
 /turf/open/floor/plating/roofwalk,
@@ -48738,7 +48741,7 @@
 	color = "#004136"
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "pRJ" = (
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate/large,
@@ -49340,7 +49343,7 @@
 	lockpick_difficulty = 12
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "qcq" = (
 /obj/structure/table,
 /obj/item/gun/ballistic/automatic/vampire/m1911,
@@ -50028,7 +50031,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "qlH" = (
 /obj/structure/table,
 /obj/item/folder/documents,
@@ -53218,7 +53221,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "rnt" = (
 /obj/structure/chair/pew/right,
 /obj/structure/extinguisher_cabinet{
@@ -54358,7 +54361,7 @@
 	color = "#004136"
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "rIw" = (
 /obj/structure/fence/end{
 	dir = 4
@@ -56265,7 +56268,7 @@
 	color = "#004136"
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "soH" = (
 /obj/structure/table,
 /obj/item/stack/dollar/hundred,
@@ -57560,7 +57563,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "sJy" = (
 /obj/effect/decal/crosswalk{
 	dir = 1
@@ -58228,7 +58231,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "sWS" = (
 /turf/open/floor/plating/dirt,
 /area/vtm/forest)
@@ -58591,7 +58594,7 @@
 /area/vtm/interior/museum)
 "tdw" = (
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "tdz" = (
 /obj/structure/bookcase/random/reference,
 /obj/machinery/light/prince{
@@ -59270,7 +59273,7 @@
 "tmR" = (
 /obj/structure/chair/office,
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "tmU" = (
 /obj/structure/vampdoor/wood/apartment{
 	dir = 4
@@ -61416,7 +61419,7 @@
 "tZS" = (
 /obj/fusebox,
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "tZT" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -62768,7 +62771,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "uzk" = (
 /obj/effect/decal/bordur{
 	dir = 4
@@ -62805,7 +62808,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "uzA" = (
 /obj/structure/vampdoor/glass/prince{
 	lock_id = "bianchiBank";
@@ -62922,7 +62925,7 @@
 /area/vtm/church/interior)
 "uBr" = (
 /turf/open/floor/carpet/green,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "uBt" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	color = "#9a704a";
@@ -67315,7 +67318,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "wea" = (
 /obj/structure/chair/office/red{
 	dir = 1
@@ -70517,7 +70520,7 @@
 	},
 /obj/effect/decal/bordur,
 /turf/open/floor/plating/concrete,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "xfm" = (
 /obj/effect/turf_decal/siding/white{
 	color = "#636363";
@@ -71156,7 +71159,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "xrA" = (
 /obj/structure/railing/metal,
 /turf/open/floor/plasteel/stairs{
@@ -72553,7 +72556,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "xRb" = (
 /obj/structure/railing/metal,
 /turf/open/floor/plating/parquetry/old,
@@ -72786,7 +72789,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/pacificheights/industrial)
+/area/vtm/interior/police/court)
 "xVF" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
@@ -126078,7 +126081,7 @@ tow
 tao
 tao
 lLO
-wvU
+oAm
 mHo
 kgv
 tdw
@@ -126290,9 +126293,9 @@ soC
 uBr
 eDt
 lLO
-wvU
-wvU
-wvU
+oAm
+oAm
+oAm
 jNz
 tdw
 baj
@@ -126492,9 +126495,9 @@ rIs
 uBr
 laC
 qci
-wvU
-wvU
-wvU
+oAm
+oAm
+oAm
 lLO
 tdw
 tdw
@@ -126695,7 +126698,7 @@ uBr
 laC
 lLO
 rnd
-wvU
+oAm
 iji
 dAL
 dAL
@@ -126897,14 +126900,14 @@ uBr
 laC
 lLO
 lrn
-wvU
-wvU
-wvU
-wvU
-wvU
+oAm
+oAm
+oAm
+oAm
+oAm
 cdy
-wvU
-wvU
+oAm
+oAm
 dAL
 tao
 wKS
@@ -127099,14 +127102,14 @@ uBr
 laC
 lLO
 tZS
-wvU
-wvU
-wvU
-wvU
-wvU
-wvU
-wvU
-wvU
+oAm
+oAm
+oAm
+oAm
+oAm
+oAm
+oAm
+oAm
 jLE
 tao
 hdQ
@@ -127290,7 +127293,7 @@ tow
 tao
 tao
 lLO
-wvU
+oAm
 jbx
 koQ
 fOO
@@ -127306,9 +127309,9 @@ dAL
 aeR
 hbp
 bMP
-wvU
-wvU
-wvU
+oAm
+oAm
+oAm
 dAL
 tao
 hdQ
@@ -127508,8 +127511,8 @@ tdw
 tdw
 hca
 bMP
-wvU
-wvU
+oAm
+oAm
 sWH
 dAL
 tao
@@ -127694,7 +127697,7 @@ aAY
 tao
 tao
 lLO
-wvU
+oAm
 mHo
 kgv
 tdw
