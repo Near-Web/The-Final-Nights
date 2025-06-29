@@ -99,4 +99,4 @@
 		send_voice(message)
 
 /datum/species/proc/send_voice(mob/living/carbon/human/H)
-	playsound(get_turf(H), 'code/modules/wod13/sounds/talk.ogg', 100, FALSE, -1)
+	playsound(get_turf(H), 'code/modules/wod13/sounds/pencil.ogg', 100, FALSE, -1)
