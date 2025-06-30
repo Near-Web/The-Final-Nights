@@ -308,7 +308,9 @@
 
 /obj/item/update_filters()
 	. = ..()
-	update_item_action_buttons()
+	for(var/X in actions)
+		var/datum/action/A = X
+		A.UpdateButtonIcon()
 
 /** Update a filter's parameter to the new one. If the filter doesnt exist we won't do anything.
  *

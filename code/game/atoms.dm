@@ -1432,9 +1432,10 @@
 		return FALSE
 	return TRUE
 
-///Generate a tag for this atom
-/atom/proc/GenerateTag()
+///Connect this atom to a shuttle
+/atom/proc/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	return
+
 
 /atom/proc/intercept_zImpact(list/falling_movables, levels = 1)
 	SHOULD_CALL_PARENT(TRUE)
