@@ -209,7 +209,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(G_found.mind && !G_found.mind.active) //mind isn't currently in use by someone/something
 		/*Try and locate a record for the person being respawned through GLOB.data_core.
 		This isn't an exact science but it does the trick more often than not.*/
-		var/id = md5("[G_found.real_name][G_found.mind.assigned_role.title]")
+		var/id = md5("[G_found.real_name][G_found.mind.assigned_role]")
 
 		record_found = find_record("id", id, GLOB.data_core.locked)
 
@@ -219,7 +219,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		new_character.age = record_found.fields["age"]
 		new_character.hardset_dna(record_found.fields["identity"], record_found.fields["enzymes"], null, record_found.fields["name"], record_found.fields["blood_type"], new record_found.fields["species"], record_found.fields["features"])
 	else
-		new_character.randomize_human_appearance()
+		var/datum/preferences/A = new()
+		A.copy_to(new_character)
+		A.real_name = G_found.real_name
 		new_character.dna.update_dna_identity()
 
 	new_character.name = new_character.real_name
@@ -228,8 +230,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		G_found.mind.transfer_to(new_character) //be careful when doing stuff like this! I've already checked the mind isn't in use
 	else
 		new_character.mind_initialize()
-	if(is_unassigned_job(new_character.mind.assigned_role))
-		new_character.mind.set_assigned_role(SSjob.GetJobType(SSjob.overflow_role))
+	if(!new_character.mind.assigned_role)
+		new_character.mind.assigned_role = "Assistant"//If they somehow got a null assigned role.
 
 	new_character.key = G_found.key
 
@@ -246,8 +248,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	//Now for special roles and equipment.
 	var/datum/antagonist/traitor/traitordatum = new_character.mind.has_antag_datum(/datum/antagonist/traitor)
 	if(traitordatum)
-		SSjob.EquipRank(new_character, new_character.mind.assigned_role, new_character.client)
-		new_character.mind.give_uplink(silent = TRUE, antag_datum = traitordatum)
+		SSjob.EquipRank(new_character, new_character.mind.assigned_role, 1)
+		traitordatum.equip()
 
 	switch(new_character.mind.special_role)
 		if(ROLE_WIZARD)
@@ -268,23 +270,22 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				new_character.forceMove(pick(ninja_spawn))
 
 		else//They may also be a cyborg or AI.
-			switch(new_character.mind.assigned_role.type)
-				if(/datum/job/cyborg)//More rigging to make em' work and check if they're traitor.
+			switch(new_character.mind.assigned_role)
+				if("Cyborg")//More rigging to make em' work and check if they're traitor.
 					new_character = new_character.Robotize(TRUE)
-				if(/datum/job/ai)
+				if("AI")
 					new_character = new_character.AIize()
 				else
-					if(!traitordatum) // Already equipped there.
-						SSjob.EquipRank(new_character, new_character.mind.assigned_role, new_character.client)//Or we simply equip them.
+					SSjob.EquipRank(new_character, new_character.mind.assigned_role, 1)//Or we simply equip them.
+		//Announces the character on all the systems, based on the record.
+	if(!issilicon(new_character))//If they are not a cyborg/AI.
+		if(!record_found&&new_character.mind.assigned_role!=new_character.mind.special_role)//If there are no records for them. If they have a record, this info is already in there. MODE people are not announced anyway.
+			//Power to the user!
+			if(alert(new_character,"Warning: No data core entry detected. Would you like to announce the arrival of this character by adding them to various databases, such as medical records?",,"No","Yes")=="Yes")
+				GLOB.data_core.manifest_inject(new_character)
 
-	//Announces the character on all the systems, based on the record.
-	if(!record_found && (new_character.mind.assigned_role.job_flags & JOB_CREW_MEMBER))
-		//Power to the user!
-		if(tgui_alert(new_character,"Warning: No data core entry detected. Would you like to announce the arrival of this character by adding them to various databases, such as medical records?",,list("No","Yes"))=="Yes")
-			GLOB.data_core.manifest_inject(new_character)
-
-		if(tgui_alert(new_character,"Would you like an active AI to announce this character?",,list("No","Yes"))=="Yes")
-			announce_arrival(new_character, new_character.mind.assigned_role.title)
+			if(alert(new_character,"Would you like an active AI to announce this character?",,"No","Yes")=="Yes")
+				AnnounceArrival(new_character, new_character.mind.assigned_role)
 
 	var/msg = span_adminnotice("[admin] has respawned [player_key] as [new_character.real_name].")
 	message_admins(msg)
@@ -315,12 +316,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		tgui_alert(usr, "You cannot manage jobs before the job subsystem is initialized!")
 		return
 
-	if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
-		dat += "<div class='notice red' style='font-size: 125%'>Lag Switch \"Disable non-observer late joining\" is ON. Only Observers may join!</div>"
-
 	dat += "<table>"
 
-	for(var/datum/job/job as anything in SSjob.joinable_occupations)
+	for(var/datum/job/job as anything in SSjob.occupations)
 		count++
 		var/J_title = html_encode(job.title)
 		var/J_opPos = html_encode(job.total_positions - (job.total_positions - job.current_positions))
@@ -352,7 +350,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(view_size.getView() == view_size.default)
 		view_size.setTo(input("Select view range:", "FUCK YE", 7) in list(1,2,3,4,5,6,7,8,9,10,11,12,13,14,37) - 7)
 	else
-		view_size.resetToDefault(getScreenSize(prefs.read_preference(/datum/preference/toggle/widescreen)))
+		view_size.resetToDefault(getScreenSize(prefs.widescreenpref))
 
 	log_admin("[key_name(usr)] changed their view range to [view].")
 	//message_admins("\blue [key_name_admin(usr)] changed their view range to [view].") //why? removed by order of XSI
@@ -367,26 +365,26 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	combo_hud_enabled = !combo_hud_enabled
+	var/adding_hud = !has_antag_hud()
 
 	for(var/hudtype in list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_DIAGNOSTIC_ADVANCED)) // add data huds
 		var/datum/atom_hud/H = GLOB.huds[hudtype]
-		(combo_hud_enabled) ? H.add_hud_to(usr) : H.remove_hud_from(usr)
-	for(var/datum/atom_hud/alternate_appearance/basic/antagonist_hud/H in GLOB.active_alternate_appearances) // add antag huds
-		(combo_hud_enabled) ? H.add_hud_to(usr) : H.remove_hud_from(usr)
+		(adding_hud) ? H.add_hud_to(usr) : H.remove_hud_from(usr)
+	for(var/datum/atom_hud/antag/H in GLOB.huds) // add antag huds
+		(adding_hud) ? H.add_hud_to(usr) : H.remove_hud_from(usr)
 
 	if(prefs.toggles & COMBOHUD_LIGHTING)
-		if(combo_hud_enabled)
+		if(adding_hud)
 			mob.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 		else
 			mob.lighting_alpha = initial(mob.lighting_alpha)
 
 	mob.update_sight()
 
-	to_chat(usr, "You toggled your admin combo HUD [combo_hud_enabled ? "ON" : "OFF"].", confidential = TRUE)
-	message_admins("[key_name_admin(usr)] toggled their admin combo HUD [combo_hud_enabled ? "ON" : "OFF"].")
-	log_admin("[key_name(usr)] toggled their admin combo HUD [combo_hud_enabled ? "ON" : "OFF"].")
-	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Combo HUD", "[combo_hud_enabled ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	to_chat(usr, "You toggled your admin combo HUD [adding_hud ? "ON" : "OFF"].", confidential = TRUE)
+	message_admins("[key_name_admin(usr)] toggled their admin combo HUD [adding_hud ? "ON" : "OFF"].")
+	log_admin("[key_name(usr)] toggled their admin combo HUD [adding_hud ? "ON" : "OFF"].")
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Combo HUD", "[adding_hud ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/show_traitor_panel(mob/target_mob in GLOB.mob_list)
 	set category = "Admin.Game"
@@ -417,33 +415,3 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 	var/datum/skill_panel/SP = new(usr, target_mind)
 	SP.ui_interact(usr)
-
-/datum/admins/proc/show_lag_switch_panel()
-	set category = "Admin.Game"
-	set name = "Show Lag Switches"
-	set desc="Display the controls for drastic lag mitigation measures."
-
-	if(!SSlag_switch.initialized)
-		to_chat(usr, span_notice("The Lag Switch subsystem has not yet been initialized."))
-		return
-	if(!check_rights())
-		return
-
-	var/list/dat = list("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Lag Switches</title></head><body><h2><B>Lag (Reduction) Switches</B></h2>")
-	dat += "Automatic Trigger: <a href='?_src_=holder;[HrefToken()];change_lag_switch_option=TOGGLE_AUTO'><b>[SSlag_switch.auto_switch ? "On" : "Off"]</b></a><br/>"
-	dat += "Population Threshold: <a href='?_src_=holder;[HrefToken()];change_lag_switch_option=NUM'><b>[SSlag_switch.trigger_pop]</b></a><br/>"
-	dat += "Slowmode Cooldown (toggle On/Off below): <a href='?_src_=holder;[HrefToken()];change_lag_switch_option=SLOWCOOL'><b>[SSlag_switch.slowmode_cooldown/10] seconds</b></a><br/>"
-	dat += "<br/><b>SET ALL MEASURES: <a href='?_src_=holder;[HrefToken()];change_lag_switch=ALL_ON'>ON</a> | <a href='?_src_=holder;[HrefToken()];change_lag_switch=ALL_OFF'>OFF</a></b><br/>"
-	dat += "<br/>Disable ghosts zoom and t-ray verbs (except staff): <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_GHOST_ZOOM_TRAY]'><b>[SSlag_switch.measures[DISABLE_GHOST_ZOOM_TRAY] ? "On" : "Off"]</b></a><br/>"
-	dat += "Disable late joining: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_NON_OBSJOBS]'><b>[SSlag_switch.measures[DISABLE_NON_OBSJOBS] ? "On" : "Off"]</b></a><br/>"
-	dat += "<br/>============! MAD GHOSTS ZONE !============<br/>"
-	dat += "Disable deadmob keyLoop (except staff, informs dchat): <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_DEAD_KEYLOOP]'><b>[SSlag_switch.measures[DISABLE_DEAD_KEYLOOP] ? "On" : "Off"]</b></a><br/>"
-	dat += "==========================================<br/>"
-	dat += "<br/><b>Measures below can be bypassed with a <abbr title='TRAIT_BYPASS_MEASURES'><u>special trait</u></abbr></b><br/>"
-	dat += "Slowmode say verb (informs world): <a href='?_src_=holder;[HrefToken()];change_lag_switch=[SLOWMODE_SAY]'><b>[SSlag_switch.measures[SLOWMODE_SAY] ? "On" : "Off"]</b></a><br/>"
-	dat += "Disable runechat: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_RUNECHAT]'><b>[SSlag_switch.measures[DISABLE_RUNECHAT] ? "On" : "Off"]</b></a> - <span style='font-size:80%'>trait applies to speaker</span><br/>"
-	dat += "Disable examine icons: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_USR_ICON2HTML]'><b>[SSlag_switch.measures[DISABLE_USR_ICON2HTML] ? "On" : "Off"]</b></a> - <span style='font-size:80%'>trait applies to examiner</span><br/>"
-	dat += "Disable parallax: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_PARALLAX]'><b>[SSlag_switch.measures[DISABLE_PARALLAX] ? "On" : "Off"]</b></a> - <span style='font-size:80%'>trait applies to character</span><br />"
-	dat += "Disable footsteps: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_FOOTSTEPS]'><b>[SSlag_switch.measures[DISABLE_FOOTSTEPS] ? "On" : "Off"]</b></a> - <span style='font-size:80%'>trait applies to character</span><br />"
-	dat += "</body></html>"
-	usr << browse(dat.Join(), "window=lag_switch_panel;size=420x480")
