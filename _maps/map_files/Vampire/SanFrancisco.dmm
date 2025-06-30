@@ -30392,12 +30392,6 @@
 "gSZ" = (
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/cog/caern)
-"gTb" = (
-/obj/structure/vampdoor/wood/sabbat{
-	dir = 4
-	},
-/turf/open/floor/plating/sidewalk/poor,
-/area/vtm/ghetto)
 "gTh" = (
 /obj/machinery/light/small{
 	dir = 4;
@@ -231809,7 +231803,7 @@ iFP
 gZe
 mes
 jlv
-gTb
+jlv
 gJW
 gqj
 gJW
