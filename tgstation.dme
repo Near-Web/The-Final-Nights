@@ -1638,6 +1638,7 @@
 #include "code\modules\admin\smites\supply_pod_quick.dm"
 #include "code\modules\admin\verbs\_help.dm"
 #include "code\modules\admin\verbs\admin_newscaster.dm"
+#include "code\modules\admin\verbs\admingame.dm"
 #include "code\modules\admin\verbs\adminhelp.dm"
 #include "code\modules\admin\verbs\adminjump.dm"
 #include "code\modules\admin\verbs\adminpm.dm"
