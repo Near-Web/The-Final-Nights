@@ -1,3 +1,6 @@
+#define ICON_STATE_CHECKED 1 /// this dmi is checked. We don't check this one anymore.
+#define ICON_STATE_NULL 2 /// this dmi has null-named icon_state, allowing it to show a sprite on vv editor.
+
 /client/proc/debug_variables(datum/thing in world)
 	set category = "Debug"
 	set name = "View Variables"
@@ -32,8 +35,25 @@
 			no_icon = TRUE
 
 	else if(isimage(thing))
+		// icon_state=null shows first image even if dmi has no icon_state for null name.
+		// This list remembers which dmi has null icon_state, to determine if icon_state=null should display a sprite
+		// (NOTE: icon_state="" is correct, but saying null is obvious)
+		var/static/list/dmi_nullstate_checklist = list()
 		var/image/image_object = thing
-		sprite = icon(image_object.icon, image_object.icon_state)
+		var/icon_filename_text = "[image_object.icon]" // "icon(null)" type can exist. textifying filters it.
+		if(icon_filename_text)
+			if(image_object.icon_state)
+				sprite = icon(image_object.icon, image_object.icon_state)
+
+			else // it means: icon_state=""
+				if(!dmi_nullstate_checklist[icon_filename_text])
+					dmi_nullstate_checklist[icon_filename_text] = ICON_STATE_CHECKED
+					if(icon_exists(image_object.icon, ""))
+						// this dmi has nullstate. We'll allow "icon_state=null" to show image.
+						dmi_nullstate_checklist[icon_filename_text] = ICON_STATE_NULL
+
+				if(dmi_nullstate_checklist[icon_filename_text] == ICON_STATE_NULL)
+					sprite = icon(image_object.icon, image_object.icon_state)
 
 	var/sprite_text
 	if(sprite)
@@ -48,14 +68,12 @@
 
 	var/ref_line = "@[copytext(refid, 2, -1)]" // get rid of the brackets, add a @ prefix for copy pasting in asay
 
-	var/ref_line = "@[copytext(refid, 2, -1)]" // get rid of the brackets, add a @ prefix for copy pasting in asay
-
 	var/marked_line
 	if(holder && holder.marked_datum && holder.marked_datum == thing)
 		marked_line = VV_MSG_MARKED
 	var/tagged_line
-	if(holder && LAZYFIND(holder.tagged_datums, D))
-		var/tag_index = LAZYFIND(holder.tagged_datums, D)
+	if(holder && LAZYFIND(holder.tagged_datums, thing))
+		var/tag_index = LAZYFIND(holder.tagged_datums, thing)
 		tagged_line = VV_MSG_TAGGED(tag_index)
 	var/varedited_line
 	if(!islist && (thing.datum_flags & DF_VAR_EDITED))
@@ -74,7 +92,6 @@
 			"Set len" = VV_HREF_TARGETREF_INTERNAL(refid, VV_HK_LIST_SET_LENGTH),
 			"Shuffle" = VV_HREF_TARGETREF_INTERNAL(refid, VV_HK_LIST_SHUFFLE),
 			"Show VV To Player" = VV_HREF_TARGETREF_INTERNAL(refid, VV_HK_EXPOSE),
-			"View References" = VV_HREF_TARGETREF_INTERNAL(refid, VV_HK_VIEW_REFERENCES),
 			"---"
 			)
 		for(var/i in 1 to length(dropdownoptions))
@@ -107,7 +124,6 @@
 				variable_html += thing.vv_get_var(varname)
 
 	var/html = {"
-<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
@@ -132,8 +148,8 @@
 				var ca = document.cookie.split(';');
 				for(var i=0; i<ca.length; i++) {
 					var c = ca\[i];
-					while (c.charAt(0)==' ') c = c.substring(1,c.length);
-					if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+					while (c.charAt(0) == ' ') c = c.substring(1,c.length);
+					if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
 				}
 				return "";
 			}
@@ -281,7 +297,14 @@ datumrefresh=[refid];[HrefToken()]'>Refresh</a>
 	</body>
 </html>
 "}
-	src << browse(html, "window=variables[refid];size=475x650")
+	var/size_string = "size=475x650";
+	if(ui_scale && window_scaling)
+		size_string = "size=[475 * window_scaling]x[650 * window_scaling]"
+
+	src << browse(html, "window=variables[refid];[size_string]")
 
 /client/proc/vv_update_display(datum/thing, span, content)
 	src << output("[span]:[content]", "variables[REF(thing)].browser:replace_span")
+
+#undef ICON_STATE_CHECKED
+#undef ICON_STATE_NULL

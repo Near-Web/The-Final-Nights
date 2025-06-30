@@ -433,7 +433,3 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 
 /datum/help_ticket/admin/resolve_message(status = "Resolved", message = null, extratext = " If your ticket was a report, then the appropriate action has been taken where necessary.")
 	..()
-
-#undef WEBHOOK_URGENT
-#undef WEBHOOK_NONE
-#undef WEBHOOK_NON_URGENT
