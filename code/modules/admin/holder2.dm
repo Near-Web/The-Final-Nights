@@ -30,8 +30,6 @@ GLOBAL_PROTECT(href_token)
 
 	var/datum/filter_editor/filteriffic
 	var/datum/particle_editor/particle_test
-	var/datum/colorblind_tester/color_test = new
-	var/datum/plane_master_debug/plane_debug
 
 
 	/// A lazylist of tagged datums, for quick reference with the View Tags verb
