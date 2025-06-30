@@ -297,11 +297,7 @@ datumrefresh=[refid];[HrefToken()]'>Refresh</a>
 	</body>
 </html>
 "}
-	var/size_string = "size=475x650";
-	if(ui_scale && window_scaling)
-		size_string = "size=[475 * window_scaling]x[650 * window_scaling]"
-
-	src << browse(html, "window=variables[refid];[size_string]")
+	src << browse(html, "window=variables[refid];size=475x650")
 
 /client/proc/vv_update_display(datum/thing, span, content)
 	src << output("[span]:[content]", "variables[REF(thing)].browser:replace_span")

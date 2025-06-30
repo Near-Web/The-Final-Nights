@@ -27,9 +27,6 @@
 /// subtypesof(), typesof() without the parent path
 #define subtypesof(typepath) ( typesof(typepath) - typepath )
 
-/// Until a condition is true, sleep
-#define UNTIL(X) while(!(X)) stoplag()
-
 /// Sleep if we haven't been deleted
 /// Otherwise, return
 #define SLEEP_NOT_DEL(time) \
