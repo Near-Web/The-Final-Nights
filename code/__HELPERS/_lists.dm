@@ -254,8 +254,11 @@
 
 //Removes any null entries from the list
 //Returns TRUE if the list had nulls, FALSE otherwise
-/proc/listclearnulls(list/list_to_clear)
-	return (list_to_clear.RemoveAll(null) > 0)
+/proc/listclearnulls(list/L)
+	var/start_len = L.len
+	var/list/N = new(start_len)
+	L -= N
+	return L.len < start_len
 
 /*
  * Returns list containing all the entries from first list that are not present in second.
@@ -269,7 +272,7 @@
 	if(skiprep)
 		for(var/e in first)
 			if(!(e in result) && !(e in second))
-				UNTYPED_LIST_ADD(result, e)
+				result += e
 	else
 		result = first - second
 	return result
@@ -391,10 +394,10 @@
 		L.Swap(i,rand(i,L.len))
 
 //Return a list with no duplicate entries
-/proc/uniqueList(list/inserted_list)
+/proc/uniqueList(list/L)
 	. = list()
-	for(var/i in inserted_list)
-		. |= LIST_VALUE_WRAP_LISTS(i)
+	for(var/i in L)
+		. |= i
 
 //same, but returns nothing and acts on list in place (also handles associated values properly)
 /proc/uniqueList_inplace(list/L)
@@ -553,6 +556,11 @@
 			if(D.vars[varname] == value)
 				return D
 
+//remove all nulls from a list
+/proc/removeNullsFromList(list/L)
+	while(L.Remove(null))
+		continue
+	return L
 
 //Copies a list, and all lists inside it recusively
 //Does not copy any other reference type
@@ -592,7 +600,7 @@
 		return null
 	. = list()
 	for(var/key in key_list)
-		. |= LIST_VALUE_WRAP_LISTS(key_list[key])
+		. |= key_list[key]
 
 /proc/make_associative(list/flat_list)
 	. = list()
@@ -636,7 +644,7 @@
 /proc/assoc_list_strip_value(list/input)
 	var/list/ret = list()
 	for(var/key in input)
-		UNTYPED_LIST_ADD(ret, key)
+		ret += key
 	return ret
 
 /proc/compare_list(list/l,list/d)
@@ -652,11 +660,23 @@
 
 	return TRUE
 
+/**
+ * Move a single element from position from_index within a list, to position to_index
+ * All elements in the range [1,to_index) before the move will be before the pivot afterwards
+ * All elements in the range [to_index, L.len+1) before the move will be after the pivot afterwards
+ * In other words, it's as if the range [from_index,to_index) have been rotated using a <<< operation common to other languages.
+ * from_index and to_index must be in the range [1,L.len+1]
+ * This will preserve associations ~Carnie
+**/
 /proc/move_element(list/inserted_list, from_index, to_index)
 	if(from_index == to_index || from_index + 1 == to_index) //no need to move
 		return
 	if(from_index > to_index)
 		++from_index //since a null will be inserted before from_index, the index needs to be nudged right by one
+
+	inserted_list.Insert(to_index, null)
+	inserted_list.Swap(from_index, to_index)
+	inserted_list.Cut(from_index, from_index + 1)
 
 ///Returns a list with items filtered from a list that can call callback
 /proc/special_list_filter(list/list_to_filter, datum/callback/condition)
