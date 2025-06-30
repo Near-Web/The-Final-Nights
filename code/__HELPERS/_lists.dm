@@ -255,10 +255,7 @@
 //Removes any null entries from the list
 //Returns TRUE if the list had nulls, FALSE otherwise
 /proc/listclearnulls(list/L)
-	var/start_len = L.len
-	var/list/N = new(start_len)
-	L -= N
-	return L.len < start_len
+	return (list_to_clear.RemoveAll(null) > 0)
 
 /*
  * Returns list containing all the entries from first list that are not present in second.
@@ -394,7 +391,7 @@
 		L.Swap(i,rand(i,L.len))
 
 //Return a list with no duplicate entries
-/proc/uniqueList(list/L)
+/proc/uniqueList(list/inserted_list)
 	. = list()
 	for(var/i in inserted_list)
 		. |= LIST_VALUE_WRAP_LISTS(i)
@@ -639,8 +636,8 @@
 /proc/assoc_list_strip_value(list/input)
 	var/list/ret = list()
 	for(var/key in input)
-		UNTYPED_LIST_ADD(keys, key)
-	return keys
+		UNTYPED_LIST_ADD(ret, key)
+	return ret
 
 /proc/compare_list(list/l,list/d)
 	if(!islist(l) || !islist(d))

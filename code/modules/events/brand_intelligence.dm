@@ -54,7 +54,7 @@
 			originMachine.visible_message("<span class='notice'>[originMachine] beeps and seems lifeless.</span>")
 		kill()
 		return
-	list_clear_nulls(vendingMachines)
+	listclearnulls(vendingMachines)
 	if(!vendingMachines.len) //if every machine is infected
 		for(var/obj/machinery/vending/upriser in infectedMachines)
 			if(prob(70) && !QDELETED(upriser))
