@@ -466,6 +466,22 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 	"[HUMAN_HEIGHT_TALLEST]" = list(2, 2),
 ))
 
+#define LUZHA_LAYER				41
+#define UNDERSHADOW_LAYER		40
+#define HANDS_PART_LAYER		30
+#define MARKS_LAYER				27 //For WoD-specific clanmarks etc
+#define UPPER_EARS_LAYER		18
+#define DECAPITATION_BLOOD_LAYER	11
+#define PROTEAN_LAYER			10
+#define UNICORN_LAYER			9
+#define POTENCE_LAYER			8
+#define FORTITUDE_LAYER			7
+#define FIRING_EFFECT_LAYER		6
+#define FIRE_LAYER				4		//If you're on fire
+#define BITE_LAYER				3
+#define FIGHT_LAYER				2
+#define SAY_LAYER				1
+
 // Mob Overlays Indexes
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
