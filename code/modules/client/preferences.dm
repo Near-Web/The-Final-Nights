@@ -598,16 +598,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/can_raise_gnosis = 0
 					if(SSwhitelists.is_whitelisted(user.ckey, TRUSTED_PLAYER))
 						if(renownrank < MAX_TRUSTED_RANK)
-							canraise = 1
+							canraise = AuspiceRankUp()
 						if(extra_gnosis < renownrank)
 							can_raise_gnosis = 1
 					else
 						if(renownrank < MAX_PUBLIC_RANK)
-							canraise = 1
+							canraise = AuspiceRankUp()
 						if(extra_gnosis < renownrank)
 							can_raise_gnosis = 1
 					if(canraise)
-						canraise = AuspiceRankUp()
 						dat += "<a href='byond://?_src_=prefs;preference=renownrank;task=input'>Raise Renown Rank</a><BR>"
 					if(can_raise_gnosis && player_experience >= 50)
 						dat += "<a href='byond://?_src_=prefs;preference=extra_gnosis;task=input'>Raise Extra Gnosis [extra_gnosis]/5) </a><BR>"
