@@ -170,7 +170,7 @@ export const EntryGradient = (props: EntryGradientProps) => {
                 <Input
                   key={index}
                   maxWidth={'70px'}
-                  value={entry.toString()}
+                  value={entry?.toString()}
                   onBlur={(value) =>
                     act('edit', {
                       var: var_name,
