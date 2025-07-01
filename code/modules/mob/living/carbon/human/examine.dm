@@ -55,10 +55,10 @@
 	//faction, job, etc
 	if(iskindred(user) && iskindred(src) && is_face_visible())
 		var/mob/living/carbon/human/vampire = user
-		var/same_clan = vampire.clane == clane
+		var/same_clan = vampire.clan == clan
 		switch(info_known)
 			if(INFO_KNOWN_PUBLIC)
-				. += "<b>You know [p_them()] as a [job] of the [clane] bloodline.</b>"
+				. += "<b>You know [p_them()] as a [job] of the [clan] bloodline.</b>"
 			if(INFO_KNOWN_CLAN_ONLY)
 				if(same_clan)
 					. += "<b>You know [p_them()] as a [job]. You are of the same bloodline.</b>"
@@ -458,7 +458,7 @@
 
 		//examine text for unusual appearances
 		if (iskindred(src) && is_face_visible())
-			switch(clane.alt_sprite)
+			switch (GET_BODY_SPRITE(src))
 				if (CLAN_NOSFERATU)
 					msg += span_warning("[p_they(TRUE)] look[p_s()] utterly deformed and inhuman!<br>")
 				if (CLAN_GARGOYLE)
@@ -476,6 +476,9 @@
 					msg += span_boldwarning("[p_they(TRUE)] [p_are()] a skeletonised corpse!</b><br>")
 			if (HAS_TRAIT(src, TRAIT_PERMAFANGS))
 				msg += span_warning("[p_they(TRUE)] [p_have()] visible fangs in [p_their()] mouth.</span><br>")
+
+		if (iszombie(src) && is_face_visible())
+			msg += span_danger("<b>[p_they(TRUE)] [p_are()] a decayed corpse!</b><br>")
 
 		if(getorgan(/obj/item/organ/brain))
 			if(ai_controller?.ai_status == AI_STATUS_ON)
@@ -512,6 +515,11 @@
 					wyrm_taint++
 				named_splat = "You scent the dark journey through Erebus permeating this body, the mark of the Wan Kuei."
 
+			if(iszombie(src))
+				seems_alive = 0
+				wyrm_taint++
+				named_splat = "You scent nothing but the stench of death and decay - this is no living creature."
+
 			if (iskindred(src))
 				named_splat = "You scent the shiveringly addictive vitae of the children of Caine."
 				var/mob/living/carbon/human/vampire = src
@@ -523,7 +531,7 @@
 				if ((vampire.morality_path.score < 7) || client?.prefs?.is_enlightened)
 					wyrm_taint++
 
-				if ((vampire.clane?.name == CLAN_BAALI) || ( (client?.prefs?.is_enlightened && (vampire.morality_path.score > 7)) || (!client?.prefs?.is_enlightened && (vampire.morality_path.score < 4)) ))
+				if ((vampire.clan?.name == CLAN_BAALI) || ( (client?.prefs?.is_enlightened && (vampire.morality_path.score > 7)) || (!client?.prefs?.is_enlightened && (vampire.morality_path.score < 4)) ))
 					wyrm_taint++
 
 			if (isgarou(src) || iswerewolf(src)) //werewolves have the taint of whatever Triat member they venerate most
