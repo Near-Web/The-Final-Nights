@@ -156,6 +156,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	//Renown
 	var/renownrank = 0
+	var/extra_gnosis = 0
 	var/honor = 0
 	var/glory = 0
 	var/wisdom = 0
@@ -279,10 +280,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	yang = initial(yang)
 	chi_types = list()
 	chi_levels = list()
-	renownrank = 0
-	honor = 0
-	glory = 0
-	wisdom = 0
+	renownrank = initial(renownrank)
+	auspice_level = initial(auspice_level)
+	extra_gnosis = initial(extra_gnosis)
+	honor = inital(honor)
+	glory = initial(glory)
+	wisdom = initial(wisdom)
 	archetype = pick(subtypesof(/datum/archetype))
 	var/datum/archetype/A = new archetype()
 	physique = A.start_physique
@@ -592,16 +595,23 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "<b>Renown Rank:</b> [RankName(renownrank,src.tribe.name)]<br>"
 					dat += "[RankDesc(renownrank, src.tribe.name)]<BR>"
 					var/canraise = 0
+					var/can_raise_gnosis = 0
 					if(SSwhitelists.is_whitelisted(user.ckey, TRUSTED_PLAYER))
 						if(renownrank < MAX_TRUSTED_RANK)
 							canraise = 1
+							can_raise_gnosis = 1
 					else
 						if(renownrank < MAX_PUBLIC_RANK)
 							canraise = 1
+							can_raise_gnosis = 1
 					if(canraise)
 						canraise = AuspiceRankUp()
+					if(can_raise_gnosis)
+						can_raise_gnosis = AuspiceRankUp()
 					if(canraise)
-						dat += " <a href='byond://?_src_=prefs;preference=renownrank;task=input'>Raise Renown Rank</a><BR>"
+						dat += "<a href='byond://?_src_=prefs;preference=renownrank;task=input'>Raise Renown Rank</a><BR>"
+					if(can_raise_gnosis)
+						dat += "<a href='byond://?_src_=prefs;preference=extra_gnosis;task=input'>Raise Extra Gnosis</a><BR>"
 					else if(renownrank < MAX_PUBLIC_RANK)
 						var/renownrequirement = RenownRequirements()
 						dat += "<b>Needed To Raise Renown:</b> [renownrequirement]<BR>"
@@ -2773,6 +2783,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("renownrank")
 					renownrank = renownrank+1
 
+				if("extra_gnosis")
+					extra_gnosis += 1
+
 				if("renownglory")
 					var/cost = 25
 					if ((player_experience < cost) || (glory >= 10) || !(pref_species.id == "garou"))
@@ -3756,16 +3769,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		switch(breed)
 			if("Homid")
-				character.auspice.gnosis = 1
-				character.auspice.start_gnosis = 1
+				character.auspice.gnosis = 1 + extra_gnosis
+				character.auspice.start_gnosis = 1 + extra_gnosis
 				character.auspice.base_breed = "Homid"
 			if("Lupus")
-				character.auspice.gnosis = 5
-				character.auspice.start_gnosis = 5
+				character.auspice.gnosis = 5 + extra_gnosis
+				character.auspice.start_gnosis = 5 + extra_gnosis
 				character.auspice.base_breed = "Lupus"
 			if("Metis")
-				character.auspice.gnosis = 3
-				character.auspice.start_gnosis = 3
+				character.auspice.gnosis = 3 + extra_gnosis
+				character.auspice.start_gnosis = 3 + extra_gnosis
 				character.auspice.base_breed = "Crinos"
 		if(character.transformator?.crinos_form && character.transformator?.lupus_form && !HAS_TRAIT(character,TRAIT_CORAX))
 			var/mob/living/carbon/werewolf/crinos/crinos = character.transformator.crinos_form?.resolve()
