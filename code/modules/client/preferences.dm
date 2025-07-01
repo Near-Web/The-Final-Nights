@@ -610,7 +610,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						canraise = AuspiceRankUp()
 					if(canraise)
 						dat += "<a href='byond://?_src_=prefs;preference=renownrank;task=input'>Raise Renown Rank</a><BR>"
-					if(can_raise_gnosis && player_experience >= 25)
+					if(can_raise_gnosis && player_experience >= 50)
 						dat += "<a href='byond://?_src_=prefs;preference=extra_gnosis;task=input'>Raise Extra Gnosis [extra_gnosis]/5) </a><BR>"
 					else if(renownrank < MAX_PUBLIC_RANK)
 						var/renownrequirement = RenownRequirements()
@@ -2784,6 +2784,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					renownrank = renownrank+1
 
 				if("extra_gnosis")
+					var/cost = 50
+					if ((player_experience < cost) || !(pref_species.id == "garou"))
+						return
+					player_experience -= cost
+					experience_used_on_character += cost
 					extra_gnosis += 1
 
 				if("renownglory")
