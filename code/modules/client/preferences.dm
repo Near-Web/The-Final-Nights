@@ -608,7 +608,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							can_raise_gnosis = 1
 					if(canraise)
 						canraise = AuspiceRankUp()
-					if(canraise)
 						dat += "<a href='byond://?_src_=prefs;preference=renownrank;task=input'>Raise Renown Rank</a><BR>"
 					if(can_raise_gnosis && player_experience >= 50)
 						dat += "<a href='byond://?_src_=prefs;preference=extra_gnosis;task=input'>Raise Extra Gnosis [extra_gnosis]/5) </a><BR>"
