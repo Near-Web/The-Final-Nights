@@ -252,44 +252,6 @@
 	firstname.Find(real_name)
 	return firstname.match
 
-
-/**
- * change a mob's act-intent.
- *
- * Input the intent as a string such as "help" or use "right"/"left
- */
-/mob/verb/a_intent_change(input as text)
-	set name = "a-intent"
-	set hidden = TRUE
-
-	if(!possible_a_intents || !possible_a_intents.len)
-		return
-
-	if(input in possible_a_intents)
-		a_intent = input
-	else
-		var/current_intent = possible_a_intents.Find(a_intent)
-
-		if(!current_intent)
-			// Failsafe. Just in case some badmin was playing with VV.
-			current_intent = 1
-
-		if(input == INTENT_HOTKEY_RIGHT)
-			current_intent += 1
-		if(input == INTENT_HOTKEY_LEFT)
-			current_intent -= 1
-
-		// Handle looping
-		if(current_intent < 1)
-			current_intent = possible_a_intents.len
-		if(current_intent > possible_a_intents.len)
-			current_intent = 1
-
-		a_intent = possible_a_intents[current_intent]
-
-	if(hud_used?.action_intent)
-		hud_used.action_intent.icon_state = "[a_intent]"
-
 ///Returns a mob's real name between brackets. Useful when you want to display a mob's name alongside their real name
 /mob/proc/get_realname_string()
 	if(real_name && real_name != name)
@@ -651,7 +613,7 @@
 			"name" = offhand.name,
 		)
 
-	logger.Log(
+	GLOB.logger.Log(
 		LOG_CATEGORY_TARGET_ZONE_SWITCH,
 		"[key_name(src)] manually changed selected zone",
 		data,
@@ -660,16 +622,14 @@
 /mob/living/proc/lying_fix()
 	animate(src, transform = null, time = 1, loop = 0)
 	lying_prev = 0
-	if(ischildren)
-		transform = transform.Scale(81/100, 81/100)
-	if(isdwarfy)
+	if (has_quirk(/datum/quirk/dwarf))
 		if(lying_angle != 0)
 			transform = transform.Scale(4/5, 1)
 			transform = transform.Translate(lying_angle == 90 ? 16*((4/5)-1) : -(16*((4/5)-1)), 0) //Makes sure you stand on the tile no matter the size - sand
 		else
 			transform = transform.Scale(1, 4/5)
 			transform = transform.Translate(0, 16*((4/5)-1))
-	if(istower)
+	if (has_quirk(/datum/quirk/tower))
 		if(lying_angle != 0)
 			transform = transform.Scale(1.16, 1)
 			transform = transform.Translate(lying_angle == 90 ? 16*(1.16-1) : -(16*(1.16-1)), 0) //Makes sure you stand on the tile no matter the size - sand

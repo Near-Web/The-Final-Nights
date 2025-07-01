@@ -95,6 +95,9 @@
 	/// If something is currently grasping this bodypart and trying to staunch bleeding (see [/obj/item/hand_item/self_grasp])
 	var/obj/item/hand_item/self_grasp/grasped_by
 
+	/// The noun to use when referring to this arm's appendage, e.g. "hand" or "paw"
+	var/appendage_noun = "hand"
+
 
 /obj/item/bodypart/Initialize(mapload)
 	. = ..()
@@ -714,7 +717,7 @@
 
 //we inform the bodypart of the changes that happened to the owner, or give it the informations from a source mob.
 /obj/item/bodypart/proc/update_limb(dropping_limb, mob/living/carbon/source)
-	var/mob/living/carbon/C
+	var/mob/living/carbon/human/C
 	if(source)
 		C = source
 		if(!original_owner)
@@ -741,7 +744,12 @@
 		should_draw_greyscale = FALSE
 
 		var/datum/species/S = H.dna.species
-		species_id = S.limbs_id
+		if(S.limbs_id == "fhuman") //Snowflake code. I dont have the time or patience to figure out why specifically fat body types work differently than slim right now.
+			S.limbs_id = "human"
+		if(S.limbs_id == "shuman")
+			S.limbs_id = "human"
+		species_id = C.base_body_mod + S.limbs_id
+		S.limbs_id = species_id
 		species_flags_list = H.dna.species.species_traits
 
 		if(S.use_skintones)
