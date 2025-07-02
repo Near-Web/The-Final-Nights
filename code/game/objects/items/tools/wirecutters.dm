@@ -98,7 +98,7 @@
 		user.visible_message(span_warning("[user] rips out [target]'s fangs!"), span_warning("You rip out [target]'s fangs!"))
 		target.emote("scream")
 		if(HAS_TRAIT(target, TRAIT_PERMAFANGS))
-			REMOVE_TRAIT(target, TRAIT_PERMAFANGS, ROUNDSTART_TRAIT)
+			target.apply_status_effect(STATUS_EFFECT_PERMAFANGSREMOVED)
 		if (permanent == TRUE)
 			target.apply_status_effect(STATUS_EFFECT_SEVERE_BABY_TEETH)
 			visible_message(span_warning("[user] stuff's in Bone putty into [target] to stop their fangs from regrowing!"))

@@ -1042,6 +1042,25 @@
 	if(HAS_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN))
 		REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, SPECIES_TRAIT)
 
+/datum/status_effect/permafangsremove
+	id = "permafangs_pulled"
+	status_type = STATUS_EFFECT_UNIQUE
+	duration = -1
+	alert_type = /atom/movable/screen/alert/status_effect/permafangsremove
+
+/atom/movable/screen/alert/status_effect/permafangsremove
+	name = "Permanent fangs pulled"
+	desc = "Others won't see your Fangs anymore."
+
+/datum/status_effect/permafangsremove/on_apply()
+	. = ..()
+	ADD_TRAIT(owner, TRAIT_BABY_TEETH, MAGIC_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_PERMAFANGS, ROUNDSTART_TRAIT)
+
+/datum/status_effect/permafangsremove/on_remove()
+	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_BABY_TEETH, MAGIC_TRAIT)
+	ADD_TRAIT(owner, TRAIT_PERMAFANGS, ROUNDSTART_TRAIT)
 
 /datum/status_effect/babyteeth
 	id = "fangs_pulled"
@@ -1060,6 +1079,8 @@
 /datum/status_effect/babyteeth/on_remove()
 	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_BABY_TEETH, MAGIC_TRAIT)
+	if(owner.has_status_effect(STATUS_EFFECT_PERMAFANGSREMOVED))
+		owner.remove_status_effect(STATUS_EFFECT_PERMAFANGSREMOVED)
 
 /datum/status_effect/pbabyteeth
 	id = "fangs_pulled_round"
@@ -1078,6 +1099,8 @@
 /datum/status_effect/pbabyteeth/on_remove()
 	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_BABY_TEETH, MAGIC_TRAIT)
+	if(owner.has_status_effect(STATUS_EFFECT_PERMAFANGSREMOVED))
+		owner.remove_status_effect(STATUS_EFFECT_PERMAFANGSREMOVED)
 
 //WARRIOR VALEREN 3 - BURNING TOUCH
 /datum/status_effect/burning_touch

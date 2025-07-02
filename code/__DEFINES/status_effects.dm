@@ -102,6 +102,8 @@
 
 #define STATUS_EFFECT_SEVERE_BABY_TEETH /datum/status_effect/pbabyteeth //takes away the ability to suck blood from people for the entire round
 
+#define STATUS_EFFECT_PERMAFANGSREMOVED /datum/status_effect/permafangsremove //hides permanent fangs
+
 /// Makes the mob move randomly.
 /// Read the documentation for /datum/status_effect/confusion for more information.
 #define STATUS_EFFECT_CONFUSION /datum/status_effect/confusion
