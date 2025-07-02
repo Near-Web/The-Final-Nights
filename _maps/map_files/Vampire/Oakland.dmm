@@ -6890,6 +6890,9 @@
 	},
 /area/vtm)
 "bWZ" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
 /turf/open/floor/plasteel/stairs/medium{
 	color = "#919191"
 	},
@@ -17319,7 +17322,8 @@
 	pixel_y = -3
 	},
 /obj/effect/decal/cleanable/crayon{
-	icon_state = "5"
+	icon_state = "5";
+	pixel_y = -3
 	},
 /turf/closed/wall/vampwall/city,
 /area/vtm/clinic/haven)
@@ -19587,12 +19591,6 @@
 "fzy" = (
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/baywalk)
-"fzL" = (
-/obj/structure/chair/office{
-	dir = 1
-	},
-/turf/open/floor/plating/parquetry/old,
-/area/vtm/clinic/haven)
 "fzM" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/rock/jungle,
@@ -56433,6 +56431,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/chair/office{
+	dir = 1
+	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/clinic/haven)
 "pAX" = (
@@ -76918,11 +76919,6 @@
 /obj/item/clothing/neck/vampire/prayerbeads,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/church/interior)
-"vne" = (
-/obj/effect/decal/asphaltline,
-/obj/effect/landmark/start/daughterof,
-/turf/open/floor/plating/asphalt,
-/area/vtm/interior)
 "vnj" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/railing{
@@ -81457,10 +81453,6 @@
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm/ghetto)
-"wEd" = (
-/obj/effect/landmark/start/sabbatist,
-/turf/open/floor/plating/asphalt,
-/area/vtm/interior)
 "wEf" = (
 /obj/structure/weedshit,
 /turf/open/floor/plating/industrial,
@@ -82772,10 +82764,6 @@
 /area/vtm/sewer/nosferatu_warren{
 	fire_controled = 1
 	})
-"wWo" = (
-/obj/effect/landmark/start/trujah,
-/turf/open/floor/plating/asphalt,
-/area/vtm/interior)
 "wWr" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -121629,7 +121617,7 @@ dQe
 dQe
 dQe
 tlt
-fzL
+kpw
 vPf
 kpw
 kpw
@@ -155816,7 +155804,7 @@ eWP
 (140,1,2) = {"
 eGA
 ajp
-wEd
+veZ
 veZ
 veZ
 veZ
@@ -156018,7 +156006,7 @@ eWP
 (141,1,2) = {"
 eGA
 ajp
-vne
+wOf
 wOf
 wOf
 wOf
@@ -156220,7 +156208,7 @@ eWP
 (142,1,2) = {"
 eGA
 ajp
-wWo
+veZ
 veZ
 veZ
 veZ
