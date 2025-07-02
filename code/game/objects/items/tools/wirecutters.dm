@@ -65,6 +65,10 @@
 	name = "dental pliers"
 	desc = "Meant for taking out teeth."
 	icon_state = "neat_ripper"
+	lefthand_file = 'code/modules/wod13/lefthand.dmi'
+	righthand_file = 'code/modules/wod13/righthand.dmi'
+	onflooricon_state = "neat_ripper"
+	inhand_icon_state = "neat_ripper"
 	toolspeed = 2 //isn't meant for cutting wires
 	/// If pulling fangs lasts for the entire ROUND or not.
 	var/permanent = TRUE
@@ -73,6 +77,8 @@
 	name = "pliers"
 	desc = "Meant for pulling wires but you could definetly crush something with these."
 	icon_state = "ripper"
+	onflooricon_state = "ripper"
+	inhand_icon_state = "ripper"
 	toolspeed = 1.2 //is an actual tool but can't actually cut
 	permanent = FALSE
 
