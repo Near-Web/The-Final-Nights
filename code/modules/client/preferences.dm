@@ -283,7 +283,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	chi_levels = list()
 	renownrank = initial(renownrank)
 	auspice_level = initial(auspice_level)
-	extra_gnosis = initial(extra_gnosis)
+	extra_gnosis = 0
 	honor = initial(honor)
 	glory = initial(glory)
 	wisdom = initial(wisdom)
@@ -565,6 +565,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						wisdom = 0
 					if(!renownrank)
 						renownrank = 0
+					if(!extra_gnosis)
+						extra_gnosis = 0
 					var/gloryXP = 25
 					var/honorXP = 25
 					var/wisdomXP = 25
@@ -594,6 +596,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 								dat +=" <a href='byond://?_src_=prefs;preference=renownwisdom;task=input'>Raise Wisdom ([wisdomXP])</a><BR>"
 					dat += "<b>Renown Rank:</b> [RankName(renownrank,src.tribe.name)]<br>"
 					dat += "[RankDesc(renownrank, src.tribe.name)]<BR>"
+					dat += "<b> Extra Gnosis:</b> ([extra_gnosis]/5) <br>"
 					var/canraise = 0
 					var/can_raise_gnosis = 0
 					if(SSwhitelists.is_whitelisted(user.ckey, TRUSTED_PLAYER))
@@ -609,7 +612,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(canraise)
 						dat += "<a href='byond://?_src_=prefs;preference=renownrank;task=input'>Raise Renown Rank</a><BR>"
 					if(can_raise_gnosis && player_experience >= 50)
-						dat += "<a href='byond://?_src_=prefs;preference=extra_gnosis;task=input'>Raise Extra Gnosis [extra_gnosis]/5) </a><BR>"
+						dat += "<a href='byond://?_src_=prefs;preference=extra_gnosis;task=input'>Raise Extra Gnosis ([extra_gnosis]/5) Cost: 50 EXP </a><BR>"
 					else if(renownrank < MAX_PUBLIC_RANK)
 						var/renownrequirement = RenownRequirements()
 						dat += "<b>Needed To Raise Renown:</b> [renownrequirement]<BR>"
@@ -2819,7 +2822,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						return
 					player_experience -= cost
 					experience_used_on_character += cost
-					extra_gnosis += 1
+					extra_gnosis = extra_gnosis+1
 
 				if("renownglory")
 					var/cost = 25
@@ -3779,6 +3782,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		character.wisdom = wisdom
 		character.glory = glory
 		character.renownrank = renownrank
+		character.extra_gnosis = extra_gnosis
 
 		var/datum/auspice/CLN = new auspice.type()
 		character.auspice = CLN
@@ -3788,16 +3792,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		switch(breed)
 			if("Homid")
-				character.auspice.gnosis = 1 + extra_gnosis
-				character.auspice.start_gnosis = 1 + extra_gnosis
+				character.auspice.gnosis = 1 + character.extra_gnosis
+				character.auspice.start_gnosis = 1 + character.extra_gnosis
 				character.auspice.base_breed = "Homid"
 			if("Lupus")
-				character.auspice.gnosis = 5 + extra_gnosis
-				character.auspice.start_gnosis = 5 + extra_gnosis
+				character.auspice.gnosis = 5 + character.extra_gnosis
+				character.auspice.start_gnosis = 5 + character.extra_gnosis
 				character.auspice.base_breed = "Lupus"
 			if("Metis")
-				character.auspice.gnosis = 3 + extra_gnosis
-				character.auspice.start_gnosis = 3 + extra_gnosis
+				character.auspice.gnosis = 3 + character.extra_gnosis
+				character.auspice.start_gnosis = 3 + character.extra_gnosis
 				character.auspice.base_breed = "Crinos"
 		if(character.transformator?.crinos_form && character.transformator?.lupus_form && !HAS_TRAIT(character,TRAIT_CORAX))
 			var/mob/living/simple_animal/werewolf/crinos/crinos = character.transformator.crinos_form?.resolve()
