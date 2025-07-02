@@ -151,6 +151,8 @@
 	if (clan_keys)
 		vampire.put_in_r_hand(new clan_keys(vampire))
 
+	vampire.AddComponent(/datum/component/morality)
+
 	UnregisterSignal(vampire, COMSIG_MOB_LOGIN)
 
 /**
