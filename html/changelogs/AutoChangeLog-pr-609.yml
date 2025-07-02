@@ -1,4 +1,0 @@
-author: "tzui5020"
-delete-after: True
-changes:
-  - bugfix: "fixed the lefthand sprite for the PSG1"
