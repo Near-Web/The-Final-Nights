@@ -202,6 +202,13 @@
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
+/area/vtm/interior/subway
+	name = "Subway Station"
+	icon_state = "financialdistrict"
+	upper = FALSE
+	fire_controled = TRUE
+	wall_rating = HIGH_WALL_RATING
+
 /area/vtm/interior/ghetto
 	name = "Ghetto Apartments"
 	icon_state = "ghetto_interior"

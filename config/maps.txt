@@ -13,13 +13,9 @@ Format:
 	votable (is this map votable)
 endmap
 
-map kindredcity
-	votable
-	default
-endmap
-
 map oakland
 	votable
+	default
 endmap
 
 map runtimetown
