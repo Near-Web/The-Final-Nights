@@ -11390,7 +11390,6 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/shop)
 "dmh" = (
-/obj/structure/table,
 /obj/machinery/light{
 	pixel_y = 32
 	},
@@ -15867,12 +15866,6 @@
 	color = "#EADDCA"
 	},
 /area/vtm/interior/shop)
-"eFE" = (
-/obj/structure/chair/greyscale{
-	dir = 8
-	},
-/turf/open/floor/plating/concrete,
-/area/vtm/interior/millennium_tower)
 "eFM" = (
 /obj/structure/chair/plastic,
 /turf/open/floor/plating/sidewalk/poor,
@@ -17926,9 +17919,6 @@
 	fire_controled = 1
 	})
 "ffK" = (
-/obj/structure/chair/greyscale{
-	dir = 4
-	},
 /obj/fusebox,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
@@ -21696,6 +21686,14 @@
 /obj/effect/decal/wallpaper/light,
 /turf/closed/wall/vampwall/painted,
 /area/vtm/interior/shop)
+"gmn" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#828282";
+	dir = 4
+	},
+/obj/structure/chair/red,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/millennium_tower)
 "gmz" = (
 /obj/effect/decal/crosswalk{
 	dir = 8
@@ -24391,7 +24389,9 @@
 	color = "#828282";
 	dir = 4
 	},
-/obj/structure/fluff/hedge,
+/obj/structure/chair/red{
+	dir = 1
+	},
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower)
 "haF" = (
@@ -53293,10 +53293,6 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/shop)
-"oXi" = (
-/obj/structure/chair/greyscale,
-/turf/open/floor/plating/concrete,
-/area/vtm/interior/millennium_tower)
 "oXq" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
@@ -60857,10 +60853,6 @@
 	color = "#8a8a8a"
 	},
 /area/vtm/interior/tzimisce_manor)
-"ras" = (
-/obj/structure/table,
-/turf/open/floor/plating/concrete,
-/area/vtm/interior/millennium_tower)
 "rax" = (
 /obj/machinery/griddle,
 /obj/machinery/light/prince{
@@ -72081,6 +72073,14 @@
 	color = "#EADDCA"
 	},
 /area/vtm/interior/shop)
+"ukM" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#828282";
+	dir = 4
+	},
+/obj/structure/table,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/millennium_tower)
 "ukO" = (
 /obj/structure/railing/metal{
 	dir = 4
@@ -77809,12 +77809,6 @@
 /obj/effect/decal/bordur,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/endron_facility/plant)
-"vXu" = (
-/obj/structure/chair/greyscale{
-	dir = 1
-	},
-/turf/open/floor/plating/concrete,
-/area/vtm/interior/millennium_tower)
 "vXK" = (
 /obj/structure/lattice/grate,
 /obj/structure/railing/metal,
@@ -109359,8 +109353,8 @@ bqV
 ntC
 vcD
 ghg
-haA
-haA
+gmn
+ukM
 haA
 hIt
 dJf
@@ -109561,9 +109555,9 @@ ntC
 ntC
 ntC
 ghg
-oXi
-ras
-vXu
+dnp
+dnp
+dnp
 dnp
 dnp
 cnQ
@@ -110369,7 +110363,7 @@ rCB
 rCB
 rCB
 ghg
-eFE
+dnp
 dnp
 ghg
 ghg
