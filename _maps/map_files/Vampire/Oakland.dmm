@@ -35055,9 +35055,6 @@
 /turf/open/floor/carpet/royalblack,
 /area/vtm/church/interior/haven)
 "jZx" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 10
-	},
 /obj/effect/decal/fakelattice{
 	density = 0
 	},
@@ -41826,6 +41823,10 @@
 /obj/effect/decal/pallet,
 /turf/open/floor/plating/vampwood,
 /area/vtm/interior/ghetto)
+"lRU" = (
+/obj/matrix,
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/sewer)
 "lSq" = (
 /turf/closed/wall/vampwall/painted,
 /area/vtm/hotel)
@@ -56261,9 +56262,6 @@
 	fire_controled = 1
 	})
 "pHA" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 5
-	},
 /obj/structure/table/reinforced,
 /obj/effect/decal/fakelattice{
 	density = 0
@@ -64970,6 +64968,10 @@
 /obj/structure/table,
 /turf/open/floor/plating/circled,
 /area/vtm/interior/shop)
+"ses" = (
+/obj/matrix,
+/turf/open/floor/plating/shit,
+/area/vtm/sewer)
 "seA" = (
 /obj/structure/clothingrack/rand,
 /turf/open/floor/plating/parquetry,
@@ -65492,16 +65494,11 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/interior/police)
 "smi" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 4
-	},
 /obj/effect/decal/fakelattice{
 	density = 0
 	},
 /obj/machinery/iv_drip,
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
-	},
+/turf/open/floor/plating/vampdirt,
 /area/vtm/sewer)
 "smq" = (
 /obj/structure/chair/wood,
@@ -66143,6 +66140,20 @@
 	pixel_y = 11
 	},
 /obj/structure/table/wood/fancy/red,
+/obj/item/candle/infinite{
+	anchored = 1;
+	lit = 1;
+	icon_state = "candle1_lit";
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	lit = 1;
+	icon_state = "candle1_lit";
+	pixel_y = 9;
+	pixel_x = -7
+	},
 /turf/open/floor/plating/woodrough,
 /area/vtm/sewer)
 "swF" = (
@@ -100563,8 +100574,8 @@ hQT
 rex
 hQT
 hQT
-hQT
-hQT
+lRU
+tuX
 "}
 (71,1,1) = {"
 apJ
@@ -100765,8 +100776,8 @@ nRp
 gQE
 nRp
 nRp
-nRp
-nRp
+iDA
+tuX
 "}
 (72,1,1) = {"
 apJ
@@ -100967,8 +100978,8 @@ lht
 xsl
 lht
 lht
-lht
-lht
+ses
+tuX
 "}
 (73,1,1) = {"
 apJ
@@ -101169,8 +101180,8 @@ lht
 xsl
 lht
 lht
-lht
-lht
+ses
+tuX
 "}
 (74,1,1) = {"
 apJ
@@ -101371,8 +101382,8 @@ nRp
 gQE
 nRp
 nRp
-nRp
-nRp
+iDA
+tuX
 "}
 (75,1,1) = {"
 apJ
@@ -101573,8 +101584,8 @@ bmy
 okV
 bmy
 bmy
-bmy
-bmy
+lRU
+tuX
 "}
 (76,1,1) = {"
 apJ
@@ -114707,8 +114718,8 @@ tuX
 tuX
 "}
 (141,1,1) = {"
-hQT
-hQT
+tuX
+lRU
 hQT
 hQT
 hQT
@@ -114905,12 +114916,12 @@ hQT
 rex
 hQT
 hQT
-hQT
-hQT
+lRU
+tuX
 "}
 (142,1,1) = {"
-nRp
-nRp
+tuX
+iDA
 nRp
 nRp
 nRp
@@ -115107,12 +115118,12 @@ nRp
 gQE
 nRp
 nRp
-nRp
-nRp
+iDA
+tuX
 "}
 (143,1,1) = {"
-lht
-lht
+tuX
+ses
 lht
 lht
 giN
@@ -115309,12 +115320,12 @@ lht
 xsl
 lht
 lht
-lht
-lht
+ses
+tuX
 "}
 (144,1,1) = {"
-lht
-lht
+tuX
+ses
 lht
 lht
 lht
@@ -115511,12 +115522,12 @@ lht
 xsl
 lht
 lht
-lht
-lht
+ses
+tuX
 "}
 (145,1,1) = {"
-nRp
-nRp
+tuX
+iDA
 nRp
 nRp
 nRp
@@ -115713,12 +115724,12 @@ nRp
 gQE
 nRp
 nRp
-nRp
-nRp
+iDA
+tuX
 "}
 (146,1,1) = {"
-bmy
-bmy
+tuX
+lRU
 bmy
 bmy
 bmy
@@ -115915,8 +115926,8 @@ bmy
 okV
 bmy
 bmy
-bmy
-bmy
+lRU
+tuX
 "}
 (147,1,1) = {"
 tuX
