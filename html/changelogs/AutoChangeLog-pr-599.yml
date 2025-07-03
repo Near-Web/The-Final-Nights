@@ -1,0 +1,5 @@
+author: "buffyuwu"
+delete-after: True
+changes:
+  - rscadd: "adds auspex 5 demons. now wouldbe auspex spies must dodge malevolent spirits or be sent back to their bodies"
+  - refactor: "malkavians get their fonts from a font replacer proc now, so other code can use the spooky characters too"

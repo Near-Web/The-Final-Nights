@@ -1,0 +1,5 @@
+author: "chazzyjazzy"
+delete-after: True
+changes:
+  - qol: "Dominate 1's 'blue halo' now appears only on a successful cast. Removed the default 'FORGET ABOUT IT' command."
+  - sound: "Decreased Voice of Domination's volume from 300 to 80."
