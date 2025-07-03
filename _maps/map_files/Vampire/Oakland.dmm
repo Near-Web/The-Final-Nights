@@ -53069,7 +53069,9 @@
 /area/vtm/sewer)
 "oEr" = (
 /obj/structure/fluff/hedge,
-/turf/closed/wall/vampwall/rich/low,
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
+	},
 /area/vtm/interior/subway)
 "oEs" = (
 /obj/effect/decal/pallet,
