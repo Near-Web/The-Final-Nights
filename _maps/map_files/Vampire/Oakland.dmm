@@ -1265,6 +1265,7 @@
 	},
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate/large,
+/obj/effect/decal/bordur,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -3302,6 +3303,14 @@
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm)
+"aWh" = (
+/obj/effect/decal/bordur{
+	dir = 6
+	},
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/vtm/interior/endron_facility)
 "aWl" = (
 /obj/structure/vampdoor/simple{
 	dir = 8;
@@ -12738,6 +12747,7 @@
 "dEq" = (
 /obj/structure/railing/metal,
 /obj/effect/decal/pallet,
+/obj/effect/decal/bordur,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -14945,6 +14955,15 @@
 /obj/structure/fluff/hedge,
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/endron_facility/restricted)
+"elP" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/effect/decal/bordur{
+	dir = 6
+	},
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm)
 "elS" = (
 /obj/structure/roadblock{
 	dir = 1;
@@ -20737,6 +20756,15 @@
 	},
 /turf/open/floor/plating/church,
 /area/vtm/church/interior/haven)
+"fRn" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/effect/decal/bordur{
+	dir = 5
+	},
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm)
 "fRp" = (
 /obj/effect/decal/wallpaper/light/low{
 	color = "#509462"
@@ -23151,15 +23179,6 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/jazzclub)
-"gCL" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 9
-	},
-/obj/effect/decal/trash,
-/turf/open/floor/plating/dirt,
-/area/vtm/sewer/nosferatu_warren{
-	fire_controled = 1
-	})
 "gCZ" = (
 /obj/structure/fluff/hedge,
 /obj/machinery/light{
@@ -24024,6 +24043,15 @@
 /area/vtm/unionsquare)
 "gPl" = (
 /obj/structure/railing/metal,
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm)
+"gPo" = (
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/obj/effect/decal/bordur{
+	dir = 9
+	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
 "gPv" = (
@@ -24949,11 +24977,6 @@
 	},
 /turf/open/floor/plating/grate,
 /area/vtm/clinic/haven)
-"hcQ" = (
-/obj/structure/vamptree/pine,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/plating/vampgrass,
-/area/vtm)
 "hcR" = (
 /obj/effect/decal/wallpaper/paper/low,
 /obj/effect/decal/wallpaper/papers/eight,
@@ -28651,10 +28674,6 @@
 	dir = 1
 	},
 /area/vtm/interior/chantry/basement)
-"ieP" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/plating/vampgrass,
-/area/vtm)
 "ife" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
@@ -28978,6 +28997,7 @@
 	},
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate,
+/obj/effect/decal/bordur,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -39558,6 +39578,15 @@
 	},
 /turf/open/floor/plating/bacotell,
 /area/vtm/interior/shop)
+"lfP" = (
+/obj/structure/railing/metal,
+/obj/effect/decal/bordur/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/vtm/interior/endron_facility)
 "lfV" = (
 /obj/effect/decal/asphaltline/alt{
 	dir = 8
@@ -46978,7 +47007,6 @@
 /turf/open/floor/plating/vampgrass,
 /area/vtm/pacificheights/forest)
 "ndc" = (
-/obj/structure/table/wood/fancy/royalblack,
 /obj/effect/turf_decal/siding/wideplating/dark,
 /obj/item/flashlight/lamp/green{
 	pixel_x = 2;
@@ -46988,6 +47016,7 @@
 	pixel_y = 15;
 	pixel_x = 32
 	},
+/obj/structure/table/wood/fancy/black,
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior)
 "ndj" = (
@@ -47644,6 +47673,15 @@
 	},
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
+"noc" = (
+/obj/effect/decal/bordur{
+	dir = 10
+	},
+/obj/effect/decal/bordur{
+	dir = 6
+	},
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm)
 "nog" = (
 /obj/structure/closet/mini_fridge,
 /turf/open/floor/plating/parquetry/old,
@@ -51926,6 +51964,7 @@
 /area/vtm/interior)
 "opE" = (
 /obj/structure/railing/metal,
+/obj/effect/decal/bordur,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -56795,6 +56834,15 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/clinic/haven)
+"pJy" = (
+/obj/effect/decal/bordur{
+	dir = 9
+	},
+/obj/effect/decal/bordur{
+	dir = 5
+	},
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm)
 "pJF" = (
 /turf/open/floor/plating/asphalt,
 /area/vtm/ghetto)
@@ -70474,14 +70522,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/bianchiBank)
-"txJ" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 9
-	},
-/turf/open/floor/plating/dirt,
-/area/vtm/sewer/nosferatu_warren{
-	fire_controled = 1
-	})
 "txV" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp{
@@ -74225,6 +74265,7 @@
 /obj/item/clothing/under/pentex/pentex_janitor,
 /obj/item/clothing/mask/vampire/balaclava,
 /obj/item/clothing/mask/vampire/balaclava,
+/obj/effect/decal/bordur,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -74678,6 +74719,15 @@
 /obj/fusebox/transformer,
 /turf/open/floor/plating/rough,
 /area/vtm/financialdistrict)
+"uGj" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm)
 "uGm" = (
 /mob/living/carbon/human/npc/hobo,
 /turf/open/floor/plating/rough/cave{
@@ -92274,7 +92324,7 @@ pUg
 qUx
 fps
 mXi
-txJ
+aDk
 aQE
 gQS
 fUN
@@ -92677,7 +92727,7 @@ mTo
 cnu
 lyh
 qmB
-gCL
+jYV
 bnG
 aQE
 nQZ
@@ -134831,36 +134881,36 @@ oYt
 "}
 (37,1,2) = {"
 rCB
-uvs
-wJw
-ieP
-ieP
-ieP
-ieP
-aQR
-wJw
-aQR
-ieP
-ieP
-ieP
-aQR
-aQR
-wJw
-ieP
-ieP
-ieP
-aQR
-aQR
-ieP
-hcQ
-ieP
-ieP
-aQR
-aQR
-aQR
-ieP
-ieP
-hcQ
+bal
+mPm
+pDA
+pDA
+pDA
+pDA
+cJF
+mPm
+cJF
+pDA
+pDA
+pDA
+cJF
+cJF
+mPm
+pDA
+pDA
+pDA
+cJF
+cJF
+pDA
+bqB
+pDA
+pDA
+cJF
+cJF
+cJF
+pDA
+pDA
+bqB
 ckC
 orJ
 cbn
@@ -135033,36 +135083,36 @@ oYt
 "}
 (38,1,2) = {"
 rCB
-uvs
-ieP
-ieP
-ieP
-ieP
-aQR
-ieP
-ieP
-ieP
-ieP
-ieP
-ieP
-aQR
-aQR
-aQR
-ieP
-aQR
-hcQ
-aQR
-ieP
-aQR
-ieP
-aQR
-ieP
-hcQ
-ieP
-ieP
-ieP
-aQR
-ieP
+bal
+pDA
+pDA
+pDA
+pDA
+cJF
+pDA
+pDA
+pDA
+pDA
+pDA
+pDA
+cJF
+cJF
+cJF
+pDA
+cJF
+bqB
+cJF
+pDA
+cJF
+pDA
+cJF
+pDA
+bqB
+pDA
+pDA
+pDA
+cJF
+pDA
 ckC
 kXu
 cbn
@@ -135235,36 +135285,36 @@ oYt
 "}
 (39,1,2) = {"
 rCB
-uvs
-ieP
-ieP
-ieP
-hcQ
-aQR
-ieP
-ieP
-ieP
-aQR
-aQR
-ieP
-hcQ
-ieP
-ieP
-ieP
-aQR
-ieP
-hcQ
-ieP
-ieP
-aQR
-aQR
-ieP
-ieP
-ieP
-aQR
-hcQ
-aQR
-aQR
+bal
+pDA
+pDA
+pDA
+bqB
+cJF
+pDA
+pDA
+pDA
+cJF
+cJF
+pDA
+bqB
+pDA
+pDA
+pDA
+cJF
+pDA
+bqB
+pDA
+pDA
+cJF
+cJF
+pDA
+pDA
+pDA
+cJF
+bqB
+cJF
+cJF
 ckC
 eFi
 cbn
@@ -135437,36 +135487,36 @@ oYt
 "}
 (40,1,2) = {"
 rCB
-uvs
-aQR
-wJw
-ieP
-aQR
-ieP
-ieP
-ieP
-aQR
-aQR
-aQR
-aQR
-ieP
-aQR
-ieP
-ieP
-aQR
-aQR
-aQR
-ieP
-ieP
-wJw
-aQR
-aQR
-ieP
-hcQ
-aQR
-aQR
-aQR
-aQR
+bal
+cJF
+mPm
+pDA
+cJF
+pDA
+pDA
+pDA
+cJF
+cJF
+cJF
+cJF
+pDA
+cJF
+pDA
+pDA
+cJF
+cJF
+cJF
+pDA
+pDA
+mPm
+cJF
+cJF
+pDA
+bqB
+cJF
+cJF
+cJF
+cJF
 otm
 orJ
 cbn
@@ -159184,8 +159234,8 @@ dRQ
 uDh
 kIU
 sLm
-dNC
-opE
+aWh
+lfP
 pvg
 pvg
 pvg
@@ -257347,13 +257397,13 @@ mjT
 mjT
 mjT
 mjT
+lbL
 umF
 umF
 umF
 umF
 umF
-umF
-umF
+cll
 mjT
 mjT
 mjT
@@ -257549,13 +257599,13 @@ mjT
 mjT
 mjT
 mjT
+lbL
 umF
 umF
 umF
 umF
 umF
-umF
-umF
+cll
 mjT
 mjT
 mjT
@@ -257751,13 +257801,13 @@ mjT
 mjT
 mjT
 mjT
+xxU
 aOJ
 aOJ
 aOJ
 aOJ
 aOJ
-aOJ
-aOJ
+aBh
 mjT
 mjT
 mjT
@@ -257953,13 +258003,13 @@ mjT
 mjT
 mjT
 mjT
+xxU
 aOJ
 aOJ
 aOJ
 aOJ
 aOJ
-aOJ
-aOJ
+aBh
 mjT
 mjT
 mjT
@@ -258155,13 +258205,13 @@ mjT
 mjT
 mjT
 mjT
+xxU
 aOJ
 aOJ
 aOJ
 aOJ
 aOJ
-aOJ
-aOJ
+aBh
 mjT
 mjT
 mjT
@@ -258357,13 +258407,13 @@ mjT
 mjT
 mjT
 mjT
-mjT
+eWn
 hlJ
 hlJ
 hlJ
 hlJ
 hlJ
-hlJ
+gMr
 mjT
 mjT
 mjT
@@ -258559,13 +258609,13 @@ mjT
 mjT
 mjT
 mjT
-mjT
+eWn
 hlJ
 hlJ
 hlJ
 hlJ
 hlJ
-hlJ
+gMr
 mjT
 mjT
 mjT
@@ -258761,13 +258811,13 @@ mjT
 mjT
 mjT
 mjT
-mjT
+eWn
 hlJ
 hlJ
 hlJ
 hlJ
 hlJ
-hlJ
+gMr
 mjT
 mjT
 mjT
@@ -258963,13 +259013,13 @@ mjT
 mjT
 mjT
 mjT
-mjT
+xxU
 aOJ
 aOJ
 aOJ
 aOJ
 aOJ
-aOJ
+aBh
 mjT
 mjT
 mjT
@@ -259165,13 +259215,13 @@ mjT
 mjT
 mjT
 mjT
+xxU
 aOJ
 aOJ
 aOJ
 aOJ
 aOJ
-aOJ
-aOJ
+aBh
 mjT
 mjT
 mjT
@@ -259367,13 +259417,13 @@ mjT
 mjT
 mjT
 mjT
+xxU
 aOJ
 aOJ
 aOJ
 aOJ
 aOJ
-aOJ
-aOJ
+aBh
 mjT
 mjT
 mjT
@@ -259569,13 +259619,13 @@ mjT
 mjT
 mjT
 mjT
+lbL
 umF
 umF
 umF
 umF
 umF
-umF
-umF
+cll
 mjT
 mjT
 mjT
@@ -259771,13 +259821,13 @@ mjT
 mjT
 mjT
 mjT
+lbL
 umF
 umF
 umF
 umF
 umF
-umF
-umF
+cll
 mjT
 mjT
 mjT
@@ -281729,12 +281779,12 @@ mjT
 mjT
 mjT
 mjT
-mjT
-mjT
-mjT
-mjT
-mjT
-mjT
+gcC
+awq
+awq
+awq
+awq
+uye
 mjT
 mjT
 mjT
@@ -281931,12 +281981,12 @@ mjT
 mjT
 mjT
 mjT
-mjT
-mjT
-mjT
-mjT
-mjT
-mjT
+dTE
+fup
+fup
+ssj
+ssj
+ylv
 mjT
 mjT
 mjT
@@ -282133,12 +282183,12 @@ mjT
 mjT
 mjT
 mjT
-mjT
-mjT
-mjT
-mjT
-mjT
-mjT
+dTE
+ssj
+ssj
+ssj
+mVP
+nyd
 mjT
 mjT
 mjT
@@ -282335,11 +282385,11 @@ mjT
 mjT
 mjT
 mjT
-mjT
-mjT
-mjT
-mjT
-mjT
+vhf
+nMo
+nMo
+nMo
+nyd
 mjT
 mjT
 mjT
@@ -282967,20 +283017,20 @@ mjT
 mjT
 mjT
 mjT
-gcC
+tim
+eUm
+eUm
+eUm
+eUm
+xXG
 awq
-awq
-awq
-awq
-awq
-awq
-awq
-awq
-awq
-awq
-awq
-awq
-awq
+elP
+uGj
+uGj
+uGj
+uGj
+uGj
+fRn
 awq
 uye
 mjT
@@ -283169,21 +283219,21 @@ mjT
 mjT
 mjT
 mjT
-dTE
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
+ucj
+xEp
+dnj
+dnj
+xEp
+wmS
+mVP
+nyd
+iVn
+iVn
+iVn
+iVn
+iVn
+vhf
+kuU
 ylv
 mjT
 mjT
@@ -283366,26 +283416,26 @@ mjT
 mjT
 mjT
 mjT
-gcC
-awq
-awq
-awq
-awq
-lbY
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
+tim
+eUm
+eUm
+eUm
+eUm
+mHF
+xEp
+xEp
+xEp
+xEp
+wmS
+ylv
+iVn
+iVn
+iVn
+iVn
+iVn
+iVn
+iVn
+dTE
 ylv
 mjT
 mjT
@@ -283568,26 +283618,26 @@ mjT
 mjT
 mjT
 mjT
-dTE
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
+ucj
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+wmS
+nLm
+uye
+iVn
+iVn
+iVn
+iVn
+iVn
+gcC
+lbY
 ylv
 mjT
 mjT
@@ -283770,25 +283820,25 @@ mjT
 mjT
 mjT
 mjT
-dTE
+ucj
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+wmS
 ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
+noc
+uGj
+uGj
+uGj
+uGj
+uGj
+pJy
 ssj
 ylv
 mjT
@@ -283972,26 +284022,26 @@ mjT
 mjT
 mjT
 mjT
-dTE
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
+ucj
+xEp
+vdU
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+wmS
+mVP
+nyd
+iVn
+iVn
+iVn
+iVn
+iVn
+vhf
+kuU
 ylv
 mjT
 mjT
@@ -284174,26 +284224,26 @@ mjT
 mjT
 mjT
 mjT
+ucj
+xEp
+dnj
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+wmS
+ylv
+iVn
+iVn
+iVn
+iVn
+iVn
+iVn
+iVn
 dTE
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
 ylv
 mjT
 mjT
@@ -284376,26 +284426,26 @@ mjT
 mjT
 mjT
 mjT
-dTE
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
+ucj
+xEp
+dnj
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+wmS
+nLm
+uye
+iVn
+iVn
+iVn
+iVn
+iVn
+gcC
+lbY
 ylv
 mjT
 mjT
@@ -284578,25 +284628,25 @@ mjT
 mjT
 mjT
 mjT
-dTE
+ucj
+xEp
+dnj
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+wmS
 ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
+noc
+uGj
+uGj
+uGj
+uGj
+uGj
+pJy
 ssj
 ylv
 mjT
@@ -284780,26 +284830,26 @@ mjT
 mjT
 mjT
 mjT
-dTE
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
+ucj
+xEp
+oZO
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+wmS
+mVP
+nyd
+iVn
+iVn
+iVn
+iVn
+iVn
+vhf
+kuU
 ylv
 mjT
 mjT
@@ -284982,26 +285032,26 @@ mjT
 mjT
 mjT
 mjT
+ucj
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+wmS
+ylv
+iVn
+iVn
+iVn
+iVn
+iVn
+iVn
+iVn
 dTE
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
 ylv
 mjT
 mjT
@@ -285184,26 +285234,26 @@ mjT
 mjT
 mjT
 mjT
-dTE
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-ssj
-cBB
-ssj
-ssj
-cBB
-ssj
-ssj
-cBB
+ucj
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+dnj
+dnj
+xEp
+wmS
+nLm
+uye
+iVn
+iVn
+iVn
+iVn
+iVn
+gcC
+lbY
 ylv
 mjT
 mjT
@@ -285386,25 +285436,25 @@ mjT
 mjT
 mjT
 mjT
-vhf
+nEn
+rfu
+rfu
+rfu
+rfu
+rfu
+rfu
+rfu
+rfu
+rfu
+vcO
 nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
-nMo
+gFV
+drs
+drs
+drs
+drs
+drs
+gPo
 nMo
 nyd
 mjT
