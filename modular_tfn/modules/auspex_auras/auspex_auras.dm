@@ -67,10 +67,10 @@
 		if ((vampire.morality_path.score < 7) || client?.prefs?.is_enlightened)
 			wyrm_taint++
 
-		if ((vampire.clane.name == "Baali") || ( (client?.prefs?.is_enlightened && (vampire.morality_path.score >= 7)) || (!client?.prefs?.is_enlightened && (vampire.morality_path.score < 4)) ))
+		if ((vampire.clan.name == "Baali") || ( (client?.prefs?.is_enlightened && (vampire.morality_path.score >= 7)) || (!client?.prefs?.is_enlightened && (vampire.morality_path.score < 4)) ))
 			wyrm_taint++
 
-		if (istype(vampire.clane, /datum/vampireclane/kiasyd)) //the fae are Wyld-tainted by default
+		if (istype(vampire.clan, /datum/vampire_clan/kiasyd)) //the fae are Wyld-tainted by default
 			wyrm_taint--
 
 	if (isgarou(src) || iswerewolf(src)) // werewolves have the taint of whatever Triat member they venerate most

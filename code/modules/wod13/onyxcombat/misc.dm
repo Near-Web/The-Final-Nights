@@ -28,6 +28,8 @@
 	update_shadow()
 	handle_vampire_music()
 	update_auspex_hud()
-	if (!isnpc(src)) // don't update wyrm-taint if you're an NPC, otherwise everyone becomes untainted.
-		update_sensewyrm_hud()
+	update_sensewyrm_hud()
 	..()
+
+/mob/living/carbon/human/npc/Life()
+	update_auspex_hud()

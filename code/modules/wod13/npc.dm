@@ -73,6 +73,10 @@
 
 	var/list/drop_on_death_list = null
 
+/mob/living/carbon/human/npc/Initialize()
+	. = ..()
+	NPC_wyrm_taint() // Declaring wether this NPC has wyrm taint or not to "Sense Wyrm" users
+
 /mob/living/carbon/human/npc/LateInitialize()
 	. = ..()
 	if(role_weapons_chances.Find(type))
