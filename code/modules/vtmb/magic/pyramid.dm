@@ -624,7 +624,7 @@
 		// Ensure perfect gargoyle is at full health
 		G.revive(TRUE)
 		G.health = G.maxHealth
-		G.apply_status_effect(STATUS_EFFECT_INLOVE, usr)
+		G.apply_status_effect(/datum/status_effect/in_love, usr)
 
 		// Handle the other bodies
 		for(var/mob/living/carbon/human/H in bodies)
@@ -660,7 +660,7 @@
 		target_body.revive(TRUE)
 		target_body.set_species(/datum/species/kindred)
 		target_body.set_clan(/datum/vampire_clan/gargoyle)
-		target_body.apply_status_effect(STATUS_EFFECT_INLOVE, usr)
+		target_body.apply_status_effect(/datum/status_effect/in_love, usr)
 		target_body.real_name = old_name // the ritual for some reason is deleting their old name and replacing it with a random name.
 		target_body.name = old_name
 		target_body.update_name()
