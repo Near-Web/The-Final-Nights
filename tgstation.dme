@@ -3596,7 +3596,6 @@
 #include "code\modules\wod13\ammostack.dm"
 #include "code\modules\wod13\bear.dm"
 #include "code\modules\wod13\blackout.dm"
-#include "code\modules\wod13\blood_extractor.dm"
 #include "code\modules\wod13\bloodsucking.dm"
 #include "code\modules\wod13\books.dm"
 #include "code\modules\wod13\car.dm"
@@ -3777,4 +3776,9 @@
 #include "modular_tfn\modules\panicbunker\code\panicbunker.dm"
 #include "modular_tfn\modules\subtle\subtle.dm"
 #include "modular_tfn\modules\taser_tfn13\taser_tfn13.dm"
+#include "modular_tfn\modules\vitae\code\blood_extractor.dm"
+#include "modular_tfn\modules\vitae\code\blood_pack.dm"
+#include "modular_tfn\modules\vitae\code\embracing.dm"
+#include "modular_tfn\modules\vitae\code\ghouling.dm"
+#include "modular_tfn\modules\vitae\code\vitae.dm"
 // END_INCLUDE
