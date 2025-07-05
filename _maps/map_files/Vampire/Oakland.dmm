@@ -9922,6 +9922,15 @@
 /obj/structure/table,
 /turf/open/floor/plating/circled,
 /area/vtm/clinic)
+"cPv" = (
+/obj/effect/decal/bordur,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/machinery/hydroponics/soil,
+/obj/machinery/light/prince{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/tzimisce_manor)
 "cPE" = (
 /obj/effect/decal/bordur,
 /obj/structure/railing/metal,
@@ -13690,6 +13699,13 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/church/interior/staff)
+"dTn" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/tzimisce_manor)
 "dTu" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -32985,6 +33001,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
 	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/tzimisce_manor)
 "jnB" = (
@@ -61707,6 +61724,10 @@
 /area/vtm/interior/giovanni/outside)
 "qXu" = (
 /obj/fusebox,
+/obj/structure/table/wood,
+/obj/item/melee/vampirearms/handsickle,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/cultivator/rake,
 /turf/open/floor/plating/roofwalk/cobblestones,
 /area/vtm/interior/tzimisce_manor)
 "qXQ" = (
@@ -66600,6 +66621,7 @@
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/chinatown)
 "suL" = (
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/tzimisce_manor)
 "suQ" = (
@@ -78659,6 +78681,12 @@
 	},
 /turf/open/floor/plating/vampcanalplating,
 /area/vtm/sewer)
+"vRq" = (
+/obj/effect/decal/bordur,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/machinery/hydroponics/soil,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/tzimisce_manor)
 "vRv" = (
 /obj/effect/turf_decal/stripes/white/line,
 /obj/machinery/light{
@@ -83565,6 +83593,15 @@
 /obj/effect/decal/wallpaper/gold/alt,
 /turf/closed/wall/vampwall/rich,
 /area/vtm/interior/millennium_tower/f4)
+"xjg" = (
+/obj/structure/vampdoor/wood{
+	dir = 4;
+	lock_id = "tzimiscemanor";
+	locked = 1;
+	lockpick_difficulty = 10
+	},
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/vtm/interior/tzimisce_manor)
 "xjn" = (
 /obj/effect/turf_decal/siding/wood{
 	color = "#503e28";
@@ -130781,7 +130818,7 @@ oZu
 oZu
 oZu
 oZu
-lpI
+qdo
 suL
 fDD
 ckC
@@ -130978,13 +131015,13 @@ wNi
 tUg
 lfj
 lfj
-lfj
+xjg
 lfj
 lfj
 xHQ
 oZu
 oZu
-xDH
+dTn
 fDD
 ckC
 orJ
@@ -131179,10 +131216,10 @@ qCW
 hRF
 rLu
 lfj
-suL
-suL
-suL
-lfj
+vRq
+oZu
+qzD
+fZi
 tdc
 uMn
 oZu
@@ -131381,14 +131418,14 @@ wdw
 hRF
 mnj
 lfj
-suL
-suL
-suL
-lfj
+cPv
+oZu
+rcl
+fZi
 kRN
 uMn
 oZu
-xDH
+dTn
 ngB
 ckC
 igs
@@ -131583,14 +131620,14 @@ kvR
 hRF
 gmS
 lfj
-suL
-suL
-suL
-lfj
+vRq
+oZu
+qzD
+fZi
 bEh
 uMn
 oZu
-xDH
+dTn
 fDD
 ckC
 orJ
@@ -131786,7 +131823,7 @@ bTu
 pXc
 lfj
 lfj
-lfj
+xjg
 lfj
 lfj
 xHQ
@@ -131987,10 +132024,10 @@ lfj
 lfj
 lfj
 lfj
+rFd
 oZu
 qdo
 rFd
-oZu
 oZu
 oZu
 oZu
@@ -133610,7 +133647,7 @@ lfj
 tdc
 uMn
 oZu
-xDH
+dTn
 fDD
 ckC
 orJ
@@ -133812,7 +133849,7 @@ lfj
 uFD
 uMn
 oZu
-xDH
+dTn
 ngB
 otm
 igs
@@ -134216,7 +134253,7 @@ lfj
 xHQ
 oZu
 oZu
-xDH
+dTn
 fDD
 ckC
 kXu
