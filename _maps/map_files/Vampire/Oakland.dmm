@@ -3407,7 +3407,7 @@
 "aXu" = (
 /obj/machinery/door/poddoor/shutters{
 	damage_deflection = 60;
-	id = "armouryaccess";
+	id = 887;
 	max_integrity = 300;
 	name = "Parking Shutter";
 	dir = 8
@@ -6487,7 +6487,7 @@
 /obj/effect/decal/bordur,
 /obj/machinery/button/door{
 	pixel_y = 32;
-	id = "cabbiewest"
+	id = 98
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/cabdepot)
@@ -9343,7 +9343,7 @@
 	},
 /obj/structure/table,
 /obj/machinery/button/door{
-	id = "armouryaccess";
+	id = 887;
 	name = "Parking Shutters Control";
 	pixel_y = 6
 	},
@@ -10094,7 +10094,7 @@
 "cSs" = (
 /obj/machinery/button/door{
 	pixel_y = 9;
-	id = "cabbieeast";
+	id = 99;
 	pixel_x = -6
 	},
 /obj/structure/table,
@@ -10926,7 +10926,7 @@
 	},
 /obj/structure/table,
 /obj/machinery/button/door{
-	id = "clinic";
+	id = 999;
 	name = "Parking Shutters Control";
 	req_one_access_txt = "5";
 	pixel_y = 8
@@ -16330,12 +16330,12 @@
 /obj/machinery/button/door{
 	pixel_y = 6;
 	pixel_x = 14;
-	id = pentexairlock2
+	id = 132
 	},
 /obj/machinery/button/door{
 	pixel_y = 6;
 	pixel_x = -17;
-	id = pentexairlock1
+	id = 131
 	},
 /turf/open/floor/plating/circled{
 	color = "#b0b0b0"
@@ -18452,7 +18452,7 @@
 "fhL" = (
 /obj/machinery/door/poddoor/shutters{
 	dir = 8;
-	id = "cabbiewest"
+	id = 98
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm/cabdepot)
@@ -28898,7 +28898,7 @@
 /obj/machinery/door/poddoor/shutters{
 	damage_deflection = 50;
 	dir = 1;
-	id = "anarch";
+	id = 76;
 	max_integrity = 200;
 	name = "Garage Shutter"
 	},
@@ -35932,7 +35932,7 @@
 	locked = 1
 	},
 /obj/machinery/door/poddoor/shutters{
-	id = pentexcell2
+	id = 122
 	},
 /turf/open/floor/plating/grate,
 /area/vtm/interior/wyrm_corrupted)
@@ -36576,7 +36576,7 @@
 /obj/structure/table,
 /obj/machinery/button/door{
 	pixel_y = 6;
-	id = pentexcell2
+	id = 122
 	},
 /turf/open/floor/plating/circled,
 /area/vtm/interior/wyrm_corrupted)
@@ -41363,7 +41363,7 @@
 "lFa" = (
 /obj/machinery/door/poddoor/shutters{
 	damage_deflection = 60;
-	id = "prince";
+	id = 433;
 	max_integrity = 300;
 	name = "Parking Shutter";
 	dir = 8
@@ -43349,7 +43349,7 @@
 	locked = 1
 	},
 /obj/machinery/door/poddoor/shutters{
-	id = pentexcell1
+	id = 121
 	},
 /turf/open/floor/plating/grate,
 /area/vtm/interior/wyrm_corrupted)
@@ -53638,11 +53638,6 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/forest)
-"oOf" = (
-/obj/machinery/door/poddoor/shutters,
-/obj/effect/turf_decal/siding/white,
-/turf/open/floor/plating/vampplating/mono,
-/area/vtm/clinic)
 "oOj" = (
 /obj/structure/table/wood,
 /obj/machinery/microwave{
@@ -59422,7 +59417,7 @@
 "qqV" = (
 /obj/structure/table,
 /obj/machinery/button/door{
-	id = pentexcell1
+	id = 121
 	},
 /turf/open/floor/plating/circled,
 /area/vtm/interior/wyrm_corrupted)
@@ -62078,7 +62073,7 @@
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 8;
-	id = pentexairlock2
+	id = 132
 	},
 /turf/open/floor/plating/grate,
 /area/vtm/interior/wyrm_corrupted)
@@ -63528,7 +63523,7 @@
 /area/vtm/sewer/police)
 "rzf" = (
 /obj/machinery/button/door{
-	id = "anarch";
+	id = 76;
 	name = "Garage Shutters Control";
 	pixel_y = 32;
 	pixel_x = -5
@@ -67285,12 +67280,12 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
 "sDn" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "cabbieeast"
-	},
 /obj/effect/turf_decal/siding/white{
 	dir = 1;
 	color = "#636363"
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = 99
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm/cabdepot)
@@ -71532,7 +71527,7 @@
 /obj/machinery/door/poddoor/shutters{
 	damage_deflection = 50;
 	dir = 8;
-	id = "clinic";
+	id = 999;
 	max_integrity = 200;
 	name = "Parking Shutter"
 	},
@@ -79795,10 +79790,10 @@
 /turf/open/floor/plating/vampgrass,
 /area/vtm/pacificheights/forest)
 "whH" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "pharmacy"
-	},
 /obj/effect/turf_decal/siding/white,
+/obj/machinery/door/poddoor/shutters{
+	id = 321
+	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/clinic)
 "whZ" = (
@@ -82596,7 +82591,7 @@
 "wUH" = (
 /obj/structure/table,
 /obj/machinery/button/door{
-	id = "prince";
+	id = 433;
 	name = "Parking Shutters Control"
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -84849,7 +84844,7 @@
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 8;
-	id = pentexairlock1
+	id = 131
 	},
 /turf/open/floor/plating/grate,
 /area/vtm/interior/wyrm_corrupted)
@@ -85808,7 +85803,7 @@
 /area/vtm/interior/baali)
 "xRy" = (
 /obj/machinery/button/door{
-	id = "pharmacy"
+	id = 321
 	},
 /obj/effect/decal/wallpaper/light,
 /turf/closed/wall/vampwall/painted,
@@ -162153,7 +162148,7 @@ wRm
 mJv
 pUn
 kaD
-oOf
+whH
 fXH
 fJx
 fXH
