@@ -111,6 +111,7 @@
 
 	var/last_experience = 0
 
+	var/datum/relationship/Myself
 	var/datum/relationship/MyRelationships
 
 
@@ -121,6 +122,7 @@
 
 	var/diablerist = FALSE
 	var/antifrenzy = FALSE
+	var/fakediablerist = FALSE
 
 	COOLDOWN_DECLARE(bleeding_message_cd)
 
