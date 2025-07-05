@@ -473,6 +473,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["generation_bonus"], generation_bonus)
 	READ_FILE(S["masquerade"], masquerade)
 	READ_FILE(S["renownrank"], renownrank)
+	READ_FILE(S["extra_gnosis"], extra_gnosis)
 	READ_FILE(S["honor"], honor)
 	READ_FILE(S["glory"], glory)
 	READ_FILE(S["wisdom"], wisdom)
@@ -684,6 +685,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	wisdom = sanitize_integer(wisdom, 0, 10, initial(wisdom))
 	honor = sanitize_integer(honor, 0, 10, initial(honor))
 	renownrank = sanitize_integer(renownrank, 0, 5, initial(renownrank))
+	extra_gnosis = sanitize_integer(extra_gnosis, 0, 5, initial(extra_gnosis))
 	// TFN EDIT END
 	hair_color			= sanitize_hexcolor(hair_color)
 	facial_hair_color			= sanitize_hexcolor(facial_hair_color)
@@ -817,6 +819,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["lover_text"]			, lover_text)
 	WRITE_FILE(S["reason_of_death"]			, reason_of_death)
 	WRITE_FILE(S["renownrank"]			, renownrank)
+	WRITE_FILE(S["extra_gnosis"]			, extra_gnosis)
 	WRITE_FILE(S["honor"]			, honor)
 	WRITE_FILE(S["glory"]			, glory)
 	WRITE_FILE(S["wisdom"]			, wisdom)
