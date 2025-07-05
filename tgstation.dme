@@ -3751,8 +3751,6 @@
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
 #include "modular_tfn\master_files\code\modules\client\preferences.dm"
-#include "modular_tfn\master_files\code\modules\client\preferences_savefile_vocal.dm"
-#include "modular_tfn\master_files\code\modules\client\preferences_vocal.dm"
 #include "modular_tfn\master_files\code\modules\mob\living\carbon\human\human_defines.dm"
 #include "modular_tfn\modules\alt_job_titles\alt_job_titles.dm"
 #include "modular_tfn\modules\alt_job_titles\outfits.dm"
