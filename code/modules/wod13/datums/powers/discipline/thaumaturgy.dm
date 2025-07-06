@@ -7,12 +7,13 @@
 
 /datum/discipline/thaumaturgy/post_gain()
 	. = ..()
-	owner.faction |= "Tremere"
+	owner.faction |= CLAN_TREMERE
 	if(level >= 1)
 		var/datum/action/thaumaturgy/thaumaturgy = new()
 		thaumaturgy.Grant(owner)
 		thaumaturgy.level = level
 		owner.thaumaturgy_knowledge = TRUE
+		owner.mind.teach_crafting_recipe(/datum/crafting_recipe/arctome)
 	if(level >= 3)
 		var/datum/action/bloodshield/bloodshield = new()
 		bloodshield.Grant(owner)
@@ -176,22 +177,26 @@
 
 //THEFT OF VITAE
 /mob/living/proc/tremere_gib()
-	Stun(5 SECONDS)
-	new /obj/effect/temp_visual/tremere(loc, "gib")
-	animate(src, pixel_y = 16, color = "#ff0000", time = 5 SECONDS, loop = 1)
-
-	spawn(5 SECONDS)
-		if(stat != DEAD)
-			death()
-		var/list/items = list()
-		items |= get_equipped_items(TRUE)
-		for(var/obj/item/I in items)
-			dropItemToGround(I)
-		drop_all_held_items()
-		spawn_gibs()
-		spawn_gibs()
-		spawn_gibs()
-		qdel(src)
+	// TFN EDIT START - THAUMATURGYFIXES - Check for player control before gibbing
+	if(!ckey || ckey == "") // No player controlling this mob
+		Stun(5 SECONDS)
+		new /obj/effect/temp_visual/tremere(loc, "gib")
+		animate(src, pixel_y = 16, color = "#ff0000", time = 5 SECONDS, loop = 1)
+		spawn(5 SECONDS)
+			if(stat != DEAD)
+				death()
+			var/list/items = list()
+			items |= get_equipped_items(TRUE)
+			for(var/obj/item/I in items)
+				dropItemToGround(I)
+			drop_all_held_items()
+			spawn_gibs()
+			spawn_gibs()
+			spawn_gibs()
+			qdel(src)
+	else // Player-controlled mob
+		apply_damage(50, BURN)
+	// TFN EDIT END
 
 /datum/discipline_power/thaumaturgy/theft_of_vitae
 	name = "Theft of Vitae"
@@ -210,7 +215,9 @@
 
 /datum/discipline_power/thaumaturgy/theft_of_vitae/activate(mob/living/target)
 	. = ..()
-	if(iscarbon(target))
+	// TFN EDIT START -- Thaumaturgy fixes -- Original : if(iscarbon(target))
+	if(iscarbon(target) || istype(target, /mob/living/simple_animal/werewolf))
+	// TFN EDIT END -- Thaumaturgy fixes
 		target.visible_message(span_danger("[target] throws up!"), span_userdanger("You throw up!"))
 		target.add_splatter_floor(get_turf(target))
 		target.add_splatter_floor(get_turf(get_step(target, target.dir)))
@@ -256,10 +263,10 @@
 
 /datum/discipline_power/thaumaturgy/cauldron_of_blood/activate(mob/living/target)
 	. = ..()
-	if(iscarbon(target))
+	//TFN EDIT START -- Thaumaturgy fixes - original : if(iscarbon(target))
+	if(iscarbon(target) || istype(target, /mob/living/simple_animal/werewolf))
+	//TFN EDIT END -- Thaumaturgy fixes
 		new /obj/effect/temp_visual/tremere(target.loc, "gib")
-
-
 
 		target.visible_message(span_danger("[target] reddens and quakes!"), span_userdanger("Your veins feel like they're on fire!"))
 
@@ -302,6 +309,7 @@
 	target.apply_damage(20, BURN, owner.zone_selected)
 	target.emote("twitch")
 	target.visible_message(span_warning("[target] begins to violently shake!"), span_userdanger("You feel yourself trembling uncontrollably!"))
+	playsound(target, 'code/modules/wod13/sounds/thaum.ogg', 50, FALSE)
 
 /datum/discipline_power/thaumaturgy/cauldron_of_blood/proc/blood_burn_stage2(mob/living/target)
 	if(!target) return
@@ -315,9 +323,11 @@
 	target.Stun(2.5 SECONDS)
 	target.apply_damage(30, BURN, owner.zone_selected)
 	target.visible_message(span_warning("[target] collapses to the floor, thrashing in torment!"), span_userdanger("IT BURNS! IT BURNS!! IT BURNS!!!"))
+	/* // TFN EDIT REMOVAL START - Thaumaturgy Fixes - was causing the stun to last far longer than intended
 	target.emote("collapse")
+	*/
 
-//MISCELLANEOUS BULLSHIT
+//RUNE DRAWING
 /datum/action/thaumaturgy
 	name = "Thaumaturgy"
 	desc = "Blood magic rune drawing."
@@ -327,7 +337,7 @@
 	var/drawing = FALSE
 	var/level = 1
 
-/datum/action/thaumaturgy/Trigger()
+/datum/action/thaumaturgy/Trigger(trigger_flags)
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.bloodpool < 2)
@@ -337,18 +347,19 @@
 		return
 
 	if(istype(H.get_active_held_item(), /obj/item/arcane_tome))
-		var/list/shit = list()
+		var/list/rune_names = list()
 		for(var/i in subtypesof(/obj/ritualrune))
 			var/obj/ritualrune/R = new i(owner)
 			if(R.thaumlevel <= level)
-				shit += i
+				rune_names[R.name] = i
 			qdel(R)
-		var/ritual = input(owner, "Choose rune to draw:", "Thaumaturgy") as null|anything in shit
+		var/ritual = tgui_input_list(owner, "Choose rune to draw:", "Thaumaturgy", rune_names)
 		if(ritual)
 			drawing = TRUE
 			if(do_after(H, 3 SECONDS * max(1, 5 - H.get_total_mentality()), H))
 				drawing = FALSE
-				new ritual(H.loc)
+				var/ritual_type = rune_names[ritual]
+				new ritual_type(H.loc)
 				H.bloodpool = max(H.bloodpool - 2, 0)
 				if(H.CheckEyewitness(H, H, 7, FALSE))
 					H.AdjustMasquerade(-1)
@@ -361,7 +372,7 @@
 			if(R.thaumlevel <= level)
 				shit += i
 			qdel(R)
-		var/ritual = input(owner, "Choose rune to draw (You need an Arcane Tome to reduce random):", "Thaumaturgy") as null|anything in list("???")
+		var/ritual = tgui_input_list(owner, "Choose rune to draw (You need an Arcane Tome to reduce random):", "Thaumaturgy", list("???"))
 		if(ritual)
 			drawing = TRUE
 			if(do_after(H, 3 SECONDS * max(1, 5 - H.get_total_mentality()), H))
@@ -382,7 +393,7 @@
 	vampiric = TRUE
 	var/abuse_fix = 0
 
-/datum/action/bloodshield/Trigger()
+/datum/action/bloodshield/Trigger(trigger_flags)
 	. = ..()
 	if((abuse_fix + 25 SECONDS) > world.time)
 		return

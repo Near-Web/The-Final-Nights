@@ -15,15 +15,15 @@
 	display_order = JOB_DISPLAY_ORDER_NAGARAJA
 
 	allowed_species = list("Vampire", "Ghoul", "Human")
-	species_slots = list("Vampire" = 4)
+	species_slots = list("Vampire" = 4, "Ghoul" = 50, "Human" = 50)
 
 	v_duty = "One of the Nagaraja bloodline, you're hiding out in this city for one reason or another. You're laying low, acting as a Mortician for the local hospital, dealing with the bodies, and staying out of the other doctors way."
 	duty = "You work in the morgue for the local hospital, dealing with the dead bodies and keeping your workspace clean, while staying out of the way of the other doctors."
-	allowed_bloodlines = list("Nagaraja")
+	allowed_bloodlines = list(CLAN_NAGARAJA)
 	minimal_masquerade = 0
 
 /datum/outfit/job/nagaraja
-	name = "nagaraja"
+	name = CLAN_NAGARAJA
 	jobtype = /datum/job/vamp/nagaraja
 	r_pocket = /obj/item/vamp/keys/mortician
 	l_pocket = /obj/item/vamp/phone
@@ -37,15 +37,15 @@
 
 /datum/outfit/job/nagaraja/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.clane)
+	if(H.clan)
 		if(H.gender == MALE)
 			shoes = /obj/item/clothing/shoes/vampire
-			if(H.clane.male_clothes)
-				uniform = H.clane.male_clothes
+			if(H.clan.male_clothes)
+				uniform = H.clan.male_clothes
 		else
 			shoes = /obj/item/clothing/shoes/vampire/heels
-			if(H.clane.female_clothes)
-				uniform = H.clane.female_clothes
+			if(H.clan.female_clothes)
+				uniform = H.clan.female_clothes
 	else
 		uniform = /obj/item/clothing/under/vampire/emo
 		if(H.gender == MALE)
