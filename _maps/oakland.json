@@ -1,8 +1,8 @@
 {
 	"version": 1,
-	"map_name": "San Francisco",
+	"map_name": "Oakland",
 	"map_path": "map_files/Vampire",
-	"map_file": "SanFrancisco.dmm",
+	"map_file": "Oakland.dmm",
 	"traits": [
 		{
 			"Up": 1,
@@ -12,28 +12,27 @@
 		{
 			"Up": 1,
 			"Down": -1,
-			"Baseturf": "/turf/open/floor/plating",
+			"Baseturf": "/turf/open/openspace",
 			"Linkage": "Cross"
 		},
 		{
 			"Up": 1,
 			"Down": -1,
-			"Baseturf": "/turf/open/floor/plating",
+			"Baseturf": "/turf/open/openspace",
 			"Linkage": "Cross"
 		},
 		{
 			"Down": -1,
-			"Baseturf": "/turf/open/floor/plating",
+			"Baseturf": "/turf/open/openspace",
 			"Linkage": "Cross"
 		},
 		{
-			"Baseturf": "/turf/open/floor/plating"
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
 		},
 		{
-			"Baseturf": "/turf/open/floor/plating"
-		},
-		{
-			"Baseturf": "/turf/open/floor/plating"
+			"Baseturf": "/turf/open/openspace"
 		}
 	]
 }
