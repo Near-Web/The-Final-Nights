@@ -9,5 +9,23 @@
 	if(!message_mods[WHISPER_MODE])
 		send_voice(message)
 
-/datum/species/proc/send_voice(mob/living/carbon/human/H)
-	playsound(get_turf(H), 'modular_tfn/modules/saysounds/sounds/talk.ogg', 100, FALSE, -1)
+/datum/species/proc/send_voice(mob/living/L)
+	// Only play sounds for mobs with a ckey (player-controlled)
+	if(!L.ckey)
+		return
+
+	// Get the client's vocal sound preference
+	var/vocal_sound_pref = "Talk" // Default fallback
+	if(L.client?.prefs?.vocal_sound)
+		vocal_sound_pref = L.client.prefs.vocal_sound
+
+	// Play the appropriate sound based on preference
+	switch(vocal_sound_pref)
+		if("Talk")
+			playsound(get_turf(L), 'modular_tfn/modules/saysounds/sounds/talk.ogg', 50, FALSE, -1)
+		if("Pencil")
+			playsound(get_turf(L), 'modular_tfn/modules/saysounds/sounds/pencil.ogg', 50, FALSE, -1)
+		if("None")
+			return // Don't play any sound
+		else
+			playsound(get_turf(L), 'modular_tfn/modules/saysounds/sounds/talk.ogg', 50, FALSE, -1) // Default fallback
