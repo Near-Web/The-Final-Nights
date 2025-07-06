@@ -1259,6 +1259,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				else
 					dat += "High"
 			dat += "</a><br>"
+			dat += "<b>Disable Vocal Sounds: </b> <a href= 'byond://?_src_=prefs;preference=disable_vocal_sounds'>[disable_vocal_sounds ? "Yes" : "No"]</a><br>" // TFN ADDITION - Vocal Sounds
 			dat += "<b>Preferred Vocal Sound: </b> <a href= 'byond://?_src_=prefs;preference=vocal_sound'>[vocal_sound]</a><br>" // TFN ADDITION - Vocal Sounds
 			dat += "<b>Use old discipline icons:</b> <a href='byond://?_src_=prefs;preference=old_discipline'>[old_discipline ? "Yes" : "No"]</a><br>"
 			dat += "<b>Ambient Occlusion:</b> <a href='byond://?_src_=prefs;preference=ambientocclusion'>[ambientocclusion ? "Enabled" : "Disabled"]</a><br>"
@@ -3527,6 +3528,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							vocal_sound = "Talk"
 						else
 							vocal_sound = "Talk" // fallback to default
+
+				if("disable_vocal_sounds")
+					disable_vocal_sounds = !disable_vocal_sounds
 				// TFN ADDITION END - Vocal Sounds
 
 				if("widescreenpref")

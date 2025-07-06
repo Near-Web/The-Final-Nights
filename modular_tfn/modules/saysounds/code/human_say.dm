@@ -15,17 +15,29 @@
 		return
 
 	// Get the client's vocal sound preference
-	var/vocal_sound_pref = "Talk" // Default fallback
-	if(L.client?.prefs?.vocal_sound)
-		vocal_sound_pref = L.client.prefs.vocal_sound
+	var/vocal_sound_pref = L.client?.prefs?.vocal_sound || "Talk"
 
-	// Play the appropriate sound based on preference
+	// Determine the sound file based on preference
+	var/sound_file
 	switch(vocal_sound_pref)
 		if("Talk")
-			playsound(get_turf(L), 'modular_tfn/modules/saysounds/sounds/talk.ogg', 50, FALSE, -1)
+			sound_file = 'modular_tfn/modules/saysounds/sounds/talk.ogg'
 		if("Pencil")
-			playsound(get_turf(L), 'modular_tfn/modules/saysounds/sounds/pencil.ogg', 50, FALSE, -1)
+			sound_file = 'modular_tfn/modules/saysounds/sounds/pencil.ogg'
 		if("None")
 			return // Don't play any sound
 		else
-			playsound(get_turf(L), 'modular_tfn/modules/saysounds/sounds/talk.ogg', 50, FALSE, -1) // Default fallback
+			sound_file = 'modular_tfn/modules/saysounds/sounds/talk.ogg' // Default fallback
+
+	// Build a list of clients who want to hear vocal sounds
+	var/list/clients_to_play_to = list()
+
+	// Use viewers() to include the speaker and everyone who can see them
+	for(var/mob/M in viewers(world.view, get_turf(L)))
+		if(M.client && !M.client.prefs?.disable_vocal_sounds)
+			clients_to_play_to += M.client
+
+	// Play the sound only to those clients who want to hear it
+	if(clients_to_play_to.len)
+		for(var/client/C in clients_to_play_to)
+			C << sound(sound_file)

@@ -11,6 +11,7 @@
 	var/gear_tab = "General"
 	///What kind of vocal sounds does the user prefer?
 	var/vocal_sound = "Talk"
+	var/disable_vocal_sounds = FALSE // Disable all vocal sounds preference
 
 /proc/valid_headshot_link(mob/user, value, silent = FALSE)
 	var/static/link_regex = regex("i.gyazo.com|a.l3n.co|b.l3n.co|c.l3n.co|images2.imgbox.com|thumbs2.imgbox.com|files.catbox.moe") //gyazo, lensdump, imgbox, catbox
