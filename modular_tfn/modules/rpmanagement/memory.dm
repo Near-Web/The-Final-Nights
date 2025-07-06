@@ -34,6 +34,16 @@
 		src.status = "active"
 		src.is_public = TRUE
 
+/datum/memory/proc/export_data()
+    return list(
+        "id" = src.id,
+        "title" = src.title,
+        "details" = src.details,
+        "tags" = src.tags,
+        "status" = src.status,
+        "time" = src.time,
+        // ...any other properties for the UI
+    )
 /// Stores memories about a specific character
 /datum/memory_set
 	var/target_ckey = ""

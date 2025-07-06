@@ -1,5 +1,10 @@
+//This exports specific data for the about me tgui, to avoid sending everything.
+
 /datum/component/about_me/proc/export_memory()
-	return memories_all.Copy()
+	var/list/exported = list()
+	for (var/datum/memory/M in src.memories_all)
+		exported += list(M.export_data())
+	return exported
 
 /datum/component/about_me/proc/export_relationships()
 	var/list/output = list()

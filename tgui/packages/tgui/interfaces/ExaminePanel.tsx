@@ -1,10 +1,10 @@
 // THIS IS A SKYRAT UI FILE
 import { useState } from 'react';
+import { Section, Stack, Tabs } from 'tgui-core/components';
+import { BooleanLike } from 'tgui-core/react';
 
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { Section, Stack, Tabs } from 'tgui-core/components';
-import { BooleanLike } from 'tgui-core/react';
 import { Window } from '../layouts';
 
 type ExamineData = {
@@ -44,7 +44,7 @@ function formatURLs(text: string) {
   parts.push(text.substring(lastIndex));
 
   return <div>{parts}</div>;
-};
+}
 
 export const ExaminePanel = (props) => {
   const [tabIndex, setTabIndex] = useState(1);

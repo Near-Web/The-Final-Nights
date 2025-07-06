@@ -3,7 +3,7 @@
     return GLOB.always_state
 
 /datum/component/about_me/ui_data(mob/user)
-    return list("overview" = get_full_payload())
+    return get_full_payload()
 
 /datum/component/about_me/ui_static_data(mob/user)
     // No static data needed for now, but you could add config or labels here if desired.
@@ -15,15 +15,12 @@
         ui = new(user, src, "AboutmeInt")
         ui.open()
 
-/datum/component/about_me/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-    // If you want About Me to handle act (button) events, add them here.
-    // For now, just call parent so you get future compatibility.
-    . = ..()
-    if (.)
-        return
-    // Example: if(action == "edit_name") { ... }
 
-
+//Saves on close?
+/datum/component/about_me/ui_close(mob/user)
+	. = ..()
+	save_to_file()
+	message_admins("[src]: ui_close() — about_me data saved for [owner?.ckey].")
 
 
 /datum/action/about_me

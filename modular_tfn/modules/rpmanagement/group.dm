@@ -118,6 +118,15 @@
 	var/role = GetMemberRole(ckey)
 	return (ckey == leader_ckey) || (role in list("officer", "admin"))
 
+/datum/groups/proc/GetMemberRole(var/ckey)
+	// If you have a member roles assoc list, use it; otherwise, leader is "leader"
+	if (ckey == src.leader_ckey)
+		return "leader"
+	// If you later add officer/admin, check here:
+	// if (src.officers && ckey in src.officers) return "officer"
+	// if (src.admins && ckey in src.admins) return "admin"
+	return "member"
+
 
 //Group Relationships
 /datum/groups/proc/CreateGroupRelationship(var/ckey)

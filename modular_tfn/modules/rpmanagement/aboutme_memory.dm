@@ -1,98 +1,186 @@
-/datum/component/about_me/proc/get_memories_with_tags(var/list/search_tags)
-	if (!length(memories_all) || !length(search_tags)) return list()
-	var/list/results = list()
-	for (var/datum/memory/M in memories_all)
-		if (!islist(M.tags)) continue
-		for (var/T in search_tags)
-			if (T in M.tags)
-				results += export_memory(M)
-				break
-	return results
+// ----------
+// MEMORY TOOLS (Component Procs w/ TGUI Prompts)
+// ----------
+/datum/component/about_me/proc/prompt_create_memory(mob/user)
+    // Prompt for memory details
+    var/title = tgui_input_text(user, "Create Memory", "Title for this memory?")
+    if (!title) return
 
-/datum/component/about_me/proc/search_memories(var/query)
-	var/list/matches = list()
-	for (var/datum/memory/M in memories_all)
-		if (findtext(lowertext(M.title), lowertext(query)) || findtext(lowertext(M.details), lowertext(query)))
-			matches += export_memory(M)
-	return matches
+    var/details = tgui_input_text(user, "Create Memory", "Details for this memory?")
+    if (!details) return
 
-/datum/component/about_me/proc/export_all_memories()
-	var/list/output = list()
-	for (var/datum/memory/M in memories_all)
-		output += export_memory(M)
-	return output
+    // Tag selection (single choice)
+    var/tag = tgui_input_list(user, "Memory Tag", "Select a tag for this memory", MEMORY_TAGS)
+    if (!tag)
+        to_chat(user, "<span class='warning'>You must pick a tag!</span>")
+        return
+    var/list/tags = list(tag)
 
-/datum/component/about_me/proc/create_memory()
-	set name = "Create Memory"
-	set desc = "Add a personal memory to your character."
+    var/status = tgui_input_list(user, "Status", "Select status", list("active", "hidden", "archived"))
+    if (!status) status = "active"
 
-	var/title = input(owner, "Memory title:", "Create Memory") as text
-	if (!title) return
+    var/datum/memory/M = src.create_memory(title, details, tags, status)
+    to_chat(user, "<span class='notice'>Memory created: [M?.title]</span>")
 
-	var/details = input(owner, "Memory details:", "Create Memory") as message
-	if (!details) return
 
-	var/raw_tags = input(owner, "Tags (comma-separated):", "Create Memory") as null|text
-	var/list/tags = raw_tags ? splittext(raw_tags, ",") : list()
-	for (var/i in 1 to tags.len)
-		tags[i] = trim(tags[i])
-
-	var/status = input(owner, "Status of memory:", "Create Memory") as null|anything in list("active", "goal", "secret", "archived")
-	if (!status) status = "active"
-
-	var/id = "[world.time]-[rand(1000, 9999)]"
-
-	var/datum/memory/M = GenerateMemory(
-		title = title,
-		details = details,
-		tags = tags,
-		status = status,
-		is_public = (status == "public"),
-		source_ckey = owner.ckey,
-		editor_ckey = null,
-		edited_time = null,
-		related_groups = list(),
-		memory_type = null
-	)
-	M.id = id
-	M.created_time = time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")
-
-	memories_all += M
+/datum/component/about_me/proc/create_memory(title, details, list/tags = list(), status = "active")
+	// Core logic for memory creation, called by prompt proc
+	var/datum/memory/M = new()
+	M.title = title
+	M.details = details
+	M.tags = tags.Copy()
+	M.created_time = world.time
+	M.status = status
+	M.id = rand(10000, 99999)
+	M.time = world.time
+	src.memories_all += M
 	save_to_file()
-	to_chat(owner, "<span class='notice'>You created a new memory: <b>[title]</b></span>")
+	return M
 
-/datum/component/about_me/proc/edit_memory(var/id)
-	if (!id || !length(memories_all)) return
-
-	var/datum/memory/M = locate(id) in src.memories_all
+/datum/component/about_me/proc/prompt_edit_memory(mob/user)
+	// Prompt user to select a memory to edit and new values
+	var/list/options = list()
+	for (var/datum/memory/M in src.memories_all)
+		options["[M.id]: [M.title]"] = M
+	if (!length(options)) {
+		to_chat(user, "<span class='warning'>No memories to edit.</span>")
+		return
+	}
+	var/choice = tgui_input_list(user, "Edit Memory", "Select a memory to edit", options)
+	var/datum/memory/M = options[choice]
 	if (!M) return
 
-	var/title = input("New title:", "", M.title) as null|text
-	var/details = input("New details:", "", M.details) as null|message
-	var/raw_tags = input("Tags (comma-separated):", "", jointext(M.tags, ", ")) as null|text
-	var/status = input("Status:", "", M.status) as null|anything in list("public", "private", "hidden")
+	var/new_title = tgui_input_text(user, "Edit Memory", "New title? (leave blank to keep)", M.title)
+	var/new_details = tgui_input_text(user, "Edit Memory", "New details? (leave blank to keep)", M.details)
 
-	if (title) M.title = title
-	if (details) M.details = details
-	if (status) {
-		M.status = status
-		M.is_public = (status == "public")
+	// Only allow a single tag, preselect current or first if missing
+	var/current_tag = (islist(M.tags) && M.tags.len) ? M.tags[1] : (MEMORY_TAGS[1] || "")
+	var/new_tag = tgui_input_list(user, "Edit Tag", "Select a tag", MEMORY_TAGS, current_tag)
+	var/list/new_tags = new_tag ? list(new_tag) : M.tags
+
+	var/new_status = tgui_input_list(user, "Status", "Select status", list("active", "hidden", "archived"), M.status)
+
+	src.edit_memory(M, new_title, new_details, new_tags, new_status)
+	to_chat(user, "<span class='notice'>Memory edited: [M?.title]</span>")
+
+/datum/component/about_me/proc/edit_memory(var/datum/memory/M, var/new_title = null, var/new_details = null, var/list/new_tags = null, var/new_status = null)
+	if (!M) return
+	if (new_title) M.title = new_title
+	if (new_details) M.details = new_details
+	if (islist(new_tags)) M.tags = new_tags.Copy()
+	if (new_status) M.status = new_status
+	save_to_file()
+
+/datum/component/about_me/proc/prompt_delete_memory(mob/user)
+	// Prompt user to select a memory to delete
+	var/list/options = list()
+	for (var/datum/memory/M in src.memories_all)
+		options["[M.id]: [M.title]"] = M
+	if (!length(options)) {
+		to_chat(user, "<span class='warning'>No memories to delete.</span>")
+		return
 	}
-	if (raw_tags) {
-		M.tags = list()
-		for (var/T in splittext(raw_tags, ","))
-			M.tags += trim(T)
+	var/choice = tgui_input_list(user, "Delete Memory", "Select a memory to delete", options)
+	var/datum/memory/M = options[choice]
+	if (!M) return
+	src.delete_memory(M)
+	to_chat(user, "<span class='notice'>Memory deleted.")
+
+/datum/component/about_me/proc/delete_memory(var/datum/memory/M)
+	if (!M) return
+	src.memories_all -= M
+	src.chronicle_events -= M
+	save_to_file()
+
+/datum/component/about_me/proc/prompt_tag_memory(mob/user)
+	// Prompt user to select memory and tag
+	var/list/options = list()
+	for (var/datum/memory/M in src.memories_all)
+		options["[M.id]: [M.title]"] = M
+	if (!length(options)) {
+		to_chat(user, "<span class='warning'>No memories to tag.</span>")
+		return
 	}
+	var/choice = tgui_input_list(user, "Tag Memory", "Select a memory to tag", options)
+	var/datum/memory/M = options[choice]
+	if (!M) return
+	var/tag = tgui_input_text(user, "Tag Memory", "Enter tag")
+	if (!tag) return
+	src.tag_memory(M, tag)
+	to_chat(user, "<span class='notice'>Tag added to memory.")
 
-	M.edited_time = time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")
-	M.editor_ckey = src.owner?.ckey
-	src.save_to_file()
+/datum/component/about_me/proc/tag_memory(var/datum/memory/M, var/tag)
+	if (!M || !tag) return
+	if (!islist(M.tags)) M.tags = list()
+	if (!(tag in M.tags))
+		M.tags += tag
+	save_to_file()
 
-/datum/component/about_me/proc/delete_memory(var/id)
-	if (!id || !length(memories_all)) return
-
-	var/datum/memory/M = locate(id) in src.memories_all
+/datum/component/about_me/proc/prompt_attach_memory_to_relationship(mob/user)
+	// Prompt user for memory and relationship
+	var/list/mem_opts = list()
+	for (var/datum/memory/M in src.memories_all)
+		mem_opts["[M.id]: [M.title]"] = M
+	if (!length(mem_opts)) {
+		to_chat(user, "<span class='warning'>No memories found.</span>")
+		return
+	}
+	var/mem_choice = tgui_input_list(user, "Attach Memory", "Select a memory", mem_opts)
+	var/datum/memory/M = mem_opts[mem_choice]
 	if (!M) return
 
-	memories_all -= M
-	src.save_to_file()
+	var/list/rel_opts = list()
+	for (var/datum/relationships/R in src.group_relationships)
+		rel_opts["[R.id]: [R.name]"] = R
+	if (!length(rel_opts)) {
+		to_chat(user, "<span class='warning'>No relationships found.</span>")
+		return
+	}
+	var/rel_choice = tgui_input_list(user, "Attach Memory", "Select a relationship", rel_opts)
+	var/datum/relationships/R = rel_opts[rel_choice]
+	if (!R) return
+
+	src.attach_memory_to_relationship(R, M)
+	to_chat(user, "<span class='notice'>Memory attached to relationship.</span>")
+
+/datum/component/about_me/proc/attach_memory_to_relationship(var/datum/relationships/R, var/datum/memory/M)
+	if (!R || !M) return
+	if (!islist(R.rel_memories)) R.rel_memories = list()
+	if (!(M in R.rel_memories))
+		R.rel_memories += M
+	save_to_file()
+
+/datum/component/about_me/proc/prompt_attach_memory_to_group(mob/user)
+	// Prompt user for memory and group
+	var/list/mem_opts = list()
+	for (var/datum/memory/M in src.memories_all)
+		mem_opts["[M.id]: [M.title]"] = M
+	if (!length(mem_opts)) {
+		to_chat(user, "<span class='warning'>No memories found.")
+		return
+	}
+	var/mem_choice = tgui_input_list(user, "Attach Memory", "Select a memory", mem_opts)
+	var/datum/memory/M = mem_opts[mem_choice]
+	if (!M) return
+
+	var/list/group_opts = list()
+	for (var/datum/groups/G in global_groups)
+		group_opts["[G.id]: [G.name]"] = G
+	if (!length(group_opts)) {
+		to_chat(user, "<span class='warning'>No groups found.")
+		return
+	}
+	var/group_choice = tgui_input_list(user, "Attach Memory", "Select a group", group_opts)
+	var/datum/groups/G = group_opts[group_choice]
+	if (!G) return
+
+	src.attach_memory_to_group(G, M)
+	to_chat(user, "<span class='notice'>Memory attached to group.</span>")
+
+/datum/component/about_me/proc/attach_memory_to_group(var/datum/groups/G, var/datum/memory/M)
+	if (!G || !M) return
+	if (!islist(G.memories))
+		G.memories = list()
+	if (!(M in G.memories))
+		G.memories += M
+	save_to_file()

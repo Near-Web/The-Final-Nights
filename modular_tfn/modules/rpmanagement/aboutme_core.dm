@@ -34,7 +34,9 @@
 		owner = parent
 		var/datum/action/about_me/about_me = new(parent)
 		about_me.Grant(parent)
+		load_from_file() // <-- Load saved data after setup
 
+//This Generates, only the overview data
 /datum/component/about_me/proc/generate_overview()
 	if (!ismob(owner)) return
 	var/mob/living/carbon/human/H = owner
@@ -45,6 +47,8 @@
 	special_role = H.mind?.special_role
 	if (H.mind?.enslaved_to)
 		regnant_name = "[H.mind.enslaved_to]"
+
+	//Stats
 	physique = H.physique + H.additional_physique
 	dexterity = H.dexterity + H.additional_dexterity
 	social = H.social + H.additional_social
@@ -53,35 +57,38 @@
 	lockpicking = H:lockpicking + H.additional_lockpicking
 	athletics = H:athletics + H.additional_athletics
 
-	var/datum/species/kindred/K = H.dna?.species
-	if (iskindred(H) && istype(K, /datum/species/kindred))
-		clan = K.clane?.name || "Caitiff"
-		generation = H.generation > 0 ? H.generation : "Unknown"
-		masquerade = H.masquerade
-		humanity = H.morality_path?.score
-		disciplines = list()
+	if (iskindred(H))
+		var/datum/species/kindred/K = H.dna?.species
+		// --- CLAN
+		var/datum/vampire_clan/C = H.clan
+		clan = C.name
 
+		// --- GENERATION
+		generation = (H.generation && H.generation > 0) ? H.generation : "Unknown"
+
+		// --- MASQUERADE
+		masquerade = (H.masquerade != null) ? H.masquerade : 0
+
+		// --- HUMANITY or PATH SCORE
+		humanity = (H.morality_path && H.morality_path.score != null) ? H.morality_path.score : "Unknown"
+
+		// --- DISCIPLINES (detailed list)
+		disciplines = list()
 		if (islist(K?.disciplines))
 			for (var/datum/discipline/D in K.disciplines)
-				disciplines += D
+				if (!D) continue
+				var/discipline_entry = list(
+					"name" = D.name,
+					"level" = D.level,
+					"desc" = D.desc || ""
+				)
+				disciplines += list(discipline_entry)
 
-/datum/component/about_me/proc/get_stats_dict()
-	return list(
-		"Physique" = physique,
-		"Dexterity" = dexterity,
-		"Social" = social,
-		"Mentality" = mentality,
-		"Cruelty" = cruelty,
-		"Lockpicking" = lockpicking,
-		"Athletics" = athletics
-	)
+		// --- REGNANT (if blood bonded)
+		//var/regnant = null
+		//var/regnant_clan = null
 
-/datum/component/about_me/proc/get_disciplines_list()
-	var/list/out = list()
-	for (var/datum/discipline/D in disciplines)
-		out += list(list("name" = D.name, "level" = D.level, "desc" = D.desc))
-	return out
-
+//Gets overview data for UI
 /datum/component/about_me/proc/get_overview_data()
 	generate_overview()
 	return list(
@@ -96,27 +103,31 @@
 		"regnant" = regnant_name,
 		"regnant_clan" = regnant_clan_name,
 		"stats" = get_stats_dict(),
-		"disciplines" = get_disciplines_list()
+		"disciplines" = disciplines
 	)
 
-/datum/component/about_me/proc/filter_memories_by_tag(list/mems, tag)
-	var/list/result = list()
-	for (var/memory in mems)
-		if (!islist(memory["tags"]))
-			continue
-		if (tag in memory["tags"])
-			result += memory
-	return result
+/datum/component/about_me/proc/get_stats_dict()
+	return list(
+		"Physique" = physique,
+		"Dexterity" = dexterity,
+		"Social" = social,
+		"Mentality" = mentality,
+		"Cruelty" = cruelty,
+		"Lockpicking" = lockpicking,
+		"Athletics" = athletics
+	)
 
 
+//Get FINAL data for UI!
 /datum/component/about_me/proc/get_full_payload()
+	get_overview_data()
 	var/list/mem_export = islist(memories_all) ? export_memory() : list()
 	var/list/chron_export = islist(chronicle_events) ? export_chronicle() : list()
 	var/list/rel_export = islist(group_relationships) ? export_relationships() : list()
 	message_admins("[src.type]: get_full_payload() — overview.name: [get_overview_data()["name"]]")
 	return list(
-		"overview" = get_overview_data(),
-		"memories_all" = mem_export,
+		"overview" = get_overview_data(), //done mostly.
+		"memories_all" = mem_export, //raw export of all character memories
 		"background" = filter_memories_by_tag(mem_export, "background") || list(),
 		"current" = filter_memories_by_tag(mem_export, "current") || list(),
 		"recent" = filter_memories_by_tag(mem_export, "recent") || list(),
@@ -133,6 +144,15 @@
 		"status" = current_status || "",
 		"alignment" = faction_alignment || ""
 	)
+
+/datum/component/about_me/proc/filter_memories_by_tag(list/mems, tag)
+	var/list/result = list()
+	for (var/memory in mems)
+		if (!islist(memory["tags"]))
+			continue
+		if (tag in memory["tags"])
+			result += memory
+	return result
 
 /client/verb/Debugabout_mePayload()
 	set name = "About Me Debug Payload"
