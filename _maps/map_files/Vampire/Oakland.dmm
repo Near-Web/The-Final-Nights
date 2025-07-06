@@ -2350,15 +2350,11 @@
 "aIq" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = 7
 	},
@@ -2913,8 +2909,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8
 	},
 /turf/open/floor/plating/parquetry,
@@ -7327,8 +7321,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 21
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/martini_glass{
@@ -11742,15 +11734,11 @@
 "dmn" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -10;
 	pixel_y = 8
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -6
 	},
 /turf/open/floor/plating/vampcanalplating,
@@ -12028,8 +12016,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8;
 	pixel_x = -16
 	},
@@ -17578,8 +17564,6 @@
 /obj/item/food/cannoli,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 21
 	},
 /turf/open/floor/plating/woodfancy,
@@ -19262,15 +19246,11 @@
 /obj/structure/table/wood,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = 7
 	},
@@ -24925,15 +24905,11 @@
 /obj/structure/table/wood,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = -6
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -10;
 	pixel_y = 8
 	},
@@ -25272,8 +25248,6 @@
 "hef" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 7
 	},
 /turf/open/floor/plating/vampcanal,
@@ -25886,8 +25860,6 @@
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -10;
 	pixel_y = 8
 	},
@@ -26563,15 +26535,11 @@
 "hxs" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = 7
 	},
@@ -28140,8 +28108,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/martini_glass{
@@ -30333,15 +30299,11 @@
 /obj/effect/turf_decal/weather/dirt,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = 7
 	},
@@ -32038,21 +32000,15 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = -6
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -6
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -10;
 	pixel_y = 8
 	},
@@ -34464,8 +34420,6 @@
 "jDA" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 7
 	},
 /turf/open/floor/plating/vampdirt,
@@ -36967,8 +36921,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8
 	},
 /obj/machinery/light/prince{
@@ -38478,15 +38430,11 @@
 /obj/structure/table/wood,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = -6
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -10;
 	pixel_y = 8
 	},
@@ -38515,21 +38463,15 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = 7
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 7
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
@@ -38556,15 +38498,11 @@
 "kID" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = 7
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
@@ -47200,8 +47138,6 @@
 "mYp" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
@@ -48614,8 +48550,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8;
 	pixel_x = -16
 	},
@@ -52550,8 +52484,6 @@
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -6
 	},
 /turf/open/floor/plating/vampcanal{
@@ -57359,15 +57291,11 @@
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 7
 	},
 /turf/open/floor/plating/vampdirt,
@@ -58045,8 +57973,6 @@
 "pQq" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
@@ -58187,8 +58113,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8;
 	pixel_x = -16
 	},
@@ -62913,8 +62837,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/martini_glass{
@@ -63480,15 +63402,11 @@
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -10;
 	pixel_y = 8
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = -6
 	},
@@ -64152,8 +64070,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8
 	},
 /obj/machinery/light/prince{
@@ -65868,8 +65784,6 @@
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
@@ -70903,15 +70817,11 @@
 "tsr" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = -6
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -10;
 	pixel_y = 8
 	},
@@ -70963,8 +70873,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/martini_glass{
@@ -76203,8 +76111,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 21
 	},
 /turf/open/floor/plating/parquetry,
@@ -79179,8 +79085,6 @@
 /obj/effect/turf_decal/weather/dirt,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = 7
 	},
@@ -80663,10 +80567,8 @@
 "wla" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
-	pixel_x = -10;
-	pixel_y = 8
+	pixel_y = 15;
+	pixel_x = -6
 	},
 /turf/open/floor/plating/vampcanalplating,
 /area/vtm/sabbat_lair)
@@ -81628,15 +81530,11 @@
 "wyk" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -10;
 	pixel_y = 8
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -6
 	},
 /turf/open/floor/plating/vampcanal{
@@ -81793,15 +81691,11 @@
 "wAu" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 15;
 	pixel_x = -6
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = -10;
 	pixel_y = 8
 	},
@@ -84899,14 +84793,10 @@
 "xse" = (
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 7
 	},
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_x = 11;
 	pixel_y = 8
 	},
@@ -87216,8 +87106,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/martini_glass{
@@ -87902,8 +87790,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/candle/infinite{
 	anchored = 1;
-	lit = 1;
-	icon_state = "candle1_lit";
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/martini_glass{
