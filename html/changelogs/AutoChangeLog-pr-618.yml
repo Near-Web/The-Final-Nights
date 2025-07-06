@@ -1,0 +1,4 @@
+author: "chazzyjazzy"
+delete-after: True
+changes:
+  - bugfix: "fixes thaumaturgy instagibbing crinos/lupus and other simplemob transforms"
