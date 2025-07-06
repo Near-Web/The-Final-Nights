@@ -320,21 +320,12 @@
 	fire_controled = TRUE
 
 /area/vtm/interior/millennium_tower/f2
-	name = "Millennium Tower F2"
+	name = "Millennium Tower F2 - Security Wing"
 	icon_state = "millenniumtowerf2"
 
 /area/vtm/interior/millennium_tower/f3
-	name = "Millennium Tower F3 - Security Wing"
+	name = "Millennium Tower F3 - Executive Floor"
 	icon_state = "millenniumtowerf3"
-
-/area/vtm/interior/millennium_tower/f4
-	name = "Millennium Tower F4 - Executive Floor"
-	icon_state = "millenniumtowerf4"
-
-/area/vtm/interior/millennium_tower/f5
-	name = "Millennium Tower F5 - Roof Access"
-	icon_state = "millenniumtowerf5"
-	fire_controled = FALSE
 
 /area/vtm/interior/millennium_tower/ventrue
 	name = "Jazz Club Penthouse"
