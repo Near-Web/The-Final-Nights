@@ -107,7 +107,7 @@
 	uniform =  /obj/item/clothing/under/pentex/pentex_executive_suit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
 	l_pocket = /obj/item/vamp/phone/endron_exec
-	r_pocket = /obj/item/vamp/keys/pentex
+	r_pocket = /obj/item/vamp/keys/pentex/leader
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/passport=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard/seneschal=1)
 
 
