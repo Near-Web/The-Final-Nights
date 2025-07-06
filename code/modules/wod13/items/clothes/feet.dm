@@ -14,10 +14,7 @@
 	can_be_tied = FALSE
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	body_worn = TRUE
-
-/obj/item/clothing/shoes/vampire/Initialize()
-	. = ..()
-	AddComponent(/datum/component/selling, 5, "shoes", FALSE)
+	cost = 5
 
 /obj/item/clothing/shoes/vampire/brown
 	icon_state = "shoes_brown"
@@ -87,3 +84,9 @@
 	name = "knee-high sneakers"
 	desc = "these are the pumped up kicks you are looking for"
 	icon_state = "pumped_up_kicks"
+
+/obj/item/clothing/shoes/vampire/firstteam
+	name = "first-team boots"
+	desc = "Pitch-black boots with hard, industrial laces."
+	icon_state = "ftboots"
+
