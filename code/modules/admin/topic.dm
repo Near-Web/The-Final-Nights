@@ -78,6 +78,13 @@
 				else
 					message_admins("[key_name_admin(usr)] tried to create national guard squad. Unfortunately, there were no candidates available.")
 					log_admin("[key_name(usr)] failed to create national guard squad.")
+			if("firstteam")
+				if(src.makeFirstTeam())
+					message_admins("[key_name(usr)] created first team squad.")
+					log_admin("[key_name(usr)] created first team squad.")
+				else
+					message_admins("[key_name_admin(usr)] tried to create first team squad. Unfortunately, there were no candidates available.")
+					log_admin("[key_name(usr)] failed to create first team squad.")
 			if("traitors")
 				if(src.makeTraitors())
 					message_admins("[key_name_admin(usr)] created traitors.")

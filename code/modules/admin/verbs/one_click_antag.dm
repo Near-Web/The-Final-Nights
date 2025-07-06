@@ -13,6 +13,7 @@
 	var/dat = {"
 		<a href='byond://?src=[REF(src)];[HrefToken()];makeAntag=nationalguard'>Make National Guard Team (Requires Ghosts)</a><br>
 		<a href='byond://?src=[REF(src)];[HrefToken()];makeAntag=swat'>Make SWAT Team (Requires Ghosts)</a><br>
+		<a href='byond://?src=[REF(src)];[HrefToken()];makeAntag=firstteam'>Make Pentex First Team (Requires Ghosts)</a><br>
 		"}
 
 /*	THESE WERE THE OPTIONS IN one_click_antag() previously. I kept them here only just in case...
@@ -220,6 +221,45 @@
 	else
 		return FALSE
 
+/datum/admins/proc/makeFirstTeam()
+	var/list/mob/dead/observer/candidates = pollGhostCandidates("Do you wish to be considered for a squad of Pentex First Team Operators?", ROLE_FIRST_TEAM, null)
+	var/list/mob/dead/observer/chosen = list()
+	var/mob/dead/observer/theghost = null
+
+	if(candidates.len)
+		var/numagents = 6
+		var/agentcount = 0
+
+		for(var/i = 0, i<numagents,i++)
+			shuffle_inplace(candidates) //More shuffles means more randoms
+			for(var/mob/j in candidates)
+				if(!j || !j.client)
+					candidates.Remove(j)
+					continue
+
+				theghost = j
+				candidates.Remove(theghost)
+				chosen += theghost
+				agentcount++
+				break
+		//Making sure we have atleast 3 First Team agents, because less than that is kinda bad
+		if(agentcount < 1)
+			return FALSE
+
+		//Let's find the spawn locations
+		var/leader_chosen = FALSE
+		var/datum/team/first_team/first_team_team
+		for(var/mob/c in chosen)
+			var/mob/living/carbon/human/new_character=makeBody(c)
+			if(!leader_chosen)
+				leader_chosen = TRUE
+				var/datum/antagonist/first_team/A = new_character.mind.add_antag_datum(/datum/antagonist/first_team/sergeant)
+				first_team_team = A.first_team_team
+			else
+				new_character.mind.add_antag_datum(/datum/antagonist/first_team,first_team_team)
+		return TRUE
+	else
+		return FALSE
 
 /datum/admins/proc/makeSwat()
 	var/list/settings = list(
