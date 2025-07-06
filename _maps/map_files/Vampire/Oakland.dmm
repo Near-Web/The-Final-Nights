@@ -9621,7 +9621,7 @@
 /area/vtm/forest/caves)
 "cJU" = (
 /obj/structure/vampdoor/prison{
-	lock_id = "cleaning";
+	lock_id = "sabbat";
 	lockpick_difficulty = 8
 	},
 /turf/open/floor/plating/vampcanal,
@@ -24296,6 +24296,13 @@
 /obj/structure/lattice/grate,
 /turf/open/openspace,
 /area/vtm/interior)
+"gQZ" = (
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_x = -6
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/sabbat_lair)
 "gRb" = (
 /obj/structure/chair/pew,
 /turf/open/floor/plating/toilet{
@@ -37860,6 +37867,16 @@
 /obj/structure/vampdoor/nps,
 /turf/open/floor/plating/stone,
 /area/vtm/forest/caves)
+"kAH" = (
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_y = 15;
+	pixel_x = 7
+	},
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2"
+	},
+/area/vtm/sabbat_lair)
 "kAK" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
@@ -38739,6 +38756,13 @@
 	color = "#bfbfbf"
 	},
 /area/vtm/interior/banu/haven)
+"kMx" = (
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_x = -6
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/sabbat_lair)
 "kMB" = (
 /obj/structure/bed/pod,
 /obj/structure/coclock,
@@ -42910,6 +42934,14 @@
 /obj/structure/flora/rock/jungle,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/park)
+"lVh" = (
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_y = 15;
+	pixel_x = 7
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/sabbat_lair)
 "lVm" = (
 /obj/structure/lamppost/sidewalk/chinese{
 	dir = 1;
@@ -43089,6 +43121,14 @@
 	},
 /turf/open/floor/plating/circled,
 /area/vtm/interior/shop)
+"lXt" = (
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_x = -10;
+	pixel_y = 8
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/sabbat_lair)
 "lXv" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -75085,6 +75125,20 @@
 	},
 /turf/open/floor/plating/toilet,
 /area/vtm/interior/baali)
+"uCC" = (
+/obj/structure/railing/metal{
+	dir = 8;
+	layer = 3.1
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_x = -10;
+	pixel_y = 8
+	},
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2"
+	},
+/area/vtm/sabbat_lair)
 "uCG" = (
 /obj/structure/table/wood/fancy/green,
 /obj/item/reagent_containers/food/drinks/drinkingglass/wine_glass{
@@ -84353,6 +84407,14 @@
 /mob/living/carbon/human/npc/walkby,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/pacificheights/community)
+"xkK" = (
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_y = 15;
+	pixel_x = 7
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/sabbat_lair)
 "xkX" = (
 /obj/structure/barrels{
 	icon_state = "barrels9"
@@ -96101,8 +96163,8 @@ rCB
 rCB
 hYX
 hYX
-wGV
-wGV
+lVh
+gQZ
 hYX
 hYX
 rCB
@@ -97115,9 +97177,9 @@ hYX
 kpF
 iTw
 mTX
+kMx
 mTX
-mTX
-mTX
+lXt
 mTX
 qOl
 qwJ
@@ -97317,9 +97379,9 @@ hYX
 fGE
 kIx
 mTX
+pQq
 mTX
-mTX
-mTX
+xkK
 mTX
 hYX
 qwJ
@@ -97331,7 +97393,7 @@ mTX
 hcz
 oph
 afX
-afX
+uCC
 afX
 hYX
 jpx
@@ -97732,7 +97794,7 @@ fyn
 fyn
 mry
 mTX
-wcZ
+kAH
 rIW
 eKn
 gpV
