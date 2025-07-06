@@ -400,7 +400,15 @@
 		"laundromat"
 	)
 
-//GAROU KEYS
+//===========================GAROU KEYS===========================
+
+/obj/item/vamp/keys/nps
+	name = "Park Service keys"
+	accesslocks = list(
+		"nps"
+	)
+	color = "#1e7531"
+
 /obj/item/vamp/keys/techstore
 	name = "Tech Store keys"
 	accesslocks = list(
@@ -412,6 +420,14 @@
 	name = "Endron Facility keys"
 	accesslocks = list(
 		"pentex"
+	)
+	color = "#062e03"
+
+/obj/item/vamp/keys/pentex/leader
+	name = "Endron Management keys"
+	accesslocks = list(
+		"pentex",
+		"pentexleader"
 	)
 	color = "#062e03"
 
