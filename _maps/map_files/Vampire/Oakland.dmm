@@ -265,6 +265,8 @@
 /obj/item/food/vampire/pizza,
 /obj/item/food/vampire/nugget,
 /obj/item/food/vampire/burger,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior/bianchiBank)
 "adA" = (
@@ -997,8 +999,8 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/interior/shop)
 "aoU" = (
-/obj/structure/vampdoor/wood{
-	dir = 8
+/obj/structure/vampdoor/nps{
+	dir = 4
 	},
 /turf/open/floor/plating/stone,
 /area/vtm/forest/caves)
@@ -2148,6 +2150,8 @@
 /area/vtm/interior/police)
 "aFM" = (
 /obj/structure/closet/crate,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
 /turf/open/floor/plating/concrete,
 /area/vtm/sewer/police)
 "aFQ" = (
@@ -4620,7 +4624,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/financialdistrict)
 "brU" = (
-/obj/structure/vampdoor/wood,
+/obj/structure/vampdoor/nps,
 /turf/open/floor/plating/stone,
 /area/vtm/forest/caves)
 "brY" = (
@@ -5390,6 +5394,7 @@
 	pixel_x = 4
 	},
 /obj/item/restraints/handcuffs,
+/obj/item/reagent_containers/blood/random,
 /turf/open/floor/plating/saint,
 /area/vtm/interior/giovanni/basement)
 "bCr" = (
@@ -5559,6 +5564,8 @@
 	pixel_x = 32
 	},
 /obj/item/ammo_box/magazine/vampthompson,
+/obj/item/reagent_containers/blood/elite,
+/obj/item/reagent_containers/blood/elite,
 /turf/open/floor/carpet,
 /area/vtm/interior/bianchiBank)
 "bEc" = (
@@ -14585,12 +14592,11 @@
 /turf/open/openspace,
 /area/vtm)
 "eiI" = (
-/obj/item/reagent_containers/blood/elite,
-/obj/item/reagent_containers/blood/elite,
-/obj/item/reagent_containers/blood/elite,
-/obj/item/reagent_containers/blood/elite,
-/obj/item/reagent_containers/blood/elite,
 /obj/structure/closet/crate,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
 /turf/open/floor/plating/industrial,
 /area/vtm/interior/nosferatu_office{
 	fire_controled = 1
@@ -15152,6 +15158,7 @@
 	dir = 6;
 	color = "#636363"
 	},
+/obj/item/reagent_containers/blood/elite,
 /obj/item/reagent_containers/blood/elite,
 /turf/open/floor/carpet/royalblack,
 /area/vtm/interior/millennium_tower/f3)
@@ -16426,6 +16433,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/gut_floor,
 /obj/item/clothing/head/vampire/noddist_mask,
+/obj/item/reagent_containers/blood/random,
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/sewer/tzimisce_sanctum)
 "eKy" = (
@@ -34667,6 +34675,10 @@
 "jQy" = (
 /obj/structure/closet/crate/freezer/blood,
 /obj/effect/turf_decal/weather/snow/corner,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
 /turf/open/floor/plasteel/freezer,
 /area/vtm/clinic)
 "jQD" = (
@@ -37296,7 +37308,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/structure/vampdoor/wood,
+/obj/structure/vampdoor/nps,
 /turf/open/floor/plating/stone,
 /area/vtm/forest/caves)
 "kAK" = (
@@ -57596,6 +57608,13 @@
 /mob/living/carbon/human/npc/walkby,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/ghetto)
+"pXZ" = (
+/obj/structure/table/wood,
+/obj/effect/decal/gut_floor,
+/obj/item/clothing/suit/vampire/noddist,
+/obj/item/reagent_containers/blood/random,
+/turf/open/floor/plating/sidewalk/old,
+/area/vtm/sewer/tzimisce_sanctum)
 "pYa" = (
 /obj/effect/decal/bordur{
 	dir = 8
@@ -62765,6 +62784,7 @@
 /obj/effect/decal/cleanable/crayon{
 	color = ssssssssss
 	},
+/obj/item/reagent_containers/blood/vitae,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/banu/haven)
 "rrt" = (
@@ -63590,6 +63610,7 @@
 	name = "dim light fixture";
 	dir = 1
 	},
+/obj/item/reagent_containers/blood/random,
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/sewer/tzimisce_sanctum)
 "rEC" = (
@@ -67179,7 +67200,10 @@
 /turf/open/floor/plating/bacotell,
 /area/vtm/interior/shop)
 "sIq" = (
-/obj/structure/vampdoor/prison,
+/obj/structure/vampdoor/prison{
+	lock_id = "nps";
+	lockpick_difficulty = 16
+	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/forest/caves)
 "sIr" = (
@@ -76332,6 +76356,12 @@
 /area/vtm/interior/nosferatu_office{
 	fire_controled = 1
 	})
+"voa" = (
+/obj/structure/vampdoor/nps{
+	lockpick_difficulty = 16
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/forest/caves)
 "voh" = (
 /obj/machinery/griddle,
 /turf/open/floor/plating/toilet{
@@ -92250,7 +92280,7 @@ wTL
 hnx
 pzr
 sWs
-tYG
+pXZ
 uXS
 eQx
 eQx
@@ -127848,7 +127878,7 @@ cLr
 atR
 oiE
 atR
-brU
+voa
 atR
 jFw
 wsv
