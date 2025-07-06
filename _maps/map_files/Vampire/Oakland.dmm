@@ -4705,13 +4705,21 @@
 /obj/structure/table/reinforced,
 /obj/item/ammo_box/vampire/c556,
 /obj/item/ammo_box/vampire/c556,
-/obj/item/ammo_box/magazine/vampaug,
-/obj/item/ammo_box/magazine/vampaug,
-/obj/item/ammo_box/magazine/vampaug,
-/obj/item/ammo_box/magazine/vampaug,
+/obj/item/ammo_box/magazine/vampaug{
+	pixel_y = -8
+	},
 /obj/effect/turf_decal/siding/white{
 	dir = 8;
 	color = "#636363"
+	},
+/obj/item/ammo_box/magazine/vampaug{
+	pixel_y = -8
+	},
+/obj/item/ammo_box/magazine/vampaug{
+	pixel_y = -8
+	},
+/obj/item/ammo_box/magazine/vampaug{
+	pixel_y = -8
 	},
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
@@ -5688,7 +5696,8 @@
 /area/vtm/anarch/basement)
 "bFL" = (
 /obj/structure/lamppost/sidewalk/chinese{
-	dir = 4
+	dir = 4;
+	density = 0
 	},
 /obj/effect/landmark/npcability,
 /obj/effect/landmark/npcbeacon,
@@ -10379,9 +10388,6 @@
 "cVN" = (
 /obj/structure/table/wood/fancy/red,
 /obj/vampire_computer,
-/obj/keypad/armory{
-	pixel_y = 30
-	},
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior/millennium_tower/f2)
 "cVS" = (
@@ -12037,8 +12043,6 @@
 /obj/effect/decal/bordur{
 	dir = 6
 	},
-/obj/effect/landmark/npcability,
-/obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/pacificheights)
 "dsN" = (
@@ -12222,6 +12226,13 @@
 	},
 /turf/closed/wall/vampwall/bar,
 /area/vtm/anarch)
+"dvo" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#828282"
+	},
+/obj/elevator_door,
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/endron_facility/restricted)
 "dvw" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -15017,7 +15028,8 @@
 /area/vtm/interior/bianchiBank)
 "enu" = (
 /obj/structure/lamppost/sidewalk/chinese{
-	dir = 4
+	dir = 4;
+	density = 0
 	},
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/chinatown)
@@ -15778,7 +15790,8 @@
 /area/vtm/interior/giovanni/outside)
 "eAi" = (
 /obj/structure/lamppost/sidewalk/chinese{
-	dir = 1
+	dir = 1;
+	density = 0
 	},
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/chinatown)
@@ -20504,6 +20517,13 @@
 /area/vtm/sewer/nosferatu_warren{
 	fire_controled = 1
 	})
+"fOz" = (
+/obj/structure/table,
+/obj/keypad/armory{
+	pixel_y = 7
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/vtm/interior/millennium_tower/f2)
 "fOE" = (
 /obj/structure/railing/metal{
 	dir = 8
@@ -23667,9 +23687,6 @@
 	dir = 6;
 	color = "#636363"
 	},
-/obj/keypad/armory{
-	pixel_y = 30
-	},
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "gKy" = (
@@ -24037,7 +24054,6 @@
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/anarch)
 "gQL" = (
-/obj/effect/vip_barrier/elysium,
 /obj/effect/turf_decal/siding/wood{
 	color = "#9a704a"
 	},
@@ -25740,11 +25756,6 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/financialdistrict/library)
-"hoX" = (
-/obj/effect/decal/bordur,
-/obj/effect/landmark/npcactivity,
-/turf/open/floor/plating/sidewalk/rich,
-/area/vtm/financialdistrict)
 "hpf" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
@@ -27219,7 +27230,6 @@
 /obj/effect/decal/bordur{
 	dir = 10
 	},
-/obj/effect/landmark/npcability,
 /obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/financialdistrict)
@@ -28588,6 +28598,11 @@
 	dir = 1
 	},
 /area/vtm/interior/chantry/basement)
+"ifd" = (
+/obj/effect/decal/bordur,
+/obj/effect/landmark/npcbeacon,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/financialdistrict)
 "ife" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
@@ -36076,6 +36091,7 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#828282"
 	},
+/obj/elevator_door,
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/millennium_tower/f2)
 "kib" = (
@@ -41815,6 +41831,13 @@
 /obj/effect/landmark/npcactivity,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/financialdistrict/library)
+"lMj" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/obj/effect/landmark/npcbeacon,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/financialdistrict)
 "lMl" = (
 /obj/structure/bed,
 /obj/item/melee/vampirearms/knife/switchblade,
@@ -42365,7 +42388,8 @@
 /area/vtm/park)
 "lVm" = (
 /obj/structure/lamppost/sidewalk/chinese{
-	dir = 1
+	dir = 1;
+	density = 0
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/chinatown)
@@ -51166,7 +51190,9 @@
 	},
 /area/vtm)
 "ohU" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/structure/closet/secure_closet/personal/cabinet{
+	anchored = 1
+	},
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior/millennium_tower)
 "ohX" = (
@@ -53095,6 +53121,7 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#828282"
 	},
+/obj/elevator_door,
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/millennium_tower)
 "oHH" = (
@@ -62968,7 +62995,8 @@
 /area/vtm/interior)
 "rrR" = (
 /obj/structure/lamppost/sidewalk/chinese{
-	dir = 4
+	dir = 4;
+	density = 0
 	},
 /obj/effect/landmark/npcability,
 /obj/effect/landmark/npcbeacon,
@@ -64603,18 +64631,6 @@
 /obj/structure/railing/metal,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/apartment)
-"rRb" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 8;
-	color = "#636363"
-	},
-/obj/machinery/door/poddoor/shutters/armory{
-	damage_deflection = 60;
-	max_integrity = 300;
-	dir = 4
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/vtm/interior/millennium_tower/f2)
 "rRm" = (
 /obj/effect/decal/bordur/corner{
 	dir = 4
@@ -64950,6 +64966,10 @@
 	},
 /turf/open/floor/plating/vampdirt,
 /area/vtm/graveyard)
+"rWU" = (
+/obj/effect/landmark/npcbeacon,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/financialdistrict)
 "rXf" = (
 /obj/structure/lattice/grate,
 /obj/structure/railing/metal{
@@ -67354,7 +67374,6 @@
 "sHN" = (
 /obj/effect/decal/bordur,
 /obj/structure/lamppost/sidewalk,
-/obj/effect/landmark/npcability,
 /obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/financialdistrict)
@@ -72429,6 +72448,9 @@
 "uaI" = (
 /obj/structure/mopbucket,
 /obj/item/mop,
+/obj/machinery/light/small{
+	pixel_y = 28
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f2)
 "uaN" = (
@@ -75645,7 +75667,8 @@
 	dir = 1
 	},
 /obj/structure/lamppost/sidewalk/chinese{
-	dir = 4
+	dir = 4;
+	density = 0
 	},
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/chinatown)
@@ -75991,13 +76014,6 @@
 	},
 /turf/open/floor/plating/circled,
 /area/vtm/interior/shop)
-"vdS" = (
-/obj/effect/decal/bordur{
-	dir = 1
-	},
-/obj/effect/landmark/npcactivity,
-/turf/open/floor/plating/sidewalk/rich,
-/area/vtm/financialdistrict)
 "vdU" = (
 /obj/structure/roofstuff/alt3,
 /turf/open/floor/plating/roofwalk,
@@ -78423,12 +78439,6 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/church)
-"vRI" = (
-/obj/keypad/armory{
-	pixel_y = 30
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/vtm/interior/millennium_tower/f2)
 "vRL" = (
 /obj/fusebox,
 /turf/open/floor/plating/concrete,
@@ -82156,7 +82166,8 @@
 	pixel_y = 32
 	},
 /obj/structure/lamppost/sidewalk/chinese{
-	dir = 1
+	dir = 1;
+	density = 0
 	},
 /obj/effect/landmark/start/citizen,
 /turf/open/floor/plating/sidewalkalt,
@@ -85045,7 +85056,9 @@
 "xMy" = (
 /obj/item/ammo_box/vampire/c50,
 /obj/structure/table/reinforced,
-/obj/item/binoculars,
+/obj/item/binoculars{
+	pixel_y = 10
+	},
 /obj/effect/turf_decal/siding/white{
 	dir = 8;
 	color = "#636363"
@@ -86048,7 +86061,6 @@
 	dir = 1
 	},
 /obj/structure/lamppost/sidewalk,
-/obj/effect/landmark/npcability,
 /obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/financialdistrict)
@@ -145514,13 +145526,13 @@ wEL
 wEL
 brY
 pUu
-lsG
+hnQ
 dSH
 dSH
 iQQ
 dSH
 dSH
-sMj
+sFW
 pUu
 isu
 vHH
@@ -145715,14 +145727,14 @@ bUH
 cxF
 mgr
 pUu
-tYD
-oGN
+pUu
+qYl
 dSH
 dSH
 iQQ
 dSH
 dSH
-jJU
+rQf
 dsJ
 iqg
 mjT
@@ -145918,13 +145930,13 @@ cxF
 mgr
 pUu
 pUu
-lsG
+hnQ
 dSH
 dSH
 iQQ
 dSH
 dSH
-sMj
+sFW
 vqk
 mjT
 mjT
@@ -150766,13 +150778,13 @@ dda
 cbz
 git
 txY
-sYf
+ifd
 jcZ
 jcZ
 uTa
 jcZ
 jcZ
-sZl
+lMj
 dcO
 mjT
 mjT
@@ -150967,14 +150979,14 @@ ohU
 wAo
 cpw
 git
-fpd
-hoX
+rWU
+uJR
 jcZ
 jcZ
 uTa
 jcZ
 jcZ
-vdS
+fTm
 hLF
 kpD
 mjT
@@ -151776,13 +151788,13 @@ git
 git
 git
 mNz
-uJR
+ifd
 jcZ
 jcZ
 uTa
 jcZ
 jcZ
-fTm
+lMj
 mNz
 vTS
 xyR
@@ -151972,7 +151984,7 @@ ijJ
 ijJ
 nZc
 tLn
-git
+dda
 hYC
 vqJ
 iAX
@@ -152382,13 +152394,13 @@ cMx
 iAX
 git
 mNz
-uJR
+ifd
 jcZ
 jcZ
 uTa
 jcZ
 jcZ
-fTm
+lMj
 mNz
 vTS
 sqa
@@ -152988,13 +153000,13 @@ ajF
 mvc
 git
 mNz
-uJR
+ifd
 jcZ
 jcZ
 uTa
 jcZ
 jcZ
-fTm
+lMj
 mNz
 vTS
 wID
@@ -153593,7 +153605,7 @@ ajF
 tuw
 aRa
 hCI
-mNz
+rWU
 hvA
 jcZ
 jcZ
@@ -153601,7 +153613,7 @@ uTa
 jcZ
 jcZ
 ndj
-mNz
+rWU
 wMg
 jjR
 sgk
@@ -154200,13 +154212,13 @@ nEm
 lCD
 git
 mNz
-uJR
+ifd
 jcZ
 jcZ
 uTa
 jcZ
 jcZ
-fTm
+lMj
 mNz
 vTS
 oSI
@@ -194178,12 +194190,12 @@ xEp
 xEp
 sCA
 sCA
-vRI
+oLX
 oLX
 sCA
 sCA
-qeA
-rRb
+sCA
+sCA
 sCA
 sCA
 wvV
@@ -194382,7 +194394,7 @@ sCA
 qYf
 oLX
 oLX
-oLX
+fOz
 sCA
 gKx
 oLX
@@ -198017,7 +198029,7 @@ xEp
 yjk
 pzd
 eSU
-lmu
+dvo
 wwN
 wwN
 wwN
@@ -198219,7 +198231,7 @@ rfu
 yjk
 rMO
 eSU
-lmu
+dvo
 wwN
 wwN
 wwN
