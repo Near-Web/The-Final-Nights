@@ -579,7 +579,6 @@
 			return
 
 		var/mob/living/C = owner
-		var/is_corax = FALSE
 		var/list/menu_options = list()
 		for (var/howl_key in howls)
 			menu_options += howls[howl_key]["menu"]
@@ -593,7 +592,7 @@
 					howl = howls[howl_key]
 					break
 
-			var/message = howl[is_corax ? "message" : "corax_message"]
+			var/message = howl[(HAS_TRAIT(C, TRAIT_CORAX)) ? "corax_message" : "message" ]
 			var/tribe = C.auspice.tribe.name
 			if (tribe)
 				message = replacetext(message, "tribe", tribe)
@@ -604,7 +603,6 @@
 			else
 				C.emote("caw")
 				playsound(origin_turf, 'code/modules/wod13/sounds/cawcorvid.ogg', 50, FALSE)
-				is_corax = TRUE
 			var/list/sound_hearers = list()
 
 			for(var/mob/living/HearingGarou in range(17))
@@ -614,9 +612,9 @@
 			var/howl_details
 			var/final_message
 			for(var/mob/living/Garou in GLOB.player_list)
-				if(isgarou(Garou) || iswerewolf(Garou) && !owner)
+				if(isgarou(Garou) || iswerewolf(Garou)  || HAS_TRAIT(Garou, TRAIT_CORAX) && !owner)
 					if(!sound_hearers.Find(Garou))
-						if(is_corax == FALSE)
+						if(!HAS_TRAIT(C, TRAIT_CORAX))
 							Garou.playsound_local(get_turf(Garou), pick('code/modules/wod13/sounds/awo1.ogg', 'code/modules/wod13/sounds/awo2.ogg'), 25, FALSE)
 						else
 							Garou.playsound_local(get_turf(Garou), 'code/modules/wod13/sounds/cawcorvid.ogg', 25, FALSE)
