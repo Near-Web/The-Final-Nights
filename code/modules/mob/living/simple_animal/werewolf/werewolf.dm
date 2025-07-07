@@ -140,8 +140,8 @@
 	limb_destroyer = 1
 	melee_damage_lower = 65
 	melee_damage_upper = 65
-	health = 600
-	maxHealth = 600
+	health = 650
+	maxHealth = 650
 	var/pounce_cooldown = 0
 	var/pounce_cooldown_time = 30
 	pixel_w = -8
