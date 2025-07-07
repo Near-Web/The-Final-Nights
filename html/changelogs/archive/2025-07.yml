@@ -11,3 +11,6 @@
   - qol: Dominate 1's 'blue halo' now appears only on a successful cast. Removed the
       default 'FORGET ABOUT IT' command.
   - sound: Decreased Voice of Domination's volume from 300 to 80.
+2025-07-06:
+  chazzyjazzy:
+  - bugfix: fixes thaumaturgy instagibbing crinos/lupus and other simplemob transforms
