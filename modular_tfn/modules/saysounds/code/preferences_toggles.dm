@@ -5,7 +5,7 @@
 	set desc = "Change what sound plays when you speak."
 
 	var/list/sound_options = list("Talk", "Pencil", "None")
-	var/new_sound = input(src, "Choose your vocal sound:", "Vocal Sound", prefs.vocal_sound) as null|anything in sound_options
+	var/new_sound = tgui_input_list(usr, "Choose your vocal sound:", "Vocal Sound", sound_options, prefs.vocal_sound)
 
 	if(new_sound && new_sound != prefs.vocal_sound)
 		prefs.vocal_sound = new_sound

@@ -33,11 +33,11 @@
 	var/list/clients_to_play_to = list()
 
 	// Use viewers() to include the speaker and everyone who can see them
-	for(var/mob/M in viewers(world.view, get_turf(L)))
+	for(var/mob/M in hearers(world.view, get_turf(L)))
 		if(M.client && !M.client.prefs?.disable_vocal_sounds)
 			clients_to_play_to += M.client
 
 	// Play the sound only to those clients who want to hear it
-	if(clients_to_play_to.len)
+	if(length(clients_to_play_to))
 		for(var/client/C in clients_to_play_to)
 			C << sound(sound_file)
