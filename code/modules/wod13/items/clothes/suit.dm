@@ -510,11 +510,3 @@
 	desc = "A crisp white labcoat. This one has a green trim and the Endron International logo stiched onto the breast!"
 	icon_state = "pentex_labcoat_alt"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 90, WOUND = 10)
-
-/obj/item/clothing/suit/pentex/firstteam_armor
-	name = "First Team Armoured Vest"
-	desc = "A strong looking, armoured-vest with a large '1' engraved onto the breast."
-	icon_state = "ftarmor"
-	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 80, RAD = 80, FIRE = 80, ACID = 90, WOUND = 40)
-
-

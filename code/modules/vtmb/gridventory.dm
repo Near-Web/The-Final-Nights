@@ -952,6 +952,10 @@ VENTORY!
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
+/obj/item/ammo_box/magazine/px66f
+	grid_width = 2 GRID_BOXES
+	grid_height = 1 GRID_BOXES
+
 /obj/item/ammo_box/magazine/glock45acp
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
@@ -1041,6 +1045,10 @@ VENTORY!
 	grid_height = 2 GRID_BOXES
 
 /obj/item/gun/ballistic/automatic/vampire/aug
+	grid_width = 8 GRID_BOXES
+	grid_height = 2 GRID_BOXES
+
+/obj/item/gun/ballistic/automatic/response/px66f
 	grid_width = 8 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 

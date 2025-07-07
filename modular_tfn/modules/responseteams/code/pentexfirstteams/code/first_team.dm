@@ -1,15 +1,15 @@
 /datum/outfit/job/first_team
 	name = "First Team Operator"
 	ears = /obj/item/p25radio/police/government
-	uniform = /obj/item/clothing/under/pentex/firstteam_uniform
-	gloves = /obj/item/clothing/gloves/vampire/firstteam
+	uniform = /obj/item/clothing/under/response/firstteam_uniform
+	gloves = /obj/item/clothing/gloves/response/firstteam
 	mask = /obj/item/clothing/mask/vampire/balaclava
 	r_pocket = /obj/item/flashlight
 	l_pocket = /obj/item/ammo_box/magazine/px66f
-	shoes = /obj/item/clothing/shoes/vampire/firstteam
-	belt = /obj/item/gun/ballistic/automatic/vampire/px66f
-	suit = /obj/item/clothing/suit/pentex/firstteam_armor
-	head = /obj/item/clothing/head/pentex/firstteam_helmet
+	shoes = /obj/item/clothing/shoes/response/firstteam
+	belt = /obj/item/gun/ballistic/automatic/response/px66f
+	suit = /obj/item/clothing/suit/response/firstteam_armor
+	head = /obj/item/clothing/head/response/firstteam_helmet
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/px66f = 3,
 		/obj/item/gun/ballistic/automatic/vampire/beretta=1,

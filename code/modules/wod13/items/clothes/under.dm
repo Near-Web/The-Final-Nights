@@ -501,11 +501,6 @@
 	desc = "A white designer suitskirt with a green dress shirt. This one has an Endron International tag on it!"
 	icon_state = "pentex_executiveskirt"
 
-/obj/item/clothing/under/pentex/firstteam_uniform
-	name = "First Team uniform"
-	desc = "A completely blacked out uniform with a large '1' symbol sewn onto the shoulder-pad."
-	icon_state = "ftuni"
-
 
 
 

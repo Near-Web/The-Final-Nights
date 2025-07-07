@@ -85,8 +85,3 @@
 	desc = "these are the pumped up kicks you are looking for"
 	icon_state = "pumped_up_kicks"
 
-/obj/item/clothing/shoes/vampire/firstteam
-	name = "first-team boots"
-	desc = "Pitch-black boots with hard, industrial laces."
-	icon_state = "ftboots"
-
