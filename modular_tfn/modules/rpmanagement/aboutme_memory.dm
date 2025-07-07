@@ -89,7 +89,7 @@
 /datum/component/about_me/proc/delete_memory(var/datum/memory/M)
 	if (!M) return
 	src.memories_all -= M
-	src.chronicle_events -= M
+	src.chronicles_all -= M
 	save_to_file()
 
 /datum/component/about_me/proc/prompt_tag_memory(mob/user)
@@ -164,7 +164,7 @@
 	if (!M) return
 
 	var/list/group_opts = list()
-	for (var/datum/groups/G in global_groups)
+	for (var/datum/groups/G in GLOB.groups)
 		group_opts["[G.id]: [G.name]"] = G
 	if (!length(group_opts)) {
 		to_chat(user, "<span class='warning'>No groups found.")

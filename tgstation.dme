@@ -3787,6 +3787,7 @@
 #include "modular_tfn\modules\rpmanagement\aboutme_tools.dm"
 #include "modular_tfn\modules\rpmanagement\chronicle.dm"
 #include "modular_tfn\modules\rpmanagement\group.dm"
+#include "modular_tfn\modules\rpmanagement\group_datums.dm"
 #include "modular_tfn\modules\rpmanagement\memory.dm"
 #include "modular_tfn\modules\rpmanagement\relationships.dm"
 #include "modular_tfn\modules\rpmanagement\ssrpmanagement.dm"

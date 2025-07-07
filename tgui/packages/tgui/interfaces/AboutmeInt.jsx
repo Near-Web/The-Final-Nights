@@ -103,15 +103,26 @@ const OverviewSection = ({ overview = {}, status, alignment }) => {
 // Expanded GroupsSection Component
 // ===============================
 
-// UI Defines for group types
 const GROUP_TYPES_UI = [
+  { key: 'city', label: 'City' },
   { key: 'faction', label: 'Faction' },
   { key: 'sect', label: 'Sect' },
   { key: 'clan', label: 'Clan' },
+  { key: 'tribe', label: 'Tribe' },
   { key: 'organization', label: 'Organization (1000 XP)' },
-  { key: 'coterie', label: 'Coterie/Party (500 XP)' },
+  { key: 'party', label: 'Coterie/Party (500 XP)' },
   { key: 'player_created', label: 'Player Group' },
 ];
+
+// Helper to capitalize and prettify unknown keys
+const prettifyGroupType = type => {
+  if (!type) return '';
+  // Find in standard types
+  const match = GROUP_TYPES_UI.find(x => x.key === type);
+  if (match) return match.label;
+  // Fallback: prettify unknown keys
+  return type.charAt(0).toUpperCase() + type.slice(1).replace(/_/g, ' ');
+};
 
 const Collapsible = ({ label, open, onClick, children }) => (
   <Box mb={1}>
@@ -129,49 +140,94 @@ const GroupsSection = ({ groups = {}, act }) => {
   const [openGroup, setOpenGroup] = useLocalState('aboutme_groupopen', '');
   const groupObjects = groups.group_objects || {};
 
+  // 1. Display standard (known) group types first, in UI order
+  const standardRendered = GROUP_TYPES_UI.map(({ key, label }) => {
+    const groupList = groupObjects[key] || [];
+    return groupList.length ? (
+      <Collapsible key={key} label={label} open={openGroup === key} onClick={() => setOpenGroup(v => v === key ? '' : key)}>
+        {groupList.map((group, i) => (
+          <Box key={group.id || i} mb={2} style={{ border: '1px solid #333', borderRadius: 6, padding: 8 }}>
+            <Box bold mb={1}>
+              {group.icon && <img src={group.icon} alt="icon" style={{ height: 24, verticalAlign: 'middle', marginRight: 6 }} />}
+              {group.name}
+            </Box>
+            <Box mb={1} italic>{group.desc}</Box>
+            <Box mb={1}><b>Type:</b> {prettifyGroupType(group.type)}</Box>
+            <Box mb={1}><b>Leader:</b> {group.leader}</Box>
+            <Box mb={1}><b>Members:</b> {group.members?.join(', ') || 'None'}</Box>
+            {group.member_roles && Object.keys(group.member_roles).length > 0 && (
+              <Box mb={1}><b>Member Roles:</b> {Object.entries(group.member_roles).map(([ckey, role]) => `${ckey}: ${role}`).join(', ')}</Box>
+            )}
+            <Button
+              icon="edit"
+              content="Edit"
+              onClick={() => act('edit_group', { id: group.id })}
+              mr={1}
+            />
+            <Button
+              icon="trash"
+              color="bad"
+              content="Delete"
+              onClick={() => act('delete_group', { id: group.id })}
+            />
+          </Box>
+        ))}
+      </Collapsible>
+    ) : null;
+  });
+
+  // 2. Fallback: Display any unknown group types
+  const allKeys = Object.keys(groupObjects);
+  const knownKeys = GROUP_TYPES_UI.map(x => x.key);
+  const unknownTypes = allKeys.filter(k => !knownKeys.includes(k));
+  const unknownRendered = unknownTypes.map(key => {
+    const groupList = groupObjects[key] || [];
+    return groupList.length ? (
+      <Collapsible key={key} label={prettifyGroupType(key)} open={openGroup === key} onClick={() => setOpenGroup(v => v === key ? '' : key)}>
+        {groupList.map((group, i) => (
+          <Box key={group.id || i} mb={2} style={{ border: '1px solid #333', borderRadius: 6, padding: 8 }}>
+            <Box bold mb={1}>
+              {group.icon && <img src={group.icon} alt="icon" style={{ height: 24, verticalAlign: 'middle', marginRight: 6 }} />}
+              {group.name}
+            </Box>
+            <Box mb={1} italic>{group.desc}</Box>
+            <Box mb={1}><b>Type:</b> {prettifyGroupType(group.type)}</Box>
+            <Box mb={1}><b>Leader:</b> {group.leader}</Box>
+            <Box mb={1}><b>Members:</b> {group.members?.join(', ') || 'None'}</Box>
+            {group.member_roles && Object.keys(group.member_roles).length > 0 && (
+              <Box mb={1}><b>Member Roles:</b> {Object.entries(group.member_roles).map(([ckey, role]) => `${ckey}: ${role}`).join(', ')}</Box>
+            )}
+            <Button
+              icon="edit"
+              content="Edit"
+              onClick={() => act('edit_group', { id: group.id })}
+              mr={1}
+            />
+            <Button
+              icon="trash"
+              color="bad"
+              content="Delete"
+              onClick={() => act('delete_group', { id: group.id })}
+            />
+          </Box>
+        ))}
+      </Collapsible>
+    ) : null;
+  });
+
+  // 3. If no groups at all, show empty text
+  const noGroups =
+    GROUP_TYPES_UI.every(({ key }) => !((groupObjects[key] || []).length)) &&
+    unknownTypes.every(k => !((groupObjects[k] || []).length));
+
   return (
     <Section title="Groups">
       <Box mb={1}>
         <Button icon="plus" content="Create Group" onClick={() => act('create_group')} />
       </Box>
-      {GROUP_TYPES_UI.map(({ key, label }) => {
-        const groupList = groupObjects[key] || [];
-        return groupList.length ? (
-          <Collapsible key={key} label={label} open={openGroup === key} onClick={() => setOpenGroup(v => v === key ? '' : key)}>
-            {groupList.map((group, i) => (
-              <Box key={group.id || i} mb={2} style={{ border: '1px solid #333', borderRadius: 6, padding: 8 }}>
-                <Box bold mb={1}>
-                  {group.icon && <img src={group.icon} alt="icon" style={{ height: 24, verticalAlign: 'middle', marginRight: 6 }} />}
-                  {group.name}
-                </Box>
-                <Box mb={1} italic>{group.desc}</Box>
-                <Box mb={1}><b>Type:</b> {group.type}</Box>
-                <Box mb={1}><b>Leader:</b> {group.leader}</Box>
-                <Box mb={1}><b>Members:</b> {group.members?.join(', ') || 'None'}</Box>
-                {group.member_roles && Object.keys(group.member_roles).length > 0 && (
-                  <Box mb={1}><b>Member Roles:</b> {Object.entries(group.member_roles).map(([ckey, role]) => `${ckey}: ${role}`).join(', ')}</Box>
-                )}
-                <Button
-                  icon="edit"
-                  content="Edit"
-                  onClick={() => act('edit_group', { id: group.id })}
-                  mr={1}
-                />
-                <Button
-                  icon="trash"
-                  color="bad"
-                  content="Delete"
-                  onClick={() => act('delete_group', { id: group.id })}
-                />
-              </Box>
-            ))}
-          </Collapsible>
-        ) : null;
-      })}
-      {GROUP_TYPES_UI.every(({ key }) => {
-        const groupList = groupObjects[key] || [];
-        return groupList.length === 0;
-      }) && (
+      {standardRendered}
+      {unknownRendered}
+      {noGroups && (
         <Box italic>No groups joined.</Box>
       )}
       <Box mt={3} italic>
@@ -180,6 +236,7 @@ const GroupsSection = ({ groups = {}, act }) => {
     </Section>
   );
 };
+
 
 // ====================
 // Relationships Tab (Expanded)
@@ -206,11 +263,20 @@ const RelationshipsSection = ({ group_affiliations = [], act }) => (
     <Button icon="plus" content="New Relationship" onClick={() => act('create_relationship')} mb={1} />
     {group_affiliations.length ? (
       <Table>
+        <Table.Row header>
+          <Table.Cell>Group</Table.Cell>
+          <Table.Cell>Type</Table.Cell>
+          <Table.Cell>Strength</Table.Cell>
+          <Table.Cell />
+        </Table.Row>
         {group_affiliations.map((rel, i) => (
           <Table.Row key={i}>
-            <Table.Cell bold>{rel.name}</Table.Cell>
+            <Table.Cell bold>
+              {rel.icon && <img src={rel.icon} alt="" style={{width: 18, marginRight: 8, verticalAlign: 'middle'}} />}
+              {rel.name}
+            </Table.Cell>
             <Table.Cell>{rel.relationship_type}</Table.Cell>
-            <Table.Cell>{rel.strength}</Table.Cell>
+            <Table.Cell>{rel.strength || "—"}</Table.Cell>
             <Table.Cell>
               <Button
                 icon="edit"
@@ -230,6 +296,7 @@ const RelationshipsSection = ({ group_affiliations = [], act }) => (
     ) : <Box italic>No relationships defined.</Box>}
   </Section>
 );
+
 
 
 

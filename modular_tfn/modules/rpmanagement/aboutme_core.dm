@@ -1,15 +1,10 @@
 // about_me Component: stripped down to essentials
 /datum/component/about_me
+	var/mob/living/carbon/human/owner
 	var/name
 	var/species
 	var/role
 	var/special_role
-	var/clan
-	var/generation
-	var/masquerade
-	var/humanity
-	var/regnant_name
-	var/regnant_clan_name
 	var/physique
 	var/dexterity
 	var/social
@@ -17,16 +12,35 @@
 	var/cruelty
 	var/lockpicking
 	var/athletics
-	var/list/disciplines = list()
-	var/mob/living/carbon/human/owner
+
+
 	var/list/memories_all = list()
-	var/list/chronicle_events = list()
+	var/list/relationships_all = list()
+	var/list/chronicles_all = list()
 	var/list/group_relationships = list()
+
 	var/sect_text = ""
 	var/organization_text = ""
 	var/party_text = ""
 	var/current_status = ""
 	var/faction_alignment = ""
+	var/list/groups = list()
+	var/sect = ""
+
+	var/list/disciplines = list()
+	var/clan
+	var/generation
+	var/masquerade
+	var/humanity
+	var/regnant_name
+	var/regnant_clan_name
+
+	var/tribe = ""
+
+	var/organization = ""
+	var/list/saved_parties = list()
+	//can be in multiple parties. Parties only appear when their owner or officers are around.
+
 
 /datum/component/about_me/Initialize()
 	. = ..()
@@ -39,6 +53,12 @@
 //This Generates, only the overview data
 /datum/component/about_me/proc/generate_overview()
 	if (!ismob(owner)) return
+	//GroupStuff
+	assign_groups()
+	update_group_texts()
+	sync_group_relationships()
+
+	//Basic Info
 	var/mob/living/carbon/human/H = owner
 	if (!H) return
 	name = H.real_name
@@ -120,30 +140,58 @@
 
 //Get FINAL data for UI!
 /datum/component/about_me/proc/get_full_payload()
-	get_overview_data()
-	var/list/mem_export = islist(memories_all) ? export_memory() : list()
-	var/list/chron_export = islist(chronicle_events) ? export_chronicle() : list()
-	var/list/rel_export = islist(group_relationships) ? export_relationships() : list()
-	message_admins("[src.type]: get_full_payload() — overview.name: [get_overview_data()["name"]]")
+	// Ensure the overview data is up to date
+	generate_overview()
+
+	// --- Export/Serialize all data types for UI ---
+	var/list/mem_export = islist(memories_all) ? export_memory() : list()           // All memories
+	var/list/chron_export = islist(chronicles_all) ? export_chronicle() : list()    // Chronicle entries
+	var/list/rel_export = islist(group_relationships) ? export_relationships() : list()// Relationships
+
+	// Exports groups into structured dict for UI
+	var/list/group_objects = export_group_objects()
+
+	// Debug message for admins, optional but useful
+	message_admins("[src.type]: get_full_payload() - comp.name: [name], memories: [length(mem_export)], chronicle: [length(chron_export)], relationships: [length(rel_export)], groups: [length(group_objects)]")
+
 	return list(
-		"overview" = get_overview_data(), //done mostly.
-		"memories_all" = mem_export, //raw export of all character memories
+		// 1. Character Overview
+		"overview" = get_overview_data(), // Basic bio, stats, disciplines, etc.
+
+		// 2. Character Only Memories (full export and by type for UI filters)
+		"memories_all" = mem_export,                        // All memories (raw export)
 		"background" = filter_memories_by_tag(mem_export, "background") || list(),
 		"current" = filter_memories_by_tag(mem_export, "current") || list(),
 		"recent" = filter_memories_by_tag(mem_export, "recent") || list(),
 		"goal" = filter_memories_by_tag(mem_export, "goal") || list(),
 		"secret" = filter_memories_by_tag(mem_export, "secret") || list(),
 		"reputation" = filter_memories_by_tag(mem_export, "reputation") || list(),
-		"chronicle" = list("events" = chron_export),
+
+		// 3. Chronicle (events list)
+		"chronicle" = list(
+			"events" = chron_export // Each is a dict: id, title, details, etc.
+		),
+
+		// 4. Groups
 		"groups" = list(
+			// Legacy/quick text fields, if needed for display
 			"sect_text" = sect_text || "",
 			"organization_text" = organization_text || "",
-			"party_text" = party_text || ""
+			"party_text" = party_text || "",
+			// NEW: full structured export of groups for the UI GroupsSection
+			"group_objects" = group_objects // Dict: type => list of group dicts
 		),
-		"relationships" = list("group_affiliations" = rel_export),
+
+		// 5. Relationships
+		"relationships" = list(
+			"group_affiliations" = rel_export // List of dicts: id, name, relationship_type, etc.
+		),
+
+		// 6. Miscellaneous (status, alignment)
 		"status" = current_status || "",
 		"alignment" = faction_alignment || ""
 	)
+
 
 /datum/component/about_me/proc/filter_memories_by_tag(list/mems, tag)
 	var/list/result = list()

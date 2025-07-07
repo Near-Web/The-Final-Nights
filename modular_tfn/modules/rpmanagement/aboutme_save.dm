@@ -1,4 +1,6 @@
-// Save
+// Save/Load System
+
+//Path
 /datum/component/about_me/proc/get_save_path()
 	if (!owner || !owner.ckey)
 		return null
@@ -21,9 +23,12 @@
 		message_admins("[src]: Failed to open save file at [path].")
 		return
 	}
+	//These will need to be filtered to exclude shared references, etc.
+	//For now, just saves the lists as-is.
+	//Nuking when needed.
 	F["version"] << 1
 	F["memories_all"] << memories_all
-	F["chronicle_events"] << chronicle_events
+	F["chronicle_events"] << chronicles_all
 	F["group_relationships"] << group_relationships
 	F["sect_text"] << sect_text
 	F["organization_text"] << organization_text
@@ -52,7 +57,7 @@
 	var/version
 	F["version"] >> version
 	F["memories_all"] >> memories_all
-	F["chronicle_events"] >> chronicle_events
+	F["chronicle_events"] >> chronicles_all
 	F["group_relationships"] >> group_relationships
 	F["sect_text"] >> sect_text
 	F["organization_text"] >> organization_text
@@ -61,3 +66,4 @@
 	F["faction_alignment"] >> faction_alignment
 
 	message_admins("[src]: Loaded about_me data from [path].")
+

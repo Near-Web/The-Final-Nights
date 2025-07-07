@@ -15,7 +15,6 @@
         ui = new(user, src, "AboutmeInt")
         ui.open()
 
-
 //Saves on close?
 /datum/component/about_me/ui_close(mob/user)
 	. = ..()

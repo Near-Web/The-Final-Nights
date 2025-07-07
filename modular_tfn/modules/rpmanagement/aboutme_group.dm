@@ -1,5 +1,6 @@
 // -----------------------
 // Group Tools (Component Procs w/ TGUI Prompts)
+//BUTTONS
 // -----------------------
 
 /datum/component/about_me/proc/prompt_create_group(mob/user)
@@ -36,13 +37,13 @@
 	G.memories = list()
 	if (leader_ckey)
 		G.members += leader_ckey
-	global_groups += G
-	SaveGlobalGroups()
+	GLOB.groups += G
+	save_all_groups()
 	return G
 
 /datum/component/about_me/proc/prompt_edit_group(mob/user)
 	var/list/options = list()
-	for (var/datum/groups/G in global_groups)
+	for (var/datum/groups/G in GLOB.groups)
 		options["[G.id]: [G.name]"] = G
 	if (!length(options)) {
 		to_chat(user, "<span class='warning'>No groups to edit.</span>")
@@ -56,7 +57,7 @@
 	var/icon = tgui_input_text(user, "Edit Icon", "New icon? (leave blank to keep)", G.icon)
 	var/gtype = tgui_input_text(user, "Edit Type", "New type? (leave blank to keep)", G.group_type)
 	src.edit_group(G, name, desc, icon, gtype)
-	SaveGlobalGroups()
+	save_all_groups()
 	to_chat(user, "<span class='notice'>Group edited: [G?.name]</span>")
 
 /datum/component/about_me/proc/edit_group(var/datum/groups/G, var/name = null, var/desc = null, var/icon = null, var/gtype = null)
@@ -68,7 +69,7 @@
 
 /datum/component/about_me/proc/prompt_delete_group(mob/user)
 	var/list/options = list()
-	for (var/datum/groups/G in global_groups)
+	for (var/datum/groups/G in GLOB.groups)
 		options["[G.id]: [G.name]"] = G
 	if (!length(options)) {
 		to_chat(user, "<span class='warning'>No groups to delete.")
@@ -78,17 +79,17 @@
 	var/datum/groups/G = options[choice]
 	if (!G) return
 	src.delete_group(G)
-	SaveGlobalGroups()
+	save_all_groups()
 	to_chat(user, "<span class='notice'>Group deleted.")
 
 /datum/component/about_me/proc/delete_group(var/datum/groups/G)
-	if (!G || !(G in global_groups)) return
-	global_groups -= G
+	if (!G || !(G in GLOB.groups)) return
+	GLOB.groups -= G
 
 /datum/component/about_me/proc/prompt_add_member_to_group(mob/user)
 	// Prompt user to select group and add member
 	var/list/group_opts = list()
-	for (var/datum/groups/G in global_groups)
+	for (var/datum/groups/G in GLOB.groups)
 		group_opts["[G.id]: [G.name]"] = G
 	if (!length(group_opts)) {
 		to_chat(user, "<span class='warning'>No groups found.")
@@ -100,7 +101,7 @@
 	var/ckey = tgui_input_text(user, "Add Member", "Enter member ckey?")
 	if (!ckey) return
 	src.add_member_to_group(G, ckey)
-	SaveGlobalGroups()
+	save_all_groups()
 	to_chat(user, "<span class='notice'>Member added to group.")
 
 /datum/component/about_me/proc/add_member_to_group(var/datum/groups/G, var/ckey)
@@ -110,7 +111,7 @@
 
 /datum/component/about_me/proc/prompt_remove_member_from_group(mob/user)
 	var/list/group_opts = list()
-	for (var/datum/groups/G in global_groups)
+	for (var/datum/groups/G in GLOB.groups)
 		group_opts["[G.id]: [G.name]"] = G
 	if (!length(group_opts)) {
 		to_chat(user, "<span class='warning'>No groups found.")
@@ -122,7 +123,7 @@
 	var/ckey = tgui_input_text(user, "Remove Member", "Enter member ckey?")
 	if (!ckey) return
 	src.remove_member_from_group(G, ckey)
-	SaveGlobalGroups()
+	save_all_groups()
 	to_chat(user, "<span class='notice'>Member removed from group.")
 
 /datum/component/about_me/proc/remove_member_from_group(var/datum/groups/G, var/ckey)
@@ -131,7 +132,7 @@
 
 /datum/component/about_me/proc/prompt_make_group_leader(mob/user)
 	var/list/group_opts = list()
-	for (var/datum/groups/G in global_groups)
+	for (var/datum/groups/G in GLOB.groups)
 		group_opts["[G.id]: [G.name]"] = G
 	if (!length(group_opts)) {
 		to_chat(user, "<span class='warning'>No groups found.")
@@ -143,7 +144,7 @@
 	var/ckey = tgui_input_text(user, "Make Leader", "Enter leader ckey?")
 	if (!ckey) return
 	src.make_group_leader(G, ckey)
-	SaveGlobalGroups()
+	save_all_groups()
 	to_chat(user, "<span class='notice'>New leader set for group.")
 
 /datum/component/about_me/proc/make_group_leader(var/datum/groups/G, var/ckey)
@@ -154,7 +155,7 @@
 
 /datum/component/about_me/proc/prompt_add_group_tag(mob/user)
 	var/list/group_opts = list()
-	for (var/datum/groups/G in global_groups)
+	for (var/datum/groups/G in GLOB.groups)
 		group_opts["[G.id]: [G.name]"] = G
 	if (!length(group_opts)) {
 		to_chat(user, "<span class='warning'>No groups found.")
@@ -166,7 +167,7 @@
 	var/tag = tgui_input_text(user, "Add Tag", "Enter tag?")
 	if (!tag) return
 	src.add_group_tag(G, tag)
-	SaveGlobalGroups()
+	save_all_groups()
 	to_chat(user, "<span class='notice'>Tag added to group.")
 
 /datum/component/about_me/proc/add_group_tag(var/datum/groups/G, var/tag)
@@ -177,7 +178,7 @@
 
 /datum/component/about_me/proc/prompt_remove_group_tag(mob/user)
 	var/list/group_opts = list()
-	for (var/datum/groups/G in global_groups)
+	for (var/datum/groups/G in GLOB.groups)
 		group_opts["[G.id]: [G.name]"] = G
 	if (!length(group_opts)) {
 		to_chat(user, "<span class='warning'>No groups found.")
@@ -189,10 +190,12 @@
 	var/tag = tgui_input_text(user, "Remove Tag", "Enter tag to remove?")
 	if (!tag) return
 	src.remove_group_tag(G, tag)
-	SaveGlobalGroups()
+	save_all_groups()
 	to_chat(user, "<span class='notice'>Tag removed from group.")
 
 /datum/component/about_me/proc/remove_group_tag(var/datum/groups/G, var/tag)
 	if (!G || !tag) return
 	if (tag in G.tags)
 		G.tags -= tag
+
+

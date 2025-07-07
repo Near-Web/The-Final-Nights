@@ -2,36 +2,6 @@
 // ================================
 // AboutMe System Defines
 // ================================
-// ================================
-// Group Types
-// ================================
-#define GROUP_TYPE_FACTION       "faction"
-#define GROUP_TYPE_SECT          "sect"
-#define GROUP_TYPE_CLAN          "clan"
-#define GROUP_TYPE_ORGANIZATION  "organization"
-#define GROUP_TYPE_COTERIE       "coterie"
-#define GROUP_TYPE_PLAYER        "player_created" // Alias for coterie/player-created groups
-
-/// List of valid group types
-#define GROUP_TYPES list(\
-	GROUP_TYPE_FACTION, \
-	GROUP_TYPE_SECT, \
-	GROUP_TYPE_CLAN, \
-	GROUP_TYPE_ORGANIZATION, \
-	GROUP_TYPE_COTERIE, \
-	GROUP_TYPE_PLAYER \
-)
-// ================================
-// Group Tags
-// ================================
-#define GROUP_TAG_POLITICAL  "political"
-#define GROUP_TAG_SOCIAL     "social"
-#define GROUP_TAG_HISTORICAL "historical"
-#define GROUP_TAG_SECRET     "secret"
-#define GROUP_TAG_FACTION    "faction"
-#define GROUP_TAG_CLAN       "clan"
-#define GROUP_TAG_SECT       "sect"
-#define GROUP_TAG_COTERIE    "coterie"
 
 // ================================
 // Chronicle Tags / Types

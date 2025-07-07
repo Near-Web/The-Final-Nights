@@ -100,7 +100,7 @@
 		// Build a list of existing groups to choose from
 		var/list/group_names = list()
 		var/list/name_to_group = list()
-		for (var/datum/groups/G in global_groups)
+		for (var/datum/groups/G in GLOB.groups)
 			var/display = "[G.name] ([G.group_type])"
 			group_names += display
 			name_to_group[display] = G

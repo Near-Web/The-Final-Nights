@@ -11,7 +11,7 @@
 	var/time = tgui_input_text(user, "Date (optional)", "YYYY-MM-DD hh:mm:ss", time2text(world.realtime, "YYYY-MM-DD hh:mm:ss"))
 	var/datum/chronicle_entry/E = src.create_chronicle_entry(title, details, time)
 	if (E) {
-		src.chronicle_events += E
+		src.chronicles_all += E
 		save_to_file()
 		to_chat(user, "<span class='notice'>Chronicle entry created: [E?.title]</span>")
 	}
@@ -32,7 +32,7 @@
 /datum/component/about_me/proc/prompt_edit_chronicle_entry(mob/user)
 	// Prompt user to select a chronicle entry to edit
 	var/list/options = list()
-	for (var/datum/chronicle_entry/E in src.chronicle_events)
+	for (var/datum/chronicle_entry/E in src.chronicles_all)
 		options["[E.id]: [E.title]"] = E
 	if (!length(options)) {
 		to_chat(user, "<span class='warning'>No chronicle entries to edit.</span>")
@@ -57,7 +57,7 @@
 /datum/component/about_me/proc/prompt_delete_chronicle_entry(mob/user)
 	// Prompt user to select a chronicle entry to delete
 	var/list/options = list()
-	for (var/datum/chronicle_entry/E in src.chronicle_events)
+	for (var/datum/chronicle_entry/E in src.chronicles_all)
 		options["[E.id]: [E.title]"] = E
 	if (!length(options)) {
 		to_chat(user, "<span class='warning'>No chronicle entries to delete.")
@@ -72,12 +72,12 @@
 
 /datum/component/about_me/proc/delete_chronicle_entry(var/datum/chronicle_entry/E)
 	if (!E) return
-	src.chronicle_events -= E
+	src.chronicles_all -= E
 
 /datum/component/about_me/proc/prompt_attach_memory_to_chronicle(mob/user)
 	// Prompt user to select chronicle entry and memory to link
 	var/list/chron_opts = list()
-	for (var/datum/chronicle_entry/E in src.chronicle_events)
+	for (var/datum/chronicle_entry/E in src.chronicles_all)
 		chron_opts["[E.id]: [E.title]"] = E
 	if (!length(chron_opts)) {
 		to_chat(user, "<span class='warning'>No chronicle entries.")
