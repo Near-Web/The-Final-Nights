@@ -289,10 +289,6 @@
 	icon_state = "punk"
 	armor = list(MELEE = 50, BULLET = 50, LASER = 10, ENERGY = 10, BOMB = 50, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
 
-/obj/item/clothing/suit/vampire/jacket/banu
-	icon_state = "banu"
-	armor = list(MELEE = 50, BULLET = 50, LASER = 10, ENERGY = 10, BOMB = 50, BIO = 0, RAD = 0, FIRE = 25, ACID = 10, WOUND = 25)
-
 /obj/item/clothing/suit/vampire/jacket/better
 	name = "brown leather jacket"
 	icon_state = "jacket2"
