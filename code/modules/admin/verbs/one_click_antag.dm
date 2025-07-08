@@ -8,14 +8,14 @@
 	return
 
 
-/datum/admins/proc/one_click_antag()
+/datum/admins/proc/one_click_antag() // TFN ADDITION START
 
 	var/dat = {"
 		<a href='byond://?src=[REF(src)];[HrefToken()];makeAntag=nationalguard'>Make National Guard Team (Requires Ghosts)</a><br>
 		<a href='byond://?src=[REF(src)];[HrefToken()];makeAntag=swat'>Make SWAT Team (Requires Ghosts)</a><br>
 		<a href='byond://?src=[REF(src)];[HrefToken()];makeAntag=firstteam'>Make Pentex First Team (Requires Ghosts)</a><br>
 		"}
-
+// TFN ADDITION END
 /*	THESE WERE THE OPTIONS IN one_click_antag() previously. I kept them here only just in case...
 
 	<a href='byond://?src=[REF(src)];[HrefToken()];makeAntag=traitors'>Make Traitors</a><br>
