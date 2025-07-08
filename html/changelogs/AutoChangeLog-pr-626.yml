@@ -1,4 +1,0 @@
-author: "XeonMations"
-delete-after: True
-changes:
-  - code_imp: "TGS docker CI/CD check now functions correctly."
