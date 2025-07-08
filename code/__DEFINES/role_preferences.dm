@@ -6,9 +6,9 @@
 
 //These are synced with the Database, if you change the values of the defines
 //then you MUST update the database!
-#define ROLE_FIRST_TEAM		    "First Team" // TFN PENTEX FIRST-TEAM ADDITION
-#define ROLE_NATIONAL_GUARD		"National Guard" // TFN
-#define ROLE_SWAT				"Swat Officer" // TFN
+#define ROLE_FIRST_TEAM		    "First Team" // TFN ADDITION
+#define ROLE_NATIONAL_GUARD		"National Guard" // TFN ADDITION
+#define ROLE_SWAT				"Swat Officer" // TFN ADDITION
 #define ROLE_SYNDICATE			"Syndicate"
 #define ROLE_TRAITOR			"Traitor"
 #define ROLE_OPERATIVE			"Operative"
