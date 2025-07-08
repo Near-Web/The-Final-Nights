@@ -31,6 +31,8 @@
 	butcher_results = list(/obj/item/food/meat/slab = 5)
 	layer = LARGE_MOB_LAYER
 
+	hud_type = /datum/hud/werewolf
+
 	var/obj_damage = 30
 	var/wound_bonus = 20
 	var/bare_wound_bonus = 25
@@ -153,7 +155,6 @@
 	mob_size = MOB_SIZE_HUGE
 	butcher_results = list(/obj/item/food/meat/slab = 5)
 	limb_destroyer = 1
-	hud_type = /datum/hud/werewolf
 	melee_damage_lower = 65
 	melee_damage_upper = 65
 	health = 450
@@ -249,7 +250,6 @@
 	mob_size = MOB_SIZE_HUGE
 	butcher_results = list(/obj/item/food/meat/slab = 5)
 	limb_destroyer = 1
-	hud_type = /datum/hud/werewolf
 
 	melee_damage_lower = 50 // more reliable damage because I believe that's also a change staged for normal werewolves, also screw RNG
 	melee_damage_upper = 50 // less damage for were-ravens

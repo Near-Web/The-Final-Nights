@@ -264,7 +264,7 @@
 /datum/werewolf_holder/transformation/proc/transform_lupus(mob/living/trans, mob/living/carbon/werewolf/lupus/lupus)
 	PRIVATE_PROC(TRUE)
 
-	if(trans.stat == DEAD || !trans.client) // [ChillRaccoon] - preventing non-player transform issues
+	if(!trans.client) // [ChillRaccoon] - preventing non-player transform issues
 		animate(trans, transform = null, color = "#FFFFFF")
 		return
 	var/items = trans.get_contents()
@@ -301,9 +301,6 @@
 /datum/werewolf_holder/transformation/proc/transform_crinos(mob/living/trans, mob/living/carbon/werewolf/crinos/crinos)
 	PRIVATE_PROC(TRUE)
 
-	if(trans.stat == DEAD)
-		animate(trans, transform = null, color = "#FFFFFF")
-		return
 	var/items = trans.get_contents()
 	for(var/obj/item/item_worn in items)
 		if(item_worn)
@@ -335,9 +332,6 @@
 /datum/werewolf_holder/transformation/proc/transform_cor_crinos(mob/living/trans, mob/living/carbon/werewolf/corax/corax_crinos/cor_crinos)
 	PRIVATE_PROC(TRUE)
 
-	if(trans.stat == DEAD)
-		animate(trans, transform = null, color = "#FFFFFF")
-		return
 	var/items = trans.get_contents()
 	for(var/obj/item/item_worn in items)
 		if(item_worn)
@@ -370,7 +364,7 @@
 /datum/werewolf_holder/transformation/proc/transform_homid(mob/living/trans, mob/living/carbon/human/homid, bypass)
 	PRIVATE_PROC(TRUE)
 
-	if(((trans.stat == DEAD) || !trans.client) && !bypass) // [ChillRaccoon] - preventing non-player transform issues
+	if(!trans.client && !bypass) // [ChillRaccoon] - preventing non-player transform issues
 		animate(trans, transform = null, color = "#FFFFFF")
 		return
 	var/items = trans.get_contents()
@@ -402,7 +396,7 @@
 /datum/werewolf_holder/transformation/proc/transform_corvid(mob/living/trans, mob/living/carbon/werewolf/lupus/corvid/corvid)
 	PRIVATE_PROC(TRUE)
 
-	if(trans.stat == DEAD || !trans.client) // [ChillRaccoon] - preventing non-player transform issues
+	if(!trans.client) // [ChillRaccoon] - preventing non-player transform issues
 		animate(trans, transform = null, color = "#FFFFFF")
 		return
 	var/items = trans.get_contents()
