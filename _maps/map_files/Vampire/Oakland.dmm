@@ -82930,10 +82930,10 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/pacificheights/community)
 "wQQ" = (
-/obj/effect/decal/cleanable/crayon{
-	color = ssssssssss
-	},
 /obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/crayon{
+	color = "#96000a"
+	},
 /turf/open/floor/plating/toilet,
 /area/vtm/clinic/haven)
 "wQR" = (
