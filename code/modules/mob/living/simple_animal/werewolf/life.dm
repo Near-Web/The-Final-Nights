@@ -107,18 +107,18 @@
 		if(H.CheckEyewitness(H, H, 3, FALSE))
 			H.adjust_veil(-1,random = -1)
 
-/mob/living/simple_animal/werewolf/crinos/Life()
+/mob/living/carbon/werewolf/crinos/Life()
 	. = ..()
 	if(CheckEyewitness(src, src, 5, FALSE))
 		adjust_veil(-1, honoradj = -1)
 
-/mob/living/simple_animal/werewolf/corax/corax_crinos/Life() // realizing I screwed myself over by not making this a subtype, oh well.
+/mob/living/carbon/werewolf/corax/corax_crinos/Life() // realizing I screwed myself over by not making this a subtype, oh well.
 	. = ..()
 	if(CheckEyewitness(src, src, 5, FALSE))
 		adjust_veil(-1, honoradj = -1)
 
 
-/mob/living/simple_animal/werewolf/handle_status_effects()
+/mob/living/carbon/werewolf/handle_status_effects()
 	..()
 	//natural reduction of movement delay due to stun.
 	if(move_delay_add > 0)

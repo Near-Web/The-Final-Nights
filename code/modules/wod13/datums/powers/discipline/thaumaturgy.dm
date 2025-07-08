@@ -216,7 +216,7 @@
 /datum/discipline_power/thaumaturgy/theft_of_vitae/activate(mob/living/target)
 	. = ..()
 	// TFN EDIT START -- Thaumaturgy fixes -- Original : if(iscarbon(target))
-	if(iscarbon(target) || istype(target, /mob/living/simple_animal/werewolf))
+	if(iscarbon(target) || istype(target, /mob/living/carbon/werewolf))
 	// TFN EDIT END -- Thaumaturgy fixes
 		target.visible_message(span_danger("[target] throws up!"), span_userdanger("You throw up!"))
 		target.add_splatter_floor(get_turf(target))
@@ -264,7 +264,7 @@
 /datum/discipline_power/thaumaturgy/cauldron_of_blood/activate(mob/living/target)
 	. = ..()
 	//TFN EDIT START -- Thaumaturgy fixes - original : if(iscarbon(target))
-	if(iscarbon(target) || istype(target, /mob/living/simple_animal/werewolf))
+	if(iscarbon(target) || istype(target, /mob/living/carbon/werewolf))
 	//TFN EDIT END -- Thaumaturgy fixes
 		new /obj/effect/temp_visual/tremere(target.loc, "gib")
 

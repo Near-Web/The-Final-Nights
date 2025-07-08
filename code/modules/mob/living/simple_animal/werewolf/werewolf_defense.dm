@@ -1,4 +1,4 @@
-/mob/living/simple_animal/werewolf/attack_animal(mob/living/simple_animal/M)
+/mob/living/carbon/werewolf/attack_animal(mob/living/simple_animal/M)
 	. = ..()
 	do_rage_from_attack()
 	if(.)
@@ -17,7 +17,7 @@
 			if(STAMINA)
 				adjustStaminaLoss(damage)
 
-/mob/living/simple_animal/werewolf/ex_act(severity, target, origin)
+/mob/living/carbon/werewolf/ex_act(severity, target, origin)
 	if(origin && istype(origin, /datum/spacevine_mutation) && isvineimmune(src))
 		return
 	..()
@@ -41,33 +41,33 @@
 			if(ears)
 				ears.adjustEarDamage(15,60)
 
-/mob/living/simple_animal/werewolf/soundbang_act(intensity = 1, stun_pwr = 20, damage_pwr = 5, deafen_pwr = 15)
+/mob/living/carbon/werewolf/soundbang_act(intensity = 1, stun_pwr = 20, damage_pwr = 5, deafen_pwr = 15)
 	return 0
 
-/mob/living/simple_animal/werewolf/acid_act(acidpwr, acid_volume)
+/mob/living/carbon/werewolf/acid_act(acidpwr, acid_volume)
 	return FALSE//aliens are immune to acid.
 
-/mob/living/simple_animal/werewolf/crinos/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
+/mob/living/carbon/werewolf/crinos/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!no_effect && !visual_effect_icon)
 		visual_effect_icon = ATTACK_EFFECT_CLAW
 	..()
 
-/mob/living/simple_animal/werewolf/corax/corax_crinos/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
+/mob/living/carbon/werewolf/corax/corax_crinos/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!no_effect && !visual_effect_icon)
 		visual_effect_icon = ATTACK_EFFECT_CLAW
 	..()
 
-/mob/living/simple_animal/werewolf/lupus/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
+/mob/living/carbon/werewolf/lupus/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!no_effect && !visual_effect_icon)
 		visual_effect_icon = ATTACK_EFFECT_BITE
 	..()
 
-/mob/living/simple_animal/werewolf/lupus/corvid/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
+/mob/living/carbon/werewolf/lupus/corvid/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!no_effect && !visual_effect_icon)
 		visual_effect_icon = ATTACK_EFFECT_CLAW // Ravens attack with their claw, or somesuch.
 	..()
 
-/mob/living/simple_animal/werewolf/getarmor(def_zone, type)
+/mob/living/carbon/werewolf/getarmor(def_zone, type)
 	if(type == BRUTE)
 		return werewolf_armor
 	else

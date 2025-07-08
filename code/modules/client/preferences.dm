@@ -671,8 +671,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					qdel(ACT)
 				dat += "<b>Initial Gifts:</b> [gifts_text]"
 				// These mobs should be made in nullspace to avoid dumping them onto the map somewhere.
-				var/mob/living/simple_animal/werewolf/crinos/DAWOF = new
-				var/mob/living/simple_animal/werewolf/lupus/DAWOF2 = new
+				var/mob/living/carbon/werewolf/crinos/DAWOF = new
+				var/mob/living/carbon/werewolf/lupus/DAWOF2 = new
 
 				DAWOF.sprite_color = werewolf_color
 				DAWOF2.sprite_color = werewolf_color
@@ -3820,8 +3820,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				character.auspice.start_gnosis = 3 + character.extra_gnosis
 				character.auspice.base_breed = "Crinos"
 		if(character.transformator?.crinos_form && character.transformator?.lupus_form && !HAS_TRAIT(character,TRAIT_CORAX))
-			var/mob/living/simple_animal/werewolf/crinos/crinos = character.transformator.crinos_form?.resolve()
-			var/mob/living/simple_animal/werewolf/lupus/lupus = character.transformator.lupus_form?.resolve()
+			var/mob/living/carbon/werewolf/crinos/crinos = character.transformator.crinos_form?.resolve()
+			var/mob/living/carbon/werewolf/lupus/lupus = character.transformator.lupus_form?.resolve()
 
 			if(!crinos)
 				character.transformator.crinos_form = null
@@ -3871,8 +3871,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			crinos.maxHealth = round((crinos::maxHealth + (character::maxHealth / 4) * (character.physique + character.additional_physique))) + (character.auspice.level - 1) * 50
 			crinos.health = crinos.maxHealth
 		else if(HAS_TRAIT(character,TRAIT_CORAX)/*character.transformator?.corax_form && character.transformator?.corvid_form*/) // if we have the Corax tribe, use the Corax forms instead..
-			var/mob/living/simple_animal/werewolf/corax/corax_crinos/cor_crinos = character.transformator.corax_form?.resolve()
-			var/mob/living/simple_animal/werewolf/lupus/corvid/corvid = character.transformator.corvid_form?.resolve()
+			var/mob/living/carbon/werewolf/corax/corax_crinos/cor_crinos = character.transformator.corax_form?.resolve()
+			var/mob/living/carbon/werewolf/lupus/corvid/corvid = character.transformator.corvid_form?.resolve()
 
 			if(!cor_crinos)
 				character.transformator.corax_form = null

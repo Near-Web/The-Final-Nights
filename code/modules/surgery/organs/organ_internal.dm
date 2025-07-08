@@ -1,5 +1,5 @@
-/obj/item/organ
 	name = "organ"
+/obj/item/organ
 	icon = 'icons/obj/surgery.dmi'
 	var/mob/living/carbon/owner = null
 	var/status = ORGAN_ORGANIC
