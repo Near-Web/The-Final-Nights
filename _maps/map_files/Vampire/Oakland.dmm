@@ -63792,7 +63792,7 @@
 /area/vtm/interior/endron_facility/restricted)
 "rri" = (
 /obj/effect/decal/cleanable/crayon{
-	color = ssssssssss
+	color = "#96000a"
 	},
 /obj/item/reagent_containers/blood/vitae,
 /turf/open/floor/plating/concrete,
