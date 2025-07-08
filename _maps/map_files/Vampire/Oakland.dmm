@@ -15459,7 +15459,7 @@
 /area/vtm/interior/millennium_tower/f3)
 "etL" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = "regentcurtain";
+	id = 913;
 	pixel_y = 15
 	},
 /turf/closed/wall/vampwall/rich/old/low/window,
@@ -25463,7 +25463,7 @@
 	color = "#574d46"
 	},
 /obj/structure/curtain/cloth/fancy/mechanical{
-	id = banu;
+	id = 912;
 	pixel_y = 15;
 	pixel_x = -32
 	},
@@ -30759,7 +30759,7 @@
 /obj/structure/table/wood/fancy/red,
 /obj/vampire_computer,
 /obj/machinery/button/curtain{
-	id = banu;
+	id = 912;
 	pixel_y = 3;
 	pixel_x = 16
 	},
@@ -33833,7 +33833,8 @@
 /area/vtm/interior/millennium_tower/f2)
 "jtL" = (
 /obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = "regentcurtain"
+	id = 913;
+	pixel_y = 8
 	},
 /turf/closed/wall/vampwall/rich/old/low/window,
 /area/vtm/interior/chantry)
@@ -54554,7 +54555,7 @@
 /obj/machinery/button/curtain{
 	pixel_y = 7;
 	pixel_x = -6;
-	id = "regentcurtain"
+	id = 913
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
