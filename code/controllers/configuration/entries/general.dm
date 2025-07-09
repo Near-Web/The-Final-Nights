@@ -77,17 +77,32 @@
 /// log usage of tools
 /datum/config_entry/flag/log_tools
 
-/datum/config_entry/flag/log_game	// log game events
+/// log game events
+/datum/config_entry/flag/log_game
 
-/datum/config_entry/flag/log_mecha	// log mech data
+/// log mech data
+/datum/config_entry/flag/log_mecha
 
-/datum/config_entry/flag/log_virus	// log virology data
+/// log virology data
+/datum/config_entry/flag/log_virus
 
+/// log assets
 /datum/config_entry/flag/log_asset
 
-/datum/config_entry/flag/log_vote	// log voting
+/// log voting
+/datum/config_entry/flag/log_vote
 
-/datum/config_entry/flag/log_whisper	// log client whisper
+/// log manual zone switching
+/datum/config_entry/flag/log_zone_switch
+
+/// log client whisper
+/datum/config_entry/flag/log_whisper
+
+/// log attack messages
+/datum/config_entry/flag/log_attack
+
+/// log emotes
+/datum/config_entry/flag/log_emote
 
 /datum/config_entry/flag/log_subtle
 
