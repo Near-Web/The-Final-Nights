@@ -2384,6 +2384,7 @@
 #include "code\modules\logging\categories\log_category_game.dm"
 #include "code\modules\logging\categories\log_category_misc.dm"
 #include "code\modules\logging\categories\log_category_pda.dm"
+#include "code\modules\logging\categories\log_category_target_zone_switch.dm"
 #include "code\modules\logging\categories\log_category_uplink.dm"
 #include "code\modules\mapping\map_template.dm"
 #include "code\modules\mapping\mapping_helpers.dm"
