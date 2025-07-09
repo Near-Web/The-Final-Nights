@@ -42,3 +42,6 @@
   - refactor: made the werewolf perf vars in the reset proc, use initial(var)
   XeonMations:
   - code_imp: TGS docker CI/CD check now functions correctly.
+  - bugfix: Kindred now have vitae instead of blood.
+  - bugfix: Fixed a bug where taking blood from a kindred with an IV drip maxed their
+      blood pool.

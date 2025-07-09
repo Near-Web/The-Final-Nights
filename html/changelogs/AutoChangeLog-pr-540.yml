@@ -1,5 +1,0 @@
-author: "XeonMations"
-delete-after: True
-changes:
-  - bugfix: "Kindred now have vitae instead of blood."
-  - bugfix: "Fixed a bug where taking blood from a kindred with an IV drip maxed their blood pool."
