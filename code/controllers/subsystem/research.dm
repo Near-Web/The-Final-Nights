@@ -145,8 +145,8 @@ SUBSYSTEM_DEF(research)
 		var/datum/techweb_node/TN = techweb_nodes[id]
 		TN.Initialize()
 	techweb_nodes = returned
-	if (!verify_techweb_nodes())	//Verify all nodes have ids and such.
-		stack_trace("Invalid techweb nodes detected")
+	//if (!verify_techweb_nodes())	//Verify all nodes have ids and such. //TFN REMOVAL
+		//stack_trace("Invalid techweb nodes detected") //TFN REMOVAL
 	calculate_techweb_nodes()
 	calculate_techweb_boost_list()
 	if (!verify_techweb_nodes())		//Verify nodes and designs have been crosslinked properly.
