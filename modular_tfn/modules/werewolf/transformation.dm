@@ -110,6 +110,7 @@
 /datum/werewolf_holder/transformation/proc/transform(mob/living/carbon/trans, form, bypass)
 	if(trans.stat == DEAD && !bypass)
 		return
+
 	if(transformating)
 		// Only voluntary transformations trigger the alert
 		if (!bypass)
@@ -125,8 +126,8 @@
 
 	var/matrix/ntransform = matrix(trans.transform) //aka transform.Copy()
 
-	if(trans.auspice.rage == 0 && form != trans.auspice.base_breed)
-		to_chat(trans, "Not enough rage to transform into anything but [trans.auspice.base_breed].")
+	if(trans.auspice.rage == 0 && form != trans.auspice.breed_form)
+		to_chat(trans, "Not enough rage to transform into anything but [trans.auspice.breed_form].")
 		return
 	if(trans.in_frenzy)
 		to_chat(trans, "You can't transform while in frenzy.")
@@ -151,7 +152,7 @@
 
 	var/datum/language_holder/garou_lang = trans.get_language_holder()
 	switch(form)
-		if("Lupus")
+		if(FORM_LUPUS)
 			for(var/spoken_language in garou_lang.spoken_languages)
 				garou_lang.remove_language(spoken_language, FALSE, TRUE)
 
@@ -161,7 +162,7 @@
 				ntransform.Scale(0.75, 0.75)
 			if(ishuman(trans))
 				ntransform.Scale(1, 0.75)
-		if("Crinos")
+		if(FORM_CRINOS)
 			for(var/spoken_language in garou_lang.spoken_languages)
 				garou_lang.remove_language(spoken_language, FALSE, TRUE)
 
@@ -175,18 +176,18 @@
 					ntransform.Scale(1, 1.75)
 			if(ishuman(trans))
 				ntransform.Scale(1.25, 1.5)
-		if("Corvid")
+		if(FORM_CORVID)
 			if(iscoraxcrinos(trans))
 				ntransform.Scale(0.75, 0.75)
 			if(ishuman(trans))
 				ntransform.Scale(1, 0.75)
-		if("Corax Crinos")
+		if(FORM_CORAX_CRINOS)
 			if(iscorvid(trans))
 				ntransform.Scale(1, 1.75)
 			if(ishuman(trans))
 				ntransform.Scale(1.25, 1.5)
 
-		if("Homid")
+		if(FORM_HOMID)
 			for(var/spoken_language in garou_lang.understood_languages)
 				garou_lang.grant_language(spoken_language, TRUE, TRUE)
 			garou_lang.remove_language(/datum/language/primal_tongue, FALSE, TRUE)
@@ -200,7 +201,7 @@
 				ntransform.Scale(1, 1.5)
 
 	switch(form)
-		if("Lupus")
+		if(FORM_LUPUS)
 			if(islupus(trans))
 				transformating = FALSE
 				return
@@ -210,6 +211,8 @@
 			if(!lupus)
 				lupus_form = null
 				return
+			if (trans.stat == DEAD)
+				lupus.death()
 
 			transformating = TRUE
 
@@ -221,7 +224,7 @@
 					qdel(B)
 
 			addtimer(CALLBACK(src, PROC_REF(transform_lupus), trans, lupus), 3 SECONDS)
-		if("Crinos")
+		if(FORM_CRINOS)
 			if(iscrinos(trans))
 				transformating = FALSE
 				return
@@ -231,6 +234,8 @@
 			if(!crinos)
 				crinos_form = null
 				return
+			if (trans.stat == DEAD)
+				crinos.death()
 
 			transformating = TRUE
 
@@ -242,7 +247,7 @@
 
 			addtimer(CALLBACK(src, PROC_REF(transform_crinos), trans, crinos), 3 SECONDS)
 
-		if("Corvid")
+		if(FORM_CORVID)
 			if(iscorvid(trans))
 				transformating = FALSE
 				return
@@ -252,6 +257,8 @@
 			if(!corvid)
 				corvid_form = null
 				return
+			if (trans.stat == DEAD)
+				corvid.death()
 
 			transformating = TRUE
 
@@ -262,7 +269,7 @@
 				qdel(B)
 
 			addtimer(CALLBACK(src, PROC_REF(transform_corvid), trans, corvid), 3 SECONDS)
-		if("Corax Crinos")
+		if(FORM_CORAX_CRINOS)
 			if(iscoraxcrinos(trans))
 				transformating = FALSE
 				return
@@ -272,6 +279,8 @@
 			if(!cor_crinos)
 				corax_form = null
 				return
+			if (trans.stat == DEAD)
+				cor_crinos.death()
 
 			transformating = TRUE
 
@@ -282,7 +291,7 @@
 
 			addtimer(CALLBACK(src, PROC_REF(transform_cor_crinos), trans, cor_crinos), 3 SECONDS)
 
-		if("Homid")
+		if(FORM_HOMID)
 			if(ishuman(trans))
 				transformating = FALSE
 				return
@@ -292,6 +301,8 @@
 			if(!homid)
 				human_form = null
 				return
+			if (trans.stat == DEAD)
+				homid.death()
 
 			transformating = TRUE
 
@@ -338,7 +349,7 @@
 	transformating = FALSE
 	animate(trans, transform = null, color = "#FFFFFF", time = 1)
 	lupus.update_icons()
-	ADD_TRAIT(lupus, TRAIT_NO_HANDS, "lupus")
+	ADD_TRAIT(lupus, TRAIT_NO_HANDS, FORM_LUPUS)
 	if(lupus.hispo)
 		lupus.remove_movespeed_modifier(/datum/movespeed_modifier/lupusform)
 		lupus.add_movespeed_modifier(/datum/movespeed_modifier/crinosform)

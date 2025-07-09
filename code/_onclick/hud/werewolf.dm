@@ -53,7 +53,7 @@
 	if(C.stat >= SOFT_CRIT || C.IsSleeping() || C.IsUnconscious() || C.IsParalyzed() || C.IsKnockdown() || C.IsStun())
 		return ..()
 	if(C.transformator)
-		C.transformator.transform(C, "Lupus")
+		C.transformator.transform(C, FORM_LUPUS)
 	return ..()
 
 
@@ -70,7 +70,7 @@
 	if(C.stat >= SOFT_CRIT || C.IsSleeping() || C.IsUnconscious() || C.IsParalyzed() || C.IsKnockdown() || C.IsStun())
 		return ..()
 	if(C.transformator)
-		C.transformator.transform(C, "Corax Crinos")
+		C.transformator.transform(C, FORM_CORAX_CRINOS)
 	return ..()
 
 /atom/movable/screen/transform_corvid
@@ -86,7 +86,7 @@
 	if(C.stat >= SOFT_CRIT || C.IsSleeping() || C.IsUnconscious() || C.IsParalyzed() || C.IsKnockdown() || C.IsStun())
 		return ..()
 	if(C.transformator)
-		C.transformator.transform(C, "Corvid")
+		C.transformator.transform(C, FORM_CORVID)
 	return ..()
 
 /atom/movable/screen/auspice

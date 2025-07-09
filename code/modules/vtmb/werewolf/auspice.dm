@@ -6,7 +6,7 @@
 	var/rage = 1
 	var/start_gnosis = 1
 	var/gnosis = 1
-	var/base_breed = "Homid"
+	var/breed_form = FORM_HOMID
 	var/datum/garou_tribe/tribe = new /datum/garou_tribe/galestalkers()
 	var/list/gifts = list()
 	var/force_abomination = FALSE
@@ -59,6 +59,37 @@
 	if(tribe.tribe_trait==TRAIT_CORAX)
 		ADD_TRAIT(C,TRAIT_CORAX, tribe)
 
+/datum/auspice/proc/set_breed(breed, mob/living/carbon/human/owner)
+	// Apply breed-specific stats
+	switch (breed)
+		if (BREED_HOMID)
+			owner.auspice.gnosis = 1
+			owner.auspice.start_gnosis = 1
+			breed_form = FORM_HOMID
+		if (BREED_LUPUS)
+			owner.auspice.gnosis = 5
+			owner.auspice.start_gnosis = 5
+			breed_form = FORM_LUPUS
+		if (BREED_METIS)
+			owner.auspice.gnosis = 3
+			owner.auspice.start_gnosis = 3
+			breed_form = FORM_CRINOS
+		if (BREED_CORVID)
+			owner.auspice.gnosis = 5
+			owner.auspice.start_gnosis = 5
+			breed_form = FORM_CORVID
+
+	// Reverting to Homid form is handled elsewhere, this is specifically to transform out of Homid
+	if (breed != BREED_HOMID)
+		RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(handle_death))
+
+/datum/auspice/proc/handle_death(mob/living/carbon/human/source, gibbed)
+	SIGNAL_HANDLER
+
+	if (gibbed)
+		return
+
+	source.transformator?.transform(source, breed_form, TRUE)
 
 /datum/auspice/ahroun
 	name = "Ahroun"

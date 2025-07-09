@@ -25,13 +25,13 @@
 								last_gnosis_buff = world.time
 								adjust_gnosis(1, src, TRUE)
 			if(iscrinos(src))
-				if(auspice.base_breed == "Crinos")
+				if(auspice.breed_form == FORM_CRINOS)
 					gaining_rage = FALSE
 			if(islupus(src))
-				if(auspice.base_breed == "Lupus")
+				if(auspice.breed_form == FORM_LUPUS)
 					gaining_rage = FALSE
 			if(ishuman(src))
-				if(auspice.base_breed == "Homid" || HAS_TRAIT(src, TRAIT_CORAX)) // Corvid-born Corax don't generate rage when in homid passively, the hope is to make talking more relaxed and the Corax weaker in combat.
+				if(auspice.breed_form == FORM_HOMID || HAS_TRAIT(src, TRAIT_CORAX)) // Corvid-born Corax don't generate rage when in homid passively, the hope is to make talking more relaxed and the Corax weaker in combat.
 					gaining_rage = FALSE
 			if (iscorvid(src))
 				gaining_rage = FALSE // Corax will ideally be talking a lot, not having passive rage generation should also make them weaker in combat.

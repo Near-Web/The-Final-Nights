@@ -96,7 +96,7 @@
 	if (gibbed)
 		return
 
-	transformator.transform(src, auspice.base_breed, TRUE) //Turn werewolves back into their breed form once they die.
+	transformator.transform(src, auspice.breed_form, TRUE) //Turn werewolves back into their breed form once they die.
 
 /mob/living/carbon/werewolf/resolve_unarmed_attack(atom/attack_target, list/modifiers)
 	// Werewolf interactions can be found in werewolf_interactions.dm

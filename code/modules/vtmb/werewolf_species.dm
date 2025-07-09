@@ -43,7 +43,7 @@
 			dat += "[host.real_name],"
 		if(!host.real_name)
 			dat += "Unknown,"
-		dat += " [host.auspice.tribe.name] [host.auspice.base_breed]"
+		dat += " [host.auspice.tribe.name] [host.auspice.breed_form]"
 		if(host.mind)
 
 			if(host.mind.assigned_role)
