@@ -54,10 +54,8 @@
 	if(LM.buckled || LM.throwing || LM.movement_type & (VENTCRAWLING | FLYING) || HAS_TRAIT(LM, TRAIT_IMMOBILIZED))
 		return
 
-	// For openspace turfs, check if there are any footstep override elements before giving up
 	var/should_continue = T.footstep
-	if(!should_continue && istype(T, /turf/open/openspace))
-		// Check if there are any objects that might have footstep override elements on this turf
+	if(!should_continue && istype(T, /turf/open/openspace)) // special exception for catwalks hanging over open spaces
 		for(var/obj/structure/lattice/catwalk/catwalk in T)
 			should_continue = TRUE
 			break
