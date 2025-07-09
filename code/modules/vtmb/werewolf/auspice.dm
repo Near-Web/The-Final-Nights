@@ -59,6 +59,17 @@
 	if(tribe.tribe_trait==TRAIT_CORAX)
 		ADD_TRAIT(C,TRAIT_CORAX, tribe)
 
+/**
+ * Sets the breed of a shapeshifter, or what form
+ * they were born in and naturally stay in. If that
+ * form isn't human form, this will also allow them to
+ * transform out of human form upon death. Sets Gnosis
+ * to the values every breed starts with.
+ *
+ * Arguments:
+ * * breed - Name of the breed being set
+ * * owner - Mob whose breed is being set, and whose Auspice this is
+ */
 /datum/auspice/proc/set_breed(breed, mob/living/carbon/human/owner)
 	// Apply breed-specific stats
 	switch (breed)
