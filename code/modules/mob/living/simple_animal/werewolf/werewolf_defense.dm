@@ -20,7 +20,7 @@
 /mob/living/carbon/werewolf/ex_act(severity, target, origin)
 	if(origin && istype(origin, /datum/spacevine_mutation) && isvineimmune(src))
 		return
-	..()
+	. = ..()
 	if(QDELETED(src))
 		return
 	var/obj/item/organ/ears/ears = getorganslot(ORGAN_SLOT_EARS)
@@ -41,34 +41,31 @@
 			if(ears)
 				ears.adjustEarDamage(15,60)
 
+/mob/living/carbon/werewolf/getarmor(def_zone, type)
+	if (type == "melee" || type == "bullet")
+		return werewolf_armor
+	else
+		return 0
+
 /mob/living/carbon/werewolf/soundbang_act(intensity = 1, stun_pwr = 20, damage_pwr = 5, deafen_pwr = 15)
 	return 0
-
-/mob/living/carbon/werewolf/acid_act(acidpwr, acid_volume)
-	return FALSE//aliens are immune to acid.
 
 /mob/living/carbon/werewolf/crinos/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!no_effect && !visual_effect_icon)
 		visual_effect_icon = ATTACK_EFFECT_CLAW
-	..()
+	. = ..()
 
 /mob/living/carbon/werewolf/corax/corax_crinos/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!no_effect && !visual_effect_icon)
 		visual_effect_icon = ATTACK_EFFECT_CLAW
-	..()
+	. = ..()
 
 /mob/living/carbon/werewolf/lupus/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!no_effect && !visual_effect_icon)
 		visual_effect_icon = ATTACK_EFFECT_BITE
-	..()
+	. = ..()
 
 /mob/living/carbon/werewolf/lupus/corvid/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!no_effect && !visual_effect_icon)
 		visual_effect_icon = ATTACK_EFFECT_CLAW // Ravens attack with their claw, or somesuch.
-	..()
-
-/mob/living/carbon/werewolf/getarmor(def_zone, type)
-	if(type == BRUTE)
-		return werewolf_armor
-	else
-		return 0
+	. = ..()
