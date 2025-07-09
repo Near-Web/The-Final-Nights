@@ -533,17 +533,17 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	explanation_text = "Destroy the station with a nuclear device."
 	martyr_compatible = TRUE
 
-/datum/objective/first_team
+/datum/objective/first_team // TFN ADDITION
 	name = "first_team"
 	explanation_text = "Follow the orders of your sergeant."
 	martyr_compatible = TRUE
 
-/datum/objective/national_guard
+/datum/objective/national_guard // TFN ADDITION
 	name = "national_guard"
 	explanation_text = "Follow the orders of your sergeant."
 	martyr_compatible = TRUE
 
-/datum/objective/swat
+/datum/objective/swat // TFN ADDITION
 	name = "swat"
 	explanation_text = "Follow the orders of your commander."
 	martyr_compatible = TRUE
