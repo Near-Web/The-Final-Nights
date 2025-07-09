@@ -79,7 +79,8 @@
 	var/datum/action/gift/howling/howl = new()
 	howl.Grant(src)
 
-	ADD_TRAIT(src, TRAIT_NEVER_WOUNDED, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_NEVER_WOUNDED, SPECIES_TRAIT)
+	ADD_TRAIT(src, TRAIT_NIGHT_VISION, SPECIES_TRAIT)
 
 	RegisterSignal(src, COMSIG_MOB_ATTACK_RANGED, PROC_REF(swing_attack))
 
@@ -100,12 +101,13 @@
 /mob/living/carbon/werewolf/create_internal_organs()
 	internal_organs += new /obj/item/organ/brain
 	internal_organs += new /obj/item/organ/tongue
-	internal_organs += new /obj/item/organ/eyes/night_vision
+	internal_organs += new /obj/item/organ/eyes
 	internal_organs += new /obj/item/organ/liver
 	internal_organs += new /obj/item/organ/stomach
 	internal_organs += new /obj/item/organ/heart
 	internal_organs += new /obj/item/organ/lungs
 	internal_organs += new /obj/item/organ/ears
+	internal_organs += new /obj/item/organ/appendix
 
 	. = ..()
 

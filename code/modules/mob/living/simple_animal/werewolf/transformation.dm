@@ -43,35 +43,77 @@
 
 	return ..()
 
-/datum/werewolf_holder/transformation/proc/transfer_damage_and_traits(mob/living/first, mob/living/second)
-	second.masquerade = first.masquerade
+/datum/werewolf_holder/transformation/proc/transfer_damage_and_traits(mob/living/carbon/transfer_from, mob/living/carbon/transfer_to)
+	transfer_to.masquerade = transfer_from.masquerade
 
+	var/division_parameter = transfer_from.maxHealth / transfer_to.maxHealth
 
-	var/division_parameter = first.maxHealth / second.maxHealth
+	var/target_brute_damage = ceil(transfer_from.getBruteLoss() / division_parameter)
+	transfer_to.setBruteLoss(target_brute_damage)
+	var/target_fire_damage = ceil(transfer_from.getFireLoss() / division_parameter)
+	transfer_to.setFireLoss(target_fire_damage)
+	var/target_toxin_damage = ceil(transfer_from.getToxLoss() / division_parameter)
+	transfer_to.setToxLoss(target_toxin_damage)
+	var/target_clone_damage = ceil(transfer_from.getCloneLoss() / division_parameter)
+	transfer_to.setCloneLoss(target_clone_damage)
+	if(HAS_TRAIT(transfer_from, TRAIT_WARRIOR) && !HAS_TRAIT(transfer_to, TRAIT_WARRIOR))
+		ADD_TRAIT(transfer_to, TRAIT_WARRIOR, ROUNDSTART_TRAIT)
 
-	var/target_brute_damage = ceil(first.getBruteLoss() / division_parameter)
-	second.setBruteLoss(target_brute_damage)
-	var/target_fire_damage = ceil(first.getFireLoss() / division_parameter)
-	second.setFireLoss(target_fire_damage)
-	var/target_toxin_damage = ceil(first.getToxLoss() / division_parameter)
-	second.setToxLoss(target_toxin_damage)
-	var/target_clone_damage = ceil(first.getCloneLoss() / division_parameter)
-	second.setCloneLoss(target_clone_damage)
-	if(HAS_TRAIT(first, TRAIT_WARRIOR) && !HAS_TRAIT(second, TRAIT_WARRIOR))
-		ADD_TRAIT(second, TRAIT_WARRIOR, ROUNDSTART_TRAIT)
+	transfer_from.fire_stacks = transfer_to.fire_stacks
+	transfer_from.on_fire = transfer_to.on_fire
 
-	first.fire_stacks = second.fire_stacks
-	first.on_fire = second.on_fire
+	transfer_to.update_stat()
+	if(transfer_to.stat == CONSCIOUS)
+		transfer_to.get_up(TRUE)
 
-	second.update_stat()
-	if(second.stat == CONSCIOUS)
-		second.get_up(TRUE)
+	transfer_organ_states(transfer_from, transfer_to)
 
-/datum/werewolf_holder/transformation/proc/transform(mob/living/trans, form, bypass)
+/**
+ * Transfers the state of one form's organs to those in what they're
+ * transforming into. Organs that are missing will be deleted in
+ * the new form, organs that were restored will be created in the
+ * new form, and organ damage and flags will transfer between all
+ * organs.
+ *
+ * Arguments:
+ * * transfer_from - The mob organ states are being brought over from
+ * * transfer_to - The mob receiving the old form's organ states
+ */
+/datum/werewolf_holder/transformation/proc/transfer_organ_states(mob/living/carbon/transfer_from, mob/living/carbon/transfer_to)
+	// Organ slots the transforming mob has, but the new mob doesn't (to be added)
+	var/list/surplus_organs = assoc_list_strip_value(transfer_from.internal_organs_slot) - assoc_list_strip_value(transfer_to.internal_organs_slot)
+	// Organ slots the transforming mob doesn't have, but the new mob does (to be removed)
+	var/list/missing_organs = assoc_list_strip_value(transfer_to.internal_organs_slot) - assoc_list_strip_value(transfer_from.internal_organs_slot)
+
+	// Create existing organs in the new mob
+	for (var/organ_slot in surplus_organs)
+		var/obj/item/organ/transfer_from_organ = transfer_from.internal_organs_slot[organ_slot]
+
+		var/adding_organ_type = transfer_from_organ.type
+		var/obj/item/organ/new_organ = new adding_organ_type
+		new_organ.Insert(transfer_to, TRUE)
+
+	// Remove missing organs in the new mob
+	for (var/organ_slot in missing_organs)
+		var/obj/item/organ/transfer_to_organ = transfer_to.internal_organs_slot[organ_slot]
+		qdel(transfer_to_organ)
+
+	// Replicate organ condition to the new mob
+	for (var/organ_slot in transfer_from.internal_organs_slot)
+		var/obj/item/organ/transfer_from_organ = transfer_from.internal_organs_slot[organ_slot]
+		var/obj/item/organ/transfer_to_organ = transfer_to.internal_organs_slot[organ_slot]
+
+		// Set new organ's damage and status to old organ's damage and status
+		transfer_to_organ.setOrganDamage(transfer_from_organ.damage)
+		transfer_to_organ.organ_flags = transfer_from_organ.organ_flags
+
+/datum/werewolf_holder/transformation/proc/transform(mob/living/carbon/trans, form, bypass)
 	if(trans.stat == DEAD && !bypass)
 		return
 	if(transformating)
-		trans.balloon_alert(trans, "already transforming!")
+		// Only voluntary transformations trigger the alert
+		if (!bypass)
+			trans.balloon_alert(trans, "already transforming!")
 		return
 	if(!given_quirks)
 		given_quirks = TRUE
