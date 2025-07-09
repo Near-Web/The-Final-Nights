@@ -13,6 +13,10 @@
 	health = 150
 	maxHealth = 150
 	werewolf_armor = 10
+
+	default_num_hands = 1
+	held_items = list(null)
+
 	var/hispo = FALSE
 
 /mob/living/carbon/werewolf/lupus/Initialize()
@@ -27,11 +31,14 @@
 		var/datum/action/fly_upper/fly_up = new()
 		fly_up.Grant(src)
 
+/mob/living/carbon/werewolf/lupus/can_hold_items(obj/item/I)
+	return ((I.w_class <= WEIGHT_CLASS_SMALL) && ..())
+
 /datum/movespeed_modifier/lupusform
 	multiplicative_slowdown = -0.7
 
 /mob/living/carbon/werewolf/lupus/update_icons()
-	cut_overlays()
+	remove_overlay("_rest")
 
 	var/laid_down = FALSE
 
@@ -63,7 +70,6 @@
 
 /mob/living/carbon/werewolf/lupus/regenerate_icons()
 	if(!..())
-	//	update_icons() //Handled in update_transform(), leaving this here as a reminder
 		update_transform()
 
 /mob/living/carbon/werewolf/lupus/update_transform() //The old method of updating lying/standing was update_icons(). Aliens still expect that.
