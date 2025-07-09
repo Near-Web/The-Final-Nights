@@ -9087,11 +9087,6 @@
 	},
 /turf/open/floor/carpet,
 /area/vtm/interior/bianchiBank)
-"cCZ" = (
-/obj/structure/chair/stool/bar,
-/obj/structure/chair/stool/bar,
-/turf/open/floor/plating/granite/black,
-/area/vtm/interior/strip)
 "cDd" = (
 /obj/structure/toilet{
 	dir = 8;
@@ -21644,6 +21639,10 @@
 /obj/machinery/light{
 	pixel_y = 32
 	},
+/obj/structure/window/reinforced/tinted{
+	dir = 8;
+	pixel_y = 15
+	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police)
 "giN" = (
@@ -24424,6 +24423,16 @@
 /obj/item/clothing/under/vampire/burlesque/daisyd,
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/strip)
+"gZd" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 8;
+	pixel_y = 15
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/police)
 "gZf" = (
 /turf/open/floor/carpet/black,
 /area/vtm/interior)
@@ -25237,7 +25246,6 @@
 	},
 /area/vtm/interior/techshop)
 "hjZ" = (
-/obj/structure/table/wood,
 /obj/structure/table/wood,
 /obj/effect/decal/rugs,
 /obj/machinery/light{
@@ -27337,10 +27345,6 @@
 "hPL" = (
 /obj/structure/table,
 /obj/machinery/mineral/equipment_vendor/fastfood/america,
-/obj/structure/window/reinforced{
-	dir = 8;
-	pixel_y = 15
-	},
 /turf/closed/wall/vampwall/painted/low,
 /area/vtm/interior/shop)
 "hPM" = (
@@ -29741,14 +29745,6 @@
 	dir = 8
 	},
 /turf/open/floor/plating/parquetry,
-/area/vtm/interior/shop)
-"ivz" = (
-/obj/structure/table,
-/obj/structure/window{
-	dir = 4;
-	pixel_y = 16
-	},
-/turf/closed/wall/vampwall/rich/old/low,
 /area/vtm/interior/shop)
 "ivB" = (
 /obj/machinery/light/small{
@@ -49890,13 +49886,6 @@
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
-"nUf" = (
-/obj/structure/table,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/closed/wall/vampwall/market/low,
-/area/vtm/interior/shop)
 "nUg" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
@@ -50295,7 +50284,6 @@
 /obj/structure/showcase/machinery/tv{
 	pixel_y = 12
 	},
-/obj/structure/table,
 /obj/structure/table,
 /obj/effect/decal/rugs,
 /turf/open/floor/plating/rough{
@@ -63286,10 +63274,6 @@
 /turf/open/floor/carpet/blue,
 /area/vtm/interior)
 "rAZ" = (
-/obj/structure/window/reinforced{
-	dir = 4;
-	pixel_y = 15
-	},
 /obj/structure/table,
 /obj/machinery/mineral/equipment_vendor/fastfood/america,
 /turf/closed/wall/vampwall/market/low,
@@ -63465,7 +63449,6 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/financialdistrict)
 "rDE" = (
-/obj/structure/table/wood/fancy,
 /obj/vampire_computer,
 /obj/structure/table/wood/fancy/green,
 /obj/effect/turf_decal/siding/wideplating{
@@ -73636,6 +73619,10 @@
 	},
 /obj/effect/landmark/start{
 	name = "Police Officer"
+	},
+/obj/structure/window/reinforced/tinted{
+	dir = 8;
+	pixel_y = 15
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police)
@@ -142863,7 +142850,7 @@ mAC
 fEh
 fEh
 fEh
-nUf
+dRW
 fEh
 sWU
 gGo
@@ -143267,7 +143254,7 @@ ppl
 fEh
 fEh
 fEh
-nUf
+dRW
 bFu
 sWU
 mkU
@@ -143515,7 +143502,7 @@ iCq
 fII
 dmN
 giw
-epr
+gZd
 uzE
 dmN
 gRl
@@ -153076,9 +153063,9 @@ kwq
 fzy
 fzy
 lAe
-ivz
 nQA
-ivz
+nQA
+nQA
 lAe
 dkX
 nOJ
@@ -158631,7 +158618,7 @@ mfg
 fdN
 bKV
 xZE
-cCZ
+ooR
 sJK
 mWO
 mWO
