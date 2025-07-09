@@ -342,6 +342,7 @@
 	if(trans.auspice.tribe.name == "Black Spiral Dancers" || HAS_TRAIT(trans, TRAIT_WYRMTAINTED))
 		lupus.wyrm_tainted = TRUE
 	lupus.mind = trans.mind
+	lupus.gender = trans.gender
 	lupus.update_blood_hud()
 	transfer_damage_and_traits(trans, lupus)
 	lupus.add_movespeed_modifier(/datum/movespeed_modifier/lupusform)
@@ -380,6 +381,7 @@
 	if(trans.auspice.tribe.name == "Black Spiral Dancers" || HAS_TRAIT(trans, TRAIT_WYRMTAINTED))
 		crinos.wyrm_tainted = TRUE
 	crinos.mind = trans.mind
+	crinos.gender = trans.gender
 	crinos.update_blood_hud()
 	crinos.physique = crinos.physique+3
 	transfer_damage_and_traits(trans, crinos)
@@ -416,6 +418,7 @@
 	if(HAS_TRAIT(trans, TRAIT_WYRMTAINTED))
 		cor_crinos.wyrm_tainted = TRUE
 	cor_crinos.mind = trans.mind
+	cor_crinos.gender = trans.gender
 	cor_crinos.update_blood_hud()
 	cor_crinos.physique = cor_crinos.physique+3
 	transfer_damage_and_traits(trans, cor_crinos)
@@ -452,6 +455,7 @@
 	homid.masquerade = trans.masquerade
 	homid.nutrition = trans.nutrition
 	homid.mind = trans.mind
+	homid.gender = trans.gender
 	homid.update_blood_hud()
 	transfer_damage_and_traits(trans, homid)
 	homid.remove_movespeed_modifier(/datum/movespeed_modifier/crinosform)
@@ -490,6 +494,7 @@
 	if(HAS_TRAIT(trans, TRAIT_WYRMTAINTED))
 		corvid.wyrm_tainted = TRUE
 	corvid.mind = trans.mind
+	corvid.gender = trans.gender
 	corvid.update_blood_hud()
 	transfer_damage_and_traits(trans, corvid)
 	corvid.add_movespeed_modifier(/datum/movespeed_modifier/lupusform)
