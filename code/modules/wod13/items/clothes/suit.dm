@@ -510,5 +510,3 @@
 	desc = "A crisp white labcoat. This one has a green trim and the Endron International logo stiched onto the breast!"
 	icon_state = "pentex_labcoat_alt"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 90, WOUND = 10)
-
-

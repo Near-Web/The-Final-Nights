@@ -33666,6 +33666,7 @@
 /obj/machinery/light/prince{
 	pixel_y = 22
 	},
+/obj/effect/landmark/start/first_team,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/endron_facility/helipad)
 "hJW" = (
@@ -36730,6 +36731,10 @@
 /area/vtm/interior/nosferatu_office{
 	fire_controled = 1
 	})
+"ixX" = (
+/obj/effect/landmark/start/first_team,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/endron_facility/helipad)
 "ixY" = (
 /obj/structure/table/wood/poker,
 /obj/effect/decal/carpet,
@@ -465818,7 +465823,7 @@ hsA
 hsA
 hsA
 jjb
-kpV
+ixX
 kpV
 kpV
 fVk
@@ -466075,7 +466080,7 @@ hsA
 hsA
 hsA
 jjb
-kpV
+ixX
 kpV
 kpV
 fVk

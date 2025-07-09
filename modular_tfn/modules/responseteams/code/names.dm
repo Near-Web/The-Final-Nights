@@ -124,7 +124,7 @@ GLOBAL_VAR(command_name)
 
 	return name
 
-/proc/first_team_name() // TFN ADDITION
+/proc/first_team_name()
 	var/name = ""
 
 	// Prefix
@@ -142,7 +142,7 @@ GLOBAL_VAR(command_name)
 			name += pick("-", "*", "")
 			name += "Ops"
 
-/proc/national_guard_name() // TFN ADDITION
+/proc/national_guard_name()
 	var/name = ""
 
 	// Prefix
@@ -160,7 +160,7 @@ GLOBAL_VAR(command_name)
 			name += pick("-", "*", "")
 			name += "Ops"
 
-/proc/swat_name() // TFN ADDITION
+/proc/swat_name()
 	var/name = ""
 
 	// Prefix

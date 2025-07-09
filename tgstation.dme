@@ -3803,4 +3803,11 @@
 #include "modular_tfn\modules\vitae\code\embracing.dm"
 #include "modular_tfn\modules\vitae\code\ghouling.dm"
 #include "modular_tfn\modules\vitae\code\vitae.dm"
+#include "modular_tfn\modules\responseteams\code\pentexfirstteams\code\first_team.dm"
+#include "modular_tfn\modules\responseteams\code\pentexfirstteams\code\gun\guns.dm"
+#include "modular_tfn\modules\responseteams\code\pentexfirstteams\code\clothes\feet.dm"
+#include "modular_tfn\modules\responseteams\code\pentexfirstteams\code\clothes\hands.dm"
+#include "modular_tfn\modules\responseteams\code\pentexfirstteams\code\clothes\head.dm"
+#include "modular_tfn\modules\responseteams\code\pentexfirstteams\code\clothes\suit.dm"
+#include "modular_tfn\modules\responseteams\code\pentexfirstteams\code\clothes\under.dm"
 // END_INCLUDE
