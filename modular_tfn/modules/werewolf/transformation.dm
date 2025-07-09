@@ -322,6 +322,10 @@
 	lupus.key = trans.key
 	trans.moveToNullspace()
 	lupus.bloodpool = trans.bloodpool
+	lupus.glory = trans.glory
+	lupus.wisdom = trans.wisdom
+	lupus.honor = trans.honor
+	lupus.renownrank = trans.renownrank
 	lupus.masquerade = trans.masquerade
 	lupus.nutrition = trans.nutrition
 	if(trans.auspice.tribe.name == "Black Spiral Dancers" || HAS_TRAIT(trans, TRAIT_WYRMTAINTED))
@@ -355,6 +359,10 @@
 	animate(crinos, color = "#FFFFFF", time = 10)
 	crinos.key = trans.key
 	trans.moveToNullspace()
+	crinos.glory = trans.glory
+	crinos.wisdom = trans.wisdom
+	crinos.honor = trans.honor
+	crinos.renownrank = trans.renownrank
 	crinos.bloodpool = trans.bloodpool
 	crinos.masquerade = trans.masquerade
 	crinos.nutrition = trans.nutrition
@@ -387,6 +395,10 @@
 	animate(cor_crinos, color = "#FFFFFF", time = 10)
 	cor_crinos.key = trans.key
 	trans.moveToNullspace()
+	cor_crinos.glory = trans.glory
+	cor_crinos.wisdom = trans.wisdom
+	cor_crinos.honor = trans.honor
+	cor_crinos.renownrank = trans.renownrank
 	cor_crinos.bloodpool = trans.bloodpool
 	cor_crinos.masquerade = trans.masquerade
 	cor_crinos.nutrition = trans.nutrition
@@ -421,6 +433,10 @@
 	animate(homid, color = "#FFFFFF", time = 10)
 	homid.key = trans.key
 	trans.moveToNullspace()
+	homid.glory = trans.glory
+	homid.wisdom = trans.wisdom
+	homid.honor = trans.honor
+	homid.renownrank = trans.renownrank
 	homid.bloodpool = trans.bloodpool
 	homid.masquerade = trans.masquerade
 	homid.nutrition = trans.nutrition
@@ -453,6 +469,10 @@
 	animate(corvid, color = "#FFFFFF", time = 10)
 	corvid.key = trans.key
 	trans.moveToNullspace()
+	corvid.glory = trans.glory
+	corvid.wisdom = trans.wisdom
+	corvid.honor = trans.honor
+	corvid.renownrank = trans.renownrank
 	corvid.bloodpool = trans.bloodpool
 	corvid.masquerade = trans.masquerade
 	corvid.nutrition = trans.nutrition

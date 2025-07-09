@@ -3798,6 +3798,7 @@
 #include "modular_tfn\modules\vitae\code\embracing.dm"
 #include "modular_tfn\modules\vitae\code\ghouling.dm"
 #include "modular_tfn\modules\vitae\code\vitae.dm"
+#include "modular_tfn\modules\werewolf\examine.dm"
 #include "modular_tfn\modules\werewolf\life.dm"
 #include "modular_tfn\modules\werewolf\lupus.dm"
 #include "modular_tfn\modules\werewolf\status_procs.dm"
