@@ -36,6 +36,9 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	/// List of subsystems to process().
 	var/list/subsystems
 
+	///Most recent init stage to complete init.
+	var/static/init_stage_completed
+
 	// Vars for keeping track of tick drift.
 	var/init_timeofday
 	var/init_time

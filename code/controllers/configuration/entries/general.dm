@@ -198,8 +198,9 @@
 
 /datum/config_entry/flag/allow_holidays
 
-CONFIG_DEF(number/tick_limit_mc_init)	//SSinitialization throttling
-	value = TICK_LIMIT_MC_INIT_DEFAULT
+///SSinitialization throttling
+/datum/config_entry/number/tick_limit_mc_init
+	config_entry_value = TICK_LIMIT_MC_INIT_DEFAULT
 	min_val = 0 //oranges warned us
 	integer = FALSE
 
