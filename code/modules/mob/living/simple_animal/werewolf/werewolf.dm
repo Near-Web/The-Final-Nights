@@ -98,6 +98,10 @@
 
 	transformator.transform(src, auspice.base_breed, TRUE) //Turn werewolves back into their breed form once they die.
 
+/mob/living/carbon/werewolf/resolve_unarmed_attack(atom/attack_target, list/modifiers)
+	// Werewolf interactions can be found in werewolf_interactions.dm
+	attack_target.attack_werewolf(src, modifiers)
+
 /mob/living/carbon/werewolf/create_internal_organs()
 	internal_organs += new /obj/item/organ/brain
 	internal_organs += new /obj/item/organ/tongue
@@ -139,9 +143,6 @@
 
 /mob/living/carbon/werewolf/getTrail()
 	return pick (list("trails_1", "trails2"))
-
-/mob/living/carbon/werewolf/can_hold_items(obj/item/I)
-	return (I && (I.item_flags & WEREWOLF_HOLDABLE || ISADVANCEDTOOLUSER(src)) && ..())
 
 /mob/living/carbon/werewolf/on_lying_down(new_lying_angle)
 	. = ..()

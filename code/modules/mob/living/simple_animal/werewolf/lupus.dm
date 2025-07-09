@@ -39,6 +39,7 @@
 
 /mob/living/carbon/werewolf/lupus/update_icons()
 	remove_overlay("_rest")
+	remove_overlay("_flying")
 
 	var/laid_down = FALSE
 
@@ -97,6 +98,10 @@
 	melee_damage_upper = 20 // less damage for silly ravens
 	health = 100
 	maxHealth = 100 // I predict that the sprites will be hell to click, no extra HP compared to homid
+
+/mob/living/carbon/werewolf/lupus/corvid/can_hold_items(obj/item/I)
+	// Look at them, do you think they can pick up flashlights?
+	return ((I.w_class <= WEIGHT_CLASS_TINY) && ..())
 
 /datum/action/innate/togglecorvidflight // this action handles corvid forms toggle their flight, and swaps their sprite to be of the relevant type, I'm making it a gift because it's also what Hispo is under
 	name = "Toggle Flight"
