@@ -65,6 +65,9 @@
 /// It should not be used simply to silence CI.
 #define SS_OK_TO_FAIL_INIT (1 << 6)
 
+/// subsystem does not tick check, and should not run unless there is enough time (or its running behind (unless background))
+#define SS_NO_TICK_CHECK (1 << 7)
+
 //! SUBSYSTEM STATES
 #define SS_IDLE 0 /// ain't doing shit.
 #define SS_QUEUED 1 /// queued to run
