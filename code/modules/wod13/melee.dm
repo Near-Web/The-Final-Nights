@@ -676,17 +676,6 @@
 	masquerade_violating = FALSE
 	is_iron = TRUE
 
-/obj/item/melee/vampirearms/shovel/attack(mob/living/target, mob/living/user)
-	. = ..()
-	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		return
-	if(!target.IsStun() && prob(10))
-		visible_message("<span class='warning'>[user] bonks [src]'s head!</span>", "<span class='warning'>You bonk[target]'s head!</span>")
-		if(user.mind && is_sabbatist(user))
-			target.Stun(3 SECONDS)
-			target.emote("collapse")
-			target.drop_all_held_items()
-
 /obj/item/melee/vampirearms/katana/kosa
 	name = "scythe"
 	desc = "More instrument, than a weapon. Instrumentally cuts heads..."
