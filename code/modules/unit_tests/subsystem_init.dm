@@ -1,7 +1,9 @@
+/// Tests that all subsystems that need to properly initialize.
+/datum/unit_test/subsystem_init
+
 /datum/unit_test/subsystem_init/Run()
-	for(var/i in Master.subsystems)
-		var/datum/controller/subsystem/ss = i
-		if(ss.flags & SS_NO_INIT)
+	for(var/datum/controller/subsystem/subsystem as anything in Master.subsystems)
+		if(subsystem.flags & SS_NO_INIT)
 			continue
 		if(subsystem.initialized)
 			continue
