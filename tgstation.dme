@@ -3769,7 +3769,6 @@
 #include "interface\interface.dm"
 #include "interface\menu.dm"
 #include "interface\stylesheet.dm"
-#include "interface\skin.dmf"
 #include "modular_tfn\master_files\code\modules\client\preferences.dm"
 #include "modular_tfn\master_files\code\modules\mob\living\carbon\human\human_defines.dm"
 #include "modular_tfn\modules\alt_job_titles\alt_job_titles.dm"
@@ -3803,4 +3802,5 @@
 #include "modular_tfn\modules\vitae\code\embracing.dm"
 #include "modular_tfn\modules\vitae\code\ghouling.dm"
 #include "modular_tfn\modules\vitae\code\vitae.dm"
+#include "interface\skin.dmf"
 // END_INCLUDE
