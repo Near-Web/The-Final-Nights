@@ -85,6 +85,6 @@
 	cost = 3
 
 /datum/gear/general/cane
-    display_name = "cane"
+	display_name = "cane"
 	path = /obj/item/cane
 	cost = 3
