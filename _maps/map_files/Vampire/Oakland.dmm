@@ -13668,6 +13668,14 @@
 	},
 /turf/open/floor/plating/stone,
 /area/vtm/forest/caves)
+"dUF" = (
+/obj/structure/vampdoor/wood{
+	lock_id = "clerk";
+	locked = 1;
+	lockpick_difficulty = 16
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/vtm/interior/millennium_tower)
 "dUG" = (
 /obj/machinery/light/prince{
 	dir = 4;
@@ -58553,7 +58561,7 @@
 	dir = 4
 	},
 /obj/structure/vampdoor/wood{
-	lock_id = "clerk";
+	lock_id = "camarilla";
 	locked = 1;
 	lockpick_difficulty = 16;
 	dir = 4
@@ -76938,6 +76946,14 @@
 /obj/structure/vamptree/pine,
 /turf/open/floor/plating/vampgrass,
 /area/vtm)
+"vBs" = (
+/obj/structure/fluff/hedge,
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 4
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/millennium_tower)
 "vBz" = (
 /turf/open/floor/plating,
 /area/vtm/clinic/haven)
@@ -85279,6 +85295,19 @@
 	},
 /turf/open/floor/plating/toilet,
 /area/vtm/interior/endron_facility/restricted)
+"xVo" = (
+/obj/structure/reagent_dispensers/water_cooler{
+	pixel_y = 23;
+	density = 0;
+	pixel_x = -1
+	},
+/obj/item/kirbyplants{
+	icon_state = "plant4";
+	pixel_y = 15;
+	pixel_x = 9
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/vtm/interior/millennium_tower)
 "xVt" = (
 /obj/structure/table/wood/fancy/red,
 /obj/effect/turf_decal/siding/wood{
@@ -151590,8 +151619,8 @@ ijJ
 ijJ
 ijJ
 nZc
-tLn
 dda
+vBs
 hYC
 vqJ
 iAX
@@ -151792,7 +151821,7 @@ ijJ
 ijJ
 ijJ
 ijJ
-ijJ
+dUF
 ijJ
 ijJ
 ijJ
@@ -151994,8 +152023,8 @@ ijJ
 ijJ
 ijJ
 ijJ
-ijJ
-ijJ
+dda
+xVo
 ijJ
 cMx
 iAX
