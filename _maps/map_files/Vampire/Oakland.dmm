@@ -11299,8 +11299,10 @@
 /area/vtm/cabdepot)
 "dky" = (
 /obj/structure/table/wood,
-/obj/machinery/fax/police{
-	pixel_y = 7
+/obj/machinery/fax{
+	visible_to_network = 0;
+	special_networks = list(list("fax_name" = "Federal Government", "fax_id" = "policeadmin", "color" = "blue", "emag_needed" = 0));
+	pixel_y = 5
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police/fed)
@@ -37091,7 +37093,10 @@
 /area/vtm/pacificheights/industrial)
 "kxT" = (
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/stack/dollar/thousand,
+/obj/machinery/fax/camarilla{
+	pixel_y = 7;
+	layer = 3
+	},
 /turf/open/floor/carpet/royalblack,
 /area/vtm/interior/millennium_tower/f3)
 "kxY" = (
@@ -46121,6 +46126,7 @@
 	color = "#636363";
 	dir = 10
 	},
+/obj/item/stack/dollar/thousand,
 /turf/open/floor/carpet/royalblack,
 /area/vtm/interior/millennium_tower/f3)
 "mVn" = (
@@ -48676,13 +48682,6 @@
 	color = "#919191"
 	},
 /area/vtm/interior/giovanni)
-"nFz" = (
-/obj/structure/table/wood,
-/obj/machinery/fax/police{
-	pixel_y = 7
-	},
-/turf/open/floor/plating/parquetry/old,
-/area/vtm/interior/police/court)
 "nFA" = (
 /obj/effect/decal/bordur{
 	dir = 4
@@ -78885,10 +78884,6 @@
 /area/vtm/interior)
 "weB" = (
 /obj/structure/table,
-/obj/machinery/fax/camarilla{
-	pixel_y = 7;
-	layer = 3
-	},
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior/millennium_tower)
 "weF" = (
@@ -138541,7 +138536,7 @@ lLO
 abg
 abg
 psa
-nFz
+fOO
 iRM
 dAL
 tao
