@@ -7799,6 +7799,10 @@
 	color = "#8a8a8a"
 	},
 /area/vtm)
+"clo" = (
+/obj/structure/window/reinforced/tinted/spawner/directional/west,
+/turf/closed/wall/vampwall/market/low/window,
+/area/vtm/interior/police)
 "clE" = (
 /obj/structure/vampdoor/old{
 	dir = 8;
@@ -11039,7 +11043,7 @@
 /area/vtm/pacificheights)
 "dgq" = (
 /obj/structure/rack/bubway/horizontal,
-/obj/structure/window{
+/obj/structure/window/spawner/directional/south{
 	pixel_y = 8
 	},
 /turf/open/floor/plating/circled,
@@ -18950,7 +18954,7 @@
 /area/vtm/sewer/police)
 "fsF" = (
 /obj/structure/rack/bubway/horizontal,
-/obj/structure/window,
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/plating/circled,
 /area/vtm/interior/shop)
 "fsK" = (
@@ -19510,19 +19514,6 @@
 /obj/effect/decal/litter,
 /turf/open/floor/plating/concrete,
 /area/vtm/sewer/nosferatu_bar)
-"fBF" = (
-/obj/effect/decal/pallet,
-/obj/structure/closet/crate/large{
-	anchored = 1
-	},
-/obj/structure/closet/crate/large{
-	pixel_y = 11;
-	plane = 3;
-	pixel_x = 17;
-	anchored = 1
-	},
-/turf/open/floor/plating/concrete,
-/area/vtm/anarch)
 "fBG" = (
 /obj/structure/curtain/bounty{
 	pixel_y = -27
@@ -21659,10 +21650,6 @@
 /obj/machinery/light{
 	pixel_y = 32
 	},
-/obj/structure/window/reinforced/tinted{
-	dir = 8;
-	pixel_y = 15
-	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police)
 "giN" = (
@@ -21973,9 +21960,7 @@
 	dir = 1
 	},
 /obj/item/soap/nanotrasen,
-/obj/structure/window{
-	dir = 4
-	},
+/obj/structure/window/spawner/directional/east,
 /turf/open/floor/plating/concrete{
 	icon_state = "canal_concrete"
 	},
@@ -23498,9 +23483,7 @@
 	pixel_y = 15;
 	density = 0
 	},
-/obj/structure/window{
-	dir = 4
-	},
+/obj/structure/window/spawner/directional/east,
 /turf/open/floor/plating/industrial,
 /area/vtm/sewer/nosferatu_warren)
 "gKx" = (
@@ -24469,16 +24452,6 @@
 /obj/item/clothing/under/vampire/burlesque/daisyd,
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/strip)
-"gZd" = (
-/obj/structure/chair{
-	dir = 8
-	},
-/obj/structure/window/reinforced/tinted{
-	dir = 8;
-	pixel_y = 15
-	},
-/turf/open/floor/plating/parquetry/old,
-/area/vtm/interior/police)
 "gZf" = (
 /turf/open/floor/carpet/black,
 /area/vtm/interior)
@@ -26724,6 +26697,13 @@
 /area/vtm/interior/strip)
 "hGl" = (
 /obj/effect/landmark/start/emissary,
+/obj/structure/closet/crate/large{
+	pixel_y = 43;
+	plane = 3;
+	pixel_x = 17;
+	anchored = 1;
+	density = 0
+	},
 /turf/open/floor/plating/concrete,
 /area/vtm/anarch)
 "hGm" = (
@@ -27130,14 +27110,6 @@
 "hLG" = (
 /obj/effect/decal/pallet,
 /obj/item/toy/rubberpig,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/vampdoor/wood/millennium_common,
-/obj/effect/turf_decal/siding/white{
-	color = "#828282"
-	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
 "hLQ" = (
@@ -30339,7 +30311,8 @@
 "iEy" = (
 /obj/machinery/door/poddoor/shutters/armory{
 	damage_deflection = 60;
-	max_integrity = 300
+	max_integrity = 300;
+	name = "Armory shutter"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f2)
@@ -32885,6 +32858,13 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/financialdistrict)
 "jnW" = (
+/obj/structure/closet/crate/large{
+	pixel_y = -21;
+	plane = 3;
+	pixel_x = 17;
+	anchored = 1;
+	density = 0
+	},
 /turf/open/floor/plating/concrete{
 	color = "#9c8064"
 	},
@@ -38615,12 +38595,6 @@
 /obj/structure/closet/crate/large{
 	anchored = 1
 	},
-/obj/structure/closet/crate/large{
-	pixel_y = 11;
-	plane = 3;
-	pixel_x = 17;
-	anchored = 1
-	},
 /turf/open/floor/plating/vampdirt,
 /area/vtm/interior/apartment)
 "kTT" = (
@@ -40746,10 +40720,10 @@
 /area/vtm/interior/ghetto)
 "lxU" = (
 /obj/structure/rack/bubway/horizontal,
-/obj/structure/window,
 /obj/item/food/sandwich{
 	pixel_y = 13
 	},
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/plating/circled,
 /area/vtm/interior/shop)
 "lxX" = (
@@ -42207,7 +42181,7 @@
 	dir = 4;
 	pixel_y = 4
 	},
-/obj/structure/window,
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/plating/industrial,
 /area/vtm/sewer/nosferatu_warren)
 "lUR" = (
@@ -44720,10 +44694,8 @@
 /area/vtm/financialdistrict)
 "mCO" = (
 /obj/structure/rack/bubway/horizontal,
-/obj/structure/window,
-/obj/structure/window{
-	dir = 8
-	},
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/plating/circled,
 /area/vtm/interior/shop)
 "mCU" = (
@@ -51996,21 +51968,15 @@
 "ovi" = (
 /obj/structure/lattice/pentex,
 /obj/structure/table,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/item/blood_hunt,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/white{
 	color = "#636363";
 	dir = 5
 	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/vtm/interior/millennium_tower/f3)
 "ovk" = (
@@ -52244,7 +52210,7 @@
 /obj/machinery/door/poddoor/shutters/armory{
 	damage_deflection = 60;
 	max_integrity = 300;
-	name = "panic room shutters";
+	name = "Panic room shutter";
 	id = 12
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -58594,11 +58560,9 @@
 /obj/effect/vip_barrier/elysium{
 	dir = 4
 	},
-/obj/structure/vampdoor/wood{
-	lock_id = "milleniumCommon";
-	locked = 1;
+/obj/structure/vampdoor/wood/millennium_common{
 	lockpick_difficulty = 16;
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower)
@@ -66915,12 +66879,8 @@
 /area/vtm/northbeach)
 "sCJ" = (
 /obj/effect/decal/trash,
-/obj/structure/closet/crate/large,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/closet/crate/large{
-	plane = 4.2;
-	pixel_y = 10
-	},
+/obj/structure/closet/crate/large,
 /turf/open/floor/plating/rough/cave{
 	icon_state = "stone4"
 	},
@@ -68097,15 +68057,11 @@
 /turf/open/floor/plating/vampdirt,
 /area/vtm/sewer/nosferatu_warren)
 "sUC" = (
-/obj/structure/closet/crate/large,
-/obj/structure/closet/crate/large{
-	plane = 4.2;
-	pixel_y = 10
-	},
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
 	},
 /obj/machinery/camera/directional/west,
+/obj/structure/closet/crate/large,
 /turf/open/floor/plating/rough/cave{
 	icon_state = "stone4"
 	},
@@ -73727,10 +73683,6 @@
 /obj/effect/landmark/start{
 	name = "Police Officer"
 	},
-/obj/structure/window/reinforced/tinted{
-	dir = 8;
-	pixel_y = 15
-	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police)
 "uzG" = (
@@ -75982,14 +75934,10 @@
 /area/vtm/interior/apartment)
 "vhn" = (
 /obj/structure/table/wood/fancy/red,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/item/stack/sheet/mineral/diamond,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/bianchiBank)
 "vhq" = (
@@ -143505,9 +143453,9 @@ dmN
 evC
 kEa
 wEL
-mgr
-mgr
-mgr
+clo
+clo
+clo
 dmN
 fII
 fII
@@ -143708,7 +143656,7 @@ iCq
 fII
 dmN
 giw
-gZd
+epr
 uzE
 dmN
 gRl
@@ -167025,7 +166973,7 @@ bvj
 iWP
 eDU
 hVp
-fBF
+qll
 hGl
 wSy
 tmk
