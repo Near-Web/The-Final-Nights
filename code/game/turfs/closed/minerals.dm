@@ -94,10 +94,11 @@
 	for(var/obj/effect/temp_visual/mining_overlay/M in src)
 		qdel(M)
 	var/flags = NONE
+	var/old_type = type
 	if(defer_change) // TODO: make the defer change var a var for any changeturf flag
 		flags = CHANGETURF_DEFER_CHANGE
 	ScrapeAway(null, flags)
-	addtimer(CALLBACK(src, PROC_REF(AfterChange)), 1, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(AfterChange), flags, old_type), 1, TIMER_UNIQUE)
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE) //beautiful destruction
 
 /turf/closed/mineral/attack_animal(mob/living/simple_animal/user, list/modifiers)
@@ -168,8 +169,8 @@
 		var/path = pickweight(mineralSpawnChanceList)
 		if(ispath(path, /turf))
 			var/stored_flags = 0
-			if(flags_1 & NO_RUINS_1)
-				stored_flags |= NO_RUINS_1
+			if(turf_flags & NO_RUINS)
+				stored_flags |= NO_RUINS
 			var/turf/T = ChangeTurf(path,null,CHANGETURF_IGNORE_AIR)
 			T.flags_1 |= stored_flags
 
@@ -212,6 +213,14 @@
 		/obj/item/stack/ore/uranium = 2, /obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 4, /obj/item/stack/ore/titanium = 4,
 		/obj/item/stack/ore/silver = 6, /obj/item/stack/ore/plasma = 15, /obj/item/stack/ore/iron = 40,
 		/turf/closed/mineral/gibtonite = 2, /obj/item/stack/ore/bluespace_crystal = 1)
+
+//extremely low chance of rare ores, meant mostly for populating stations with large amounts of asteroid
+/turf/closed/mineral/random/stationside
+	icon_state = "rock_nochance"
+	mineralChance = 4
+	mineralSpawnChanceList = list(
+		/obj/item/stack/ore/uranium = 1, /obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 3, /obj/item/stack/ore/titanium = 5,
+		/obj/item/stack/ore/silver = 4, /obj/item/stack/ore/plasma = 3, /obj/item/stack/ore/iron = 50)
 
 /turf/closed/mineral/random/volcanic
 	environment_type = "basalt"
@@ -452,6 +461,21 @@
 	baseturfs = /turf/open/floor/plating/asteroid/snow/ice/icemoon
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice/icemoon
 
+//yoo RED ROCK RED ROCK
+
+/turf/closed/mineral/asteroid
+	name = "iron rock"
+	icon = 'icons/turf/mining.dmi'
+	icon_state = "redrock"
+	smooth_icon = 'icons/turf/walls/red_wall.dmi'
+	base_icon_state = "red_wall"
+
+/turf/closed/mineral/random/stationside/asteroid
+	name = "iron rock"
+	icon = 'icons/turf/mining.dmi'
+	smooth_icon = 'icons/turf/walls/red_wall.dmi'
+	base_icon_state = "red_wall"
+
 //GIBTONITE
 
 /turf/closed/mineral/gibtonite
@@ -535,11 +559,11 @@
 			G.icon_state = "Gibtonite ore 2"
 
 	var/flags = NONE
-	if(defer_change)
+	var/old_type = type
+	if(defer_change) // TODO: make the defer change var a var for any changeturf flag
 		flags = CHANGETURF_DEFER_CHANGE
 	ScrapeAway(null, flags)
-	addtimer(CALLBACK(src, PROC_REF(AfterChange)), 1, TIMER_UNIQUE)
-
+	addtimer(CALLBACK(src, PROC_REF(AfterChange), flags, old_type), 1, TIMER_UNIQUE)
 
 /turf/closed/mineral/gibtonite/volcanic
 	environment_type = "basalt"
@@ -591,10 +615,11 @@
 	drop_ores()
 	H.client.give_award(/datum/award/achievement/skill/legendary_miner, H)
 	var/flags = NONE
+	var/old_type = type
 	if(defer_change) // TODO: make the defer change var a var for any changeturf flag
 		flags = CHANGETURF_DEFER_CHANGE
-	ScrapeAway(flags=flags)
-	addtimer(CALLBACK(src, PROC_REF(AfterChange)), 1, TIMER_UNIQUE)
+	ScrapeAway(null, flags)
+	addtimer(CALLBACK(src, PROC_REF(AfterChange), flags, old_type), 1, TIMER_UNIQUE)
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE) //beautiful destruction
 	H.mind?.adjust_experience(/datum/skill/mining, 100) //yay!
 

@@ -261,6 +261,45 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/maintenance/space_hut/observatory
 	name = "Space Observatory"
 
+/area/maintenance/tram
+	name = "Primary Tram Maintenance"
+
+/area/maintenance/tram/left
+	name = "Port Tram Underpass"
+	icon_state = "mainttramL"
+
+/area/maintenance/tram/mid
+	name = "Central Tram Underpass"
+	icon_state = "mainttramM"
+
+/area/maintenance/tram/right
+	name = "Starboard Tram Underpass"
+	icon_state = "mainttramR"
+
+//Radation storm shelter
+/area/maintenance/radshelter
+	name = "Radstorm Shelter"
+	icon_state = "green"
+
+/area/maintenance/radshelter/medical
+	name = "Medical Radstorm Shelter"
+
+/area/maintenance/radshelter/sec
+	name = "Security Radstorm Shelter"
+
+/area/maintenance/radshelter/service
+	name = "Service Radstorm Shelter"
+
+/area/maintenance/radshelter/civil
+	name = "Civilian Radstorm Shelter"
+
+/area/maintenance/radshelter/sci
+	name = "Science Radstorm Shelter"
+
+/area/maintenance/radshelter/cargo
+	name = "Cargo Radstorm Shelter"
+
+
 //Hallway
 /area/hallway
 	sound_environment = SOUND_AREA_STANDARD_STATION
@@ -292,6 +331,20 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Upper Central Primary Hallway"
 	icon_state = "hallC"
 
+/area/hallway/primary/tram
+	name = "Primary Tram"
+
+/area/hallway/primary/tram/left
+	name = "Port Tram Dock"
+	icon_state = "halltramL"
+
+/area/hallway/primary/tram/center
+	name = "Central Tram Dock"
+	icon_state = "halltramM"
+
+/area/hallway/primary/tram/right
+	name = "Starboard Tram Dock"
+	icon_state = "halltramR"
 
 /area/hallway/secondary/command
 	name = "Command Hallway"
@@ -300,6 +353,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/hallway/secondary/construction
 	name = "Construction Area"
 	icon_state = "construction"
+
+/area/hallway/secondary/construction/engineering
+	name = "Engineering Hallway"
 
 /area/hallway/secondary/exit
 	name = "Escape Shuttle Hallway"
@@ -507,7 +563,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	mood_bonus = 5
 	mood_message = "<span class='nicegreen'>I love being in the library!</span>\n"
 	mood_trait = TRAIT_INTROVERT
-	flags_1 = CULT_PERMITTED_1
+	area_flags = CULT_PERMITTED
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 
 /area/library/lounge
@@ -534,7 +590,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/library/abandoned
 	name = "Abandoned Library"
 	icon_state = "abandoned_library"
-	flags_1 = CULT_PERMITTED_1
+	area_flags = CULT_PERMITTED
 
 /area/chapel
 	icon_state = "chapel"
@@ -591,7 +647,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/engine/atmos
 	name = "Atmospherics"
 	icon_state = "atmos"
-	flags_1 = CULT_PERMITTED_1
+	area_flags = CULT_PERMITTED
 
 /area/engine/atmos/upper
 	name = "Upper Atmospherics"
@@ -822,7 +878,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/medical/virology
 	name = "Virology"
 	icon_state = "virology"
-	flags_1 = CULT_PERMITTED_1
+	area_flags = CULT_PERMITTED
 
 /area/medical/morgue
 	name = "Morgue"
@@ -1073,7 +1129,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/janitor
 	name = "Custodial Closet"
 	icon_state = "janitor"
-	flags_1 = CULT_PERMITTED_1
+	flags_1 = CULT_PERMITTED
 	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
@@ -1108,6 +1164,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "science"
 	airlock_wires = /datum/wires/airlock/science
 	sound_environment = SOUND_AREA_STANDARD_STATION
+
+/area/science/breakroom
+	name = "Science Break Room"
 
 /area/science/lab
 	name = "Research and Development"
