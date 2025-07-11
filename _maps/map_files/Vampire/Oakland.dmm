@@ -55886,6 +55886,7 @@
 /obj/effect/decal/trash{
 	icon_state = "trash7"
 	},
+/obj/structure/bed/maint,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -144936,8 +144937,8 @@ fII
 fII
 mPb
 bQa
-mbP
 fhz
+mbP
 dmN
 aEA
 pVW
@@ -145745,7 +145746,7 @@ fII
 mPb
 mbP
 pzP
-fhz
+mbP
 dmN
 qmc
 fxv
