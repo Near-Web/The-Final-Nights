@@ -13994,8 +13994,9 @@
 	},
 /area/vtm/interior/nosferatu_office)
 "ead" = (
-/obj/structure/vampdoor/wood{
-	dir = 8
+/obj/structure/vampdoor/nps{
+	lockpick_difficulty = 16;
+	dir = 4
 	},
 /turf/open/floor/plating/woodrough,
 /area/vtm/interior/ranger)
