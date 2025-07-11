@@ -43,8 +43,3 @@
 	locked = TRUE
 	lock_id = "cappadocian"
 	lockpick_difficulty = 8
-
-/obj/structure/vampdoor/wood/millennium_common
-	locked = TRUE
-	lock_id = "milleniumCommon"
-	lockpick_difficulty = 12
