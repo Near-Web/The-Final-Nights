@@ -551,7 +551,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/plasma/reinforced/spawner, 0)
 /obj/structure/window/reinforced/tinted
 	name = "tinted window"
 	icon_state = "twindow"
-	opacity = TRUE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/spawner, 0)
 
