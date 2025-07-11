@@ -4676,6 +4676,9 @@
 /obj/item/ammo_box/magazine/vampaug{
 	pixel_y = -8
 	},
+/obj/keypad/armory{
+	pixel_y = 30
+	},
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "btg" = (
@@ -77853,8 +77856,8 @@
 /obj/machinery/door/poddoor/shutters/armory{
 	damage_deflection = 60;
 	max_integrity = 300;
-	id = 12;
-	name = "shutters"
+	name = "panic room shutters";
+	id = 12
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f3)
