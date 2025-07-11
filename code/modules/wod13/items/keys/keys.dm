@@ -327,6 +327,13 @@
 	)
 	color = "#99620e"
 
+/obj/item/vamp/keys/sabbat
+	name = "Dirty keys"
+	accesslocks = list(
+		"sabbat"
+	)
+	color = "#6a2e1d"
+
 //===========================CLINIC KEYS===========================
 
 /obj/item/vamp/keys/mortician // same as clinic but here for future stuff
@@ -400,7 +407,15 @@
 		"laundromat"
 	)
 
-//GAROU KEYS
+//===========================GAROU KEYS===========================
+
+/obj/item/vamp/keys/nps
+	name = "Park Service keys"
+	accesslocks = list(
+		"nps"
+	)
+	color = "#1e7531"
+
 /obj/item/vamp/keys/techstore
 	name = "Tech Store keys"
 	accesslocks = list(
@@ -412,6 +427,14 @@
 	name = "Endron Facility keys"
 	accesslocks = list(
 		"pentex"
+	)
+	color = "#062e03"
+
+/obj/item/vamp/keys/pentex/leader
+	name = "Endron Management keys"
+	accesslocks = list(
+		"pentex",
+		"pentexleader"
 	)
 	color = "#062e03"
 
