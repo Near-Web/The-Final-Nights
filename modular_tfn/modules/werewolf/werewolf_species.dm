@@ -43,7 +43,7 @@
 			dat += "[host.real_name],"
 		if(!host.real_name)
 			dat += "Unknown,"
-		dat += " [host.auspice.tribe.name] [host.auspice.base_breed]"
+		dat += " [host.auspice.tribe.name] [host.auspice.breed_form]"
 		if(host.mind)
 
 			if(host.mind.assigned_role)
@@ -137,10 +137,10 @@
 	C.transformator = new(C)
 	C.transformator.human_form = WEAKREF(C)
 
-	var/mob/living/simple_animal/werewolf/lupus/lupus = C.transformator.lupus_form?.resolve()
-	var/mob/living/simple_animal/werewolf/crinos/crinos = C.transformator.crinos_form?.resolve()
-	var/mob/living/simple_animal/werewolf/lupus/corvid/corvid = C.transformator.corvid_form?.resolve()
-	var/mob/living/simple_animal/werewolf/corax/corax_crinos/corax_crinos = C.transformator.corax_form?.resolve()
+	var/mob/living/carbon/werewolf/lupus/lupus = C.transformator.lupus_form?.resolve()
+	var/mob/living/carbon/werewolf/crinos/crinos = C.transformator.crinos_form?.resolve()
+	var/mob/living/carbon/werewolf/lupus/corvid/corvid = C.transformator.corvid_form?.resolve()
+	var/mob/living/carbon/werewolf/corax/corax_crinos/corax_crinos = C.transformator.corax_form?.resolve()
 
 	//garou resist vampire bites better than mortals
 	RegisterSignal(C, COMSIG_MOB_VAMPIRE_SUCKED, PROC_REF(on_garou_bitten))
@@ -151,10 +151,10 @@
 
 /datum/species/garou/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
-	var/mob/living/simple_animal/werewolf/lupus/lupus = C.transformator.lupus_form?.resolve()
-	var/mob/living/simple_animal/werewolf/crinos/crinos = C.transformator.crinos_form?.resolve()
-	var/mob/living/simple_animal/werewolf/lupus/corvid/corvid = C.transformator.corvid_form?.resolve()
-	var/mob/living/simple_animal/werewolf/corax/corax_crinos/corax_crinos = C.transformator.corax_form?.resolve()
+	var/mob/living/carbon/werewolf/lupus/lupus = C.transformator.lupus_form?.resolve()
+	var/mob/living/carbon/werewolf/crinos/crinos = C.transformator.crinos_form?.resolve()
+	var/mob/living/carbon/werewolf/lupus/corvid/corvid = C.transformator.corvid_form?.resolve()
+	var/mob/living/carbon/werewolf/corax/corax_crinos/corax_crinos = C.transformator.corax_form?.resolve()
 
 	UnregisterSignal(C, COMSIG_MOB_VAMPIRE_SUCKED)
 	UnregisterSignal(lupus, COMSIG_MOB_VAMPIRE_SUCKED)
@@ -176,14 +176,14 @@
 	if(amount > 0)
 		if(C.auspice.rage < 10)
 			if(sound)
-				SEND_SOUND(C, sound('code/modules/wod13/sounds/rage_increase.ogg', 0, 0, 75))
+				SEND_SOUND(C, sound('code/modules/wod13/sounds/rage_increase.ogg', 0, 0, 50))
 			to_chat(C, "<span class='userdanger'><b>RAGE INCREASES</b></span>")
 			C.auspice.rage = min(10, C.auspice.rage+amount)
 	if(amount < 0)
 		if(C.auspice.rage > 0)
 			C.auspice.rage = max(0, C.auspice.rage+amount)
 			if(sound)
-				SEND_SOUND(C, sound('code/modules/wod13/sounds/rage_decrease.ogg', 0, 0, 75))
+				SEND_SOUND(C, sound('code/modules/wod13/sounds/rage_decrease.ogg', 0, 0, 50))
 			to_chat(C, "<span class='userdanger'><b>RAGE DECREASES</b></span>")
 	C.update_rage_hud()
 
@@ -191,14 +191,14 @@
 	if(amount > 0)
 		if(C.auspice.gnosis < C.auspice.start_gnosis)
 			if(sound)
-				SEND_SOUND(C, sound('code/modules/wod13/sounds/humanity_gain.ogg', 0, 0, 75))
+				SEND_SOUND(C, sound('code/modules/wod13/sounds/humanity_gain.ogg', 0, 0, 50))
 			to_chat(C, "<span class='boldnotice'><b>GNOSIS INCREASES</b></span>")
 			C.auspice.gnosis = min(C.auspice.start_gnosis, C.auspice.gnosis+amount)
 	if(amount < 0)
 		if(C.auspice.gnosis > 0)
 			C.auspice.gnosis = max(0, C.auspice.gnosis+amount)
 			if(sound)
-				SEND_SOUND(C, sound('code/modules/wod13/sounds/rage_decrease.ogg', 0, 0, 75))
+				SEND_SOUND(C, sound('code/modules/wod13/sounds/rage_decrease.ogg', 0, 0, 50))
 			to_chat(C, "<span class='boldnotice'><b>GNOSIS DECREASES</b></span>")
 	C.update_rage_hud()
 
