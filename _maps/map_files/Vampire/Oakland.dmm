@@ -61945,6 +61945,19 @@
 "reP" = (
 /turf/open/floor/carpet/royalblue,
 /area/vtm/clinic/haven)
+"reR" = (
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/large{
+	anchored = 1
+	},
+/obj/structure/closet/crate/large{
+	pixel_y = 11;
+	pixel_x = 17;
+	anchored = 1;
+	plane = 1
+	},
+/turf/open/floor/plating/rough,
+/area/vtm/interior)
 "reZ" = (
 /obj/effect/decal/wallpaper/grey{
 	color = "#6d6d6d"
@@ -139632,7 +139645,7 @@ uDw
 tow
 tao
 ajj
-oNt
+reR
 eWf
 eWf
 ajj
@@ -140239,7 +140252,7 @@ aAY
 tao
 ajj
 eWf
-oNt
+reR
 eWf
 ajj
 eXV
