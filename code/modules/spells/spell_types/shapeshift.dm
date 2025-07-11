@@ -191,9 +191,17 @@
 	else if(source.convert_damage)
 		stored.revive(full_heal = TRUE, admin_revive = FALSE)
 
-		var/damage_percent = (shape.maxHealth - shape.health)
+		var/dam_percentage = ((shape.health / shape.maxHealth) * 100) // getting percentage of your current hp compared to max HP in shape form
+		var/percent_carbon = (stored.maxHealth * dam_percentage) //this will get the HP remaining left you have in carbon form at base
+		var/gross_damage = (stored.maxHealth - percent_carbon) //This will give you the relative percentage damage you'd take once transforming back
+/* EXAMPLE CALCULATION
+dama_percentage = ( 1 (current HP) / 1000 (max hp) ) * 100 = 0.1
+percent_carbon = 100 * 0.1 = 10
+gross_damage = 100 - 10 = 90
 
-		stored.apply_damage(damage_percent, source.convert_damage_type, forced = TRUE, wound_bonus=CANT_WOUND)
+Result: you take at least 90 damage when you trasnform back
+*/
+		stored.apply_damage(gross_damage, source.convert_damage_type, forced = TRUE, wound_bonus=CANT_WOUND)
 //	if(source.convert_damage)
 //		stored.blood_volume = shape.blood_volume;
 
