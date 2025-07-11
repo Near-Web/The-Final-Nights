@@ -27265,12 +27265,7 @@
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/financialdistrict)
 "hLG" = (
-/obj/structure/vampdoor/wood{
-	dir = 1;
-	locked = 1;
-	lock_id = "milleniumCommon";
-	lockpick_difficulty = 12
-	},
+/obj/structure/vampdoor/wood/millennium_common,
 /obj/effect/turf_decal/siding/white{
 	color = "#828282"
 	},
