@@ -6,7 +6,7 @@
 #ifndef LOWMEMORYMODE
 	#ifdef ALL_MAPS
 		#include "map_files\Vampire\runtimetown.dmm"
-		#include "map_files\Vampire\Oakland.dmm"
+		#include "map_files\Vampire\SanFransisco.dmm"
 		#ifdef CIBUILDING
 			#include "templates.dm"
 		#endif

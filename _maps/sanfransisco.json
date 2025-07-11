@@ -1,8 +1,8 @@
 {
 	"version": 1,
-	"map_name": "Oakland",
+	"map_name": "San Fransisco",
 	"map_path": "map_files/Vampire",
-	"map_file": "Oakland.dmm",
+	"map_file": "SanFransisco.dmm",
 	"traits": [
 		{
 			"Up": 1,
