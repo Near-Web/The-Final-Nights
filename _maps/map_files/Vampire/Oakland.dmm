@@ -13670,7 +13670,7 @@
 /area/vtm/forest/caves)
 "dUF" = (
 /obj/structure/vampdoor/wood{
-	lock_id = "clerk";
+	lock_id = "camarilla";
 	locked = 1;
 	lockpick_difficulty = 16
 	},
@@ -58561,7 +58561,7 @@
 	dir = 4
 	},
 /obj/structure/vampdoor/wood{
-	lock_id = "camarilla";
+	lock_id = "milleniumCommon";
 	locked = 1;
 	lockpick_difficulty = 16;
 	dir = 4
