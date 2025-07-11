@@ -9116,6 +9116,9 @@
 	pixel_x = -3;
 	pixel_y = 5
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/plating/toilet,
 /area/vtm/interior/shop)
 "cDJ" = (
@@ -13446,6 +13449,13 @@
 /obj/effect/decal/wallpaper/paper/darkgreen/low,
 /turf/closed/wall/vampwall/rich/old/low/window,
 /area/vtm/interior/endron_facility/restricted)
+"dRo" = (
+/obj/structure/closet/secure_closet/freezer/meat/open,
+/obj/machinery/light{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/shop)
 "dRx" = (
 /obj/structure/vampipe{
 	icon_state = "piping24";
@@ -34196,6 +34206,14 @@
 "jJA" = (
 /turf/closed/wall/vampwall/junk/alt/low/window,
 /area/vtm/sewer)
+"jJD" = (
+/obj/machinery/light{
+	dir = 4;
+	light_color = "#6488EA";
+	bulb_colour = "#9400cf"
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/shop)
 "jJF" = (
 /obj/structure/table/wood/fancy/red,
 /obj/machinery/fax/tremere,
@@ -35034,6 +35052,16 @@
 /obj/item/instrument/trombone,
 /turf/open/floor/plating/granite/black,
 /area/vtm/jazzclub)
+"jWg" = (
+/obj/structure/chair/wood{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/machinery/light{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/shop)
 "jWj" = (
 /obj/structure/toilet{
 	dir = 8;
@@ -57601,7 +57629,7 @@
 "pZn" = (
 /obj/fusebox/transformer,
 /turf/open/floor/plating/rough,
-/area/vtm/interior/banu)
+/area/vtm/interior/endron_facility/restricted)
 "pZu" = (
 /turf/closed/wall/vampwall/city,
 /area/vtm/interior)
@@ -78669,6 +78697,16 @@
 /obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/ghetto)
+"vZA" = (
+/obj/structure/chair/wood{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/shop)
 "vZC" = (
 /obj/structure/railing/metal{
 	dir = 1
@@ -158370,11 +158408,11 @@ vBh
 mWO
 oSB
 sZR
-tUM
+jWg
 tUM
 xQB
 xQB
-tUM
+vZA
 sWU
 dCc
 tJf
@@ -159585,7 +159623,7 @@ sZR
 mnm
 crF
 bzi
-xQB
+jJD
 oCz
 sWU
 vtC
@@ -160188,7 +160226,7 @@ mWO
 mWO
 yfB
 sZR
-pBI
+dRo
 weZ
 rzx
 aYw
