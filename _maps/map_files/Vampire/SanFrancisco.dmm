@@ -19102,10 +19102,6 @@
 /obj/item/vamp/keys/sabbat,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/sabbat_lair)
-"fsr" = (
-/mob/living/simple_animal/hostile/gorilla,
-/turf/open/floor/plating/toilet,
-/area/vtm/clinic/haven)
 "fsu" = (
 /obj/structure/bookcase/random/kindred,
 /turf/open/floor/plating/parquetry/old,
@@ -51224,7 +51220,6 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/pacificheights)
 "ogu" = (
-/mob/living/simple_animal/hostile/retaliate/clown,
 /obj/item/toy/figure/clown{
 	pixel_x = -13
 	},
@@ -121553,7 +121548,7 @@ kpw
 kpw
 eIj
 guf
-fsr
+guf
 cvX
 pKq
 gyu
