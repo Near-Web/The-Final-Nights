@@ -5185,6 +5185,16 @@
 	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/park)
+"byZ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#574d46"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/chantry)
 "bze" = (
 /obj/structure/closet/crate/freezer/fridge,
 /obj/item/reagent_containers/food/drinks/beer/vampire,
@@ -44193,6 +44203,16 @@
 	color = "#919191"
 	},
 /area/vtm/interior/police/upstairs)
+"mqw" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 10;
+	color = "#574d46"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/chantry)
 "mqE" = (
 /obj/effect/decal/bordur{
 	dir = 1
@@ -80943,6 +80963,13 @@
 	},
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/tzimisce_manor)
+"wzj" = (
+/obj/structure/fluff/hedge,
+/obj/machinery/light{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/chantry)
 "wzk" = (
 /obj/manholedown,
 /obj/effect/decal/pallet,
@@ -82734,6 +82761,9 @@
 	dir = 9;
 	color = "#574d46"
 	},
+/obj/machinery/light{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet,
 /area/vtm/interior/chantry)
 "wYI" = (
@@ -83176,6 +83206,13 @@
 	},
 /turf/open/floor/plating/woodrough,
 /area/vtm)
+"xej" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_y = 16
+	},
+/turf/open/openspace,
+/area/vtm/interior/chantry)
 "xep" = (
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#802d29";
@@ -83654,6 +83691,12 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/laundromat)
+"xlw" = (
+/obj/machinery/light{
+	pixel_y = 32
+	},
+/turf/open/openspace,
+/area/vtm/interior/chantry)
 "xly" = (
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#004136";
@@ -86253,6 +86296,13 @@
 	color = "#bfbfbf"
 	},
 /area/vtm/interior/tzimisce_manor)
+"xZt" = (
+/obj/structure/bookcase/random,
+/obj/machinery/light{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/chantry)
 "xZA" = (
 /obj/structure/roofstuff/alt1,
 /obj/effect/decal/bordur{
@@ -192091,19 +192141,19 @@ mjT
 mjT
 mjT
 oab
-kEM
+wzj
 pdZ
 pdZ
 pdZ
 oab
-pdZ
+xZt
 jjR
 jjR
 pdZ
 sgk
 dKT
 wfD
-gRO
+mqw
 oab
 mjT
 mjT
@@ -193712,14 +193762,14 @@ oSS
 jJF
 oab
 oab
-gZQ
+xlw
 gZQ
 gZQ
 oTa
 jFz
 jFz
 jFz
-jFz
+byZ
 oab
 mjT
 mjT
@@ -195125,11 +195175,11 @@ gZQ
 gZQ
 gZQ
 gZQ
+xej
 gZQ
 gZQ
 gZQ
-gZQ
-gZQ
+xej
 gZQ
 gZQ
 gZQ
