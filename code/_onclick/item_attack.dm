@@ -346,22 +346,6 @@
 				if(glasses && prob(33))
 					glasses.add_mob_blood(src)
 
-			if(!attacking_item.get_sharpness() && armor_block < 50)
-				if(prob(damage_done))
-					adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
-					if(stat == CONSCIOUS)
-						visible_message(
-							span_danger("[src] is knocked senseless!"),
-							span_userdanger("You're knocked senseless!"),
-						)
-						if(get_confusion() < 20 SECONDS)
-							set_confusion(20 SECONDS)
-						adjust_blurriness(20 SECONDS)
-					if(prob(10))
-						gain_trauma(/datum/brain_trauma/mild/concussion)
-				else
-					adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_done * 0.2)
-
 				// rev deconversion through blunt trauma.
 				// this can be signalized to the rev datum
 				if(mind && stat == CONSCIOUS && src != attacker && prob(damage_done + ((100 - health) * 0.5)))
