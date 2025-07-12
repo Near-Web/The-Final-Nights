@@ -5820,7 +5820,9 @@
 /turf/open/floor/carpet/green,
 /area/vtm/interior/endron_facility/restricted)
 "bHZ" = (
-/obj/structure/bodycontainer/crematorium,
+/obj/structure/bodycontainer/crematorium{
+	id = 11
+	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/vjanitor)
 "bIg" = (
@@ -84752,7 +84754,7 @@
 /area/vtm/pacificheights/industrial)
 "xDz" = (
 /obj/machinery/button/crematorium{
-	id = "cleanatorium";
+	id = 11;
 	pixel_y = 31;
 	pixel_x = -8
 	},
