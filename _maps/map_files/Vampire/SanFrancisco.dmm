@@ -11159,6 +11159,10 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/shop)
+"dgj" = (
+/obj/item/vtm_artifact/rand,
+/turf/open/floor/plating/asphalt,
+/area/vtm)
 "dgk" = (
 /obj/effect/decal/bordur/corner,
 /turf/open/floor/plating/sidewalk,
@@ -12535,6 +12539,14 @@
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
+"dBI" = (
+/obj/effect/decal/bordur,
+/obj/effect/decal/litter,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/financialdistrict/library)
 "dBR" = (
 /obj/structure/flora/ausbushes/leafybush,
 /turf/open/floor/plating/vampgrass,
@@ -30920,6 +30932,16 @@
 /obj/structure/table/wood,
 /turf/open/floor/plating/woodrough,
 /area/vtm/interior/ranger)
+"iIN" = (
+/obj/effect/decal/coastline{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/forest)
 "iIR" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
@@ -32455,6 +32477,13 @@
 	},
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/giovanni/outside)
+"jet" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm/pacificheights/forest)
 "jev" = (
 /obj/effect/turf_decal/siding/white,
 /obj/structure/vampdoor/simple,
@@ -40260,6 +40289,15 @@
 /obj/effect/decal/wallpaper/paper/green,
 /turf/closed/wall/vampwall/redbrick,
 /area/vtm/interior/apartment)
+"llz" = (
+/obj/effect/decal/coastline{
+	dir = 6
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -10
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/pacificheights/forest)
 "llB" = (
 /obj/effect/vip_barrier/giovanni,
 /turf/open/floor/plating/asphalt,
@@ -41157,6 +41195,15 @@
 /obj/effect/decal/rugs,
 /turf/open/floor/plating/rough,
 /area/vtm/sewer/nosferatu_warren)
+"lyN" = (
+/obj/effect/decal/coastline{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -10
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/forest)
 "lyO" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -43046,6 +43093,13 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/hotel)
+"mbN" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/item/vtm_artifact/rand,
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "mbP" = (
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
@@ -43781,6 +43835,15 @@
 "mlb" = (
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/banu/haven)
+"mle" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/obj/machinery/light{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/financialdistrict/library)
 "mlm" = (
 /obj/elevator_door,
 /obj/effect/turf_decal/siding/white,
@@ -45135,6 +45198,12 @@
 /obj/item/flashlight/seclite,
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/endron_facility)
+"mDk" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 13
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm/pacificheights/forest)
 "mDo" = (
 /obj/effect/decal/graffiti,
 /obj/structure/flora/junglebush/large,
@@ -45719,6 +45788,10 @@
 	icon_state = "tree8"
 	},
 /turf/open/floor/plating/vampgrass,
+/area/vtm)
+"mLq" = (
+/obj/item/vtm_artifact/rand,
+/turf/open/floor/plating/stone,
 /area/vtm)
 "mLB" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -47998,6 +48071,12 @@
 /obj/effect/decal/litter,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/cog/caern)
+"nqj" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 13
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm/forest)
 "nqk" = (
 /obj/machinery/light/cold{
 	pixel_y = 32
@@ -50600,6 +50679,12 @@
 /obj/effect/decal/wallpaper/stone/low,
 /turf/closed/wall/vampwall/market,
 /area/vtm/interior)
+"nXm" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -10
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm/pacificheights/forest)
 "nXn" = (
 /obj/item/kirbyplants/random,
 /obj/structure/coclock,
@@ -57405,6 +57490,9 @@
 "pOL" = (
 /obj/effect/decal/coastline{
 	dir = 5
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -10
 	},
 /turf/open/floor/plating/vampgrass,
 /area/vtm/forest)
@@ -73394,6 +73482,13 @@
 /obj/effect/decal/graffiti,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/sewer/nosferatu_warren)
+"ulU" = (
+/obj/effect/decal/bordur,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/financialdistrict/library)
 "ulX" = (
 /obj/effect/decal/bordur{
 	dir = 4
@@ -84139,13 +84234,6 @@
 	},
 /turf/open/floor/plating/toilet,
 /area/vtm/clinic/haven)
-"xrU" = (
-/obj/structure/vampipe{
-	icon_state = "piping31"
-	},
-/obj/effect/landmark/latejoin_masquerade,
-/turf/open/floor/plating/vampcanal,
-/area/vtm/sewer)
 "xrX" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -85616,6 +85704,15 @@
 /obj/structure/table/wood,
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/endron_facility/restricted)
+"xOc" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/financialdistrict/library)
 "xOe" = (
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate/large{
@@ -89064,9 +89161,9 @@ xfw
 xfw
 rCB
 tuX
-kSq
+aej
 vFf
-xrU
+kRM
 tuX
 rCB
 xfw
@@ -89342,7 +89439,7 @@ rCB
 tuX
 kSq
 vFf
-xrU
+kRM
 tuX
 rCB
 xfw
@@ -122609,7 +122706,7 @@ hZw
 acw
 kFt
 cQX
-aiv
+acw
 xpC
 ilX
 ilX
@@ -131946,7 +132043,7 @@ dIO
 dIO
 dIO
 dIO
-dIO
+mDk
 xoY
 jTm
 vGA
@@ -133146,8 +133243,8 @@ daD
 sWS
 pKS
 cSK
-vCq
-odD
+iIN
+nqj
 dIO
 dIO
 dIO
@@ -133358,7 +133455,7 @@ dIO
 dIO
 dIO
 dIO
-dIO
+nXm
 xoY
 vGA
 dPd
@@ -133763,7 +133860,7 @@ dIO
 dIO
 dIO
 dIO
-dIO
+mDk
 xoY
 vGA
 vGA
@@ -133951,7 +134048,7 @@ sWS
 sWS
 daD
 pKS
-vCq
+lyN
 dIO
 dIO
 dIO
@@ -134775,7 +134872,7 @@ dIO
 dIO
 dIO
 dIO
-dIO
+jet
 xoY
 vGA
 jTm
@@ -134959,6 +135056,7 @@ vnH
 daD
 daD
 aCh
+nXm
 dIO
 dIO
 dIO
@@ -134976,8 +135074,7 @@ dIO
 dIO
 dIO
 dIO
-dIO
-iaP
+llz
 kvV
 vGA
 jTm
@@ -135567,7 +135664,7 @@ lsN
 daD
 nfz
 nyI
-dIO
+mDk
 dIO
 dIO
 dIO
@@ -136183,7 +136280,7 @@ dIO
 dIO
 dIO
 dIO
-dIO
+nXm
 xoY
 jTm
 jTm
@@ -136385,7 +136482,7 @@ dIO
 dIO
 dIO
 dIO
-dIO
+jet
 xoY
 vGA
 vGA
@@ -165930,13 +166027,13 @@ vAG
 lWJ
 qTX
 yhJ
-eMw
+ulU
 jVr
 pxF
 pxF
 pxF
 jVr
-hAN
+mle
 eMw
 rgI
 yiB
@@ -166352,7 +166449,7 @@ dfK
 plF
 dfK
 dfK
-hAN
+xOc
 sWU
 lEB
 fEh
@@ -166536,13 +166633,13 @@ wEb
 dtI
 nyX
 iEh
-pii
+dBI
 jVr
 pxF
 pxF
 pxF
 jVr
-hAN
+mle
 eMw
 mTk
 yiB
@@ -202429,7 +202526,7 @@ mjT
 tim
 eUm
 eUm
-eUm
+mbN
 tIJ
 xJv
 wxf
@@ -206432,7 +206529,7 @@ mjT
 mjT
 mjT
 bnh
-rdo
+dgj
 rdo
 fTA
 rdo
@@ -222034,7 +222131,7 @@ wUD
 ulI
 uvs
 uvs
-wUD
+mLq
 wUD
 wUD
 wUD
