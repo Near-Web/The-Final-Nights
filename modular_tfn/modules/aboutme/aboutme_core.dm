@@ -1,10 +1,13 @@
-// about_me Component: stripped down to essentials
+// Modular TFN - About Me Component
+// Core component for storing and generating a character biography/profile.
+// Storing and displaying memories, relationships, and groups.
 /datum/component/about_me
 	var/mob/living/carbon/human/owner
 	var/name
 	var/species
 	var/role
 	var/special_role
+	//stats
 	var/physique
 	var/dexterity
 	var/social
@@ -13,12 +16,11 @@
 	var/lockpicking
 	var/athletics
 
-
 	var/list/memories_all = list()
 	var/list/relationships_all = list()
 	var/list/chronicles_all = list()
 	var/list/group_relationships = list()
-
+	//Group Stuff
 	var/sect_text = ""
 	var/organization_text = ""
 	var/party_text = ""
@@ -34,13 +36,9 @@
 	var/humanity
 	var/regnant_name
 	var/regnant_clan_name
-
 	var/tribe = ""
-
 	var/organization = ""
-	var/list/saved_parties = list()
-	//can be in multiple parties. Parties only appear when their owner or officers are around.
-
+	var/parties = list()
 
 /datum/component/about_me/Initialize()
 	. = ..()
@@ -53,11 +51,6 @@
 //This Generates, only the overview data
 /datum/component/about_me/proc/generate_overview()
 	if (!ismob(owner)) return
-	//GroupStuff
-	assign_groups()
-	update_group_texts()
-	sync_group_relationships()
-
 	//Basic Info
 	var/mob/living/carbon/human/H = owner
 	if (!H) return
@@ -107,6 +100,10 @@
 		// --- REGNANT (if blood bonded)
 		//var/regnant = null
 		//var/regnant_clan = null
+	//GroupStuff
+	assign_groups() //In group_datums.dm, for pregenerated groups.
+	update_group_texts()
+	sync_group_relationships()
 
 //Gets overview data for UI
 /datum/component/about_me/proc/get_overview_data()

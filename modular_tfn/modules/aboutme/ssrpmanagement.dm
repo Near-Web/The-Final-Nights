@@ -81,7 +81,7 @@ SUBSYSTEM_DEF(rpmanagement)
     if (!(GROUP_KEY_FACTION_FERA in GLOB.groups))
         GLOB.groups[GROUP_KEY_FACTION_FERA] = new /datum/groups/faction/fera
     if (!(GROUP_KEY_FACTION_HUNTERS in GLOB.groups))
-        GLOB.groups[GROUP_KEY_FACTION_HUNTERS] = new /datum/groups/faction/hunters
+        GLOB.groups[GROUP_KEY_FACTION_HUNTERS] = new /datum/groups/faction/hunter
 
     // -------- Sects --------
     if (!(GROUP_KEY_SECT_CAMARILLA in GLOB.groups))
@@ -90,6 +90,8 @@ SUBSYSTEM_DEF(rpmanagement)
         GLOB.groups[GROUP_KEY_SECT_ANARCHS] = new /datum/groups/sect/anarchs
     if (!(GROUP_KEY_SECT_SABBAT in GLOB.groups))
         GLOB.groups[GROUP_KEY_SECT_SABBAT] = new /datum/groups/sect/sabbat
+    if (!(GROUP_KEY_SECT_INDEPENDENT in GLOB.groups))
+        GLOB.groups[GROUP_KEY_SECT_INDEPENDENT] = new /datum/groups/sect/independent
 
     // -------- Clans --------
     if (!(GROUP_KEY_CLAN_VENTRUE in GLOB.groups))

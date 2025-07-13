@@ -40,6 +40,7 @@
 #define GROUP_KEY_SECT_CAMARILLA    "sect_camarilla"
 #define GROUP_KEY_SECT_ANARCHS      "sect_anarchs"
 #define GROUP_KEY_SECT_SABBAT       "sect_sabbat"
+#define GROUP_KEY_SECT_INDEPENDENT  "sect_independent"
 // Clans
 #define GROUP_KEY_CLAN_VENTRUE      "clan_ventrue"
 #define GROUP_KEY_CLAN_BRUJAH       "clan_brujah"
@@ -121,8 +122,6 @@
 
 	return group_map
 
-
-
 //Base Group Datum
 /datum/groups
     var/id                             // Unique string key for the group (matches the key in GLOB.groups)
@@ -131,6 +130,7 @@
     var/icon = null                   // Optional UI icon (e.g. .png file path)
     var/group_type = GROUP_TYPE_ORGANIZATION   // Use macro, default as needed
     var/leader_ckey = null            // Group leader (player or NPC ckey)
+    var/leader_name = "None"
     var/list/tags = list()
     var/list/member_roles = list()    // key = ckey, value = "role"
     var/list/members = list()         // List of ckeys (or ref to member objects)
@@ -139,7 +139,6 @@
     var/list/relationships = list()   // List of /datum/relationship (to other groups or major NPCs)
     var/list/subgroups = list()       // List of group IDs or /datum/groups (nested groups, e.g. clan holds coteries)
     var/created_timestamp = 0
-    var/xp_cost_to_create = 0
 
     // Utility: Check if this group can store subgroups (overridden by subtypes if needed)
 /datum/groups/proc/has_subgroups()
@@ -261,6 +260,14 @@
 
 /datum/groups/proc/SetLeader(var/ckey)
 	leader_ckey = ckey
+	if (ckey)
+		var/mob/Mob = GLOB.player_list[ckey]
+		if (Mob)
+			leader_name = Mob.real_name || Mob.name
+		else
+			leader_name = ckey
+	else
+		leader_name = "None"
 	save_to_file()
 
 /datum/groups/proc/GetLeader()
@@ -284,7 +291,7 @@
 	ui["type"] = group_type
 	ui["icon"] = icon
 	ui["tags"] = tags.Copy()
-	ui["leader"] = leader_ckey
+	ui["leader"] = leader_name
 	ui["member_roles"] = member_roles.Copy()
 	ui["members"] = GetMembers()
 
