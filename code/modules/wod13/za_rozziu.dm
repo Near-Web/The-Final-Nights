@@ -106,7 +106,7 @@ SUBSYSTEM_DEF(zombiepool)
 		if(!repairing)
 			repairing = TRUE
 			if(do_mob(user, src, 5 SECONDS))
-				punches_to_break = min(punches_to_break+5, initial(punches_to_break))
+				punches_to_break = min(punches_to_break+25, initial(punches_to_break))
 				if(punches_to_break)
 					density = TRUE
 					icon_state = "gate"

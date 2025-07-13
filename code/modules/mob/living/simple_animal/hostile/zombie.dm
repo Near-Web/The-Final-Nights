@@ -35,7 +35,7 @@
 
 /mob/living/simple_animal/hostile/zombie/proc/on_death(last_attacker)
 	var/mob/living/H = last_attacker
-	if(H && get_area_name(H) == "Graveyard")
+	if(get_area_name(H) == "Graveyard" && H.masquerade < 5) //keeps keepers from slaying them at the interior door, to gain masquerade.
 		H.graveyard_duty++
 		if(H.graveyard_duty >= 10)
 			H.graveyard_duty = 0
@@ -44,19 +44,16 @@
 		else
 			to_chat(H, "Graveyard Duty: Zombies killed: [H.graveyard_duty]/10.")
 
-//only when the player attacks the zombie will it set the last_attacker
-//Hand Attack, basic melee.
+//only when a player attacks the zombie will it set the last_attacker
+//basic melee, weapons and bullets/projectiles.
 /mob/living/simple_animal/hostile/zombie/attack_hand(mob/living/user)
 	var/mob/living/H = user
 	last_attacker = H
 	return ..()
-// melee weapon attack
 /mob/living/simple_animal/hostile/zombie/attackby(obj/item/I, mob/living/user, params)
 	var/mob/living/H = user
 	last_attacker = H
 	return ..()
-
-// bullets/projectiles
 /mob/living/simple_animal/hostile/zombie/bullet_act(obj/projectile/P)
 	if(P.firer)
 		var/mob/living/H = P.firer
