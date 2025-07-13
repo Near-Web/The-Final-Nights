@@ -2075,4 +2075,4 @@
 
 /mob/living/proc/transformation_unblock()
 		transformation_blocked = FALSE
-		to_chat(src, span_userdanger("You regain your focus, you can transform again!")
+		to_chat(src, span_userdanger("You regain your focus, you can transform again!"))
