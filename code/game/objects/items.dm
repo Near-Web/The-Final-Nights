@@ -130,6 +130,10 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	var/armour_penetration = 0
 	///What objects the suit storage can store
 	var/list/allowed = null
+	/// The click cooldown given after attacking. Lower numbers means faster attacks
+	var/attack_speed = CLICK_CD_MELEE
+	/// The click cooldown on secondary attacks. Lower numbers mean faster attacks. Will use attack_speed if undefined.
+	var/secondary_attack_speed
 	///In deciseconds, how long an item takes to equip; counts only for normal clothing slots, not pockets etc.
 	var/equip_delay_self = 0
 	///In deciseconds, how long an item takes to put on another person
@@ -201,13 +205,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 	var/canMouseDown = FALSE
 
-	//WoD13 vars start here :3
-
-	//lombard.dm VARIABLES
-	///Determines items sell price.
 	var/cost = 0
-	///Determines whether an item can be sold in the black market.
-	var/illegal = FALSE
+
+	//WoD13 vars start here :3
 
 	//gridventory.dm VARIABLES
 	///Width we occupy on the gridventory hud - Keep null to generate based on w_class
@@ -256,11 +256,20 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		qdel(X)
 	return ..()
 
-/obj/item/proc/check_allowed_items(atom/target, not_inside, target_self)
-	if(((src in target) && !target_self) || (!isturf(target.loc) && !isturf(target) && not_inside))
-		return 0
-	else
-		return 1
+/**
+ * Checks if an item is allowed to be used on an atom/target
+ * Returns TRUE if allowed.
+ *
+ * Args:
+ * target_self - Whether we will check if we (src) are in target, preventing people from using items on themselves.
+ * not_inside - Whether target (or target's loc) has to be a turf.
+ */
+/obj/item/proc/check_allowed_items(atom/target, not_inside = FALSE, target_self = FALSE)
+	if(!target_self && (src in target))
+		return FALSE
+	if(not_inside && !isturf(target.loc) && !isturf(target))
+		return FALSE
+	return TRUE
 
 /obj/item/blob_act(obj/structure/blob/B)
 	if(B && B.loc == loc)
@@ -395,13 +404,15 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	add_fingerprint(usr)
 	return ..()
 
-/obj/item/attack_hand(mob/user)
+/obj/item/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)
 		return
 	if(!user)
 		return
 	if(anchored)
+		return
+	if(HAS_TRAIT(user, TRAIT_NO_HANDS))
 		return
 
 	. = TRUE
@@ -459,7 +470,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/proc/allow_attack_hand_drop(mob/user)
 	return TRUE
 
-/obj/item/attack_paw(mob/user)
+/obj/item/attack_paw(mob/user, list/modifiers)
 	if(!user)
 		return
 	if(anchored)
@@ -478,15 +489,15 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(!user.put_in_active_hand(src, FALSE, FALSE))
 		user.dropItemToGround(src)
 
-/obj/item/attack_alien(mob/user)
-	var/mob/living/carbon/alien/A = user
+/obj/item/attack_alien(mob/user, list/modifiers)
+	var/mob/living/carbon/alien/ayy = user
 
 	if(!user.can_hold_items(src))
-		if(src in A.contents) // To stop Aliens having items stuck in their pockets
-			A.dropItemToGround(src)
+		if(src in ayy.contents) // To stop Aliens having items stuck in their pockets
+			ayy.dropItemToGround(src)
 		to_chat(user, "<span class='warning'>Your claws aren't capable of such fine manipulation!</span>")
 		return
-	attack_paw(A)
+	attack_paw(ayy, modifiers)
 
 /obj/item/attack_ai(mob/user)
 	if(istype(src.loc, /obj/item/robot_model))
@@ -531,6 +542,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/proc/pickup(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)
+	SEND_SIGNAL(user, COMSIG_LIVING_PICKED_UP_ITEM, src)
 	item_flags |= IN_INVENTORY
 
 /// called when "found" in pockets and storage items. Returns 1 if the search should end.
@@ -657,7 +669,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "eye_stab", /datum/mood_event/eye_stab)
 
-	log_combat(user, M, "attacked", "[src.name]", "(INTENT: [uppertext(user.a_intent)])")
+	log_combat(user, M, "attacked", "[src.name]", "(Combat Mode: [user.combat_mode ? "On" : "Off"])")
 
 	var/obj/item/organ/eyes/eyes = M.getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)
@@ -805,7 +817,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/attack_hulk(mob/living/carbon/human/user)
 	return FALSE
 
-/obj/item/attack_animal(mob/living/simple_animal/M)
+/obj/item/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	if (obj_flags & CAN_BE_HIT)
 		return ..()
 	return 0

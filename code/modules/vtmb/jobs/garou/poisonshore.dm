@@ -93,7 +93,7 @@
 	minimal_masquerade = 5
 	allowed_species = list("Werewolf", "Vampire", "Human")
 	allowed_tribes = list("Black Spiral Dancers")
-	allowed_bloodlines = list("True Brujah", "Daughters of Cacophony", "Salubri", "Baali", "Brujah", "Tremere", "Ventrue", "Nosferatu", "Toreador", "Malkavian", "Giovanni", "Ministry", "Tzimisce", "Lasombra", "Caitiff")
+	allowed_bloodlines = list(CLAN_TRUE_BRUJAH, CLAN_DAUGHTERS_OF_CACOPHONY, CLAN_SALUBRI, CLAN_BAALI, CLAN_BRUJAH, CLAN_TREMERE, CLAN_VENTRUE, CLAN_NOSFERATU, CLAN_TOREADOR, CLAN_MALKAVIAN, CLAN_GIOVANNI, CLAN_SETITES, CLAN_TZIMISCE, CLAN_LASOMBRA, CLAN_NONE)
 
 	known_contacts = null
 
@@ -234,6 +234,7 @@
 	gloves = /obj/item/clothing/gloves/vampire/work
 	head = /obj/item/clothing/head/pentex/pentex_beret
 	suit = /obj/item/clothing/suit/vampire/vest
+	belt = /obj/item/storage/belt/holster/detective/vampire/endron
 	glasses = /obj/item/clothing/glasses/vampire/sun
 	l_pocket = /obj/item/vamp/phone/endron_sec_chief
 	r_pocket = /obj/item/vamp/keys/pentex
@@ -279,7 +280,7 @@
 	minimal_masquerade = 3
 	allowed_species = list("Werewolf", "Vampire", "Human")
 	allowed_tribes = list("Black Spiral Dancers")
-	allowed_bloodlines = list("True Brujah", "Daughters of Cacophony", "Salubri", "Baali", "Brujah", "Tremere", "Ventrue", "Nosferatu", "Toreador", "Malkavian", "Giovanni", "Ministry", "Tzimisce", "Lasombra", "Caitiff")
+	allowed_bloodlines = list(CLAN_TRUE_BRUJAH, CLAN_DAUGHTERS_OF_CACOPHONY, CLAN_SALUBRI, CLAN_BAALI, CLAN_BRUJAH, CLAN_TREMERE, CLAN_VENTRUE, CLAN_NOSFERATU, CLAN_TOREADOR, CLAN_MALKAVIAN, CLAN_GIOVANNI, CLAN_SETITES, CLAN_TZIMISCE, CLAN_LASOMBRA, CLAN_NONE)
 
 	known_contacts = null
 
@@ -294,6 +295,7 @@
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	gloves = /obj/item/clothing/gloves/vampire/work
 	suit = /obj/item/clothing/suit/vampire/vest
+	belt = /obj/item/storage/belt/holster/detective/vampire/endron
 	l_pocket = /obj/item/vamp/phone/endron_security
 	r_pocket = /obj/item/vamp/keys/pentex
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/passport=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/vamp/creditcard=1)
@@ -312,7 +314,7 @@
 	allowed_species = list("Vampire", "Ghoul", "Human", "Werewolf")
 	department_head = list("Endron International")
 	allowed_tribes = list("Black Spiral Dancers", "Ronin")
-	allowed_bloodlines = list("True Brujah", "Daughters of Cacophony", "Salubri", "Baali", "Brujah", "Tremere", "Ventrue", "Nosferatu", "Toreador", "Malkavian", "Giovanni", "Ministry", "Tzimisce", "Lasombra", "Caitiff")
+	allowed_bloodlines = list(CLAN_TRUE_BRUJAH, CLAN_DAUGHTERS_OF_CACOPHONY, CLAN_SALUBRI, CLAN_BAALI, CLAN_BRUJAH, CLAN_TREMERE, CLAN_VENTRUE, CLAN_NOSFERATU, CLAN_TOREADOR, CLAN_MALKAVIAN, CLAN_GIOVANNI, CLAN_SETITES, CLAN_TZIMISCE, CLAN_LASOMBRA, CLAN_NONE)
 	faction = "Vampire"
 	selection_color = "#015334"
 

@@ -5,7 +5,10 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	var/quieted = FALSE
 	var/datum/weakref/owner = null
-	cost = 25
+
+/obj/item/melee/vampirearms/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 25, "melee", FALSE)
 
 /obj/item/melee/vampirearms/pickup(mob/living/user)
 	. = ..()
@@ -16,6 +19,14 @@
 			to_chat(user, "<span class='userdanger'>The acidic ichor sears your hand!</span>")
 			user.apply_damage(20, BURN)
 			user.Paralyze(1)
+
+
+/obj/item/melee/vampirearms/afterattack(atom/A, mob/living/carbon/human/user, proximity)
+	. = ..()
+	if(!proximity)
+		return
+	if(quieted && isliving(A))
+		user.bloodpool -= 1
 
 
 /obj/item
@@ -116,38 +127,38 @@
 	pixel_w = -8
 	resistance_flags = FIRE_PROOF
 	masquerade_violating = FALSE
-	cost = 250
 	is_iron = TRUE
+
+/obj/item/melee/vampirearms/katana/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 250, "katana", FALSE)
 
 /obj/item/melee/vampirearms/katana/fire
 	name = "burning katana"
 	icon_state = "firetana"
 	pixel_w = -8
-	cost = 0
+	damtype = BURN
 	item_flags = DROPDEL
 	is_iron = FALSE
 	masquerade_violating = TRUE
 
-/obj/item/melee/vampirearms/katana/fire/afterattack(atom/target, mob/living/carbon/user, proximity)
+//Do not sell the magically summoned katanas for infinite cash
+/obj/item/melee/vampirearms/katana/fire/Initialize()
 	. = ..()
-	if (isliving(target) && proximity)
-		var/mob/living/burnt_mob = target
-		burnt_mob.apply_damage(20, BURN)
+	qdel(GetComponent(/datum/component/selling))
 
 /obj/item/melee/vampirearms/katana/blood
 	name = "bloody katana"
 	color = "#bb0000"
 	pixel_w = -8
-	cost = 0
+	damtype = CLONE
 	item_flags = DROPDEL
 	is_iron = FALSE
 	masquerade_violating = TRUE
 
-/obj/item/melee/vampirearms/katana/blood/afterattack(atom/target, mob/living/carbon/user, proximity)
+/obj/item/melee/vampirearms/katana/blood/Initialize()
 	. = ..()
-	if (isliving(target) && proximity)
-		var/mob/living/burnt_mob = target
-		burnt_mob.apply_damage(20, CLONE)
+	qdel(GetComponent(/datum/component/selling))
 
 /obj/item/melee/vampirearms/rapier
 	name = "rapier"
@@ -168,8 +179,11 @@
 	resistance_flags = FIRE_PROOF
 	masquerade_violating = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
-	cost = 800
 	is_iron = TRUE
+
+/obj/item/melee/vampirearms/rapier/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 800, "rapier", FALSE)
 
 /obj/item/melee/vampirearms/machete
 	name = "machete"
@@ -192,7 +206,10 @@
 	pixel_w = -8
 	resistance_flags = FIRE_PROOF
 	masquerade_violating = FALSE
-	cost = 150
+
+/obj/item/melee/vampirearms/machete/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 150, "machete", FALSE)
 
 /obj/item/melee/vampirearms/sabre
 	name = "sabre"
@@ -214,7 +231,10 @@
 	resistance_flags = FIRE_PROOF
 	masquerade_violating = FALSE
 	is_iron = TRUE
-	cost = 1000
+
+/obj/item/melee/vampirearms/sabre/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 1000, "sabre", FALSE)
 
 /obj/item/melee/vampirearms/longsword
 	name = "longsword"
@@ -236,7 +256,10 @@
 	resistance_flags = FIRE_PROOF
 	masquerade_violating = FALSE
 	is_iron = TRUE
-	cost = 1800
+
+/obj/item/melee/vampirearms/longsword/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 1800, "longsword", FALSE)
 
 /obj/item/melee/vampirearms/longsword/keeper
 	name = "The Brother's Keeper"
@@ -382,8 +405,11 @@
 	attack_verb_continuous = list("beats", "smacks")
 	attack_verb_simple = list("beat", "smack")
 	w_class = WEIGHT_CLASS_NORMAL
-	cost = 50
 	is_wood = TRUE
+
+/obj/item/melee/vampirearms/baseball/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 50, "baseball", FALSE)
 
 /obj/item/melee/vampirearms/baseball/attack(mob/living/target, mob/living/user)
 	. = ..()
@@ -462,34 +488,22 @@
 	name = "claws"
 	icon_state = "gangrel"
 	w_class = WEIGHT_CLASS_BULKY
-	force = 20
-	armour_penetration = 100	//It's magical damage
+	force = 35
+	armour_penetration = 50
+	damtype = CLONE
 	block_chance = 20
 	item_flags = DROPDEL
 	masquerade_violating = TRUE
 	is_iron = FALSE
 
-/obj/item/melee/vampirearms/knife/gangrel/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
-	if(isliving(target))
-		var/mob/living/L = target
-		L.apply_damage(30, CLONE)
-
 /obj/item/melee/vampirearms/knife/gangrel/lasombra
 	name = "shadow tentacle"
-	force = 15
-	armour_penetration = 100
+	force = 20
+	damtype = BURN
+	armour_penetration = 0
 	block_chance = 0
 	icon_state = "lasombra"
 	masquerade_violating = TRUE
-
-/obj/item/melee/vampirearms/knife/gangrel/lasombra/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
-	if(isliving(target))
-		var/mob/living/L = target
-		L.apply_damage(20, BURN)
 
 /obj/item/melee/touch_attack/werewolf
 	name = "\improper falling touch"
@@ -532,6 +546,10 @@
 /obj/item/melee/vampirearms/knife/gangrel/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	if(HAS_TRAIT(owner, TRAIT_WARRIOR))
+		src.attack_speed = CLICK_CD_MELEE * 0.5
+	else
+		src.attack_speed = CLICK_CD_MELEE
 
 /obj/item/melee/vampirearms/chainsaw
 	name = "chainsaw"
@@ -662,10 +680,12 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
-	if(!target.IsStun() && prob(25))
+	if(!target.IsStun() && prob(10))
 		visible_message("<span class='warning'>[user] bonks [src]'s head!</span>", "<span class='warning'>You bonk[target]'s head!</span>")
-		target.Stun(5)
-		target.drop_all_held_items()
+		if(user.mind && is_sabbatist(user))
+			target.Stun(3 SECONDS)
+			target.emote("collapse")
+			target.drop_all_held_items()
 
 /obj/item/melee/vampirearms/katana/kosa
 	name = "scythe"
@@ -936,6 +956,14 @@
 	bare_wound_bonus = 0
 	resistance_flags = FIRE_PROOF
 	masquerade_violating = TRUE
+
+/obj/item/melee/vampirearms/tzimisce/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	if(HAS_TRAIT(owner, TRAIT_WARRIOR))
+		src.attack_speed = CLICK_CD_MELEE * 0.5
+	else
+		src.attack_speed = CLICK_CD_MELEE
 
 /obj/item/melee/vampirearms/tzimisce/shock/afterattack(atom/target, mob/living/carbon/user, proximity)
 	if(!proximity)

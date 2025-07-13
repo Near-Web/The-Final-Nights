@@ -349,7 +349,7 @@
 	if(set_dir_on_move)
 		setDir(direct)
 
-	if(!loc.Exit(src, newloc))
+	if(!loc.Exit(src, direct))
 		return
 
 	if(!newloc.Enter(src, src.loc))
@@ -512,12 +512,29 @@
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MOVABLE_CROSSED, AM)
 
-/atom/movable/Uncross(atom/movable/AM, atom/newloc)
-	. = ..()
-	if(SEND_SIGNAL(src, COMSIG_MOVABLE_UNCROSS, AM) & COMPONENT_MOVABLE_BLOCK_UNCROSS)
-		return FALSE
-	if(isturf(newloc) && !CheckExit(AM, newloc))
-		return FALSE
+/**
+ * `Uncross()` is a default BYOND proc that is called when something is *going*
+ * to exit this atom's turf. It is prefered over `Uncrossed` when you want to
+ * deny that movement, such as in the case of border objects, objects that allow
+ * you to walk through them in any direction except the one they block
+ * (think side windows).
+ *
+ * While being seemingly harmless, most everything doesn't actually want to
+ * use this, meaning that we are wasting proc calls for every single atom
+ * on a turf, every single time something exits it, when basically nothing
+ * cares.
+ *
+ * This overhead caused real problems on Sybil round #159709, where lag
+ * attributed to Uncross was so bad that the entire master controller
+ * collapsed and people made Among Us lobbies in OOC.
+ *
+ * If you want to replicate the old `Uncross()` behavior, the most apt
+ * replacement is [`/datum/element/connect_loc`] while hooking onto
+ * [`COMSIG_ATOM_EXIT`].
+ */
+/atom/movable/Uncross()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	CRASH("Uncross() should not be being called, please read the doc-comment for it for why.")
 
 /atom/movable/Uncrossed(atom/movable/AM)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UNCROSSED, AM)
@@ -1050,6 +1067,7 @@
 
 /atom/movable/vv_get_dropdown()
 	. = ..()
+	VV_DROPDOWN_OPTION(VV_HK_EDIT_PARTICLES, "Edit Particles")
 	VV_DROPDOWN_OPTION(VV_HK_DEADCHAT_PLAYS, "Start/Stop Deadchat Plays")
 
 /atom/movable/vv_do_topic(list/href_list)
@@ -1057,6 +1075,10 @@
 
 	if(!.)
 		return
+
+	if(href_list[VV_HK_EDIT_PARTICLES] && check_rights(R_VAREDIT))
+		var/client/C = usr.client
+		C?.open_particle_editor(src)
 
 	if(href_list[VV_HK_DEADCHAT_PLAYS] && check_rights(R_FUN))
 		if(alert(usr, "Allow deadchat to control [src] via chat commands?", "Deadchat Plays [src]", "Allow", "Cancel") == "Cancel")

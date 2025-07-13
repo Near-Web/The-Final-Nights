@@ -1,9 +1,9 @@
 /// Index to a define to point at a runtime-global list at compile-time.
-#define NETWORK_ID 0
+#define NETWORK_ID 1
 /// Index to a string, for the contact title.
-#define OUR_ROLE 1
+#define OUR_ROLE 2
 /// Index to a boolean, on whether to replace role with job title (or alt-title).
-#define USE_JOB_TITLE 2
+#define USE_JOB_TITLE 3
 
 
 /proc/create_unique_phone_number(exchange = 513)
@@ -339,7 +339,7 @@
 					if (!islist(GLOB.published_number_names))
 						GLOB.published_number_names = list()
 
-					var/name = tgui_input_text(usr, "Input name", "Publish Number")
+					var/name = tgui_input_text(usr, "Input name", "Publish Number", encode = FALSE)
 					if(name && src.number)
 						name = trim(copytext_char(sanitize(name), 1, MAX_MESSAGE_LEN))
 						if(src.number in GLOB.published_numbers)
@@ -385,7 +385,7 @@
 						new_contact = replacetext(new_contact, " ", "") //Removes spaces
 						NEWC.number = "[new_contact]"
 						contacts += NEWC
-						var/new_contact_name = tgui_input_text(usr, "Input name", "Add Contact")
+						var/new_contact_name = tgui_input_text(usr, "Input name", "Add Contact", encode = FALSE)
 						if(new_contact_name)
 							NEWC.name = "[new_contact_name]"
 						else
@@ -422,7 +422,7 @@
 						block_number = replacetext(block_number, " ", "") //Removes spaces
 						BlockC.number = "[block_number]"
 						blocked_contacts += BlockC
-						var/block_contact_name = tgui_input_text(usr, "Input name", "Add name of the Blocked number")
+						var/block_contact_name = tgui_input_text(usr, "Input name", "Add name of the Blocked number", encode = FALSE)
 						if(block_contact_name)
 							BlockC.name = "[block_contact_name]"
 						else
@@ -573,11 +573,13 @@
 					var/mob/living/carbon/human/SPK = hearing_args[HEARING_SPEAKER]
 					voice_saying = "[age2agedescription(SPK.age)] [SPK.gender] voice ([SPK.phonevoicetag])"
 
-					if(SPK.clane?.name == "Lasombra")
-						message = scramble_lasombra_message(message,SPK)
-						playsound(src, 'code/modules/wod13/sounds/lasombra_whisper.ogg', 5, FALSE, ignore_walls = FALSE)
+					// Speech will be scrambled if the speaker doesn't work well with technology
+					if (HAS_TRAIT(SPK, TRAIT_REJECTED_BY_TECHNOLOGY))
+						message = scramble_lasombra_message(message, SPK)
+						playsound(online, 'code/modules/wod13/sounds/lasombra_whisper.ogg', 50, FALSE)
 					else
 						playsound(online, 'code/modules/wod13/sounds/phonetalk.ogg', 50, FALSE)
+
 				var/obj/phonevoice/VOIC = new(online)
 				VOIC.name = voice_saying
 				VOIC.speech_span = spchspn

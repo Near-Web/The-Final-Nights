@@ -1,0 +1,54 @@
+2025-07-01:
+  tzui5020:
+  - bugfix: fixed the lefthand sprite for the PSG1
+2025-07-03:
+  buffyuwu:
+  - rscadd: adds auspex 5 demons. now wouldbe auspex spies must dodge malevolent spirits
+      or be sent back to their bodies
+  - refactor: malkavians get their fonts from a font replacer proc now, so other code
+      can use the spooky characters too
+  chazzyjazzy:
+  - qol: Dominate 1's 'blue halo' now appears only on a successful cast. Removed the
+      default 'FORGET ABOUT IT' command.
+  - sound: Decreased Voice of Domination's volume from 300 to 80.
+2025-07-06:
+  chazzyjazzy:
+  - bugfix: fixes thaumaturgy instagibbing crinos/lupus and other simplemob transforms
+2025-07-07:
+  chazzyjazzy:
+  - rscadd: Adds Sabbat sect with three playable roles, Sabbat Pack, Sabbat Ductus,
+      Sabbat Priest.
+  - rscadd: Multiple ritae and flavor for Sabbat, including Vaulderie, war parties,
+      initiation rites, shovelheading, monomacy, and blood baths
+  - rscdel: Removed redundant "Caitiff" lateparty setting, as we have Caitiff available
+      for round-persistent characters already
+  - map: Adds a run-down Sabbat lair, home to only the most beastly of Cainites.
+2025-07-08:
+  Lagomorphica:
+  - balance: Warrior archetype now affects Protean claws, Lasombra tentacles, Tzimisce
+      armblade/whips, Gangrel war forms, Setite snake form, Tzimisce horror form,
+      and all Garou/Corvax transformations, halving the delay after attacking for
+      all of them. The additional knockdown chance has been lost, though (as small
+      as it was).
+  - code_imp: Changes the usage of CLICK_CD_RANGE as the stand-in for Warrior to be
+      CLICK_CD_MELEE * 0.5 for more readability and to be more obvious. Also converts
+      it from a variable to a trait.
+  Somniworld:
+  - bugfix: Werewolves may choose the apparel of their crinos form again. No more
+      naked murdermachines! "Change Apparel" also lets you pick your outfit now.
+  TheTrueSilverRat:
+  - rscadd: Added the ability to purchase more Gnosis
+  - bugfix: fixed power level not resetting properly
+  - refactor: made the werewolf perf vars in the reset proc, use initial(var)
+  XeonMations:
+  - code_imp: TGS docker CI/CD check now functions correctly.
+  - bugfix: Kindred now have vitae instead of blood.
+  - bugfix: Fixed a bug where taking blood from a kindred with an IV drip maxed their
+      blood pool.
+2025-07-10:
+  XeonMations:
+  - admin: Updated a lot of admin facing VV panel shenanigens. Report issues to Xeon,
+      admins!
+2025-07-11:
+  AlmostLikeClockwork:
+  - rscadd: Gives a second studded jacket with the Assamite logo to the BHP
