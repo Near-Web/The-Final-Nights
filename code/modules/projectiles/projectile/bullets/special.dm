@@ -62,7 +62,7 @@
 
 /obj/projectile/bullet/compound/on_hit(atom/target, blocked = FALSE)
 	. = ..()
-	if(issupernatural(target)
+	if(issupernatural(target))
 		var/mob/living/L = target
 		L.adjustFireLoss(supernaturalbonus)
 		to_chat(L, span_warning("You feel the round burning as it hits you!"))
