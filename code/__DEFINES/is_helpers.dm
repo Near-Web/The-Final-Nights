@@ -102,7 +102,7 @@ GLOBAL_LIST_INIT(supernatural_species, typecacheof(list(
 	/datum/species/ghoul,
 	/datum/species/garou,
 	/mob/living/simple_animal/werewolf
-	))
+	)))
 
 #define issupernatural(A) (is_type_in_typecache(A, GLOB.supernatural_species))
 
