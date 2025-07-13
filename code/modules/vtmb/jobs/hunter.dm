@@ -100,6 +100,48 @@
 	to_chat(owner.current, "<span class='alertsyndie'>You are the Hunter.</span>")
 	owner.announce_objectives()
 
+/datum/antagonist/valkyrie
+	name = "Task Force Valkyrie Operative"
+	roundend_category = "SOF Personnel"
+	antagpanel_category = "SOF Personnel"
+	job_rank = ROLE_VALKYRIE
+	antag_hud_type = ANTAG_HUD_OPS
+	antag_hud_name = "synd"
+	antag_moodlet = /datum/mood_event/focused
+	show_to_ghosts = TRUE
+	var/always_new_team = FALSE
+	var/datum/team/national_guard/national_guard_team
+	var/national_guard_outfit = /datum/outfit/job/national_guard
+	var/custom_objective
+
+/datum/antagonist/valkyrie/sergeant
+	name = "Task Force Valkyrie Sergeant"
+	always_new_team = TRUE
+	var/title
+
+/datum/antagonist/valkyrie/on_gain()
+	randomize_appearance()
+	add_antag_hud(ANTAG_HUD_OPS, "synd", owner.current)
+	owner.special_role = src
+	equip_valkyrie()
+	give_alias()
+	return ..()
+
+/datum/antagonist/valkyrie/greet()
+	to_chat(C, span_alertsyndie("You're an agent of Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
+
+/datum/antagonist/valkyrie/proc/give_alias()
+	var/my_name = "Tyler"
+	if(owner.current.gender == MALE)
+		my_name = pick(GLOB.first_names_male)
+	else
+		my_name = pick(GLOB.first_names_female)
+	var/my_surname = pick(GLOB.last_names)
+	owner.current.fully_replace_character_name(null,"Operative [my_name] [my_surname]")
+
+/datum/antagonist/valkyrie/sergeant/greet()
+	to_chat(C, span_alertsyndie("You're a Sergeant leading a team from Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
+
 /obj/item/card/id/valkyrie
 	name = "SOF Task Force Badge"
 	desc = "SOF Operator"
