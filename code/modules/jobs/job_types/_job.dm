@@ -72,7 +72,7 @@
 	var/allow_bureaucratic_error = FALSE
 
 	///Minimum vampire Generation necessary to do this job.
-	var/minimal_generation = 13
+	var/minimal_generation = HIGHEST_GENERATION_LIMIT
 	///Minimum Masquerade level necessary to do this job.
 	var/minimal_masquerade = 1
 	///Minimum Renown Rank (garou) necessary to do this job.
@@ -85,7 +85,7 @@
 	///List of species that are allowed to do this job.
 	var/list/allowed_species = list("Vampire")
 	///List of species that are limited to a certain amount of that species doing this job.
-	var/list/species_slots = list()
+	var/list/species_slots = list("Vampire" = 50, "Ghoul" = 50, "Human" = 50, "Kuei-Jin" = 50, "Werewolf" = 50)
 	///List of Bloodlines that are allowed to do this job.
 	var/list/allowed_bloodlines = list(CLAN_BRUJAH, CLAN_TREMERE, CLAN_VENTRUE, CLAN_NOSFERATU, CLAN_GANGREL, CLAN_TOREADOR, CLAN_MALKAVIAN, CLAN_BANU_HAQIM, CLAN_GIOVANNI, CLAN_SETITES)
 	///List of Tribes that are allowed to do this job.
@@ -191,8 +191,7 @@
 
 			to_chat(M, span_danger("Failed to locate a storage object on your mob, either you spawned with no hands free and no backpack or this is a bug."))
 			qdel(item)
-	if(spawnee.base_body_mod != "") // Is the user fat or slim? if so, let's regenerate their icons so they're scaled accordingly.
-		spawnee.regenerate_icons()
+	spawnee.regenerate_icons()
 	// TFN ADDITION END: loadout spawning
 
 	if(!config)	//Needed for robots.

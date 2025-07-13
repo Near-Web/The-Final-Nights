@@ -288,7 +288,7 @@
 				var/mob/living/carbon/human/vampire = target
 				if ((vampire.morality_path?.score < 7) || vampire.client?.prefs?.is_enlightened)
 					is_wyrm = 1
-				if ((vampire.clane?.name == CLAN_BAALI) || ( (vampire.client?.prefs?.is_enlightened && (vampire.morality_path?.score > 7)) || (!vampire.client?.prefs?.is_enlightened && (vampire.morality_path?.score < 4)) ))
+				if ((vampire.clan?.name == CLAN_BAALI) || ( (vampire.client?.prefs?.is_enlightened && (vampire.morality_path?.score > 7)) || (!vampire.client?.prefs?.is_enlightened && (vampire.morality_path?.score < 4)) ))
 					is_wyrm = 1
 			if (isgarou(target) || iswerewolf(target))
 				var/mob/living/wolf = target
@@ -405,12 +405,14 @@
 
 /datum/action/change_apparel/Trigger(trigger_flags)
 	. = ..()
-	var/mob/living/simple_animal/werewolf/crinos/C = owner
-	if(C.stat == CONSCIOUS)
-		if(C.sprite_apparel == 4)
-			C.sprite_apparel = 0
+	var/mob/living/simple_animal/werewolf/crinos/crinos = owner
+	if(crinos.stat == CONSCIOUS)
+		var/list/apparel = list("nothing", "loincloth", "green_tribal", "beige_tribal", "leather_mantle", "studs", "dark_mantle", "loincloth_armband", "skull_necklace", "metal_armour", "fur_mantle", "fur_necklace_and_vambrace", "armour_loincloth")
+		var/result = tgui_input_list(crinos, "Select your Crinos form's apparel:", "Appearance Selection", sort_list(apparel))
+		if(result != "nothing")
+			crinos.sprite_apparel = result
 		else
-			C.sprite_apparel = min(4, C.sprite_apparel+1)
+			crinos.sprite_apparel = ""
 
 /datum/action/gift/hispo
 	name = "Hispo Form"

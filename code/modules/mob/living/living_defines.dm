@@ -229,11 +229,11 @@
 
 	var/thaumaturgy_knowledge = FALSE
 
+	var/necromancy_knowledge = FALSE
+
 	var/elysium_checks = 0
 	var/bloodhunted = FALSE
-
 	var/hearing_ghosts = FALSE
-
 	var/stakeimmune = FALSE
 
 	var/last_vampire_ambience = 0
@@ -267,10 +267,6 @@
 
 	var/obj/effect/overlay/gnosis
 
-	var/isdwarfy = FALSE
-	var/ischildren = FALSE
-	var/istower = FALSE
-
 	var/total_contracted = 0
 
 	///Whether the mob currently has the JUMP button selected
@@ -292,6 +288,7 @@
 
 	//Garou stats
 	var/renownrank = 0
+	var/extra_gnosis = 0
 	var/wisdom = 0
 	var/honor = 0
 	var/glory = 0
