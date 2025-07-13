@@ -142,6 +142,12 @@
 /datum/antagonist/valkyrie/sergeant/greet()
 	to_chat(C, span_alertsyndie("You're a Sergeant leading a team from Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
 
+/datum/antagonist/valkyrie/proc/equip_valkyrie()
+	var/mob/living/carbon/human/H = owner.current
+	if(!ishuman(owner.current))
+		return
+	H.equipOutfit(/datum/outfit/job/hunter/valkyrie)
+
 /obj/item/card/id/valkyrie
 	name = "SOF Task Force Badge"
 	desc = "SOF Operator"
