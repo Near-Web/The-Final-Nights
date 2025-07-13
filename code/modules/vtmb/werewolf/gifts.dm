@@ -389,8 +389,7 @@
 			if(ishuman(owner))
 				var/mob/living/carbon/human/BD = owner
 				if(length(BD.all_wounds))
-					while (length(BD.all_wounds) != null )
-						var/datum/wound/W = pick(BD.all_wounds)
+					for(var/datum/wound/W as anything in BD.all_wounds)
 						W.remove_wound()
 			if (brain)
 				brain.applyOrganDamage(-30*C.auspice.level)
