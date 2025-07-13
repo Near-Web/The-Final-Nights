@@ -289,6 +289,45 @@
 		else
 			return FALSE
 
+/datum/admins/proc/makeValkyrie()
+	var/list/mob/dead/observer/candidates = pollGhostCandidates("Do you wish to be considered for a squad of Task Force VALKYRIE soldiers?", ROLE_VALKYRIE, null)
+	var/list/mob/dead/observer/chosen = list()
+	var/mob/dead/observer/theghost = null
+
+	if(candidates.len)
+		var/numagents = 8
+		var/agentcount = 0
+
+		for(var/i = 0, i<numagents,i++)
+			shuffle_inplace(candidates) //More shuffles means more randoms
+			for(var/mob/j in candidates)
+				if(!j || !j.client)
+					candidates.Remove(j)
+					continue
+
+				theghost = j
+				candidates.Remove(theghost)
+				chosen += theghost
+				agentcount++
+				break
+		if(agentcount < 1)
+			return FALSE
+
+		//Let's find the spawn locations
+		var/leader_chosen = FALSE
+		var/datum/antagonist/valkyrie/valkyrie_force
+		for(var/mob/c in chosen)
+			var/mob/living/carbon/human/new_character=makeBody(c)
+			if(!leader_chosen)
+				leader_chosen = TRUE
+				var/datum/antagonist/valkyrie/A = new_character.mind.add_antag_datum(/datum/antagonist/valkyrie/sergeant)
+				valkyrie_force = A.valkyrie_force
+			else
+				new_character.mind.add_antag_datum(/datum/antagonist/valkyrie,valkyrie_force)
+		return TRUE
+	else
+		return FALSE
+
 /datum/admins/proc/makeNukeTeam()
 	var/datum/game_mode/nuclear/temp = new
 	var/list/mob/dead/observer/candidates = pollGhostCandidates("Do you wish to be considered for a nuke team being sent in?", ROLE_OPERATIVE, temp)
