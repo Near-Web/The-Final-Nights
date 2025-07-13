@@ -68,6 +68,18 @@
 	bare_wound_bonus = -5
 	wound_bonus = 10
 
+/obj/projectile/beam/beam_rifle/vampire/vamp46mm
+	name = "4.6mm"
+	damage = 18
+	armour_penetration = 35
+
+/obj/projectile/beam/beam_rifle/vampire/vamp762x51mm
+	name = "7.62x51mm bullet"
+	damage = 55
+	armour_penetration = 25
+	bare_wound_bonus = -5
+	wound_bonus = 5
+
 /obj/projectile/beam/beam_rifle/vampire/vamp50
 	name = ".50 bullet"
 	damage = 70
@@ -123,6 +135,17 @@
 		var/mob/living/carbon/M = target
 		M.Stun(4)
 
+/obj/projectile/beam/beam_rifle/vampire/vamp762x51mm/incendiary
+	armour_penetration = 5 //Big ass bullet
+	damage = 50
+	var/fire_stacks = 3 //This one comes in Semi-automatics
+
+/obj/projectile/beam/beam_rifle/vampire/vamp762x51mm/incendiary/on_hit(atom/target, blocked = FALSE)
+	if(iscarbon(target))
+		var/mob/living/carbon/M = target
+		M.adjust_fire_stacks(fire_stacks, 10) //Let's see, if it gets bad I'll change it.
+		M.IgniteMob()
+
 /obj/projectile/beam/beam_rifle/vampire/vamp556mm/incendiary
 	armour_penetration = 0
 	damage = 35
@@ -177,6 +200,14 @@
 	icon_state = "44"
 	base_iconstate = "44"
 
+/obj/item/ammo_casing/vampire/c46mm
+	name = "4.6mm bullet casing"
+	desc = "A 4.6mm bullet casing."
+	caliber = CALIBER_46
+	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp46mm
+	icon_state = "46"
+	base_iconstate = "46"
+
 /obj/item/ammo_casing/vampire/c50
 	name = ".50 bullet casing"
 	desc = "A .50 bullet casing."
@@ -184,6 +215,14 @@
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp50
 	icon_state = "50"
 	base_iconstate = "50"
+
+/obj/item/ammo_casing/vampire/c762x51mm
+	name = "7.62x51mm bullet casing"
+	desc = "A 7.62x51mm bullet casing."
+	caliber = CALIBER_762
+	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp762x51mm
+	icon_state = "762"
+	base_iconstate = "762"
 
 /obj/item/ammo_casing/vampire/c556mm
 	name = "5.56mm bullet casing"
@@ -203,6 +242,9 @@
 
 /obj/item/ammo_casing/vampire/c556mm/incendiary
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp556mm/incendiary
+
+/obj/item/ammo_casing/vampire/c762x51mm/incendiary
+	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp762x51mm/incendiary
 
 /obj/item/ammo_casing/vampire/c12g
 	name = "12g shell casing"
@@ -245,6 +287,13 @@
 	multiple_sprites = AMMO_BOX_PER_BULLET
 
 //////////////////
+
+/obj/item/ammo_box/vampire/c46mm
+	name = "ammo box (4.6X30mm)"
+	icon_state = "46box"
+	ammo_type = /obj/item/ammo_casing/vampire/c46mm
+	max_ammo = 120
+
 /obj/item/ammo_box/vampire/c45acp
 	name = "ammo box (.45 ACP)"
 	icon_state = "45box"
@@ -280,10 +329,21 @@
 	ammo_type = /obj/item/ammo_casing/vampire/c545mm
 	max_ammo = 60
 
+/obj/item/ammo_box/vampire/c762x51mm
+	name = "ammo box (7.62x51mm)"
+	icon_state = "762box"
+	ammo_type = /obj/item/ammo_casing/vampire/c762x51mm
+	max_ammo = 80
+
 /obj/item/ammo_box/vampire/c556/incendiary
 	name = "incendiary ammo box (5.56)"
 	icon_state = "incendiary"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm/incendiary
+
+/obj/item/ammo_box/vampire/c762x51mm/incendiary
+	name = "incendiary ammo box (7.62x51)"
+	icon_state = "762box-incendiary"
+	ammo_type = /obj/item/ammo_casing/vampire/c762x51mm/incendiary
 
 /obj/item/ammo_box/vampire/c12g
 	name = "ammo box (12g)"
@@ -360,12 +420,33 @@
 		M.apply_damage(20, CLONE)
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
 
+/obj/projectile/beam/beam_rifle/vampire/vamp762x51mm/silver
+	name = "7.62x51mm silver bullet"
+
+/obj/projectile/beam/beam_rifle/vampire/vamp762x51mm/silver/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(iswerewolf(target) || isgarou(target))
+		var/mob/living/carbon/M = target
+		if(M.auspice.gnosis)
+			if(prob(50))
+				adjust_gnosis(-1, M)
+
+		M.apply_damage(20, CLONE)
+		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
+
 /obj/item/ammo_casing/vampire/c9mm/silver
 	name = "9mm silver bullet casing"
 	desc = "A 9mm silver bullet casing."
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp9mm/silver
 	icon_state = "9"
 	base_iconstate = "9"
+
+/obj/item/ammo_casing/vampire/c762x51mm/silver
+	name = "7.62x51mm silver bullet casing"
+	desc = "A 762x51mm silver bullet casing."
+	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp762x51mm/silver
+	icon_state = "s762"
+	base_iconstate = "s762"
 
 /obj/item/ammo_casing/vampire/c45acp/silver
 	name = ".45 ACP silver bullet casing"
@@ -409,3 +490,9 @@
 	icon_state = "556box-silver"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm/silver
 	max_ammo = 60
+
+/obj/item/ammo_box/vampire/c762x51mm/silver
+	name = "ammo box (7.62x51mm silver)"
+	icon_state = "762box-silver"
+	ammo_type = /obj/item/ammo_casing/vampire/c762x51mm/silver
+	max_ammo = 40

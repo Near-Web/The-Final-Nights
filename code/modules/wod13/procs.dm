@@ -1,5 +1,5 @@
 /mob/living/carbon/human/proc/AdjustMasquerade(value, forced = FALSE)
-	if(!iskindred(src) && !isghoul(src) && !iscathayan(src))
+	if(!iskindred(src) && !isghoul(src) && !iscathayan(src) && !iszombie(src))
 		return
 	if(!GLOB.canon_event)
 		return
@@ -61,11 +61,15 @@
 	var/actual_range = max(1, round(range*(attacker.alpha/255)))
 	var/list/seenby = list()
 	for(var/mob/living/carbon/human/npc/NPC in oviewers(1, source))
+		if(istype(NPC, /mob/living/carbon/human/npc/sabbat))
+			continue
 		if(!NPC.CheckMove())
 			if(get_turf(src) != turn(NPC.dir, 180))
 				seenby |= NPC
 				NPC.Aggro(attacker, FALSE)
 	for(var/mob/living/carbon/human/npc/NPC in viewers(actual_range, source))
+		if(istype(NPC, /mob/living/carbon/human/npc/sabbat))
+			continue
 		if(!NPC.CheckMove())
 			if(affects_source)
 				if(NPC == source)

@@ -8,6 +8,17 @@
 
 #define isweakref(D) (istype(D, /datum/weakref))
 
+#define isimage(thing) (istype(thing, /image))
+
+GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are awful to detect safely, but this seems to be the best way ~ninjanomnom
+#define isappearance(thing) (!isimage(thing) && !ispath(thing) && istype(GLOB.magic_appearance_detecting_image, thing))
+
+// The filters list has the same ref type id as a filter, but isnt one and also isnt a list, so we have to check if the thing has Cut() instead
+GLOBAL_VAR_INIT(refid_filter, TYPEID(filter(type="angular_blur")))
+#define isfilter(thing) (!hascall(thing, "Cut") && TYPEID(thing) == GLOB.refid_filter)
+
+#define isgenerator(A) (istype(A, /generator))
+
 //Turfs
 //#define isturf(A) (istype(A, /turf)) This is actually a byond built-in. Added here for completeness sake.
 
@@ -87,17 +98,17 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 //more carbon mobs
 
-#define iswerewolf(A) (istype(A, /mob/living/carbon/werewolf))
+#define iswerewolf(A) (istype(A, /mob/living/simple_animal/werewolf))
 
-#define iscrinos(A) (istype(A, /mob/living/carbon/werewolf/crinos))
+#define iscrinos(A) (istype(A, /mob/living/simple_animal/werewolf/crinos))
 
-#define islupus(A) (istype(A, /mob/living/carbon/werewolf/lupus))
+#define islupus(A) (istype(A, /mob/living/simple_animal/werewolf/lupus))
 
-#define iscorax(A) (istype(A, /mob/living/carbon/werewolf/corax))
+#define iscorax(A) (istype(A, /mob/living/simple_animal/werewolf/corax))
 
-#define iscorvid(A) (istype(A, /mob/living/carbon/werewolf/lupus/corvid))
+#define iscorvid(A) (istype(A, /mob/living/simple_animal/werewolf/lupus/corvid))
 
-#define iscoraxcrinos(A) (istype(A, /mob/living/carbon/werewolf/corax/corax_crinos)) //not sure if necessary, not taking chances
+#define iscoraxcrinos(A) (istype(A, /mob/living/simple_animal/werewolf/corax/corax_crinos)) //not sure if necessary, not taking chances
 
 #define isalien(A) (istype(A, /mob/living/carbon/alien))
 

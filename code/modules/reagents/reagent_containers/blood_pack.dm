@@ -1,14 +1,15 @@
 /obj/item/reagent_containers/blood
 	name = "blood pack"
 	desc = "Contains blood used for transfusion. Must be attached to an IV drip."
-	icon = 'icons/obj/bloodpack.dmi'
-	icon_state = "bloodpack"
+	icon = 'modular_tfn/master_files/icons/obj/bloodpack.dmi' //TFN EDIT, ORIGINAL: icon = 'icons/obj/bloodpack.dmi'
+	icon_state = "blood0" //TFN EDIT, ORIGINAL: icon_state = "bloodpack"
 	volume = 200
-	var/blood_type = null
+	var/blood_type = "O-" //TFN edit, ORIGINAL: var/blood_type = null
 	var/unique_blood = null
 	var/labelled = FALSE
-	fill_icon_thresholds = list(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+	fill_icon_thresholds = list(0, 25, 50, 75, 100) //TFN EDIT, ORIGINAL: fill_icon_thresholds = list(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
 
+/* TFN REMOVAL, SEE: modular_tfn/modules/vitae/code/blood_pack.dm
 /obj/item/reagent_containers/blood/canconsume(mob/eater, mob/user)
 	return FALSE
 
@@ -32,13 +33,14 @@
 	if(labelled)
 		return
 	name = "blood_pack[blood_type ? " - [blood_type]" : null]"
+*/
 
 /obj/item/reagent_containers/blood/random
 	icon_state = "random_bloodpack"
 
 /obj/item/reagent_containers/blood/random/Initialize()
 	icon_state = "bloodpack"
-	blood_type = pick("A+", "A-", "B+", "B-", "O+", "O-", "L")
+	blood_type = random_blood_type() // TFN EDIT, ORIGINAL: blood_type = pick("A+", "A-", "B+", "B-", "O+", "O-", "L")
 	return ..()
 
 /obj/item/reagent_containers/blood/a_plus
@@ -59,12 +61,14 @@
 /obj/item/reagent_containers/blood/o_minus
 	blood_type = "O-"
 
+/* TFN REMOVAL
 /obj/item/reagent_containers/blood/lizard
 	blood_type = "L"
 
 /obj/item/reagent_containers/blood/ethereal
 	blood_type = "LE"
 	unique_blood = /datum/reagent/consumable/liquidelectricity
+*/
 
 /obj/item/reagent_containers/blood/universal
 	blood_type = "U"
@@ -74,7 +78,7 @@
 		if(!user.is_literate())
 			to_chat(user, "<span class='notice'>You scribble illegibly on the label of [src]!</span>")
 			return
-		var/t = stripped_input(user, "What would you like to label the blood pack?", name, null, 53)
+		var/t = tgui_input_text(user, "What would you like to label the blood pack?", "Blood Pack", name, max_length = MAX_NAME_LEN)
 		if(!user.canUseTopic(src, BE_CLOSE))
 			return
 		if(user.get_active_held_item() != I)

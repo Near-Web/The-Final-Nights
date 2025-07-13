@@ -10,7 +10,11 @@
 	var/datum/chi_discipline/discipline
 	var/active_check = FALSE
 
-/datum/action/chi_discipline/Trigger()
+/datum/action/chi_discipline/Trigger(trigger_flags)
+	. = ..()
+	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
+		switch_level()
+		return .
 	if(discipline && isliving(owner))
 		var/mob/living/owning = owner
 		if(discipline.ranged)
@@ -29,7 +33,6 @@
 			if(discipline)
 				if(discipline.check_activated(owner, owner))
 					discipline.activate(owner, owner)
-	. = ..()
 
 /datum/action/chi_discipline/ApplyIcon(atom/movable/screen/movable/action_button/current_button, force = FALSE)
 	button_icon = 'code/modules/wod13/UI/kuei_jin.dmi'
@@ -70,15 +73,6 @@
 			if(L.chi_ranged.discipline.check_activated(src, usr))
 				L.chi_ranged.discipline.activate(src, usr)
 			L.chi_ranged = null
-	. = ..()
-
-/atom/movable/screen/movable/action_button/Click(location,control,params)
-	if(istype(linked_action, /datum/action/chi_discipline))
-		var/list/modifiers = params2list(params)
-		if(LAZYACCESS(modifiers, "right"))
-			var/datum/action/chi_discipline/D = linked_action
-			D.switch_level()
-			return
 	. = ..()
 
 /datum/chi_discipline
@@ -221,7 +215,6 @@
 	health = 100
 	melee_damage_lower = 1
 	melee_damage_upper = 1
-	a_intent = INTENT_HELP
 	attack_verb_continuous = "splashes"
 	attack_verb_simple = "splash"
 
@@ -422,13 +415,13 @@
 			var/obj/item/melee/powerfist/stone/lefthand_stonefist = new (caster)
 			caster.put_in_r_hand(righthand_stonefist)
 			caster.put_in_l_hand(lefthand_stonefist)
-			ADD_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					caster.physiology.armor.melee -= 50
 					caster.physiology.armor.bullet -= 50
 					caster.remove_overlay(POTENCE_LAYER)
-					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 					if(righthand_stonefist)
 						qdel(righthand_stonefist)
 					if(lefthand_stonefist)
@@ -477,9 +470,9 @@
 			caster.physiology.armor.bullet += 25
 			caster.add_movespeed_modifier(/datum/movespeed_modifier/necroing)
 			var/initial_limbs_id = caster.dna.species.limbs_id
-			caster.dna.species.limbs_id = "rotten1"
+			caster.set_body_sprite("rotten1")
 			caster.update_body()
-			ADD_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					REMOVE_TRAIT(caster, TRAIT_NOSOFTCRIT, MAGIC_TRAIT)
@@ -489,11 +482,11 @@
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/necroing)
 					caster.dna.species.limbs_id = initial_limbs_id
 					caster.update_body()
-					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 		if(2)
 			var/initial_hair = caster.hairstyle
 			var/initial_facial = caster.facial_hairstyle
-			caster.unique_body_sprite = "nothing"
+			caster.set_body_sprite()
 			caster.hairstyle = "Bald"
 			caster.facial_hairstyle = "Shaved"
 			caster.update_body()
@@ -501,7 +494,7 @@
 				freezing_aura_loop(caster, delay + caster.discipline_time_plus)
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
-					caster.unique_body_sprite = null
+					caster.set_body_sprite()
 					caster.hairstyle = initial_hair
 					caster.facial_hairstyle = initial_facial
 					caster.update_body()
@@ -526,20 +519,20 @@
 			ADD_TRAIT(caster, TRAIT_NOHARDCRIT, MAGIC_TRAIT)
 			caster.physiology.armor.melee += 25
 			caster.physiology.armor.bullet += 25
-			caster.unique_body_sprite = "rotten1"
+			caster.set_body_sprite("rotten1")
 			caster.update_body()
 			caster.set_light(1.4,5,"#34D352")
-			ADD_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					REMOVE_TRAIT(caster, TRAIT_NOSOFTCRIT, MAGIC_TRAIT)
 					REMOVE_TRAIT(caster, TRAIT_NOHARDCRIT, MAGIC_TRAIT)
 					caster.physiology.armor.melee -= 25
 					caster.physiology.armor.bullet -= 25
-					caster.unique_body_sprite = null
+					caster.set_body_sprite()
 					caster.update_body()
 					caster.set_light(0)
-					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 
 /datum/chi_discipline/bone_shintai/proc/freezing_aura_loop(mob/living/carbon/human/caster, duration)
 	var/loop_started_time = world.time
@@ -659,7 +652,7 @@
 			var/mob/living/simple_animal/hostile/beastmaster/fireball/living_fireball = new(get_turf(caster))
 			living_fireball.my_creator = caster
 			caster.beastmaster |= living_fireball
-			living_fireball.beastmaster = caster
+			living_fireball.beastmaster_owner = caster
 		if(3)
 			caster.drop_all_held_items()
 			caster.put_in_active_hand(new /obj/item/gun/magic/ghostflame_shintai(caster))
@@ -842,7 +835,7 @@
 			caster.dna.species.attack_sound = 'code/modules/wod13/sounds/heavypunch.ogg'
 			tackler = caster.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 2+level_casting, speed = 1, skill_mod = 0, min_distance = 0)
 			caster.potential = 4
-			ADD_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					caster.remove_overlay(PROTEAN_LAYER)
@@ -852,7 +845,7 @@
 					caster.dna.species.meleemod -= 1
 					caster.dna.species.attack_sound = initial(caster.dna.species.attack_sound)
 					qdel(tackler)
-					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 		if(3)
 			ADD_TRAIT(caster, TRAIT_HANDS_BLOCK_PROJECTILES, "flesh shintai 3")
 			to_chat(caster, "<span class='notice'>Your muscles relax and start moving unintentionally. You feel perfect at projectile evasion skills...</span>")
@@ -947,7 +940,7 @@
 	icon_icon = 'code/modules/wod13/UI/kuei_jin.dmi'
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 
-/datum/action/choose_demon_form/Trigger()
+/datum/action/choose_demon_form/Trigger(trigger_flags)
 	if(istype(owner, /mob/living/carbon/human))
 		var/mob/living/carbon/human/user = usr
 		var/new_form = input(user, "Choose your Demon Form", "Demon Form") as null|anything in list("Samurai", "Tentacles", "Demon", "Giant", "Foul")
@@ -989,13 +982,13 @@
 			caster.apply_overlay(UNICORN_LAYER)
 			caster.physiology.armor.melee += mod
 			caster.physiology.armor.bullet += mod
-			ADD_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
 					caster.physiology.armor.melee -= mod
 					caster.physiology.armor.bullet -= mod
 					caster.remove_overlay(UNICORN_LAYER)
-					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/demonshintai_deactivate.ogg', 50, FALSE)
 		if("Tentacles")
 			var/mod = level_casting
@@ -1005,7 +998,7 @@
 			caster.apply_overlay(UNICORN_LAYER)
 			ADD_TRAIT(caster, TRAIT_SHOCKIMMUNE, SPECIES_TRAIT)
 			ADD_TRAIT(caster, TRAIT_PASSTABLE, SPECIES_TRAIT)
-			ADD_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 			if(mod > 1)
 				caster.add_movespeed_modifier(/datum/movespeed_modifier/tentacles1)
 				ADD_TRAIT(caster, TRAIT_PUSHIMMUNE, SPECIES_TRAIT)
@@ -1020,7 +1013,7 @@
 					caster.remove_overlay(UNICORN_LAYER)
 					REMOVE_TRAIT(caster, TRAIT_SHOCKIMMUNE, SPECIES_TRAIT)
 					REMOVE_TRAIT(caster, TRAIT_PASSTABLE, SPECIES_TRAIT)
-					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 					if(mod > 1)
 						caster.remove_movespeed_modifier(/datum/movespeed_modifier/tentacles1)
 						REMOVE_TRAIT(caster, TRAIT_PUSHIMMUNE, SPECIES_TRAIT)
@@ -1037,7 +1030,7 @@
 			var/mutable_appearance/potence_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "demon", -UNICORN_LAYER)
 			caster.overlays_standing[UNICORN_LAYER] = potence_overlay
 			caster.apply_overlay(UNICORN_LAYER)
-			ADD_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 			switch(mod)
 				if(1)
 					caster.add_movespeed_modifier(/datum/movespeed_modifier/demonform1)
@@ -1052,7 +1045,7 @@
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
 					caster.remove_overlay(UNICORN_LAYER)
-					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 					switch(mod)
 						if(1)
 							caster.remove_movespeed_modifier(/datum/movespeed_modifier/demonform1)
@@ -1075,14 +1068,14 @@
 			caster.dna.species.punchdamagelow += mod
 			caster.dna.species.punchdamagehigh += mod
 			caster.dna.species.meleemod += meleemod
-			ADD_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
 					caster.remove_overlay(UNICORN_LAYER)
 					caster.dna.species.punchdamagelow -= mod
 					caster.dna.species.punchdamagehigh -= mod
 					caster.dna.species.meleemod -= meleemod
-					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/demonshintai_deactivate.ogg', 50, FALSE)
 		if("Foul")
 			caster.remove_overlay(UNICORN_LAYER)
@@ -1091,11 +1084,11 @@
 			caster.apply_overlay(UNICORN_LAYER)
 			spawn()
 				foul_aura_loop(caster, delay + caster.discipline_time_plus, level_casting)
-			ADD_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
 					caster.remove_overlay(UNICORN_LAYER)
-					REMOVE_TRAIT(caster, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/demonshintai_deactivate.ogg', 50, FALSE)
 
 /datum/chi_discipline/demon_shintai/proc/foul_aura_loop(mob/living/carbon/human/caster, duration, strength)
@@ -1200,17 +1193,17 @@
 	cost_demon = 1
 	discipline_type = "Demon"
 
+/datum/chi_discipline/iron_mountain/post_gain(mob/living/carbon/human/user)
+	user.physiology.damage_resistance += (5+(5*level))
+
 /datum/chi_discipline/iron_mountain/activate(mob/living/target, mob/living/carbon/human/caster)
 	..()
-	var/mod = level_casting
-	var/bonus = 15 * mod
-	caster.physiology.armor.melee += bonus
-	caster.physiology.armor.bullet += bonus
+	var/bonus = (5+(5*level))
+	caster.physiology.damage_resistance = min(60, (caster.physiology.damage_resistance+bonus) )
 	spawn(delay+caster.discipline_time_plus)
 		if(caster)
 			caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/ironmountain_deactivate.ogg', 50, FALSE)
-			caster.physiology.armor.melee -= bonus
-			caster.physiology.armor.bullet -= bonus
+		caster.physiology.damage_resistance = max(0, (caster.physiology.damage_resistance-bonus) )
 
 /datum/chi_discipline/kiai
 	name = "Kiai"
@@ -1228,7 +1221,7 @@
 		set_glide_size(DELAY_TO_GLIDE_SIZE(total_multiplicative_slowdown()))
 		step_to(src,caster,0)
 		face_atom(caster)
-		a_intent = INTENT_HARM
+		set_combat_mode(TRUE)
 		drop_all_held_items()
 		UnarmedAttack(caster)
 
@@ -1336,7 +1329,6 @@
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
 	attack_sound = 'sound/weapons/slash.ogg'
-	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	bloodpool = 10
@@ -1360,7 +1352,7 @@
 				deaggro_action.Grant(caster)
 			var/mob/living/simple_animal/hostile/beastmaster/rat/rat = new(get_turf(caster))
 			caster.beastmaster |= rat
-			rat.beastmaster = caster
+			rat.beastmaster_owner = caster
 		if(2)
 			if(!length(caster.beastmaster))
 				var/datum/action/beastmaster_stay/stay_action = new()
@@ -1369,7 +1361,7 @@
 				deaggro_action.Grant(caster)
 			var/mob/living/simple_animal/hostile/beastmaster/cat/cat = new(get_turf(caster))
 			caster.beastmaster |= cat
-			cat.beastmaster = caster
+			cat.beastmaster_owner = caster
 		if(3)
 			if(!length(caster.beastmaster))
 				var/datum/action/beastmaster_stay/stay_action = new()
@@ -1378,7 +1370,7 @@
 				deaggro_action.Grant(caster)
 			var/mob/living/simple_animal/hostile/beastmaster/dog = new(get_turf(caster))
 			caster.beastmaster |= dog
-			dog.beastmaster = caster
+			dog.beastmaster_owner = caster
 		if(4)
 			if(!length(caster.beastmaster))
 				var/datum/action/beastmaster_stay/stay_action = new()
@@ -1387,7 +1379,7 @@
 				deaggro_action.Grant(caster)
 			var/mob/living/simple_animal/hostile/beastmaster/rat/flying/bat = new(get_turf(caster))
 			caster.beastmaster |= bat
-			bat.beastmaster = caster
+			bat.beastmaster_owner = caster
 		if(5)
 			wolflike_shapeshift.Shapeshift(caster)
 			spawn(10 SECONDS + caster.discipline_time_plus)
@@ -1446,7 +1438,6 @@
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
 	attack_sound = 'sound/weapons/slash.ogg'
-	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	bloodpool = 0
