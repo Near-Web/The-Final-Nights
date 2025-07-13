@@ -25,11 +25,43 @@
 	speed = 1
 	AIStatus = AI_OFF
 	var/mob/living/target_to_zombebe
+	var/mob/living/last_attacker
 
 /mob/living/simple_animal/hostile/zombie/Destroy()
 	. = ..()
 	SSgraveyard.alive_zombies = max(0, SSgraveyard.alive_zombies-1)
 	GLOB.zombie_list -= src
+	on_death(last_attacker)
+
+/mob/living/simple_animal/hostile/zombie/proc/on_death(last_attacker)
+	var/mob/living/H = last_attacker
+	if(H && get_area_name(H) == "Graveyard")
+		H.graveyard_duty++
+		if(H.graveyard_duty >= 10)
+			H.graveyard_duty = 0
+			H.masquerade++
+			to_chat(H, "You slew 10 undead. Masquerade Point Restored.")
+		else
+			to_chat(H, "Graveyard Duty: Zombies killed: [H.graveyard_duty]/10.")
+
+//only when the player attacks the zombie will it set the last_attacker
+//Hand Attack, basic melee.
+/mob/living/simple_animal/hostile/zombie/attack_hand(mob/living/user)
+	var/mob/living/H = user
+	last_attacker = H
+	return ..()
+// melee weapon attack
+/mob/living/simple_animal/hostile/zombie/attackby(obj/item/I, mob/living/user, params)
+	var/mob/living/H = user
+	last_attacker = H
+	return ..()
+
+// bullets/projectiles
+/mob/living/simple_animal/hostile/zombie/bullet_act(obj/projectile/P)
+	if(P.firer)
+		var/mob/living/H = P.firer
+		last_attacker = H
+	return ..()
 
 /mob/living/simple_animal/hostile/zombie/Initialize()
 	. = ..()
