@@ -265,6 +265,12 @@
 		), ARMOR_MAX_BLOCK)
 
 	var/damage = attacking_item.force
+	var/meleemod = 1
+	if(istype(user, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		if(H.dna?.species)
+			meleemod = H.dna.species.meleemod
+	damage = damage * meleemod
 
 	var/wounding = attacking_item.wound_bonus
 	if((attacking_item.item_flags & SURGICAL_TOOL) && !user.combat_mode && body_position == LYING_DOWN && (LAZYLEN(surgeries) > 0))
