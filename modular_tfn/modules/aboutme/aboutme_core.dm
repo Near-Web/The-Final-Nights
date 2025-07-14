@@ -20,6 +20,7 @@
 	var/list/relationships_all = list()
 	var/list/chronicles_all = list()
 	var/list/group_relationships = list()
+
 	//Group Stuff
 	var/sect_text = ""
 	var/organization_text = ""
@@ -29,16 +30,18 @@
 	var/list/groups = list()
 	var/sect = ""
 
-	var/list/disciplines = list()
 	var/clan
 	var/generation
 	var/masquerade
 	var/humanity
-	var/regnant_name
-	var/regnant_clan_name
+	var/list/disciplines = list()
+
 	var/tribe = ""
 	var/organization = ""
 	var/parties = list()
+
+	var/regnant_name
+	var/regnant_clan_name
 
 /datum/component/about_me/Initialize()
 	. = ..()
@@ -55,7 +58,7 @@
 	var/mob/living/carbon/human/H = owner
 	if (!H) return
 	name = H.real_name
-	species = iskindred(H) ? "Kindred" : ishuman(H) ? "Human" : "Unknown"
+	species = iskindred(H) ? "Kindred": isgarou(H) ? "Fera" : ishuman(H) ? "Human" : "Unknown"
 	role = H.mind?.assigned_role
 	special_role = H.mind?.special_role
 	if (H.mind?.enslaved_to)
@@ -70,6 +73,9 @@
 	lockpicking = H:lockpicking + H.additional_lockpicking
 	athletics = H:athletics + H.additional_athletics
 
+	if (isgarou(H))
+		var/datum/garou_tribe/gtribe = H.auspice.tribe
+		tribe = gtribe.name
 	if (iskindred(H))
 		var/datum/species/kindred/K = H.dna?.species
 		// --- CLAN
@@ -114,6 +120,7 @@
 		"role" = role,
 		"special_role" = special_role,
 		"clan" = clan,
+		"tribe" = tribe,
 		"generation" = generation,
 		"masquerade" = masquerade,
 		"humanity" = humanity,

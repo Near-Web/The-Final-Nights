@@ -1,26 +1,21 @@
-// ---------------------------------------------
-// Premade Groups!
-// ---------------------------------------------
 //This dynamicly updates and assigns groups as effeciently as I could think of for now.
 /datum/component/about_me/proc/assign_groups()
     var/list/new_groups = list()
     // City: Everyone is in the city
     if (GLOB.groups && GLOB.groups[GROUP_KEY_CITY])
         new_groups += GLOB.groups[GROUP_KEY_CITY]
-
     // Faction
     if (src.species == "Kindred")
         if (GLOB.groups[GROUP_KEY_FACTION_KINDRED])
             new_groups += GLOB.groups[GROUP_KEY_FACTION_KINDRED]
-    else if (src.species == "Garou")
+    else if (src.species == "Fera")
         if (GLOB.groups[GROUP_KEY_FACTION_FERA])
             new_groups += GLOB.groups[GROUP_KEY_FACTION_FERA]
     else if (src.species == "Human" || !src.species)
         if (GLOB.groups[GROUP_KEY_FACTION_UNKNOWING])
             new_groups += GLOB.groups[GROUP_KEY_FACTION_UNKNOWING]
-
     // Sect
-    if (src.sect == "")
+    if (!src.sect || src.sect == "")
         var/sect_key = GROUP_KEY_SECT_INDEPENDENT
         if (GLOB.groups && GLOB.groups[sect_key])
             new_groups += GLOB.groups[sect_key]
@@ -28,39 +23,35 @@
         var/sect_key = GROUP_KEY_SECT(src.sect)
         if (GLOB.groups && GLOB.groups[sect_key])
             new_groups += GLOB.groups[sect_key]
-
     // Clan
     if (src.clan)
         var/clan_key = GROUP_KEY_CLAN(src.clan)
         if (GLOB.groups && GLOB.groups[clan_key])
             new_groups += GLOB.groups[clan_key]
-
-	// Tribe
+    // Tribe
     if (src.tribe)
         var/tribe_key = GROUP_KEY_TRIBE(src.tribe)
         if (GLOB.groups && GLOB.groups[tribe_key])
             new_groups += GLOB.groups[tribe_key]
+            message_admins("DEBUG: Added tribe group: [tribe_key] ([GLOB.groups[tribe_key]])")
+        else
+            message_admins("DEBUG: Tribe key missing: [tribe_key] (src.tribe=[src.tribe])")
 
     // Organization
     if (src.organization)
         var/org_key = GROUP_KEY_ORG(src.organization)
         if (GLOB.groups && GLOB.groups[org_key])
             new_groups += GLOB.groups[org_key]
-
-    //parties/coteries, needs work.
-    //if (islist(src.parties))
-    //    new_groups += src.parties
-
+    // Parties/coteries (future expansion)
+    // if (islist(src.parties))
+    //     new_groups += src.parties
     src.groups = new_groups
-
-//for overview.
+//for overview display, just a basic rake of information.
 /datum/component/about_me/proc/update_group_texts()
     sect_text = ""
     organization_text = ""
     party_text = ""
-
     if (!islist(src.groups)) return
-
     for (var/datum/groups/G in src.groups)
         switch (G.group_type)
             if (GROUP_TYPE_SECT)
@@ -69,7 +60,6 @@
                 organization_text = G.name
             if (GROUP_TYPE_PARTY)
                 party_text = G.name
-
 //will be used to populate co-workers, clan-mates, etc.
 /datum/component/about_me/proc/sync_group_relationships()
     group_relationships = list()
@@ -77,292 +67,253 @@
         for (var/datum/groups/G in src.groups)
             group_relationships += G
 
-//FACTIONS/SECTS/CLANS/TRIBES/ORGANIZATIONS/PARTIES!!!
+// ---------------------------------------------
+// Premade Groups!
+// ---------------------------------------------
+//CITY/FACTIONS/SECTS/CLANS/TRIBES/ORGANIZATIONS/PARTIES!!!
 //These are the base group datums, which can be extended for fully premade groups below, or can begenerated in round, as needed.
-
-//Getting smaller each step.
 //City is just the whole city.
 /datum/groups/city
     group_type = GROUP_TYPE_CITY
-
-//Factions are large generalized groups, like all Kindred, Fera, or Unknowing humans respectively.
-//You can only be in ONE faction at a time.
+    tags = list(GROUP_TAG_CITY)
 /datum/groups/faction
     group_type = GROUP_TYPE_FACTION
-
-//Sects are more focused groups, like Camarilla, Anarchs, or Sabbat for Kindred.
-//This allows for a camarilla to have decent feelings about the anarchs or vise versa. Or conflicted feelings at the least.
-//Maybe look out for them to a point, maybe to their own peril.
-//You can only have direct membership in one sect at a time, but can have relationships with other sects.
+    tags = list(GROUP_TAG_FACTION)
 /datum/groups/sect
     group_type = GROUP_TYPE_SECT
-
-//These are actual "races", species detail specific groups that creatures of the night are BORN into.
-//That does not mean they have a good relationship with their clan, or even like them.
-//But they are born into it, and cannot change it. (Except Caitiff, who are clanless, and don't get one.)
-//You can only be in ONE clan at a time, but can have relationships with other clans.
+    tags = list(GROUP_TAG_SECT)
 /datum/groups/clan
     group_type = GROUP_TYPE_CLAN
+    tags = list(GROUP_TAG_CLAN)
 /datum/groups/tribe
     group_type = GROUP_TYPE_TRIBE
-//Clanlike group for humans AND hunters, MOB mentality.
-//This will be unknown by creatures, and is a bit of a catch-all for humans and informs them like clan leadership will inform clans.
-/datum/groups/human
-    group_type = GROUP_TYPE_ORGANIZATION
-    leader_name = "The Masses."
-
-	//***WARNING***
-//This is where control is handed to the players. Will be densely logged for strong actions.
-//This is a broad term for any large organization, these are KNOWN to the public.
-//Leadership is handled by in game roles.
-//Like the police department, Biker Gang, or the Tower Corp, or other business fronts.
-//These are the actual jobs.
-//All of these are known to the city in some way, but even a secret club has a public face.
+    tags = list(GROUP_TAG_TRIBE)
+// Catch-all organizations (PD, hospital, etc)
 /datum/groups/organization
     group_type = GROUP_TYPE_ORGANIZATION
-
-//Coteries, Squads, Parties, Salons, etc. Smaller sub-groups.
-//Primogen Council, City Leadership, SWAT, National Guard, etc.
+    tags = list(GROUP_TAG_ORG)
 /datum/groups/party
     group_type = GROUP_TYPE_PARTY
+    tags = list(GROUP_TAG_PARTY)
 
 //PREMADE GROUPS!
-//ALL of this, or as much as possible, should be set and handled by the aboutmecomp.assign_groups(), ^ above.
-//
-	//The WHOLE City, and Everyone Online gets this. Doesn't display names or information about others, only city-wide information.
-//(Admin level communications. Like a city-wide alert of national guard, riots, etc. News broadcasts, etc. Mayor updates. Narrative Focused.)
-//With a Mayor Role, this could be very interesting.
+//ALL OF THESE MUST HAVE A KEY FOR THEIR ID. Found in group.dm.
+//The WHOLE City.
 /datum/groups/city/SanFrancisco
-	//members += GLOB.player_list if not already in members
 	id = GROUP_KEY_CITY
 	name = "San Francisco"
 	desc = "The city of San Francisco. No matter your story, citizen or visitor, your choices brought you here this night."
-	leader_name = "Mayor/City Council of San Francisco"
-	icon = ""
-	tags = list("city", "sanfrancisco")
-	members = list("(Everyone.)") // Everyone is a member of the city, by default.
-
-	//Factions: Where do you work? You gotta be one of these.
-//These are overall general consensus of various groups, keeping information seperated if needed.
-//Default, just citizens
-//Everyone gets this, and if they are apart of another faction, they get this and that.
+	leader_name = "Government/Mayor/City Council of San Francisco"
+	members = list("(Everyone within the city.)") // Everyone is a member of the city, by default.
+//Factions: These represent mob mentality, for example kindred whispers of sabbat can be updated here. Very Generalized
+//Citizens, all city services fall under this.
 /datum/groups/faction/citizen
     id = GROUP_KEY_FACTION_UNKNOWING // Replace with the appropriate key or define GROUP_KEY_FACTION macro elsewhere
     name = "Citizen of San Francisco"
-    desc = "You are a just a regular citizen of San Francisco, with all that entails."
-    leader_name = "You are free to live as a citizen in San Fran."
-    icon = ""
-    tags = list("citizen")
-
-//Good bad or the ugly, you're a kindred.
+    desc = "You are a just a regular citizen of San Francisco."
+    leader_name = "Elected Mayor."
+    members = list("(The Masses.)")
+//Kindred
 /datum/groups/faction/kindred
     id = GROUP_KEY_FACTION_KINDRED // Replace with the appropriate key or define GROUP_KEY_FACTION macro elsewhere
     name = "Kindred of San Francisco"
-    desc = "You are a Kindred of San Francisco, with all that entails."
+    desc = "You are a Kindred of San Francisco."
     leader_name = "Varies, between sects."
-    icon = ""
-    tags = list("kindred", "vampire", "vampires")
-
+//Fera
 /datum/groups/faction/fera
 	id = GROUP_KEY_FACTION_FERA // Replace with the appropriate key or define GROUP_KEY_FACTION macro elsewhere
 	name = "Fera of San Francisco"
-	desc = "You are a Fera of San Francisco, with all that entails."
+	desc = "You are a Fera of San Francisco."
 	leader_name = "Varies, between sects."
-	icon = ""
-	tags = list("fera", "werewolf", "garou")
-
+//Hunters
 /datum/groups/faction/hunter
 	id = GROUP_KEY_FACTION_HUNTERS // Replace with the appropriate key or define GROUP_KEY_FACTION macro elsewhere
 	name = "Hunter of San Francisco"
 	desc = "You are a hunter of San Francisco, with all that entails."
 	leader_name = "Varies"
-	icon = ""
-	tags = list("hunter")
-
-	//Sects: Unlike generalized factions, sects are driven largly by player choices!
-//Default Sect is Independent, for any race, if none is found or appropriate by their role or species, etc.
+//Sects: Unlike generalized factions, sects are driven largly by player choices!
+//Independent, Catch all for everyone.
 /datum/groups/sect/independent
 	id = GROUP_KEY_SECT_INDEPENDENT
-	name = "Independent Citizens"
-	desc = "You are independent, and not aligned with any major sect. "
-	leader_name = "None"
-	icon = ""
-	tags = list("independent")
-	members = list("(All Independent Citizens.)")
-
-//Kindred Sects
+	name = "Independent"
+	desc = "You are independent, and not aligned with any major sect, for now."
+	leader_name = "You lead your own life, as you will."
+	members = list("(Anyone not aligned with a sect.)")
+//Kindred Sects, set from role
 /datum/groups/sect/camarilla
 	id = GROUP_KEY_SECT_CAMARILLA
 	name = "Camarilla"
-	desc = "You are a member of the Camarilla, the largest and most influential sect of Kindred, dedicated to preserving the Masquerade and maintaining order among vampires."
+	desc = "You are a member of the Camarilla, the largest and most influential sect of Kindred, dedicated to preserving the Traditions, and namely, the Masquerade. You maintain order among kindred."
 	leader_name = "Prince"
-	icon = ""
-	tags = list("camarilla")
 	members = list("(All Camarilla Members.)")
-
 /datum/groups/sect/anarchs
 	id = GROUP_KEY_SECT_ANARCHS
 	name = "Anarch"
 	desc = "You are an Anarch, a member of the Anarch Movement, which opposes the rigid hierarchy of the Camarilla and seeks greater freedom and equality among Kindred."
 	leader_name = "Baron"
-	icon = ""
-	tags = list("anarchs")
 	members = list("(All Anarch Members.)")
-
 /datum/groups/sect/sabbat
 	id = GROUP_KEY_SECT_SABBAT
 	name = "Sabbat"
 	desc = "You are a member of the Sabbat, a sect of Kindred that rejects human morality and embraces their predatory nature, often engaging in violent and ruthless behavior."
 	leader_name = "Ductus"
-	icon = ""
-	tags = list("sabbat")
 	members = list("(All Sabbat Members.)")
-
-//Fera Sects
-
+//Fera Sects, set from role
 /datum/groups/sect/paintedcity
-	id = "paintedcity"
+	id = GROUP_KEY_SECT_PAINTEDCITY
 	name = "painted city"
 	desc = "You are a member of the painted city."
 	leader_name = "The Spirits?"
-	icon = ""
-	tags = list("fera", "werewolf", "garou")
 	members = list("(All Fera Kind, whispers between spirits.)")
-
 /datum/groups/sect/amberglade
-	id = "amberglade"
+	id = GROUP_KEY_SECT_AMBERGLADE
 	name = "amber glade"
 	desc = "You are a member of the amber glade."
 	leader_name = "The Spirits?"
-	icon = ""
-	tags = list("fera", "werewolf", "garou")
 	members = list("(All Fera Kind, whispers between spirits.)")
-
 /datum/groups/sect/poisonedshore
-	id = "poisonedshore"
+	id = GROUP_KEY_SECT_POISONEDSHORE
 	name = "poisoned shore"
 	desc = "You are a member of the poisoned shore."
 	leader_name = "The Spirits?"
-	icon = ""
-	tags = list("fera", "werewolf", "garou")
 	members = list("(All Fera Kind, whispers between spirits.)")
-
-
-//Kindred Clans, Caitif are clanless... They don't get one, don't ask for it.
+//Kindred Clans, set from character
+/datum/groups/clan/caitif
+    id = GROUP_KEY_CLAN_CAITIF
+    name = "Clanless"
+    desc = "You are without clan."
 /datum/groups/clan/ventrue
-    id = "ventrue"
+    id = GROUP_KEY_CLAN_VENTRUE
     name = "Clan Ventrue"
     desc = "Clan Ventrue, the blue bloods and aristocrats of the Kindred."
-    icon = ""
-    tags = list("ventrue", "clan")
-
 /datum/groups/clan/brujah
-    id = "brujah"
+    id = GROUP_KEY_CLAN_BRUJAH
     name = "Clan Brujah"
     desc = "Clan Brujah, the rabble, rebels, and iconoclasts of the Kindred."
-    icon = ""
-    tags = list("brujah", "clan")
-
 /datum/groups/clan/toreador
-    id = "toreador"
+    id = GROUP_KEY_CLAN_TOREADOR
     name = "Clan Toreador"
     desc = "Clan Toreador, the artistes, socialites, and patrons of the Kindred."
-    icon = ""
-    tags = list("toreador", "clan")
-
 /datum/groups/clan/malkavian
-    id = "malkavian"
+    id = GROUP_KEY_CLAN_MALKAVIAN
     name = "Clan Malkavian"
     desc = "Clan Malkavian, the seers, lunatics, and visionaries of the Kindred."
-    icon = ""
-    tags = list("malkavian", "clan")
-
 /datum/groups/clan/nosferatu
-    id = "nosferatu"
+    id = GROUP_KEY_CLAN_NOSFERATU
     name = "Clan Nosferatu"
     desc = "Clan Nosferatu, the outcasts, spies, and information brokers of the Kindred."
-    icon = ""
-    tags = list("nosferatu", "clan")
-
 /datum/groups/clan/gangrel
-    id = "gangrel"
+    id = GROUP_KEY_CLAN_GANGREL
     name = "Clan Gangrel"
     desc = "Clan Gangrel, the wanderers and shapeshifters of the Kindred."
-    icon = ""
-    tags = list("gangrel", "clan")
-
 /datum/groups/clan/tremere
-    id = "tremere"
+    id = GROUP_KEY_CLAN_TREMERE
     name = "Clan Tremere"
     desc = "Clan Tremere, the warlocks, scholars, and blood mages of the Kindred."
-    icon = ""
-    tags = list("tremere", "clan")
-
 /datum/groups/clan/lasombra
-    id = "lasombra"
+    id = GROUP_KEY_CLAN_LASOMBRA
     name = "Clan Lasombra"
     desc = "Clan Lasombra, the shadow manipulators and rulers of the Kindred."
-    icon = ""
-    tags = list("lasombra", "clan")
-
 /datum/groups/clan/tzimisce
-    id = "tzimisce"
+    id = GROUP_KEY_CLAN_TZIMISCE
     name = "Clan Tzimisce"
     desc = "Clan Tzimisce, the flesh-shapers and lords of horror among the Kindred."
-    icon = ""
-    tags = list("tzimisce", "clan")
-
 /datum/groups/clan/ministry
-    id = "ministry"
+    id = GROUP_KEY_CLAN_MINISTRY
     name = "Clan Ministry"
     desc = "The Ministry (formerly Setites), the corrupters, tempters, and cultists of the Kindred."
-    icon = ""
-    tags = list("ministry", "setite", "clan")
-
 /datum/groups/clan/giovanni
-    id = "giovanni"
+    id = GROUP_KEY_CLAN_GIOVANNI
     name = "Clan Giovanni"
     desc = "Clan Giovanni, the necromancers and merchant princes of the Kindred."
-    icon = ""
-    tags = list("giovanni", "clan")
-
 /datum/groups/clan/salubri
-    id = "salubri"
+    id = GROUP_KEY_CLAN_SALUBRI
     name = "Clan Salubri"
     desc = "Clan Salubri, the healers, sages, and outcasts among the Kindred."
-    icon = ""
-    tags = list("salubri", "clan")
-
 /datum/groups/clan/daughters_of_cacophony
-    id = "daughters_of_cacophony"
+    id = GROUP_KEY_CLAN_DAUGHTERS_OF_CACOPHONY
     name = "Daughters of Cacophony"
     desc = "The Daughters of Cacophony, enigmatic sirens and masters of supernatural song."
-    icon = ""
-    tags = list("daughters_of_cacophony", "clan")
 /datum/groups/clan/baali
-    id = "baali"
+    id = GROUP_KEY_CLAN_BAALI
     name = "Clan Baali"
     desc = "The Baali, infernalists, corrupters, and worshippers of dark powers among the Kindred."
-    icon = ""
-    tags = list("baali", "clan")
-
-
-
-
-//Fera Tribes
+//Fera Tribes, ronin default, set from character.
+/datum/groups/tribe/ronin
+    id = GROUP_KEY_TRIBE_RONIN
+    name = "Ronin"
+    desc = "Ronin, those Garou and Fera who walk alone without tribe or allegiance."
+/datum/groups/tribe/blackfuries
+    id = GROUP_KEY_TRIBE_BLACKFURIES
+    name = "Black Furies"
+    desc = "The Black Furies, protectors of the sacred and avengers of the oppressed."
+/datum/groups/tribe/blackspiraldancers
+    id = GROUP_KEY_TRIBE_BLACKSPIRALDANCERS
+    name = "Black Spiral Dancers"
+    desc = "The Black Spiral Dancers, lost to the Wyrm and bringers of chaos and corruption."
+/datum/groups/tribe/bonegnawers
+    id = GROUP_KEY_TRIBE_BONEGNAWERS
+    name = "Bone Gnawers"
+    desc = "The Bone Gnawers, survivors of the streets and scavengers among the Garou."
+/datum/groups/tribe/childrenofgaia
+    id = GROUP_KEY_TRIBE_CHILDRENOFGAIA
+    name = "Children of Gaia"
+    desc = "The Children of Gaia, peacemakers, healers, and seekers of unity among the Garou."
+/datum/groups/tribe/corax
+    id = GROUP_KEY_TRIBE_CORAX
+    name = "Corax"
+    desc = "The Corax, raven-shifters, messengers, and keepers of secrets."
+/datum/groups/tribe/galestalkers
+    id = GROUP_KEY_TRIBE_GALESTALKERS
+    name = "Gale Stalkers"
+    desc = "The Gale Stalkers, elusive and wild Garou, attuned to the storm."
+/datum/groups/tribe/getoffenris
+    id = GROUP_KEY_TRIBE_GETOFFENRIS
+    name = "Get of Fenris"
+    desc = "The Get of Fenris, warriors, berserkers, and defenders of Garou honor."
+/datum/groups/tribe/ghostcouncil
+    id = GROUP_KEY_TRIBE_GHOSTCOUNCIL
+    name = "Ghost Council"
+    desc = "The Ghost Council, mysterious spirit-guided Garou or the wise of the Umbra."
+/datum/groups/tribe/glasswalkers
+    id = GROUP_KEY_TRIBE_GLASSWALKERS
+    name = "Glass Walkers"
+    desc = "The Glass Walkers, masters of technology and urban Garou society."
+/datum/groups/tribe/hartwardens
+    id = GROUP_KEY_TRIBE_HARTWARDENS
+    name = "Hart Wardens"
+    desc = "The Hart Wardens, guardians of nature and sacred lands."
+/datum/groups/tribe/redtalons
+    id = GROUP_KEY_TRIBE_REDTALONS
+    name = "Red Talons"
+    desc = "The Red Talons, savage Garou, fierce protectors of the wild."
+/datum/groups/tribe/shadowlords
+    id = GROUP_KEY_TRIBE_SHADOWLORDS
+    name = "Shadow Lords"
+    desc = "The Shadow Lords, cunning politicians, manipulators, and seekers of power."
+/datum/groups/tribe/silentstriders
+    id = GROUP_KEY_TRIBE_SILENTSTRIDERS
+    name = "Silent Striders"
+    desc = "The Silent Striders, wanderers and messengers of the restless dead."
 /datum/groups/tribe/silverfangs
-
-//Hunter Groups
-/datum/groups/party/hunters_squad
-
-//Organizations
+    id = GROUP_KEY_TRIBE_SILVERFANGS
+    name = "Silver Fangs"
+    desc = "The Silver Fangs, noble rulers and ancient leaders of the Garou Nation."
+/datum/groups/tribe/stargazers
+    id = GROUP_KEY_TRIBE_STARGAZERS
+    name = "Stargazers"
+    desc = "The Stargazers, mystics, philosophers, and seekers of cosmic truth."
+//Organizations, these are the catch all for smaller groups. Like the PD, Hospital Staff, etc.
+//Set from role, or joining them in round from leaders/officers.
+/datum/groups/organization/primogencouncil
 /datum/groups/organization/government
 /datum/groups/organization/military
 /datum/groups/organization/policedepartment
 /datum/groups/organization/hospital
 /datum/groups/organization/gang
 /datum/groups/organization/corporation
-
 //Squads/parties are coteries, small groups of like-minded friends or associates.
+//Hunter/Swat/National Guard
+/datum/groups/party/hunters_squad
 /datum/groups/party/coterie
 /datum/groups/party/squad

@@ -4,6 +4,74 @@
 // Centralizes all group and persistence logic under the RP Management subsystem.
 // ================================
 GLOBAL_LIST_EMPTY(groups)
+GLOBAL_LIST_EMPTY(canonical_groups) // <-- Only one declaration!
+//For Initializing all cannon groups in the subsystem.
+/// Canonical groups: Key => Type path (as string or path)
+var/global/list/canonical_groups = list(
+    // --- City
+    GROUP_KEY_CITY = /datum/groups/city/SanFrancisco,
+
+    // --- Factions
+    GROUP_KEY_FACTION_UNKNOWING = /datum/groups/faction/citizen,
+    GROUP_KEY_FACTION_KINDRED   = /datum/groups/faction/kindred,
+    GROUP_KEY_FACTION_FERA      = /datum/groups/faction/fera,
+    GROUP_KEY_FACTION_HUNTERS   = /datum/groups/faction/hunter,
+
+    // --- Sects
+    GROUP_KEY_SECT_CAMARILLA    = /datum/groups/sect/camarilla,
+    GROUP_KEY_SECT_ANARCHS      = /datum/groups/sect/anarchs,
+    GROUP_KEY_SECT_SABBAT       = /datum/groups/sect/sabbat,
+    GROUP_KEY_SECT_INDEPENDENT  = /datum/groups/sect/independent,
+    GROUP_KEY_SECT_PAINTEDCITY  = /datum/groups/sect/paintedcity,
+    GROUP_KEY_SECT_AMBERGLADE   = /datum/groups/sect/amberglade,
+    GROUP_KEY_SECT_POISONEDSHORE = /datum/groups/sect/poisonedshore,
+
+    // --- Clans (add all you want here)
+    GROUP_KEY_CLAN_VENTRUE                = /datum/groups/clan/ventrue,
+    GROUP_KEY_CLAN_BRUJAH                 = /datum/groups/clan/brujah,
+    GROUP_KEY_CLAN_TOREADOR               = /datum/groups/clan/toreador,
+    GROUP_KEY_CLAN_MALKAVIAN              = /datum/groups/clan/malkavian,
+    GROUP_KEY_CLAN_NOSFERATU              = /datum/groups/clan/nosferatu,
+    GROUP_KEY_CLAN_GANGREL                = /datum/groups/clan/gangrel,
+    GROUP_KEY_CLAN_TREMERE                = /datum/groups/clan/tremere,
+    GROUP_KEY_CLAN_LASOMBRA               = /datum/groups/clan/lasombra,
+    GROUP_KEY_CLAN_TZIMISCE               = /datum/groups/clan/tzimisce,
+    GROUP_KEY_CLAN_MINISTRY               = /datum/groups/clan/ministry,
+    GROUP_KEY_CLAN_GIOVANNI               = /datum/groups/clan/giovanni,
+    GROUP_KEY_CLAN_SALUBRI                = /datum/groups/clan/salubri,
+    GROUP_KEY_CLAN_DAUGHTERS_OF_CACOPHONY = /datum/groups/clan/daughters_of_cacophony,
+    GROUP_KEY_CLAN_BAALI                  = /datum/groups/clan/baali,
+
+    // --- Tribes
+    GROUP_KEY_TRIBE_RONIN               = /datum/groups/tribe/ronin,
+    GROUP_KEY_TRIBE_BLACKFURIES         = /datum/groups/tribe/blackfuries,
+    GROUP_KEY_TRIBE_BLACKSPIRALDANCERS  = /datum/groups/tribe/blackspiraldancers,
+    GROUP_KEY_TRIBE_BONEGNAWERS         = /datum/groups/tribe/bonegnawers,
+    GROUP_KEY_TRIBE_CHILDRENOFGAIA      = /datum/groups/tribe/childrenofgaia,
+    GROUP_KEY_TRIBE_CORAX               = /datum/groups/tribe/corax,
+    GROUP_KEY_TRIBE_GALESTALKERS        = /datum/groups/tribe/galestalkers,
+    GROUP_KEY_TRIBE_GETOFFENRIS         = /datum/groups/tribe/getoffenris,
+    GROUP_KEY_TRIBE_GHOSTCOUNCIL        = /datum/groups/tribe/ghostcouncil,
+    GROUP_KEY_TRIBE_GLASSWALKERS        = /datum/groups/tribe/glasswalkers,
+    GROUP_KEY_TRIBE_HARTWARDENS         = /datum/groups/tribe/hartwardens,
+    GROUP_KEY_TRIBE_REDTALONS           = /datum/groups/tribe/redtalons,
+    GROUP_KEY_TRIBE_SHADOWLORDS         = /datum/groups/tribe/shadowlords,
+    GROUP_KEY_TRIBE_SILENTSTRIDERS      = /datum/groups/tribe/silentstriders,
+    GROUP_KEY_TRIBE_SILVERFANGS         = /datum/groups/tribe/silverfangs,
+    GROUP_KEY_TRIBE_STARGAZERS          = /datum/groups/tribe/stargazers,
+
+    // --- Organizations
+    GROUP_KEY_ORG_GOVERNMENT        = /datum/groups/organization/government,
+    GROUP_KEY_ORG_MILITARY          = /datum/groups/organization/military,
+    GROUP_KEY_ORG_POLICEDEPARTMENT  = /datum/groups/organization/policedepartment,
+    GROUP_KEY_ORG_HOSPITAL          = /datum/groups/organization/hospital,
+    GROUP_KEY_ORG_PRIMOGENCOUNCIL   = /datum/groups/organization/primogencouncil,
+
+    // --- Parties
+    GROUP_KEY_PARTY_COTERIE = /datum/groups/party/coterie,
+    GROUP_KEY_PARTY_SQUAD   = /datum/groups/party/squad
+)
+
 
 SUBSYSTEM_DEF(rpmanagement)
     name = "RP Management"
@@ -64,68 +132,21 @@ SUBSYSTEM_DEF(rpmanagement)
 	//bleh, the rest of the init stuff
     return
 
-/// Called on server init
+/// Called on server init, this just starts them up, if there are no players related to them, they shouldn't get messed with again.
 /datum/controller/subsystem/rpmanagement/proc/InitAllGroups()
     load_all_groups() // Loads saved storyteller data
 
-    // Initialize hardcoded groups if not already present (safe for persistence)
-    // -------- City (universal) --------
-    if (!(GROUP_KEY_CITY in GLOB.groups))
-        GLOB.groups[GROUP_KEY_CITY] = new /datum/groups/city/SanFrancisco
-
-    // -------- Factions --------
-    if (!(GROUP_KEY_FACTION_UNKNOWING in GLOB.groups))
-        GLOB.groups[GROUP_KEY_FACTION_UNKNOWING] = new /datum/groups/faction/unknowing
-    if (!(GROUP_KEY_FACTION_KINDRED in GLOB.groups))
-        GLOB.groups[GROUP_KEY_FACTION_KINDRED] = new /datum/groups/faction/kindred
-    if (!(GROUP_KEY_FACTION_FERA in GLOB.groups))
-        GLOB.groups[GROUP_KEY_FACTION_FERA] = new /datum/groups/faction/fera
-    if (!(GROUP_KEY_FACTION_HUNTERS in GLOB.groups))
-        GLOB.groups[GROUP_KEY_FACTION_HUNTERS] = new /datum/groups/faction/hunter
-
-    // -------- Sects --------
-    if (!(GROUP_KEY_SECT_CAMARILLA in GLOB.groups))
-        GLOB.groups[GROUP_KEY_SECT_CAMARILLA] = new /datum/groups/sect/camarilla
-    if (!(GROUP_KEY_SECT_ANARCHS in GLOB.groups))
-        GLOB.groups[GROUP_KEY_SECT_ANARCHS] = new /datum/groups/sect/anarchs
-    if (!(GROUP_KEY_SECT_SABBAT in GLOB.groups))
-        GLOB.groups[GROUP_KEY_SECT_SABBAT] = new /datum/groups/sect/sabbat
-    if (!(GROUP_KEY_SECT_INDEPENDENT in GLOB.groups))
-        GLOB.groups[GROUP_KEY_SECT_INDEPENDENT] = new /datum/groups/sect/independent
-
-    // -------- Clans --------
-    if (!(GROUP_KEY_CLAN_VENTRUE in GLOB.groups))
-        GLOB.groups[GROUP_KEY_CLAN_VENTRUE] = new /datum/groups/clan/ventrue
-    if (!(GROUP_KEY_CLAN_BRUJAH in GLOB.groups))
-        GLOB.groups[GROUP_KEY_CLAN_BRUJAH] = new /datum/groups/clan/brujah
-    if (!(GROUP_KEY_CLAN_TOREADOR in GLOB.groups))
-        GLOB.groups[GROUP_KEY_CLAN_TOREADOR] = new /datum/groups/clan/toreador
-
-    // -------- Tribes --------
-    if (!(GROUP_KEY_TRIBE_SILVERFANGS in GLOB.groups))
-        GLOB.groups[GROUP_KEY_TRIBE_SILVERFANGS] = new /datum/groups/tribe/silverfangs
-
-    // -------- Organizations --------
-    if (!(GROUP_KEY_ORG_GOVERNMENT in GLOB.groups))
-        GLOB.groups[GROUP_KEY_ORG_GOVERNMENT] = new /datum/groups/organization/government
-    if (!(GROUP_KEY_ORG_MILITARY in GLOB.groups))
-        GLOB.groups[GROUP_KEY_ORG_MILITARY] = new /datum/groups/organization/military
-    if (!(GROUP_KEY_ORG_POLICEDEPARTMENT in GLOB.groups))
-        GLOB.groups[GROUP_KEY_ORG_POLICEDEPARTMENT] = new /datum/groups/organization/policedepartment
-    if (!(GROUP_KEY_ORG_HOSPITAL in GLOB.groups))
-        GLOB.groups[GROUP_KEY_ORG_HOSPITAL] = new /datum/groups/organization/hospital
-
-    // -------- Parties/Squads/Coteries --------
-    if (!(GROUP_KEY_PARTY_COTERIE in GLOB.groups))
-        GLOB.groups[GROUP_KEY_PARTY_COTERIE] = new /datum/groups/party/coterie
-    if (!(GROUP_KEY_PARTY_SQUAD in GLOB.groups))
-        GLOB.groups[GROUP_KEY_PARTY_SQUAD] = new /datum/groups/party/squad
+    // Loop through all canonical group keys, and instantiate if missing
+    for (var/group_key in canonical_groups)
+        if (!(group_key in GLOB.groups))
+            var/typepath = canonical_groups[group_key]
+            GLOB.groups[group_key] = new typepath()
 
     // Optional: List each group for admin verification
-    world.log << "[length(GLOB.groups)] core groups initialized!"
+    message_admins("[length(GLOB.groups)] core groups initialized!")
     for (var/key in GLOB.groups)
         var/datum/groups/G = GLOB.groups[key]
-        world.log << "Group: [key] ([G.type])"
+        world.log << "Group: [key] ([G.group_type])"
 
 
 /***********************************************
