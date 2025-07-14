@@ -16718,7 +16718,7 @@
 /obj/structure/vampdoor/reinf{
 	locked = 1;
 	lockpick_difficulty = 18;
-	lockpick_timer = 100;
+	lockpick_timer = 1000;
 	name = "DO NOT OPEN"
 	},
 /turf/open/floor/plating/parquetry/old,
@@ -35218,16 +35218,18 @@
 /turf/open/floor/plating/toilet,
 /area/vtm/interior/tzimisce_manor)
 "jId" = (
-/obj/structure/guncase/shotgun{
-	pixel_y = 21;
-	density = 0;
-	plane = 1
-	},
 /obj/item/kirbyplants{
 	icon_state = "plant4";
 	pixel_y = 8;
 	pixel_x = 11;
 	plane = 1
+	},
+/obj/item/gun/ballistic/shotgun/vampire,
+/obj/item/gun/ballistic/shotgun/vampire,
+/obj/structure/guncase{
+	pixel_y = 21;
+	plane = 1;
+	density = 0
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm)
@@ -48199,11 +48201,12 @@
 "mYU" = (
 /obj/structure/stairs/north,
 /obj/structure/railing/metal{
-	dir = 8
-	},
-/obj/structure/railing/metal{
 	dir = 4;
 	plane = 3.1
+	},
+/obj/structure/railing/metal{
+	dir = 8;
+	plane = 3.2
 	},
 /turf/open/floor/plating/circled{
 	color = "#EADDCA"
@@ -123437,7 +123440,7 @@ uad
 uad
 vAM
 vAM
-rCB
+vAM
 rCB
 tuX
 aej
@@ -123638,8 +123641,8 @@ rzU
 uad
 kpw
 eIj
+kpw
 vAM
-rCB
 rCB
 tuX
 gyu
@@ -123841,7 +123844,7 @@ kpw
 uad
 vAM
 vAM
-rCB
+vAM
 rCB
 tuX
 wBr
