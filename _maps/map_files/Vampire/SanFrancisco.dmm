@@ -7927,10 +7927,6 @@
 	color = "#8a8a8a"
 	},
 /area/vtm)
-"clo" = (
-/obj/structure/window/reinforced/tinted/spawner/directional/west,
-/turf/closed/wall/vampwall/market/low/window,
-/area/vtm/interior/police)
 "clE" = (
 /obj/structure/vampdoor/old{
 	dir = 8;
@@ -22108,6 +22104,7 @@
 /obj/machinery/light{
 	pixel_y = 32
 	},
+/obj/structure/window/reinforced/tinted/spawner/directional/west,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police)
 "giN" = (
@@ -30978,7 +30975,7 @@
 /obj/machinery/door/poddoor/shutters/armory{
 	damage_deflection = 60;
 	max_integrity = 300;
-	name = "Armory shutter"
+	name = "Armory Shutter"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f2)
@@ -53426,7 +53423,7 @@
 /obj/machinery/door/poddoor/shutters/armory{
 	damage_deflection = 60;
 	max_integrity = 300;
-	name = "Panic room shutter";
+	name = "Panic Room Shutter";
 	id = 12
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -68213,6 +68210,13 @@
 	},
 /turf/open/floor/plating/vampwood,
 /area/vtm)
+"sDN" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted/spawner/directional/west,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/police)
 "sDP" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10;
@@ -75018,6 +75022,7 @@
 /obj/effect/landmark/start{
 	name = "Police Officer"
 	},
+/obj/structure/window/reinforced/tinted/spawner/directional/west,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police)
 "uzG" = (
@@ -145074,9 +145079,9 @@ dmN
 evC
 evC
 wEL
-clo
-clo
-clo
+mgr
+mgr
+mgr
 dmN
 fII
 fII
@@ -145277,7 +145282,7 @@ iCq
 fII
 dmN
 giw
-epr
+sDN
 uzE
 dmN
 gRl
