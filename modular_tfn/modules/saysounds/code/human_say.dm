@@ -40,4 +40,4 @@
 	// Play the sound only to those clients who want to hear it
 	if(length(clients_to_play_to))
 		for(var/client/C in clients_to_play_to)
-			playsound(L, sound_file, 80, vary = FALSE, frequency = rand(32000, 48000))
+			C << sound(sound_file)
