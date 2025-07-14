@@ -169,6 +169,14 @@
 	var/emote_text = ""
 	var/super_fan_perCast = 3
 	var/super_fans = 0
+
+var/list/SINS_AND_VIRTUES = list(
+    // Virtues
+    "humility", "kindness", "patience", "charity", "chastity", "diligence", "gratitude",
+    // Sins
+    "pride", "envy", "wrath", "sloth", "greed", "lust", "gluttony"
+)
+
 /datum/discipline_power/melpominee/madrigal/pre_activation_checks()
 	. = ..()
 	song = ""
@@ -193,13 +201,16 @@
 		to_chat(owner, span_warning("That song contains a prohibited word. Naughty! Consider reviewing the server rules.\n<span replaceRegex='show_filtered_ic_chat'>\"[song]\"</span>"))
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return FALSE
-	sin_virtue = tgui_input_text(owner, ":: Enter One Deadly Sin or Heavenly Virtue :: Your words should support this theme.", ":Madrigal: Project a Sin or Virtue:", FALSE, 500, TRUE, FALSE, 0)
-	sin_virtue = lowertext(trim(sin_virtue))
-	if (sin_virtue == "")
-		to_chat(owner, span_warning("You must provide an answer..."))
+
+	sin_virtue = tgui_input_list(owner, ":: Select a Deadly Sin or Heavenly Virtue ::", "Madrigal: Project a Sin or Virtue", SINS_AND_VIRTUES)
+	if (!sin_virtue)
+		to_chat(owner, span_warning("You must select a Sin or Virtue."))
 		return FALSE
+
+	sin_virtue = lowertext(trim(sin_virtue))
+
 	casterRoll = SSroll.storyteller_roll(owner.get_total_social(), mobs_to_show_output = owner, numerical = TRUE)
-	if(casterRoll <= 0) //Caster Botched Roll.
+	if (casterRoll <= 0) //Caster Botched Roll.
 		to_chat(owner, span_warning("You feel your voice is not resonating, try again later."))
 		return FALSE
 
@@ -292,14 +303,14 @@
 		if (iskindred(listener))
 			var/datum/species/kindred/kindred_data = listener.dna.species
 			if (listener.morality_path.score > 6 && isSin)
-				if(!kindred_data.clane.is_enlightened) //Humanity
+				if(!kindred_data.clan.is_enlightened) //Humanity
 					base_difficulty -= 2
-				if(kindred_data.clane.is_enlightened) //Enlightenment
+				if(kindred_data.clan.is_enlightened) //Enlightenment
 					base_difficulty += 2
 			if (listener.morality_path.score > 6 && !isSin)
-				if(!kindred_data.clane.is_enlightened) //Humanity
+				if(!kindred_data.clan.is_enlightened) //Humanity
 					base_difficulty += 2
-				if(kindred_data.clane.is_enlightened) //Enlightenment
+				if(kindred_data.clan.is_enlightened) //Enlightenment
 					base_difficulty -= 2
 		if (isgarou(listener))
 			base_difficulty -= 1
