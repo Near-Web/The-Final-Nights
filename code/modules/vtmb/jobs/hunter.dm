@@ -111,7 +111,6 @@
 	show_to_ghosts = TRUE
 	var/always_new_team = FALSE
 	var/datum/team/national_guard/national_guard_team
-	var/national_guard_outfit = /datum/outfit/job/national_guard
 	var/custom_objective
 
 /datum/antagonist/valkyrie/sergeant
@@ -123,12 +122,12 @@
 	randomize_appearance()
 	add_antag_hud(ANTAG_HUD_OPS, "synd", owner.current)
 	owner.special_role = src
-	equip_valkyrie()
 	give_alias()
 	return ..()
 
 /datum/antagonist/valkyrie/greet()
 	to_chat(C, span_alertsyndie("You're an agent of Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
+	equip_valkyrie()
 
 /datum/antagonist/valkyrie/proc/give_alias()
 	var/my_name = "Tyler"
@@ -141,12 +140,19 @@
 
 /datum/antagonist/valkyrie/sergeant/greet()
 	to_chat(C, span_alertsyndie("You're a Sergeant leading a team from Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
+	equip_valkyrie_sergeant()
 
 /datum/antagonist/valkyrie/proc/equip_valkyrie()
 	var/mob/living/carbon/human/H = owner.current
 	if(!ishuman(owner.current))
 		return
 	H.equipOutfit(/datum/outfit/job/hunter/valkyrie)
+
+/datum/antagonist/valkyrie/proc/equip_valkyrie_sergeant()
+	var/mob/living/carbon/human/H = owner.current
+	if(!ishuman(owner.current))
+		return
+	H.equipOutfit(/datum/outfit/job/hunter/valkyrie/sergeant)
 
 /obj/item/card/id/valkyrie
 	name = "SOF Task Force Badge"
