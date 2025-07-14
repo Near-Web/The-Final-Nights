@@ -160,7 +160,6 @@
 	limb_destroyer = 1
 	melee_damage_lower = 65
 	melee_damage_upper = 65
-<<<<<<< HEAD:modular_tfn/modules/werewolf/werewolf_mob/werewolf.dm
 	health = 650
 	maxHealth = 650
 	bodyparts = list(
@@ -171,10 +170,6 @@
 		/obj/item/bodypart/r_leg/crinos,
 		/obj/item/bodypart/l_leg/crinos,
 	)
-=======
-	health = 650
-	maxHealth = 650
->>>>>>> upstream/master:code/modules/mob/living/simple_animal/werewolf/werewolf.dm
 	var/pounce_cooldown = 0
 	var/pounce_cooldown_time = 30
 	pixel_w = -8
