@@ -496,7 +496,6 @@
 	masquerade_violating = TRUE
 	is_iron = FALSE
 
-
 /obj/item/melee/vampirearms/knife/gangrel/lasombra
 	name = "shadow tentacle"
 	force = 20
@@ -505,8 +504,6 @@
 	block_chance = 0
 	icon_state = "lasombra"
 	masquerade_violating = TRUE
-
-
 
 /obj/item/melee/touch_attack/werewolf
 	name = "\improper falling touch"
@@ -549,6 +546,10 @@
 /obj/item/melee/vampirearms/knife/gangrel/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	if(HAS_TRAIT(owner, TRAIT_WARRIOR))
+		src.attack_speed = CLICK_CD_MELEE * 0.5
+	else
+		src.attack_speed = CLICK_CD_MELEE
 
 /obj/item/melee/vampirearms/chainsaw
 	name = "chainsaw"
@@ -679,10 +680,12 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
-	if(!target.IsStun() && prob(25))
+	if(!target.IsStun() && prob(10))
 		visible_message("<span class='warning'>[user] bonks [src]'s head!</span>", "<span class='warning'>You bonk[target]'s head!</span>")
-		target.Stun(5)
-		target.drop_all_held_items()
+		if(user.mind && is_sabbatist(user))
+			target.Stun(3 SECONDS)
+			target.emote("collapse")
+			target.drop_all_held_items()
 
 /obj/item/melee/vampirearms/katana/kosa
 	name = "scythe"
@@ -953,6 +956,14 @@
 	bare_wound_bonus = 0
 	resistance_flags = FIRE_PROOF
 	masquerade_violating = TRUE
+
+/obj/item/melee/vampirearms/tzimisce/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	if(HAS_TRAIT(owner, TRAIT_WARRIOR))
+		src.attack_speed = CLICK_CD_MELEE * 0.5
+	else
+		src.attack_speed = CLICK_CD_MELEE
 
 /obj/item/melee/vampirearms/tzimisce/shock/afterattack(atom/target, mob/living/carbon/user, proximity)
 	if(!proximity)
