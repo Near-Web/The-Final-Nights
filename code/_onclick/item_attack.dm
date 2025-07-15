@@ -345,8 +345,8 @@
 					head.add_mob_blood(src)
 				if(glasses && prob(33))
 					glasses.add_mob_blood(src)
-//TFN REMOVAL START
-/* 			if(!attacking_item.get_sharpness() && armor_block < 50)
+/* //TFN REMOVAL START
+ 			if(!attacking_item.get_sharpness() && armor_block < 50)
 				if(prob(damage_done))
 					adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
 					if(stat == CONSCIOUS)
