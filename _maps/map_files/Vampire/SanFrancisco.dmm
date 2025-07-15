@@ -7634,6 +7634,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior)
+"chl" = (
+/obj/structure/weedshit,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/ghetto)
 "chs" = (
 /obj/effect/decal/asphaltline/alt{
 	pixel_x = -14
@@ -17563,7 +17567,10 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/baywalk)
 "eUe" = (
-/obj/structure/vampdoor/simple,
+/obj/structure/vampdoor/simple{
+	locked = 1;
+	lockpick_difficulty = 16
+	},
 /turf/open/floor/plating/vampwood,
 /area/vtm/interior/ghetto)
 "eUg" = (
@@ -49008,7 +49015,9 @@
 /area/vtm/interior/littleitaly/apartments)
 "nqY" = (
 /obj/structure/vampdoor/simple{
-	dir = 8
+	dir = 8;
+	locked = 1;
+	lockpick_difficulty = 16
 	},
 /turf/open/floor/plating/concrete{
 	color = "#9c8064"
@@ -195221,7 +195230,7 @@ mjT
 mjT
 fAa
 iaM
-hsS
+chl
 hsS
 gfn
 scz
