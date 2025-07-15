@@ -122,7 +122,6 @@
 	randomize_appearance()
 	add_antag_hud(ANTAG_HUD_OPS, "synd", owner.current)
 	owner.special_role = src
-	give_alias()
 	return ..()
 
 /datum/antagonist/valkyrie/greet()
