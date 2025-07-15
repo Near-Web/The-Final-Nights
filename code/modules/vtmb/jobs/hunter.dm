@@ -119,13 +119,12 @@
 	var/title
 
 /datum/antagonist/valkyrie/on_gain()
-	randomize_appearance()
 	add_antag_hud(ANTAG_HUD_OPS, "synd", owner.current)
 	owner.special_role = src
 	return ..()
 
 /datum/antagonist/valkyrie/greet()
-	to_chat(C, span_alertsyndie("You're an agent of Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
+	to_chat(owner, span_alertsyndie("You're an agent of Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
 	equip_valkyrie()
 
 /datum/antagonist/valkyrie/proc/give_alias()
@@ -138,7 +137,7 @@
 	owner.current.fully_replace_character_name(null,"Operative [my_name] [my_surname]")
 
 /datum/antagonist/valkyrie/sergeant/greet()
-	to_chat(C, span_alertsyndie("You're a Sergeant leading a team from Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
+	to_chat(owner, span_alertsyndie("You're a Sergeant leading a team from Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
 	equip_valkyrie_sergeant()
 
 /datum/antagonist/valkyrie/proc/equip_valkyrie()
