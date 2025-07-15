@@ -360,8 +360,9 @@
 					if(prob(10))
 						gain_trauma(/datum/brain_trauma/mild/concussion)
 				else
-					adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_done * 0.2) */
-// TFN REMOVAL END
+					adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_done * 0.2)
+ */ 
+ // TFN REMOVAL END
 				// rev deconversion through blunt trauma.
 				// this can be signalized to the rev datum
 				if(mind && stat == CONSCIOUS && src != attacker && prob(damage_done + ((100 - health) * 0.5)))
