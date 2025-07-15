@@ -316,15 +316,15 @@
 
 		//Let's find the spawn locations
 		var/leader_chosen = FALSE
-		var/datum/antagonist/valkyrie/valkyrie_force
+		var/datum/antagonist/valkyrie/valkyrie_team
 		for(var/mob/c in chosen)
 			var/mob/living/carbon/human/new_character=makeBody(c)
 			if(!leader_chosen)
 				leader_chosen = TRUE
 				var/datum/antagonist/valkyrie/A = new_character.mind.add_antag_datum(/datum/antagonist/valkyrie/sergeant)
-				valkyrie_force = A.valkyrie_force
+				valkyrie_team = A.valkyrie_team
 			else
-				new_character.mind.add_antag_datum(/datum/antagonist/valkyrie,valkyrie_force)
+				new_character.mind.add_antag_datum(/datum/antagonist/valkyrie,valkyrie_team)
 		return TRUE
 	else
 		return FALSE
