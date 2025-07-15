@@ -109,8 +109,8 @@
 	antag_hud_name = "synd"
 	antag_moodlet = /datum/mood_event/focused
 	show_to_ghosts = TRUE
+	var/datum/team/valkyrie/valkyrie_team
 	var/always_new_team = FALSE
-	var/datum/team/national_guard/national_guard_team
 	var/custom_objective
 
 /datum/antagonist/valkyrie/sergeant
