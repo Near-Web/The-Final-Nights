@@ -684,11 +684,25 @@
 /obj/structure/big_vamprocks,
 /turf/open/floor/plating/vampdirt,
 /area/vtm/interior/penumbra)
+"gg" = (
+/obj/transfer_point_vamp/umbral{
+	id = 608
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
 "gn" = (
 /obj/structure/lattice/catwalk{
 	color = "#707070"
 	},
 /turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"gp" = (
+/obj/transfer_point_vamp/umbral{
+	id = 601
+	},
+/turf/open/floor/plating/toilet{
+	color = "#d6b390"
+	},
 /area/vtm/interior/penumbra)
 "gt" = (
 /obj/structure/railing{
@@ -2096,6 +2110,12 @@
 	},
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/penumbra)
+"ux" = (
+/obj/transfer_point_vamp/umbral{
+	id = 609
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
 "uC" = (
 /obj/effect/decal/coastline/corner,
 /turf/open/floor/plating/vampdirt,
@@ -2585,6 +2605,16 @@
 	},
 /turf/open/floor/plating/stone,
 /area/vtm/interior/penumbra)
+"zV" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/obj/transfer_point_vamp/umbral{
+	id = 604
+	},
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
 "Ae" = (
 /obj/effect/decal/support,
 /obj/structure/chair/stool/bar,
@@ -2674,6 +2704,15 @@
 	color = "#9c8a67"
 	},
 /turf/open/floor/carpet/donk,
+/area/vtm/interior/penumbra)
+"Bl" = (
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/obj/transfer_point_vamp/umbral{
+	id = 602
+	},
+/turf/open/floor/plating/asphalt,
 /area/vtm/interior/penumbra)
 "Bq" = (
 /obj/structure/chair/wood{
@@ -4365,8 +4404,26 @@
 "UI" = (
 /turf/open/floor/plating/vampwood,
 /area/vtm/interior/penumbra)
+"UP" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/obj/transfer_point_vamp/umbral{
+	id = 603
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
 "UT" = (
 /turf/open/water,
+/area/vtm/interior/penumbra)
+"UW" = (
+/obj/effect/decal/trash,
+/obj/transfer_point_vamp/umbral{
+	id = 605
+	},
+/turf/open/floor/plating/sidewalk,
 /area/vtm/interior/penumbra)
 "UX" = (
 /obj/structure/railing/metal{
@@ -4511,6 +4568,12 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/penumbra)
+"Ww" = (
+/obj/transfer_point_vamp/umbral{
+	id = 607
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
 "Wy" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1;
@@ -4639,6 +4702,12 @@
 	icon_state = "piping40"
 	},
 /turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
+"Yj" = (
+/obj/transfer_point_vamp/umbral{
+	id = 606
+	},
+/turf/open/floor/plating/vampwood,
 /area/vtm/interior/penumbra)
 "Yp" = (
 /obj/effect/decal/wallpaper/papers/four{
@@ -17528,7 +17597,7 @@ Uh
 oX
 wg
 tf
-hu
+UP
 rU
 Fd
 ki
@@ -25072,7 +25141,7 @@ qF
 qF
 qF
 Ur
-Ur
+ux
 sQ
 kY
 Ur
@@ -31506,7 +31575,7 @@ yO
 Yq
 KF
 KF
-kY
+UW
 Ur
 Ur
 qF
@@ -32554,7 +32623,7 @@ UI
 UI
 UI
 DE
-UI
+Yj
 RM
 RM
 UI
@@ -33742,7 +33811,7 @@ qF
 qF
 qF
 YE
-tt
+Bl
 tt
 tt
 tt
@@ -34553,7 +34622,7 @@ ZT
 rc
 rc
 rc
-rc
+zV
 rc
 rc
 rc
@@ -40748,7 +40817,7 @@ JM
 HN
 HN
 HN
-HN
+Ww
 HN
 HN
 HN
@@ -48870,7 +48939,7 @@ dc
 Es
 Nz
 yK
-Kn
+gp
 Kn
 Kn
 eC
@@ -48990,7 +49059,7 @@ AD
 XD
 AD
 sw
-sw
+gg
 gN
 mg
 qF
