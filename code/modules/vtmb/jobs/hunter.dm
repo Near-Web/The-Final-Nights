@@ -119,9 +119,15 @@
 	var/title
 
 /datum/antagonist/valkyrie/on_gain()
+	forge_objectives()
 	add_antag_hud(ANTAG_HUD_OPS, "synd", owner.current)
 	owner.special_role = src
 	return ..()
+
+/datum/antagonist/valkyrie/proc/forge_objectives()
+	spawn(2 SECONDS)
+	if(valkyrie_team)
+		objectives |= valkyrie_team.objectives
 
 /datum/antagonist/valkyrie/greet()
 	to_chat(owner, span_alertsyndie("You're an agent of Task Force VALKYRIE - a highly elite force dedicated to fighting the supernatural!"))
@@ -151,6 +157,41 @@
 	if(!ishuman(owner.current))
 		return
 	H.equipOutfit(/datum/outfit/job/hunter/valkyrie/sergeant)
+
+/datum/team/valkyrie/proc/rename_team(new_name)
+	valkyrie_name = new_name
+	name = "[valkyrie_name] Team"
+
+/datum/team/valkyrie
+	var/valkyrie_name
+	var/core_objective = /datum/objective/valkyrie
+	member_name = "Valkyrie Operative"
+
+/datum/team/valkyrie/New()
+	..()
+	valkyrie_name = valkyrie_name()
+
+/datum/team/valkyrie/proc/update_objectives()
+	if(core_objective)
+		var/datum/objective/O = new core_objective
+		O.team = src
+		objectives += O
+
+/datum/team/valkyrie/antag_listing_name()
+	if(valkyrie_name)
+		return "[valkyrie_name] Operativess"
+	else
+		return "Operatives"
+
+/datum/team/valkyrie/roundend_report()
+	var/list/parts = list()
+	parts += "<span class='header'>[valkyrie_name] Operatives:</span>"
+
+	var/text = "<br><span class='header'>The Task Force VALKYRIE were:</span>"
+	text += printplayerlist(members)
+	parts += text
+
+	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"
 
 /obj/item/card/id/valkyrie
 	name = "SOF Task Force Badge"
