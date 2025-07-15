@@ -4449,15 +4449,6 @@
 /turf/open/floor/plating/dirt,
 /area/vtm/sewer/nosferatu_warren)
 "boK" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/beer/vampire{
-	pixel_y = 11;
-	pixel_x = 9
-	},
-/obj/item/reagent_containers/food/drinks/beer/vampire{
-	pixel_y = 8;
-	pixel_x = -7
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
 	color = "#574d46"
@@ -6920,11 +6911,14 @@
 /turf/open/floor/plating/vampplating/stone,
 /area/vtm/interior/bianchiBank)
 "bYB" = (
-/obj/structure/vampdoor{
-	dir = 4
-	},
 /obj/effect/decal/bordur{
 	dir = 4
+	},
+/obj/structure/vampdoor{
+	dir = 4;
+	lock_id = "wolftech";
+	locked = 1;
+	lockpick_difficulty = 10
 	},
 /turf/open/floor/plating/circled{
 	color = "#EADDCA"
@@ -11859,8 +11853,9 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
-/obj/structure/vampdoor/glass{
-	dir = 4
+/obj/structure/vampdoor/glass/nightwolf{
+	dir = 4;
+	name = "Union Square Mall"
 	},
 /turf/open/floor/plating/toilet{
 	color = "#d6b390"
@@ -16179,6 +16174,10 @@
 	icon_state = "tv_analog";
 	pixel_y = 14;
 	plane = 4.6
+	},
+/obj/effect/bump_teleporter{
+	id = 69;
+	id_target = 96
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/techshop)
@@ -21105,9 +21104,13 @@
 /turf/open/floor/eighties,
 /area/vtm/interior/techshop)
 "fRA" = (
-/obj/structure/vampdoor,
 /obj/effect/turf_decal/siding/white{
 	dir = 1
+	},
+/obj/structure/vampdoor{
+	dir = 1;
+	lock_id = "wolftech";
+	lockpick_difficulty = 10
 	},
 /turf/open/floor/plating/toilet{
 	color = "#d6b390"
@@ -24931,6 +24934,20 @@
 	icon_state = "floor5-old"
 	},
 /turf/open/floor/plating/stone,
+/area/vtm/forest/caves)
+"gWJ" = (
+/obj/structure/stone_tile/surrounding/cracked,
+/obj/effect/bump_teleporter{
+	id = 210;
+	id_target = 120
+	},
+/obj/structure/table/wood,
+/obj/structure/showcase/machinery/tv{
+	icon_state = "tv_nature";
+	plane = 4.2;
+	pixel_y = 12
+	},
+/turf/open/floor/plating/rough/cave,
 /area/vtm/forest/caves)
 "gXb" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -35071,11 +35088,7 @@
 	},
 /obj/item/gun/ballistic/shotgun/vampire,
 /obj/item/gun/ballistic/shotgun/vampire,
-/obj/structure/guncase{
-	pixel_y = 21;
-	plane = 1;
-	density = 0
-	},
+/obj/structure/guncase,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/techshop)
 "jIr" = (
@@ -41886,8 +41899,9 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/obj/structure/vampdoor/glass{
-	dir = 4
+/obj/structure/vampdoor/glass/nightwolf{
+	dir = 4;
+	name = "Union Square Mall"
 	},
 /turf/open/floor/plating/toilet{
 	color = "#d6b390"
@@ -43104,6 +43118,16 @@
 "lNT" = (
 /obj/effect/decal/wallpaper/paper/green,
 /turf/closed/wall/vampwall/painted,
+/area/vtm/interior/shop)
+"lNZ" = (
+/obj/structure/vampdoor{
+	dir = 4;
+	lock_id = "wolftech";
+	lockpick_difficulty = 10
+	},
+/turf/open/floor/plating/circled{
+	color = "#EADDCA"
+	},
 /area/vtm/interior/shop)
 "lOn" = (
 /turf/open/floor/plating/vampcanal{
@@ -61031,7 +61055,10 @@
 /area/vtm/interior/bianchiBank)
 "qvF" = (
 /obj/structure/vampdoor{
-	dir = 4
+	dir = 4;
+	lock_id = "wolftech";
+	locked = 1;
+	lockpick_difficulty = 10
 	},
 /turf/open/floor/plating/circled{
 	color = "#EADDCA"
@@ -64561,6 +64588,16 @@
 	dir = 8;
 	pixel_y = 3
 	},
+/obj/effect/bump_teleporter{
+	id = 96;
+	id_target = 69;
+	mouse_opacity = 0
+	},
+/obj/structure/showcase/machinery/tv{
+	icon_state = "tv_nature";
+	pixel_y = 13;
+	pixel_x = 6
+	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/cog/pantry)
 "rrt" = (
@@ -65419,12 +65456,6 @@
 	icon_state = "plant2";
 	pixel_y = 7;
 	pixel_x = 9
-	},
-/obj/structure/showcase/machinery/tv{
-	icon_state = "tv_nature";
-	plane = 4.2;
-	pixel_y = 12;
-	pixel_x = -17
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/cog/pantry)
@@ -71845,6 +71876,10 @@
 	icon_state = "tv_nature";
 	plane = 4.2;
 	pixel_y = 12
+	},
+/obj/effect/bump_teleporter{
+	id = 210;
+	id_target = 120
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/techshop)
@@ -120888,7 +120923,7 @@ xfw
 xfw
 xfw
 rCB
-rCB
+mEr
 mEr
 mEr
 rEP
@@ -121089,7 +121124,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 rCB
 rCB
 yhM
@@ -129802,7 +129837,7 @@ kJF
 eNK
 xYN
 aqb
-sjt
+gWJ
 kqD
 cPT
 vIx
@@ -205341,7 +205376,7 @@ htJ
 lUr
 lUr
 wOw
-qvF
+lNZ
 rcJ
 rcJ
 rcJ
