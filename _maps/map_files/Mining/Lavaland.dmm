@@ -1,6 +1,4874 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 4
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"ah" = (
+/obj/structure/chair/office/blue{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"am" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 1
+	},
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"an" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"ap" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 12
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"aq" = (
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"ar" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/structure/chair/pew{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"aw" = (
+/obj/effect/decal/wallpaper/paper/rich,
+/turf/closed/wall/vampwall/city,
+/area/vtm/interior/penumbra)
+"az" = (
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"aI" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 4;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/purple,
+/area/vtm/interior/penumbra)
+"aQ" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"aR" = (
+/obj/structure/table/wood,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"aZ" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"ba" = (
+/obj/structure/chinesesign/alt/alt{
+	dir = 1;
+	pixel_y = 32
+	},
+/obj/effect/decal/litter,
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"be" = (
+/obj/effect/decal/crosswalk{
+	dir = 8
+	},
+/turf/open/floor/plating/asphalt,
+/area/vtm/interior/penumbra)
+"bj" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
+	},
+/area/vtm/interior/penumbra)
+"bn" = (
+/obj/effect/decal/wallpaper/papers/seven{
+	pixel_y = -4
+	},
+/obj/effect/decal/wallpaper/papers/six{
+	pixel_y = -3;
+	pixel_x = 21
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"bo" = (
+/obj/structure/table,
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"bt" = (
+/obj/structure/rack,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"bB" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"bH" = (
+/obj/effect/decal/coastline,
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"bI" = (
+/obj/effect/decal/cleanable/confetti,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"bJ" = (
+/obj/structure/chair/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#574d46"
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"bL" = (
+/turf/closed/wall/vampwall/rich/old/low/window,
+/area/vtm/interior/penumbra)
+"bN" = (
+/obj/effect/decal/shadow,
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"bV" = (
+/obj/structure/chair/pew/left{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#004136"
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"cb" = (
+/obj/structure/railing/metal{
+	plane = 4.1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/vtm/interior/penumbra)
+"cd" = (
+/obj/structure/lamppost/sidewalk/chinese{
+	dir = 1;
+	density = 0
+	},
+/obj/effect/decal/litter,
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"cg" = (
+/obj/effect/turf_decal/weather/dirt,
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 15;
+	pixel_y = 11
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"ch" = (
+/obj/effect/decal/coastline,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"cm" = (
+/obj/structure/vampipe{
+	icon_state = "piping43"
+	},
+/obj/structure/vampipe{
+	icon_state = "piping40"
+	},
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"cn" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#aa4f25";
+	dir = 4
+	},
+/obj/structure/chair/pew/right{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"cq" = (
+/obj/effect/decal/trash,
+/obj/structure/chair/wood,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"cr" = (
+/turf/closed/wall/vampwall/junk,
+/area/vtm/interior/penumbra)
+"cF" = (
+/obj/machinery/telecomms/hub,
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white{
+	color = "#636363"
+	},
+/turf/open/floor/circuit/telecomms/normal_temp,
+/area/vtm/interior/penumbra)
+"cG" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_y = 8
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"cI" = (
+/obj/structure/table/optable,
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"cJ" = (
+/obj/structure/foodrack{
+	dir = 4;
+	density = 0;
+	pixel_x = 20
+	},
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"cP" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#574d46"
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#574d46"
+	},
+/obj/structure/curtain/cloth{
+	color = "#525252";
+	pixel_y = 15
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"cS" = (
+/turf/closed/wall/vampwall/market/low/window,
+/area/vtm/interior/penumbra)
+"cT" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/machinery/light/small/red{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"dc" = (
+/obj/effect/decal/wallpaper/paper/rich,
+/turf/closed/wall/vampwall/painted,
+/area/vtm/interior/penumbra)
+"dd" = (
+/obj/effect/decal/shadow,
+/obj/structure/chair/stool/bar,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"de" = (
+/obj/effect/decal/wallpaper/papers/five{
+	pixel_x = 18;
+	pixel_y = -3
+	},
+/obj/effect/decal/wallpaper/papers/one{
+	pixel_y = -4
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"dj" = (
+/obj/machinery/mineral/equipment_vendor/fastfood/coffeevendor,
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"dn" = (
+/obj/structure/chair/stool/bar,
+/obj/effect/decal/cleanable/confetti,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"ds" = (
+/obj/structure/fence/door{
+	dir = 4;
+	pixel_y = 22
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"dt" = (
+/obj/effect/turf_decal/siding/white/end{
+	color = "#636363";
+	dir = 4
+	},
+/obj/machinery/telecomms/hub,
+/turf/open/floor/circuit/telecomms/normal_temp,
+/area/vtm/interior/penumbra)
+"dx" = (
+/obj/structure/toilet{
+	dir = 8;
+	pixel_y = 11
+	},
+/obj/effect/decal/graffiti,
+/turf/open/floor/plating/toilet{
+	color = "#636363"
+	},
+/area/vtm/interior/penumbra)
+"dy" = (
+/obj/structure/table/wood,
+/obj/item/kirbyplants{
+	icon_state = "plant5";
+	pixel_y = 17;
+	pixel_x = -11
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/wine_glass{
+	pixel_y = 14;
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/wine{
+	pixel_y = 8;
+	pixel_x = -1
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"dE" = (
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"dH" = (
+/obj/structure/table/wood,
+/obj/item/pen{
+	pixel_y = 8
+	},
+/turf/closed/wall/vampwall/rich/old/low,
+/area/vtm/interior/penumbra)
+"dI" = (
+/obj/structure/table/wood,
+/turf/closed/wall/vampwall/bar/low,
+/area/vtm/interior/penumbra)
+"dK" = (
+/obj/structure/lattice,
+/obj/effect/decal/pallet,
+/turf/open/floor/plating/vampocean{
+	color = "#9ab577";
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"dL" = (
+/obj/effect/decal/coastline{
+	dir = 4
+	},
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"dT" = (
+/obj/structure/vampipe{
+	icon_state = "piping32"
+	},
+/obj/structure/vampipe{
+	icon_state = "piping35"
+	},
+/obj/structure/vampfence/rich{
+	dir = 4;
+	plane = 5;
+	name = "bars"
+	},
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"dU" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#aa4f25";
+	dir = 4
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"dV" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"eb" = (
+/obj/effect/decal/bordur/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"ee" = (
+/obj/structure/railing/metal,
+/obj/effect/decal/bordur,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"ek" = (
+/obj/structure/foodrack{
+	dir = 4;
+	pixel_x = -12
+	},
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"em" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"er" = (
+/obj/effect/turf_decal/siding/wideplating/corner{
+	color = "#802d29";
+	dir = 8
+	},
+/obj/structure/curtain/cloth/fancy{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"ew" = (
+/obj/structure/lattice/grate,
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/obj/structure/vampipe{
+	icon_state = "piping41"
+	},
+/turf/open/floor/plating/vampocean{
+	color = "#9ab577";
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"ex" = (
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"ey" = (
+/obj/effect/decal/bordur/corner,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"eC" = (
+/obj/minespot,
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"eF" = (
+/obj/structure/toilet{
+	dir = 8;
+	pixel_y = 11
+	},
+/turf/open/floor/plating/toilet{
+	color = "#636363"
+	},
+/area/vtm/interior/penumbra)
+"eG" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/transfer_point_vamp/umbral{
+	id = 667
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"eI" = (
+/obj/structure/railing/metal,
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/turf/open/floor/plasteel/stairs{
+	dir = 4
+	},
+/area/vtm/interior/penumbra)
+"eO" = (
+/obj/structure/closet/crate/large{
+	pixel_y = 43;
+	plane = 3;
+	pixel_x = 17;
+	anchored = 1;
+	density = 0
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"eR" = (
+/obj/structure/chair/sofa/old/right{
+	color = "#525252";
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"eT" = (
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"eZ" = (
+/obj/effect/decal/coastline{
+	dir = 6
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 15;
+	pixel_y = 11
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"fa" = (
+/obj/structure/flora/ausbushes/fernybush,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"fb" = (
+/obj/structure/bookcase/random/lupine{
+	pixel_y = 25;
+	density = 0
+	},
+/obj/structure/table/wood,
+/obj/item/kirbyplants{
+	icon_state = "plant4";
+	pixel_y = 8;
+	pixel_x = -9
+	},
+/obj/item/kirbyplants{
+	icon_state = "plant2";
+	pixel_y = 12;
+	pixel_x = 9
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"fl" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/structure/bonfire/prelit{
+	burn_icon = "campfire_on";
+	icon = 'code/modules/wod13/props.dmi';
+	icon_state = "campfire_off";
+	pixel_y = 7
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"fm" = (
+/obj/structure/table/wood,
+/obj/item/candle/infinite{
+	anchored = 1;
+	lit = 1;
+	icon_state = "candle1_lit";
+	pixel_y = 8;
+	pixel_x = -16
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"fn" = (
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#574d46"
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"ft" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"fu" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 12
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"fv" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"fA" = (
+/obj/structure/chair/sofa/old/left{
+	dir = 1
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"fC" = (
+/obj/effect/decal/bordur,
+/obj/structure/fluff/hedge,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/open/floor/plating/sidewalk/old,
+/area/vtm/interior/penumbra)
+"fD" = (
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/stairs{
+	color = "#838383"
+	},
+/area/vtm/interior/penumbra)
+"fG" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/machinery/hydroponics/soil,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"fH" = (
+/obj/effect/decal/litter,
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"fJ" = (
+/obj/effect/turf_decal/siding/wideplating/corner{
+	color = "#aa4f25";
+	dir = 1
+	},
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"fN" = (
+/turf/open/floor/carpet/orange,
+/area/vtm/interior/penumbra)
+"fU" = (
+/obj/structure/table/wood,
+/turf/closed/wall/vampwall/junk/alt/low,
+/area/vtm/interior/penumbra)
+"fY" = (
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"gd" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/wood{
+	color = "#574d46"
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"gf" = (
+/obj/structure/big_vamprocks,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"gn" = (
+/obj/structure/lattice/catwalk{
+	color = "#707070"
+	},
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"gt" = (
+/obj/structure/railing{
+	dir = 4;
+	plane = 4;
+	pixel_y = 3
+	},
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"gu" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"gz" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 16
+	},
+/obj/structure/lamppost/sidewalk,
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"gB" = (
+/turf/closed/wall/vampwall/market,
+/area/vtm/interior/penumbra)
+"gC" = (
+/obj/structure/chair/sofa/old/left{
+	color = "#525252"
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"gG" = (
+/obj/structure/vampipe{
+	icon_state = "piping35"
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"gH" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1;
+	color = "#574d46"
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"gI" = (
+/obj/effect/decal/wallpaper/papers/six{
+	pixel_y = -3;
+	pixel_x = 21
+	},
+/obj/effect/decal/wallpaper/papers/two{
+	pixel_y = -5
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"gM" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"gN" = (
+/obj/structure/vampipe{
+	icon_state = "piping31"
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
+"gP" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/obj/effect/decal/trash,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"gR" = (
+/obj/effect/decal/trash,
+/obj/transfer_point_vamp/umbral{
+	id = 668
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"gS" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"gW" = (
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"gX" = (
+/obj/structure/vampfence/rich{
+	dir = 4;
+	plane = 3;
+	pixel_y = 15;
+	name = "bars"
+	},
+/turf/closed/wall/vampwall/low,
+/area/vtm/interior/penumbra)
+"gZ" = (
+/obj/structure/table/wood,
+/obj/item/dyespray{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"he" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"hf" = (
+/obj/effect/decal/wallpaper/stone/low,
+/turf/closed/wall/vampwall/market,
+/area/vtm/interior/penumbra)
+"hg" = (
+/obj/structure/lattice/catwalk{
+	color = "#b5b5b5"
+	},
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"hh" = (
+/obj/structure/table/wood,
+/obj/item/razor{
+	pixel_y = 10;
+	pixel_x = 7
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"hs" = (
+/obj/structure/table,
+/turf/closed/wall/vampwall/painted/low,
+/area/vtm/interior/penumbra)
+"hu" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"hv" = (
+/obj/structure/stone_tile/block/cracked,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"hy" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/circled{
+	color = "#EADDCA"
+	},
+/area/vtm/interior/penumbra)
+"hz" = (
+/obj/effect/decal/coastline{
+	dir = 4
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"hA" = (
+/obj/structure/vampipe{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"hC" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/structure/railing/metal{
+	dir = 8;
+	pixel_x = 5
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"hD" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"hE" = (
+/turf/open/floor/plating/toilet{
+	color = "#636363"
+	},
+/area/vtm/interior/penumbra)
+"hF" = (
+/obj/machinery/photocopier,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"hH" = (
+/obj/structure/table/wood,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"hI" = (
+/obj/structure/chair/plastic{
+	dir = 8;
+	pixel_y = 4
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"hK" = (
+/obj/structure/chair/greyscale{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 6;
+	color = "#636363"
+	},
+/turf/open/floor/plating/rough,
+/area/vtm/interior/penumbra)
+"hL" = (
+/obj/effect/decal/pallet,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"hO" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"if" = (
+/obj/structure/table,
+/obj/item/toy/cards/deck/tarot{
+	pixel_y = 9
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"ij" = (
+/obj/structure/railing/metal,
+/obj/structure/table/wood,
+/turf/open/floor/plating/toilet{
+	color = "#919191"
+	},
+/area/vtm/interior/penumbra)
+"il" = (
+/obj/effect/decal/cleanable/confetti,
+/turf/open/floor/light,
+/area/vtm/interior/penumbra)
+"in" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"iw" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8;
+	color = "#636363"
+	},
+/obj/structure/table,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/penumbra)
+"iC" = (
+/obj/structure/railing/metal{
+	dir = 1
+	},
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/turf/open/floor/plasteel/stairs{
+	dir = 4
+	},
+/area/vtm/interior/penumbra)
+"iF" = (
+/obj/structure/chair/wood,
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"ja" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/turf/open/floor/plasteel/stairs{
+	dir = 4
+	},
+/area/vtm/interior/penumbra)
+"je" = (
+/obj/effect/turf_decal/trimline/blue/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/warning,
+/obj/structure/chair/office/blue{
+	dir = 1
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"jk" = (
+/obj/structure/vampipe{
+	icon_state = "piping31"
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"jn" = (
+/obj/structure/vamprocks,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"jo" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#aa4f25"
+	},
+/obj/structure/chair/pew{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"js" = (
+/obj/structure/vampipe{
+	icon_state = "piping38"
+	},
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"ju" = (
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/stairs/left{
+	color = "#919191"
+	},
+/area/vtm/interior/penumbra)
+"jB" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 1
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"jM" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"jP" = (
+/obj/police_department{
+	dir = 1
+	},
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"jQ" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 10
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"jV" = (
+/obj/structure/lattice/grate,
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/turf/open/floor/plating/vampocean{
+	color = "#789156";
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"ke" = (
+/obj/structure/table/wood,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"ki" = (
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"kk" = (
+/obj/structure/vampipe{
+	icon_state = "piping31"
+	},
+/obj/effect/decal/pallet,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"kn" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4;
+	color = "#636363"
+	},
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"ks" = (
+/obj/effect/decal/litter,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"kt" = (
+/obj/machinery/telecomms/hub,
+/obj/effect/turf_decal/siding/white/end{
+	color = "#636363";
+	dir = 8
+	},
+/turf/open/floor/circuit/telecomms/normal_temp,
+/area/vtm/interior/penumbra)
+"kw" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"kx" = (
+/obj/structure/railing/metal,
+/obj/structure/railing/metal{
+	dir = 1;
+	plane = 1
+	},
+/turf/open/floor/plasteel/stairs{
+	dir = 8
+	},
+/area/vtm/interior/penumbra)
+"ky" = (
+/obj/effect/turf_decal/siding/white/corner{
+	color = "#636363"
+	},
+/obj/item/chair/red,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"kG" = (
+/obj/structure/table,
+/obj/item/clothing/suit/apron/surgical,
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"kH" = (
+/obj/effect/decal/litter,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"kI" = (
+/turf/open/floor/carpet/green,
+/area/vtm/interior/penumbra)
+"kJ" = (
+/obj/structure/vamptree{
+	icon_state = "tree3"
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"kR" = (
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/stairs/right{
+	color = "#919191"
+	},
+/area/vtm/interior/penumbra)
+"kU" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"kW" = (
+/obj/effect/turf_decal/siding/wideplating/corner{
+	color = "#802d29";
+	dir = 1
+	},
+/obj/structure/curtain/cloth/fancy{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"kY" = (
+/obj/effect/decal/trash,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"kZ" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"lb" = (
+/turf/open/floor/plating/saint,
+/area/vtm/interior/penumbra)
+"lc" = (
+/obj/structure/big_vamprocks{
+	pixel_x = 11
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"le" = (
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"li" = (
+/obj/transfer_point_vamp/umbral{
+	id = 662
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"lj" = (
+/turf/open/floor/plating/vampocean{
+	color = "#9ab577"
+	},
+/area/vtm/interior/penumbra)
+"lk" = (
+/obj/structure/foodrack{
+	dir = 4
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"ll" = (
+/obj/structure/table/wood,
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"lp" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"lw" = (
+/obj/structure/stone_tile/block/cracked,
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"lx" = (
+/obj/transfer_point_vamp/umbral{
+	id = 671
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"lD" = (
+/obj/structure/table/wood,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"lG" = (
+/obj/machinery/mineral/equipment_vendor/fastfood/coffeevendor,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"lI" = (
+/obj/structure/flora/ausbushes/leafybush,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"lN" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/toilet{
+	color = "#919191"
+	},
+/area/vtm/interior/penumbra)
+"lU" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/vamptree{
+	icon_state = "tree8"
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"lZ" = (
+/obj/machinery/iv_drip,
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"ma" = (
+/obj/structure/stone_tile/surrounding/cracked,
+/obj/effect/landmark/teleport_mark{
+	tribe = "Bone Gnawers"
+	},
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"mg" = (
+/turf/closed/wall/vampwall,
+/area/vtm/interior/penumbra)
+"mh" = (
+/obj/effect/decal/bordur,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"mj" = (
+/obj/structure/small_vamprocks,
+/obj/effect/decal/litter,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"ml" = (
+/obj/structure/stone_tile/surrounding,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"mm" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/structure/vampfence/rich{
+	pixel_y = 13
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"mp" = (
+/obj/effect/decal/wallpaper/blue,
+/turf/closed/wall/vampwall/painted,
+/area/vtm/interior/penumbra)
+"mq" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"ms" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#aa4f25";
+	dir = 8
+	},
+/obj/structure/table/wood,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"my" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/item/flashlight/lantern,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"mA" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 16
+	},
+/obj/structure/chair/plastic{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"mF" = (
+/obj/structure/railing{
+	dir = 4;
+	plane = 4;
+	pixel_y = 3
+	},
+/obj/structure/table/wood/fancy/red,
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/martini_glass{
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/obj/effect/turf_decal/siding/wood{
+	color = "#9a704a";
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"mJ" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"mN" = (
+/obj/structure/vampipe{
+	icon_state = "piping35"
+	},
+/obj/structure/vampipe{
+	icon_state = "piping37";
+	pixel_y = 32
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"mO" = (
+/obj/structure/fluff/hedge,
+/obj/effect/turf_decal/siding/white{
+	color = "#636363"
+	},
+/turf/open/floor/plating/rough,
+/area/vtm/interior/penumbra)
+"mR" = (
+/obj/structure/chair/office/blue{
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"mU" = (
+/obj/effect/decal/graffiti,
+/obj/effect/decal/trash,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"mY" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/underplate{
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/soda_cans/monkey_energy{
+	pixel_y = 13;
+	pixel_x = -10
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"mZ" = (
+/obj/structure/chair/office{
+	dir = 8
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"ne" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/machinery/hydroponics/soil,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"ng" = (
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"no" = (
+/obj/structure/glowshroom/single,
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"nu" = (
+/obj/structure/chair/wood/wings,
+/obj/effect/turf_decal/siding/wood{
+	color = "#9a704a";
+	dir = 8
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"nx" = (
+/obj/structure/foodrack{
+	dir = 4;
+	density = 0;
+	pixel_x = 20
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"nA" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 6
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"nE" = (
+/obj/structure/pole{
+	pixel_w = -16
+	},
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"nF" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	color = "#9a704a";
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"nK" = (
+/obj/structure/barrels/rand,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/penumbra)
+"nL" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#6e635a";
+	dir = 6
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"nQ" = (
+/obj/effect/decal/bordur{
+	dir = 5
+	},
+/obj/effect/decal/litter,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"nU" = (
+/obj/effect/decal/bordur{
+	dir = 9
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"nZ" = (
+/obj/effect/decal/coastline{
+	dir = 4
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 16
+	},
+/obj/effect/decal/shadow{
+	pixel_y = -9
+	},
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"of" = (
+/obj/effect/decal/bordur{
+	dir = 6
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"oh" = (
+/obj/structure/railing/metal{
+	dir = 9;
+	plane = 3
+	},
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"ol" = (
+/obj/structure/railing/metal{
+	dir = 1;
+	plane = 3
+	},
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"oq" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 4;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/green,
+/area/vtm/interior/penumbra)
+"ow" = (
+/obj/structure/railing/metal{
+	dir = 9
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"oy" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5;
+	color = "#574d46"
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"oG" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"oH" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"oM" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/structure/vampfence/corner/rich{
+	dir = 1;
+	icon_state = "fence_end"
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"oO" = (
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2";
+	color = "#b5b5b5"
+	},
+/area/vtm/interior/penumbra)
+"oT" = (
+/obj/effect/decal/bordur/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"oX" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 12
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"oY" = (
+/obj/transfer_point_vamp/umbral{
+	id = 665
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
+"pe" = (
+/turf/closed/wall/vampwall/rich,
+/area/vtm/interior/penumbra)
+"pg" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"ph" = (
+/obj/structure/chair/sofa/old/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"pn" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/vamptree/pine,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"pp" = (
+/obj/effect/turf_decal/siding/white/corner{
+	color = "#636363";
+	dir = 8
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"ps" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 9
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"pu" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#aa4f25";
+	dir = 8
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/structure/vampstatue/angel{
+	pixel_y = 8
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"pB" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 8
+	},
+/obj/item/chair/red,
+/obj/item/shard{
+	pixel_y = 10;
+	pixel_x = -5
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"pF" = (
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/large{
+	anchored = 1
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"pI" = (
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/obj/effect/decal/wallpaper/papers/four{
+	pixel_y = -3
+	},
+/obj/effect/decal/wallpaper/papers/six{
+	pixel_y = -3;
+	pixel_x = 21
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"pP" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"pY" = (
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"qa" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"qe" = (
+/obj/effect/decal/wallpaper/light,
+/turf/closed/wall/vampwall/painted,
+/area/vtm/interior/penumbra)
+"qp" = (
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"qu" = (
+/obj/item/shard,
+/turf/closed/wall/vampwall/rich/low,
+/area/vtm/interior/penumbra)
+"qx" = (
+/obj/structure/chair/pew{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"qE" = (
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar/low,
+/area/vtm/interior/penumbra)
 "qF" = (
 /turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"qN" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363"
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"qP" = (
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"qQ" = (
+/obj/effect/turf_decal/trimline/blue/corner,
+/obj/effect/turf_decal/trimline/blue/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white/corner{
+	color = "#636363";
+	dir = 8
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"qZ" = (
+/obj/structure/vamptree{
+	icon_state = "tree3"
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"ra" = (
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 4
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"rb" = (
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/obj/effect/decal/wallpaper/papers/four{
+	pixel_y = -3
+	},
+/obj/effect/decal/wallpaper/papers/seven{
+	pixel_y = -4
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"rc" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"rg" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"ru" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/dirt,
+/obj/machinery/hydroponics/soil,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"rB" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/structure/vamptree{
+	icon_state = "tree7"
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"rE" = (
+/obj/effect/decal/bordur/corner{
+	dir = 8
+	},
+/obj/structure/railing/metal{
+	dir = 8;
+	pixel_x = 5
+	},
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"rG" = (
+/obj/structure/chair/sofa/old/left,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"rP" = (
+/obj/structure/filingcabinet{
+	pixel_x = -6
+	},
+/obj/structure/filingcabinet{
+	pixel_x = 7
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"rR" = (
+/obj/structure/vampstatue/angel{
+	pixel_y = 1;
+	pixel_x = 16
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"rU" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"rV" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"rZ" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 8;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/green,
+/area/vtm/interior/penumbra)
+"sb" = (
+/obj/structure/railing{
+	dir = 4;
+	plane = 4;
+	pixel_y = 3
+	},
+/obj/effect/turf_decal/siding/wood{
+	color = "#9a704a";
+	dir = 4
+	},
+/obj/transfer_point_vamp/umbral{
+	id = 663
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"sd" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/lamppost/sidewalk,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"si" = (
+/obj/effect/decal/litter,
+/turf/open/floor/plating/concrete{
+	color = "#9c8064"
+	},
+/area/vtm/interior/penumbra)
+"sk" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"sn" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"sv" = (
+/obj/effect/decal/wallpaper/light,
+/turf/closed/wall/vampwall/brick,
+/area/vtm/interior/penumbra)
+"sw" = (
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
+"sA" = (
+/obj/structure/vampipe{
+	icon_state = "piping38"
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"sB" = (
+/obj/structure/table/wood,
+/turf/closed/wall/vampwall/rich/old/low,
+/area/vtm/interior/penumbra)
+"sD" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1;
+	color = "#574d46"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/vampdoor/wood{
+	dir = 1;
+	lock_id = "ventrue";
+	lockpick_difficulty = 12
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"sG" = (
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/open/floor/plating/concrete{
+	color = "#9c8064"
+	},
+/area/vtm/interior/penumbra)
+"sM" = (
+/obj/structure/table,
+/obj/item/storage/fancy/candle_box{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/lighter/greyscale,
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"sO" = (
+/obj/effect/decal/bordur{
+	dir = 10
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"sQ" = (
+/obj/effect/decal/litter,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"sV" = (
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/obj/effect/decal/wallpaper/papers/one{
+	pixel_y = -4
+	},
+/obj/effect/decal/wallpaper/papers/four{
+	pixel_y = -3
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"sZ" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#aa4f25";
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"ta" = (
+/obj/structure/glowshroom/single,
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 1
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"tf" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"tk" = (
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/large{
+	pixel_y = 43;
+	plane = 3;
+	pixel_x = 17;
+	anchored = 1;
+	density = 0
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"tm" = (
+/obj/structure/foodrack{
+	dir = 4;
+	pixel_x = 7
+	},
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"tn" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"tq" = (
+/obj/structure/chair/stool/bar,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"tr" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#aa4f25";
+	dir = 6
+	},
+/obj/structure/chair/pew/right{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"tt" = (
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/turf/open/floor/plating/asphalt,
+/area/vtm/interior/penumbra)
+"tu" = (
+/obj/structure/railing/metal/corner,
+/turf/open/floor/mineral/plastitanium,
+/area/vtm/interior/penumbra)
+"tE" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"tF" = (
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white{
+	color = "#636363"
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"tI" = (
+/obj/effect/decal/coastline/corner,
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"tL" = (
+/obj/structure/bed/maint,
+/obj/item/clothing/suit/vampire/coat,
+/obj/item/clothing/head/vampire/beanie/homeless,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"tM" = (
+/obj/effect/decal/cleanable/glitter,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"tQ" = (
+/obj/structure/railing/metal{
+	plane = 4.1
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"tU" = (
+/obj/structure/vampipe{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
+"ud" = (
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"ui" = (
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/obj/effect/decal/wallpaper/papers/seven{
+	pixel_y = -4
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"um" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"ut" = (
+/obj/structure/chair/sofa/old/right{
+	dir = 1
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"uu" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/structure/vamptree{
+	icon_state = "tree7"
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"uC" = (
+/obj/effect/decal/coastline/corner,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"uH" = (
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 8
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"uI" = (
+/obj/structure/clothingrack/rand{
+	icon_state = "rack1";
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"uN" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9;
+	color = "#574d46"
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"uU" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"va" = (
+/obj/structure/table,
+/obj/effect/decal/wallpaper/light/low,
+/turf/closed/wall/vampwall/painted/low,
+/area/vtm/interior/penumbra)
+"vg" = (
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"vh" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/toilet{
+	color = "#d6b390"
+	},
+/area/vtm/interior/penumbra)
+"vj" = (
+/obj/effect/decal/bordur,
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/sidewalk/old,
+/area/vtm/interior/penumbra)
+"vk" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 6
+	},
+/obj/item/shard{
+	pixel_y = 12
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"vp" = (
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"vt" = (
+/turf/open/floor/plating/shit/border,
+/area/vtm/interior/penumbra)
+"vu" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 13;
+	pixel_y = 25
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"vC" = (
+/obj/structure/vamptree/pine,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"vD" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"vK" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 10;
+	color = "#574d46"
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"vO" = (
+/obj/structure/stone_tile/block{
+	dir = 1
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"vV" = (
+/obj/structure/chair/sofa/old/left{
+	color = "#525252";
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"vY" = (
+/obj/effect/decal/litter,
+/obj/machinery/light/broken{
+	pixel_y = 31
+	},
+/turf/open/floor/plating/concrete{
+	color = "#9c8064"
+	},
+/area/vtm/interior/penumbra)
+"vZ" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"wg" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"wi" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"wj" = (
+/obj/structure/chair/office/blue{
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"wk" = (
+/obj/structure/vamptree{
+	icon_state = "tree8"
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"wl" = (
+/obj/structure/chair/sofa/old/right{
+	color = "#525252"
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"wo" = (
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"wy" = (
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 4;
+	color = "#636363"
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"wB" = (
+/obj/police_department{
+	pixel_x = -8
+	},
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"wF" = (
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"wG" = (
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"wS" = (
+/obj/effect/decal/litter,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"wU" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 16
+	},
+/obj/structure/railing{
+	dir = 8;
+	pixel_y = 3
+	},
+/obj/effect/decal/shadow{
+	pixel_y = -9
+	},
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"wV" = (
+/obj/effect/landmark/teleport_mark{
+	tribe = "Children of Gaia"
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"xd" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#6e635a";
+	dir = 10
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"xe" = (
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/interior/penumbra)
+"xg" = (
+/obj/effect/decal/wallpaper/papers/two{
+	pixel_y = -5
+	},
+/obj/effect/decal/wallpaper/papers/five{
+	pixel_x = 18;
+	pixel_y = -3
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"xj" = (
+/obj/structure/vampipe{
+	icon_state = "piping43"
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"xl" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"xp" = (
+/obj/structure/table/wood/fancy/red,
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_y = 8;
+	pixel_x = -16
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/martini_glass{
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"xt" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"xz" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"xA" = (
+/obj/effect/turf_decal/siding/white/end{
+	color = "#636363";
+	dir = 4
+	},
+/obj/structure/table,
+/turf/open/floor/circuit/telecomms/normal_temp,
+/area/vtm/interior/penumbra)
+"xB" = (
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 8
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"xE" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/obj/structure/vampdoor/reinf{
+	locked = 1;
+	dir = 4
+	},
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"xF" = (
+/obj/effect/decal/bordur/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/asphalt,
+/area/vtm/interior/penumbra)
+"xL" = (
+/obj/structure/chair/greyscale{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 10
+	},
+/turf/open/floor/plating/rough,
+/area/vtm/interior/penumbra)
+"xO" = (
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"xU" = (
+/obj/effect/decal/wallpaper/red,
+/turf/closed/wall/vampwall/rich,
+/area/vtm/interior/penumbra)
+"xX" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 8;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/stellar,
+/area/vtm/interior/penumbra)
+"yg" = (
+/obj/effect/turf_decal/trimline/blue/corner,
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 1
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"yh" = (
+/obj/structure/barricade/wooden/crude,
+/turf/closed/wall/vampwall/junk/alt/low/window,
+/area/vtm/interior/penumbra)
+"yl" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/plating/toilet{
+	color = "#636363"
+	},
+/area/vtm/interior/penumbra)
+"ym" = (
+/obj/minespot,
+/obj/minespot,
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"yu" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"yx" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"yz" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"yA" = (
+/obj/effect/turf_decal/trimline/blue/warning,
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white/corner{
+	color = "#636363";
+	dir = 1
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"yK" = (
+/obj/structure/chair/pew,
+/turf/open/floor/plating/toilet{
+	color = "#d6b390"
+	},
+/area/vtm/interior/penumbra)
+"yO" = (
+/obj/effect/decal/trash,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"yQ" = (
+/obj/structure/fluff/hedge,
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 8
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"ze" = (
+/obj/effect/decal/bordur,
+/obj/structure/fluff/hedge,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/plating/sidewalk/old,
+/area/vtm/interior/penumbra)
+"zg" = (
+/obj/structure/chair/pew{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#004136"
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"zl" = (
+/obj/structure/chair/green,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"zn" = (
+/turf/closed/wall/vampwall/brick,
+/area/vtm/interior/penumbra)
+"zr" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"zt" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"zu" = (
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"zw" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/item/fishing_rod,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"zy" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 4;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/stellar,
+/area/vtm/interior/penumbra)
+"zC" = (
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"zF" = (
+/obj/structure/vampipe{
+	icon_state = "piping41"
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
+"zH" = (
+/obj/structure/lamppost/sidewalk,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"zI" = (
+/obj/structure/table,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"zK" = (
+/obj/effect/decal/trash,
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"zM" = (
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 8
+	},
+/obj/structure/bookcase/random/lupine{
+	pixel_y = 25;
+	density = 0
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"Ae" = (
+/obj/effect/decal/support,
+/obj/structure/chair/stool/bar,
+/obj/effect/decal/cleanable/confetti,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"Aj" = (
+/obj/effect/decal/pallet{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"Ak" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/open/floor/plating/toilet{
+	color = "#636363"
+	},
+/area/vtm/interior/penumbra)
+"Av" = (
+/obj/structure/lattice/grate,
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/vampocean{
+	color = "#9ab577";
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"Ax" = (
+/obj/structure/table,
+/obj/item/clothing/gloves/vampire/latex,
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Ay" = (
+/obj/structure/railing/metal,
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"AB" = (
+/obj/effect/turf_decal/siding/wideplating/corner{
+	color = "#004136"
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"AD" = (
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2"
+	},
+/area/vtm/interior/penumbra)
+"AF" = (
+/obj/structure/flora/ausbushes/fernybush,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"AK" = (
+/obj/machinery/photocopier,
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"AV" = (
+/obj/transfer_point_vamp/umbral{
+	id = 664
+	},
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"AY" = (
+/obj/structure/curtain/bounty{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"Bb" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 4
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"Bi" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 8;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/donk,
+/area/vtm/interior/penumbra)
+"Bq" = (
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"BB" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"BH" = (
+/obj/effect/decal/coastline{
+	dir = 6
+	},
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"BK" = (
+/obj/structure/stone_tile/surrounding,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"BM" = (
+/obj/structure/curtain,
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"BQ" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"BS" = (
+/obj/structure/chair/stool/bar,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"BX" = (
+/obj/structure/chair/wood/wings{
+	dir = 1
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"Ce" = (
+/obj/structure/stone_tile/surrounding_tile,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"Cg" = (
+/turf/open/floor/plating/vampocean,
+/area/vtm/interior/penumbra)
+"Cl" = (
+/obj/effect/decal/litter,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"Cx" = (
+/obj/structure/table,
+/obj/item/folder/blue,
+/turf/closed/wall/vampwall/market/low,
+/area/vtm/interior/penumbra)
+"CD" = (
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/obj/effect/decal/wallpaper/papers/two{
+	pixel_y = -5
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"CP" = (
+/obj/effect/decal/cleanable/glitter,
+/turf/open/floor/light,
+/area/vtm/interior/penumbra)
+"CR" = (
+/obj/effect/decal/wallpaper/stone,
+/turf/closed/wall/vampwall/painted,
+/area/vtm/interior/penumbra)
+"CS" = (
+/turf/closed/wall/vampwall/bar/low,
+/area/vtm/interior/penumbra)
+"CT" = (
+/obj/effect/decal/pallet,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"Db" = (
+/obj/structure/vampipe{
+	icon_state = "piping40"
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"Du" = (
+/obj/structure/railing/metal/corner,
+/obj/structure/railing/metal/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	color = "#574d46"
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"Dx" = (
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"Dy" = (
+/obj/structure/chair/greyscale{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 4;
+	color = "#636363"
+	},
+/turf/open/floor/plating/rough,
+/area/vtm/interior/penumbra)
+"DD" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"DE" = (
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/large,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"DF" = (
+/obj/effect/decal/wallpaper/papers/eight{
+	pixel_y = -3;
+	pixel_x = -10
+	},
+/obj/effect/decal/wallpaper/papers/seven{
+	pixel_y = -4
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"DK" = (
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/plating/concrete{
+	color = "#9c8064"
+	},
+/area/vtm/interior/penumbra)
+"DM" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 4
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"DN" = (
+/obj/structure/trad{
+	pixel_y = 32
+	},
+/obj/structure/lamppost/sidewalk/chinese{
+	dir = 1;
+	density = 0
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"DS" = (
+/obj/structure/lamppost/sidewalk/chinese{
+	dir = 4;
+	density = 0
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"DT" = (
+/obj/structure/vampipe{
+	icon_state = "piping35"
+	},
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2"
+	},
+/area/vtm/interior/penumbra)
+"DU" = (
+/turf/open/floor/plating/vampcarpet,
+/area/vtm/interior/penumbra)
+"DW" = (
+/obj/structure/railing{
+	dir = 4;
+	plane = 4;
+	pixel_y = 6
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#574d46"
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"DZ" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"Ea" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Ej" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 10;
+	pixel_y = -5
+	},
+/obj/effect/decal/trash,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"Es" = (
+/obj/structure/fountain{
+	plane = 1
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"Eu" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Ew" = (
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 8;
+	color = "#636363"
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"EC" = (
+/obj/effect/decal/coastline/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"EK" = (
+/obj/structure/fluff/hedge,
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"ET" = (
+/turf/open/floor/plating/vampocean{
+	color = "#789156";
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"EV" = (
+/obj/structure/railing{
+	dir = 8;
+	plane = 4;
+	pixel_y = 6
+	},
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/wood{
+	dir = 10;
+	color = "#574d46"
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"EY" = (
+/obj/structure/stone_tile/slab/cracked,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"Fd" = (
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"Fk" = (
+/obj/effect/food_cart_stand,
+/obj/structure/table,
+/obj/projectile/bullet/reusable/gumball{
+	name = "crystal ball";
+	desc = "You look into the ball and see... hair stuck to it?";
+	pixel_y = 7
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"Fn" = (
+/obj/structure/vampipe{
+	icon_state = "piping3";
+	pixel_y = 32;
+	plane = 2.9
+	},
+/turf/open/floor/plating/shit/border,
+/area/vtm/interior/penumbra)
+"Fp" = (
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"Fv" = (
+/obj/effect/decal/coastline{
+	dir = 1
+	},
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"FA" = (
+/obj/structure/vampipe{
+	icon_state = "piping41"
+	},
+/obj/structure/vampipe{
+	icon_state = "piping32"
+	},
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"FP" = (
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"FS" = (
+/obj/structure/railing/metal/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"FU" = (
+/obj/structure/jesuscross{
+	pixel_x = -16;
+	density = 0;
+	pixel_y = 29
+	},
+/turf/open/floor/plating/saint,
+/area/vtm/interior/penumbra)
+"FZ" = (
+/obj/structure/table,
+/turf/closed/wall/vampwall/market/low,
+/area/vtm/interior/penumbra)
+"Ga" = (
+/obj/structure/chinesesign{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"Gm" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Go" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 8
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Gp" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 13
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"Gr" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"Gs" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"GL" = (
+/obj/item/shield/door{
+	icon_state = "old"
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"GM" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/item/fishing_rod,
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"GN" = (
+/obj/police_department{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"GP" = (
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"GT" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6;
+	color = "#574d46"
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"GY" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/obj/item/flashlight/lantern,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Ha" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"Hg" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"Hh" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#574d46"
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"Hi" = (
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"Hn" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Hr" = (
+/obj/effect/decal/bordur/corner,
+/obj/structure/fluff/hedge,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/plating/sidewalk/old,
+/area/vtm/interior/penumbra)
+"Hs" = (
+/obj/flag/california{
+	pixel_y = 28
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"Hu" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 10
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"Hw" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"Hx" = (
+/obj/effect/decal/trash,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"Hy" = (
+/obj/structure/vampipe{
+	icon_state = "piping7";
+	pixel_y = 32
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
+"HB" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"HC" = (
+/turf/open/floor/plasteel/stairs,
+/area/vtm/interior/penumbra)
+"HJ" = (
+/obj/structure/chair/wood{
+	dir = 8
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"HM" = (
+/obj/structure/lamppost/one{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"HN" = (
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"HR" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/structure/bookcase/random/lupine{
+	pixel_y = 25;
+	density = 0
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"HS" = (
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/large{
+	pixel_y = -21;
+	plane = 3;
+	pixel_x = 17;
+	anchored = 1;
+	density = 0
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"HW" = (
+/obj/structure/fluff/beach_umbrella/science,
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"Ic" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/penumbra)
+"Id" = (
+/turf/closed/wall/vampwall/bar/low/window,
+/area/vtm/interior/penumbra)
+"Ij" = (
+/obj/structure/stone_tile/surrounding,
+/obj/effect/landmark/teleport_mark{
+	tribe = "Wendigo"
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"Iv" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"Ix" = (
+/obj/structure/chair/wood/wings,
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"Iy" = (
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/turf/open/floor/plating/concrete{
+	color = "#9c8064"
+	},
+/area/vtm/interior/penumbra)
+"Iz" = (
+/obj/structure/sign/warning/nosmoking{
+	pixel_y = 29
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"IA" = (
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"ID" = (
+/obj/structure/bookcase/random/lupine{
+	pixel_y = 25;
+	density = 0
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"IH" = (
+/obj/structure/railing/metal{
+	color = "#a3a3a3"
+	},
+/obj/structure/railing/metal{
+	color = "#a3a3a3";
+	dir = 1
+	},
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2";
+	color = "#b5b5b5"
+	},
+/area/vtm/interior/penumbra)
+"IK" = (
+/obj/structure/vamptree{
+	icon_state = "tree5"
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"IL" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#574d46"
+	},
+/obj/structure/chair/office{
+	dir = 4
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"IS" = (
+/obj/effect/turf_decal/trimline/blue/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/white/corner{
+	color = "#636363"
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"IX" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 15;
+	pixel_y = 11
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"Jd" = (
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"Je" = (
+/obj/structure/fluff/beach_umbrella/engine,
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"Jg" = (
+/obj/effect/decal/bordur/corner{
+	dir = 1
+	},
+/obj/machinery/grill,
+/obj/item/stack/sheet/mineral/coal/five,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"Jr" = (
+/obj/structure/railing/metal/corner,
+/obj/structure/railing/metal/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/church,
+/area/vtm/interior/penumbra)
+"Jv" = (
+/obj/structure/lattice/grate,
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/turf/open/floor/plating/vampocean{
+	color = "#9ab577";
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"JG" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#004136";
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"JL" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#6e635a";
+	dir = 4
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"JM" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"JO" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"JP" = (
+/obj/effect/turf_decal/trimline/blue/warning,
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white/corner{
+	color = "#636363";
+	dir = 4
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"JQ" = (
+/obj/effect/decal/wallpaper/papers/six{
+	pixel_y = -3
+	},
+/obj/effect/decal/wallpaper/paper/rich,
+/turf/closed/wall/vampwall/city,
+/area/vtm/interior/penumbra)
+"JR" = (
+/obj/effect/decal/wallpaper/light,
+/turf/closed/wall/vampwall/market,
+/area/vtm/interior/penumbra)
+"JW" = (
+/obj/effect/decal/cardboard,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"Kb" = (
+/obj/transfer_point_vamp/umbral{
+	id = 669
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"Kn" = (
+/turf/open/floor/plating/toilet{
+	color = "#d6b390"
+	},
+/area/vtm/interior/penumbra)
+"Ks" = (
+/obj/effect/decal/bordur{
+	dir = 9
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"Kz" = (
+/obj/structure/chair/sofa/old/right{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"KF" = (
+/obj/structure/trashcan,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"KG" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"KJ" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"KK" = (
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/obj/effect/decal/wallpaper/papers/one{
+	pixel_y = -4
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"KL" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"KN" = (
+/obj/effect/decal/bordur/corner{
+	dir = 1
+	},
+/obj/structure/chair/plastic{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"KO" = (
+/mob/living/simple_animal/pet/dog/corgi{
+	icon = 'code/modules/wod13/mobs.dmi';
+	icon_dead = "dog_dead";
+	icon_state = "dog";
+	name = "Lupus Wolfkin";
+	desc = "A timber wolf.";
+	icon_living = "dog"
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"KT" = (
+/obj/structure/bookcase/random/lupine{
+	pixel_y = 25;
+	density = 0
+	},
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"KU" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"KX" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/vtm/interior/penumbra)
+"Lb" = (
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"Ld" = (
+/obj/transfer_point_vamp/umbral{
+	id = 670
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"Li" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 5
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Lj" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"Ls" = (
+/obj/police_department{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"Lt" = (
+/obj/structure/vamptree{
+	icon_state = "tree10"
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Lw" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"LQ" = (
+/turf/open/floor/light,
+/area/vtm/interior/penumbra)
+"LT" = (
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/trash,
+/obj/structure/table/wood,
+/turf/open/floor/plating/concrete{
+	color = "#9c8064"
+	},
+/area/vtm/interior/penumbra)
+"LY" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#004136";
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"Mb" = (
+/obj/structure/chair/sofa/old{
+	dir = 4
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"Mc" = (
+/obj/structure/table,
+/obj/item/folder/blue{
+	pixel_x = -15;
+	pixel_y = 7
+	},
+/obj/effect/decal/wallpaper/light/low,
+/turf/closed/wall/vampwall/painted/low,
+/area/vtm/interior/penumbra)
+"Mi" = (
+/obj/effect/decal/coastline{
+	dir = 5
+	},
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"Ml" = (
+/obj/structure/foodrack{
+	dir = 4;
+	pixel_x = 7
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Mv" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 5
+	},
+/obj/structure/milleniumsign{
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"ME" = (
+/obj/structure/anarchsign{
+	pixel_y = 11
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"ML" = (
+/obj/structure/railing/metal,
+/obj/structure/railing/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2"
+	},
+/area/vtm/interior/penumbra)
+"MO" = (
+/turf/closed/wall/vampwall/junk/alt,
+/area/vtm/interior/penumbra)
+"MP" = (
+/obj/structure/chair/plastic{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"MR" = (
+/obj/structure/stone_tile/slab,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"MV" = (
+/obj/structure/curtain{
+	pixel_y = 15
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"MW" = (
+/obj/effect/decal/asphaltline/alt{
+	dir = 8
+	},
+/turf/open/floor/plating/asphalt,
+/area/vtm/interior/penumbra)
+"Nf" = (
+/obj/structure/chair/comfy{
+	color = "#CD5C5C"
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"Nq" = (
+/obj/effect/decal/litter,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"Nt" = (
+/obj/structure/chair/pew/right{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"Nu" = (
+/obj/effect/decal/support,
+/obj/structure/chair/stool/bar,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"Nz" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#6e635a"
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"NN" = (
+/obj/effect/decal/coastline{
+	dir = 6
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"NR" = (
+/obj/structure/lattice/grate{
+	dir = 4
+	},
+/obj/structure/railing/metal,
+/obj/structure/railing/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"NU" = (
+/obj/structure/chair/pew/left,
+/turf/open/floor/plating/toilet{
+	color = "#d6b390"
+	},
+/area/vtm/interior/penumbra)
+"NW" = (
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/obj/effect/decal/wallpaper/papers/one{
+	pixel_y = -4
+	},
+/obj/effect/decal/wallpaper/papers/four{
+	pixel_y = -3;
+	pixel_x = -8
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"Of" = (
+/obj/structure/railing/metal/corner{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/vtm/interior/penumbra)
+"Og" = (
+/obj/structure/vampipe{
+	icon_state = "piping32"
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"Oi" = (
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"Oj" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#6e635a";
+	dir = 8
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"Ok" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 3;
+	color = "#636363"
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Oy" = (
+/obj/effect/decal/bordur{
+	dir = 5
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"OI" = (
+/obj/structure/chair/comfy{
+	color = "#CD5C5C";
+	dir = 4
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"OL" = (
+/obj/effect/decal/bordur{
+	dir = 5
+	},
+/turf/open/floor/plating/asphalt,
+/area/vtm/interior/penumbra)
+"OR" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/grass/jungle/b,
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"OT" = (
+/obj/structure/vampipe{
+	icon_state = "piping31"
+	},
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2"
+	},
+/area/vtm/interior/penumbra)
+"OV" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 4;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"OW" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 9
+	},
+/obj/structure/milleniumsign{
+	pixel_y = 32
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"Pd" = (
+/obj/structure/rack,
+/obj/machinery/light{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"Pe" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"Pi" = (
+/obj/effect/decal/bordur/corner{
+	dir = 1
+	},
+/obj/effect/decal/litter,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"Pp" = (
+/obj/structure/flora/grass/jungle/b,
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"Pw" = (
+/obj/structure/vampipe{
+	icon_state = "piping35"
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
+"PC" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"PK" = (
+/obj/structure/chair/pew/right,
+/turf/open/floor/plating/toilet{
+	color = "#d6b390"
+	},
+/area/vtm/interior/penumbra)
+"PL" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"PR" = (
+/obj/structure/foodrack{
+	dir = 4
+	},
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/penumbra)
+"PS" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 8;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"PY" = (
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"Qj" = (
+/obj/structure/railing/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"Qm" = (
+/obj/structure/foodrack{
+	dir = 4;
+	pixel_x = -12
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Qo" = (
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Qp" = (
+/obj/effect/decal/bordur{
+	dir = 6
+	},
+/turf/open/floor/plating/asphalt,
+/area/vtm/interior/penumbra)
+"Qr" = (
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"Qx" = (
+/obj/structure/railing/metal{
+	dir = 10
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"QB" = (
+/obj/structure/trad{
+	pixel_x = -14
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"QC" = (
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_y = 7
+	},
+/obj/item/flashlight/lamp{
+	pixel_y = 13;
+	pixel_x = -11
+	},
+/turf/closed/wall/vampwall/market/low,
+/area/vtm/interior/penumbra)
+"QF" = (
+/obj/effect/decal/cleanable/glitter,
+/obj/transfer_point_vamp/umbral{
+	id = 672
+	},
+/turf/open/floor/light,
+/area/vtm/interior/penumbra)
+"QH" = (
+/obj/structure/table/wood,
+/obj/item/newspaper{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/obj/item/newspaper{
+	pixel_y = 5;
+	pixel_x = -7
+	},
+/obj/item/newspaper,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"QI" = (
+/obj/structure/chair/greyscale{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 8;
+	color = "#636363"
+	},
+/turf/open/floor/plating/rough,
+/area/vtm/interior/penumbra)
+"QO" = (
+/obj/minespot/playable,
+/turf/open/floor/plating/umbra,
+/area/vtm/interior/penumbra)
+"QR" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 8
+	},
+/obj/structure/curtain/cloth/fancy{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"QV" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/obj/structure/fuelstation,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"QY" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"Ra" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/structure/vamprocks,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Rf" = (
+/obj/structure/table/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#574d46"
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"Rg" = (
+/turf/open/floor/plating/rough,
+/area/vtm/interior/penumbra)
+"Ro" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Rt" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Ry" = (
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"RA" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"RC" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white{
+	color = "#636363"
+	},
+/obj/structure/table,
+/turf/open/floor/circuit/telecomms/normal_temp,
+/area/vtm/interior/penumbra)
+"RG" = (
+/obj/structure/railing/metal{
+	plane = 4.1
+	},
+/obj/effect/turf_decal/siding/wood{
+	color = "#574d46"
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"RI" = (
+/obj/structure/railing/metal/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"RJ" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"RM" = (
+/obj/structure/barrels/rand,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"RN" = (
+/obj/effect/turf_decal/trimline/blue/warning,
+/obj/effect/turf_decal/trimline/blue/warning{
+	dir = 1
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/penumbra)
+"RT" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 16
+	},
+/obj/structure/table/wood,
+/obj/item/kirbyplants{
+	icon_state = "plant2";
+	pixel_y = 18;
+	pixel_x = 7
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"RV" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/machinery/hydroponics/soil,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"RX" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 16
+	},
+/obj/structure/railing{
+	dir = 4;
+	plane = 4;
+	pixel_y = 3
+	},
+/obj/effect/decal/shadow{
+	pixel_y = -9
+	},
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"Sa" = (
+/obj/structure/railing/metal{
+	color = "#a3a3a3";
+	dir = 1
+	},
+/obj/structure/railing/metal{
+	color = "#a3a3a3"
+	},
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2";
+	color = "#b5b5b5"
+	},
+/area/vtm/interior/penumbra)
+"Sf" = (
+/obj/structure/small_vamprocks,
+/turf/open/floor/plating/dirt,
+/area/vtm/interior/penumbra)
+"Sg" = (
+/obj/machinery/vamp/atm{
+	pixel_y = 25
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"Sk" = (
+/obj/structure/table/wood,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"Sn" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#aa4f25";
+	dir = 8
+	},
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"So" = (
+/obj/structure/chinesesign/alt/alt{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"St" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"Sw" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/obj/effect/decal/litter,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"Sy" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -10
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"Sz" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"SB" = (
+/obj/effect/turf_decal/siding/wideplating/corner{
+	color = "#004136";
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"SC" = (
+/obj/structure/fluff/beach_umbrella/cap,
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"SD" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/structure/chair/stool/bar,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"SJ" = (
+/obj/food_cart{
+	icon_state = "vat2"
+	},
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"SL" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/glass/bowl/mushroom_bowl{
+	name = "ashtray";
+	desc = "A discreet ashtray for keeping things clean.";
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/cigbutt{
+	pixel_x = 4;
+	pixel_y = 14
+	},
+/obj/item/cigbutt{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/turf/closed/wall/vampwall/bar/low,
+/area/vtm/interior/penumbra)
+"SO" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#574d46"
+	},
+/obj/structure/railing{
+	dir = 8;
+	plane = 4;
+	pixel_y = 3
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"ST" = (
+/obj/item/shard{
+	pixel_y = 10;
+	pixel_x = -5
+	},
+/turf/closed/wall/vampwall/rich/low,
+/area/vtm/interior/penumbra)
+"SX" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1;
+	color = "#574d46"
+	},
+/obj/structure/railing{
+	dir = 1;
+	pixel_y = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"Tb" = (
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/trash,
+/obj/structure/chair/stool/bar,
+/turf/open/floor/plating/concrete{
+	color = "#9c8064"
+	},
+/area/vtm/interior/penumbra)
+"Tn" = (
+/obj/structure/trad{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"Tt" = (
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"Tu" = (
+/obj/structure/vampipe{
+	icon_state = "piping31"
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"Tx" = (
+/obj/effect/turf_decal/weather/dirt,
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"TT" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 1
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"TY" = (
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 4
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"Uc" = (
+/obj/structure/vampipe{
+	icon_state = "piping43"
+	},
+/turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"Ue" = (
+/obj/structure/chinesesign/alt/alt{
+	pixel_y = 32
+	},
+/obj/structure/trashbag{
+	pixel_y = 16;
+	pixel_x = -6
+	},
+/obj/structure/trashbag{
+	pixel_x = -12;
+	pixel_y = 4
+	},
+/obj/structure/trashbag{
+	pixel_x = -5;
+	pixel_y = 10
+	},
+/obj/structure/trashbag{
+	pixel_x = -10;
+	pixel_y = 11
+	},
+/obj/effect/decal/trash,
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"Uf" = (
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2";
+	color = "#8a8a8a"
+	},
+/area/vtm/interior/penumbra)
+"Uh" = (
+/turf/closed/wall/vampwall/rock,
+/area/vtm/interior/penumbra)
+"Ul" = (
+/obj/structure/railing{
+	dir = 8;
+	plane = 4;
+	pixel_y = 6
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#574d46"
+	},
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/large,
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"Uo" = (
+/obj/structure/railing/metal,
+/turf/open/floor/plating/toilet{
+	color = "#919191"
+	},
+/area/vtm/interior/penumbra)
+"Up" = (
+/obj/effect/landmark/teleport_mark{
+	tribe = "Glass Walkers"
+	},
+/turf/open/floor/circuit/telecomms/normal_temp,
+/area/vtm/interior/penumbra)
+"Ur" = (
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"Uw" = (
+/obj/structure/chair/stool/bar{
+	plane = 2.8
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"Ux" = (
+/obj/structure/stalagmite,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"UF" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#aa4f25";
+	dir = 8
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"UI" = (
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"UT" = (
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"UX" = (
+/obj/structure/railing/metal{
+	dir = 10
+	},
+/turf/open/floor/plating/vampplating/mono,
+/area/vtm/interior/penumbra)
+"UY" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/machinery/hydroponics/soil,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"Vd" = (
+/obj/transfer_point_vamp/umbral{
+	id = 661
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"Ve" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 4
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Vf" = (
+/obj/structure/railing/metal{
+	dir = 1
+	},
+/obj/structure/railing/metal,
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2"
+	},
+/area/vtm/interior/penumbra)
+"Vj" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Vz" = (
+/obj/effect/turf_decal/siding/wood{
+	color = "#574d46"
+	},
+/turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"VC" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1;
+	color = "#574d46"
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"VE" = (
+/obj/structure/table/wood,
+/obj/item/kirbyplants{
+	icon_state = "plant-17";
+	pixel_y = 12;
+	pixel_x = -1
+	},
+/obj/item/kirbyplants{
+	icon_state = "plant3";
+	pixel_y = 15;
+	pixel_x = 11
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"VH" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 4;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/donk,
+/area/vtm/interior/penumbra)
+"VL" = (
+/obj/structure/fence{
+	pixel_y = 22
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"VO" = (
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = -10
+	},
+/turf/open/water,
+/area/vtm/interior/penumbra)
+"VS" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"VT" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/vamprocks,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"VY" = (
+/obj/structure/railing/metal,
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2"
+	},
+/area/vtm/interior/penumbra)
+"Wl" = (
+/obj/effect/decal/pallet{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/structure/chair/stool/bar,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"Wm" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 8;
+	color = "#9c8a67"
+	},
+/turf/open/floor/carpet/purple,
+/area/vtm/interior/penumbra)
+"Wt" = (
+/obj/effect/decal/bordur{
+	dir = 5
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/interior/penumbra)
+"Wv" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/structure/chair/pew/left{
+	dir = 1
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"Wy" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1;
+	color = "#636363"
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"WE" = (
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"WF" = (
+/obj/structure/vamptree{
+	pixel_x = 20;
+	density = 0
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"WM" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 16
+	},
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"WO" = (
+/turf/open/floor/plating/asphalt,
+/area/vtm/interior/penumbra)
+"WP" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/penumbra)
+"WR" = (
+/obj/structure/chair/pew/left{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"Xb" = (
+/obj/effect/decal/wallpaper/stone,
+/turf/closed/wall/vampwall,
+/area/vtm/interior/penumbra)
+"Xi" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29"
+	},
+/obj/structure/fluff/hedge,
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"Xl" = (
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/obj/structure/chinesesign/alt/alt{
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/penumbra)
+"Xn" = (
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/plating/shit,
+/area/vtm/interior/penumbra)
+"Xu" = (
+/turf/closed/wall/vampwall/painted,
+/area/vtm/interior/penumbra)
+"Xy" = (
+/obj/structure/chair/wood,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"XB" = (
+/turf/open/floor/plating/church,
+/area/vtm/interior/penumbra)
+"XC" = (
+/obj/effect/turf_decal/siding/wood{
+	color = "#574d46"
+	},
+/turf/open/floor/plating/vampwood,
+/area/vtm/interior/penumbra)
+"XD" = (
+/obj/structure/lattice/grate,
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/turf/open/floor/plating/shit/border,
+/area/vtm/interior/penumbra)
+"XE" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/plating/vampocean{
+	density = 0
+	},
+/area/vtm/interior/penumbra)
+"XI" = (
+/obj/structure/stone_tile/surrounding_tile/cracked,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"XQ" = (
+/obj/structure/small_vamprocks,
+/turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"XR" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/structure/vampfence/rich,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Yg" = (
+/obj/structure/vampipe{
+	icon_state = "piping24";
+	pixel_y = 32
+	},
+/obj/structure/vampipe{
+	icon_state = "piping40"
+	},
+/turf/open/floor/plating/vampcanalplating,
+/area/vtm/interior/penumbra)
+"Yp" = (
+/obj/effect/decal/wallpaper/papers/four{
+	pixel_y = -3
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/obj/effect/decal/wallpaper/papers/six{
+	pixel_y = -3;
+	pixel_x = 21
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"Yq" = (
+/turf/closed/wall/vampwall/city,
+/area/vtm/interior/penumbra)
+"Yt" = (
+/obj/effect/decal/wallpaper/papers/two{
+	pixel_y = -5
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"Yw" = (
+/obj/structure/railing{
+	dir = 4;
+	plane = 4;
+	pixel_y = 3
+	},
+/obj/effect/turf_decal/siding/wood{
+	color = "#9a704a";
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"Yz" = (
+/turf/open/floor/plating/circled{
+	color = "#EADDCA"
+	},
+/area/vtm/interior/penumbra)
+"YC" = (
+/obj/effect/decal/wallpaper/paper/rich/low,
+/obj/structure/barricade/wooden/crude,
+/turf/closed/wall/vampwall/city/low/window,
+/area/vtm/interior/penumbra)
+"YE" = (
+/obj/effect/decal/bordur/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/asphalt,
+/area/vtm/interior/penumbra)
+"YF" = (
+/obj/structure/railing/metal/corner{
+	dir = 8
+	},
+/obj/structure/railing/metal/corner,
+/obj/effect/decal/bordur,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"YK" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"YL" = (
+/obj/structure/railing/metal{
+	dir = 4;
+	plane = 3.1
+	},
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/stairs,
+/area/vtm/interior/penumbra)
+"YP" = (
+/obj/structure/railing{
+	dir = 4;
+	plane = 4;
+	pixel_y = 3
+	},
+/obj/structure/chair/wood/wings{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	color = "#9a704a";
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/interior/penumbra)
+"YU" = (
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 8
+	},
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/penumbra)
+"YX" = (
+/obj/effect/decal/wallpaper/papers/four{
+	pixel_y = -3
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/obj/effect/decal/wallpaper/papers/eight{
+	pixel_y = -3;
+	pixel_x = -10
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"YZ" = (
+/obj/structure/table/wood/fancy/red,
+/obj/item/reagent_containers/food/drinks/drinkingglass/martini_glass{
+	pixel_y = 5;
+	pixel_x = -5
+	},
+/turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"Zc" = (
+/obj/structure/clothingrack/rand{
+	icon_state = "rack1";
+	dir = 4
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"Ze" = (
+/obj/structure/fluff/beach_umbrella/syndi,
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"Zf" = (
+/obj/effect/decal/wallpaper/papers/one{
+	pixel_y = -4
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"Zj" = (
+/obj/effect/decal/wallpaper/papers/four{
+	pixel_y = -3
+	},
+/obj/effect/decal/wallpaper/grey/low{
+	color = "#6d6d6d"
+	},
+/turf/closed/wall/vampwall/bar,
+/area/vtm/interior/penumbra)
+"Zk" = (
+/obj/transfer_point_vamp/umbral{
+	id = 666
+	},
+/turf/open/floor/plating/vampbeach,
+/area/vtm/interior/penumbra)
+"Zl" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Zp" = (
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/obj/structure/railing/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/stairs{
+	color = "#635d52"
+	},
+/area/vtm/interior/penumbra)
+"Zq" = (
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/obj/structure/vampfence/rich,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Zr" = (
+/turf/closed/wall/vampwall/rich/low/window,
+/area/vtm/interior/penumbra)
+"Zx" = (
+/obj/structure/table/wood,
+/obj/item/candle/infinite{
+	anchored = 1;
+	lit = 1;
+	icon_state = "candle1_lit";
+	pixel_y = 21
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/interior/penumbra)
+"ZG" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"ZL" = (
+/obj/effect/decal/bordur,
+/turf/open/floor/plating/sidewalk/old,
+/area/vtm/interior/penumbra)
+"ZM" = (
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/large{
+	anchored = 1
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"ZT" = (
+/obj/structure/railing/metal{
+	dir = 1
+	},
+/turf/open/floor/plating/vampcanal{
+	icon_state = "canal2"
+	},
+/area/vtm/interior/penumbra)
+"ZU" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 4
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"ZY" = (
+/obj/structure/glowshroom/single,
+/obj/structure/fire_barrel,
+/turf/open/floor/plating/rough/cave,
 /area/vtm/interior/penumbra)
 
 (1,1,1) = {"
@@ -11630,14 +16498,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+Uh
+Uh
+Uh
+Uh
+ki
+YK
+vC
 qF
 qF
 qF
@@ -11886,17 +16754,17 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+Uh
+Jd
+IX
+Jd
+cg
+sn
+gf
+Ea
+WE
+WE
 qF
 qF
 qF
@@ -12143,18 +17011,18 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+IX
+Jd
+Jd
+Gp
+hu
+rV
+Fd
+Ea
+Gm
+Gm
+WE
 qF
 qF
 qF
@@ -12399,18 +17267,18 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+Uh
+Jd
+oX
+Jd
+hu
+zw
+Fd
+ki
+aQ
+Gm
+pn
 qF
 qF
 qF
@@ -12656,18 +17524,18 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+oX
+wg
+tf
+hu
+rU
+Fd
+ki
+jM
+Gm
+Gm
+Gm
 qF
 qF
 qF
@@ -12913,17 +17781,17 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+tf
+hu
+GM
+he
+ki
+fl
+uU
+WE
+Gm
+Gm
 qF
 qF
 qF
@@ -13170,19 +18038,19 @@ qF
 qF
 qF
 qF
+Uh
+hD
+he
+Fd
+Fd
+jM
+Gm
+Gm
+Gm
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -13429,19 +18297,19 @@ qF
 qF
 qF
 qF
+gW
+jM
+uU
+Gm
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -13686,19 +18554,19 @@ qF
 qF
 qF
 qF
+mq
+Gm
+Gm
+Gm
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -13944,6 +18812,16 @@ qF
 qF
 qF
 qF
+Gm
+vC
+qF
+qF
+qF
+qF
+qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -13968,19 +18846,9 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+Uh
+Uh
 qF
 qF
 qF
@@ -14208,6 +19076,15 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+qF
+qF
+qF
+qF
+eC
 qF
 qF
 qF
@@ -14224,20 +19101,11 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+ph
+Mb
+Kz
+Hg
+Uh
 qF
 qF
 qF
@@ -14464,6 +19332,12 @@ qF
 qF
 qF
 qF
+eC
+qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -14481,20 +19355,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+Uh
+fb
+rG
+hH
+Sk
+Dx
+Lw
 qF
 qF
 qF
@@ -14724,6 +19592,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -14740,18 +19612,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+KT
+WP
+qp
+Hg
+KU
+vO
+ml
 qF
 qF
 qF
@@ -14980,6 +19848,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -14995,20 +19869,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Uh
+HR
+ra
+EY
+YU
+ki
+dE
+ZU
 qF
 qF
 qF
@@ -15239,6 +20107,33 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+Uh
+Uh
+ID
+MR
+Ij
+MR
+VE
+fA
+Uh
 qF
 qF
 qF
@@ -15255,41 +20150,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+KX
+lb
+ij
+HB
+HN
+qx
+qx
+jo
 qF
 qF
 qF
@@ -15498,6 +20366,31 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+Uh
+zM
+wo
+jB
+MR
+Ce
+Sk
+ut
+Uh
 qF
 qF
 qF
@@ -15514,40 +20407,15 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+KX
+FU
+ij
+HB
+HN
+qx
+qx
+jo
+fN
 qF
 qF
 qF
@@ -15754,6 +20622,30 @@ qF
 qF
 qF
 qF
+eC
+qF
+eC
+eC
+eC
+eC
+qF
+eC
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+BK
+hv
+le
+ki
+ki
+vZ
+hI
 qF
 qF
 qF
@@ -15772,39 +20664,15 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+KX
+XB
+Uo
+dU
+sZ
+cn
+cn
+tr
+fN
 qF
 qF
 qF
@@ -16013,6 +20881,28 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+eC
+vp
+XI
+qp
+Hg
+Uh
+Uh
+Uh
 qF
 qF
 qF
@@ -16032,36 +20922,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+XB
+Jr
+fD
+fN
+fN
+fN
+fN
+fN
 qF
 qF
 qF
@@ -16271,6 +21139,26 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+eC
+eC
+eC
+eC
+eC
+eC
+qF
+eC
 qF
 qF
 qF
@@ -16291,35 +21179,15 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+lN
+lN
+pu
+UF
+UF
+Sn
+ms
+ms
+fJ
 qF
 qF
 qF
@@ -16527,6 +21395,27 @@ qF
 qF
 qF
 qF
+eC
+qF
+eC
+eC
+eC
+qF
+qF
+eC
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+eC
+eC
+eC
+eC
+qF
+eC
 qF
 qF
 qF
@@ -16546,38 +21435,17 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+KX
+bL
+bL
+KX
+bL
+bL
+KX
+bL
+bL
+KX
+KX
 qF
 qF
 qF
@@ -16786,6 +21654,22 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+qF
+eC
+qF
+qF
+eC
+qF
+qF
+qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -16808,33 +21692,17 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+KX
+WE
+WE
+vC
+WE
+eG
+Gm
+Gm
+WE
+WE
+WE
 qF
 qF
 qF
@@ -17044,6 +21912,23 @@ qF
 qF
 qF
 qF
+eC
+eC
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+eC
+eC
+eC
+eC
+qF
+eC
 qF
 qF
 qF
@@ -17062,36 +21947,19 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+WE
+WE
+Gm
+WE
+Gm
+WE
+WE
+WE
+WE
+vC
+WE
 qF
 qF
 qF
@@ -17301,14 +22169,24 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -17325,8 +22203,20 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+WE
+WE
+WE
+WE
+WE
+vC
+Gm
+WE
+WE
+Gm
+WE
 qF
 qF
 qF
@@ -17380,32 +22270,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+JW
+ud
+ud
 qF
 qF
 qF
@@ -17556,7 +22424,12 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -17565,6 +22438,8 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -17586,6 +22461,18 @@ qF
 qF
 qF
 qF
+eC
+eC
+Gm
+WE
+WE
+Gm
+WE
+WE
+Gm
+Gm
+Gm
+WE
 qF
 qF
 qF
@@ -17640,30 +22527,11 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+ZM
+eO
+ud
+ud
 qF
 qF
 qF
@@ -17816,14 +22684,23 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
+eC
+eC
 qF
 qF
 qF
@@ -17833,10 +22710,26 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+Gm
+Gm
+WE
+Gm
+xt
+WE
+WE
+vC
 qF
 qF
 qF
@@ -17891,38 +22784,13 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+ZM
+ud
+ud
+ud
+ud
+ud
 qF
 qF
 qF
@@ -18073,12 +22941,21 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -18086,6 +22963,7 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -18094,8 +22972,21 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+DD
+xt
+WE
+pY
+Fd
+DD
+WE
+WE
 qF
 qF
 qF
@@ -18148,40 +23039,17 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+VL
+ds
+VL
+mg
+Pd
+ud
+ud
+ee
 qF
 qF
 qF
@@ -18330,15 +23198,25 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -18349,10 +23227,22 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
+ki
+Ea
+Gm
+Eu
+ki
+KG
 qF
 qF
 qF
@@ -18398,47 +23288,25 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+mg
+ud
+ud
+ud
+mg
+bt
+hL
+ud
+YF
 qF
 qF
 qF
@@ -18588,11 +23456,21 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -18605,6 +23483,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -18613,6 +23496,8 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -18660,42 +23545,25 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+iC
+ja
+eI
+mg
+mg
+mg
+mg
+mg
 qF
 qF
 qF
@@ -18842,13 +23710,26 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -18858,7 +23739,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -18867,6 +23753,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -18900,6 +23790,13 @@ qF
 qF
 qF
 qF
+Yq
+Ur
+hf
+ps
+Go
+jQ
+bN
 qF
 qF
 qF
@@ -18908,51 +23805,22 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+Ur
+Ur
+Ur
+Ur
+Ur
+sQ
+kY
+KF
+mg
 qF
 qF
 qF
@@ -19100,13 +23968,24 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -19115,6 +23994,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -19125,7 +24009,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -19158,58 +24047,37 @@ qF
 qF
 qF
 qF
+Yq
+Ur
+hf
+Wy
+Qo
+Ok
+bj
 qF
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+Ur
+Ur
+Ur
+Ur
+Ur
+gR
+KF
+mg
 qF
 qF
 qF
@@ -19361,19 +24229,35 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -19383,9 +24267,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -19416,57 +24304,37 @@ qF
 qF
 qF
 qF
+Yq
+Ur
+hf
+Li
+Ve
+nA
+bj
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+FP
+FP
+FP
+mg
+mg
+mg
 qF
 qF
 qF
@@ -19618,23 +24486,47 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+OR
+fY
 qF
+eC
+eC
+eC
+eC
+fY
+kU
+zK
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -19668,52 +24560,28 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Yq
+Yq
+Ur
+gB
+gB
+gB
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -19876,12 +24744,32 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
+zK
+fY
+fY
+eC
+eC
+eC
+fY
+fY
+fY
+fY
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -19894,7 +24782,10 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -19924,56 +24815,33 @@ qF
 qF
 qF
 qF
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+kY
+Ur
+Ur
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -20132,11 +25000,31 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
+fY
+zK
+fY
+fY
+fY
+fY
+fY
+fY
+fY
+fY
+Xn
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -20151,6 +25039,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -20180,53 +25071,30 @@ qF
 qF
 qF
 qF
+Ur
+Ur
+sQ
+kY
+Ur
+Ur
+Ur
+Ur
+sQ
+Ur
+Ur
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -20392,9 +25260,27 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+fY
+fY
+fY
+fY
+fY
+fY
+fY
+fY
+kU
+fY
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -20410,7 +25296,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -20438,53 +25328,31 @@ qF
 qF
 qF
 qF
+sQ
+kY
+Ur
+KF
+KF
+zn
+zn
+zn
+zn
+zn
+zn
 qF
+eC
 qF
 qF
 qF
 qF
+eC
 qF
+eC
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -20649,8 +25517,28 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+fY
+fY
+fY
+fY
+fY
+fY
+fY
+kU
+fY
+Pp
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -20664,6 +25552,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -20693,51 +25585,27 @@ qF
 qF
 qF
 qF
+zn
+zn
+eC
+eC
+zn
+sv
+kZ
+kZ
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -20908,6 +25776,23 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+wF
+Qx
+vt
+fY
+zK
+fY
+fY
+ow
+wF
+wF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -20925,7 +25810,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -20953,6 +25842,14 @@ qF
 qF
 qF
 qF
+Du
+Zp
+AB
+JG
+SB
+sv
+zl
+lD
 qF
 qF
 qF
@@ -20961,36 +25858,7 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -21166,8 +26034,23 @@ qF
 qF
 qF
 qF
+eC
+sw
+sw
+tQ
+vt
+fY
+fY
+fY
+kU
+Qj
+sw
+sw
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -21184,6 +26067,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -21212,33 +26099,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+RG
+Wv
+bV
+kI
+LY
+sv
+ud
+ud
 qF
 qF
 qF
@@ -21424,7 +26292,19 @@ qF
 qF
 qF
 qF
+mg
+sw
+RI
+Qx
+vt
+fY
+fY
+ow
+FS
+sw
+mg
 qF
+eC
 qF
 qF
 qF
@@ -21445,7 +26325,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -21473,28 +26357,12 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+ar
+zg
+kI
+LY
+gH
+ud
 qF
 qF
 qF
@@ -21681,6 +26549,17 @@ qF
 qF
 qF
 qF
+mg
+sw
+sw
+tQ
+vt
+fY
+fY
+Qj
+sw
+sw
+mg
 qF
 qF
 qF
@@ -21702,6 +26581,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -21728,28 +26611,13 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -21938,6 +26806,17 @@ qF
 qF
 qF
 qF
+mg
+mg
+sw
+RI
+ng
+XD
+ng
+FS
+sw
+mg
+mg
 qF
 qF
 qF
@@ -21959,8 +26838,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -21986,29 +26870,13 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -22196,6 +27064,15 @@ qF
 qF
 qF
 qF
+mg
+oY
+sw
+wF
+vt
+wF
+sw
+sw
+mg
 qF
 qF
 qF
@@ -22219,7 +27096,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -22246,24 +27128,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -22453,6 +27321,15 @@ qF
 qF
 qF
 qF
+mg
+mg
+sw
+wF
+vt
+wF
+sw
+mg
+mg
 qF
 qF
 qF
@@ -22477,6 +27354,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -22504,25 +27384,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -22711,6 +27579,13 @@ qF
 qF
 qF
 qF
+mg
+zF
+wF
+vt
+Uc
+Pw
+mg
 qF
 qF
 qF
@@ -22733,8 +27608,12 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -22760,26 +27639,15 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -22968,6 +27836,13 @@ qF
 qF
 qF
 qF
+mg
+mg
+hA
+vt
+Tu
+mg
+mg
 qF
 qF
 qF
@@ -22993,6 +27868,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -23016,24 +27894,14 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -23227,6 +28095,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -23254,9 +28125,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -23280,19 +28155,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -23482,8 +28350,13 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -23508,7 +28381,11 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -23532,24 +28409,15 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -23740,6 +28608,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -23767,7 +28640,16 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
+gB
+gB
+gB
+gB
 qF
 qF
 qF
@@ -23786,28 +28668,14 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -23997,6 +28865,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -24027,6 +28898,16 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+zI
+hF
+rP
+gB
+wB
 qF
 qF
 qF
@@ -24042,23 +28923,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -24251,8 +29119,12 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -24280,7 +29152,19 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
+HN
+HN
+HN
+HN
+gB
+jP
 qF
 qF
 qF
@@ -24297,26 +29181,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -24507,9 +29375,13 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -24538,8 +29410,21 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+HN
+HN
+mR
+HN
+gB
+GN
 qF
 qF
+eC
 qF
 qF
 qF
@@ -24551,31 +29436,14 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -24768,6 +29636,14 @@ qF
 qF
 qF
 qF
+eC
+eC
+qF
+eC
+qF
+qF
+qF
+eC
 qF
 qF
 qF
@@ -24791,6 +29667,23 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+JR
+an
+gB
+QC
+FZ
+Cx
+gB
+Ls
+qF
+qF
+qF
+qF
+eC
 qF
 qF
 qF
@@ -24802,34 +29695,9 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -25025,6 +29893,8 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -25051,13 +29921,29 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
+JR
+Hs
+ud
+ud
+Kb
+ud
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -25066,29 +29952,11 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -25280,7 +30148,11 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -25308,49 +30180,45 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+JR
+ud
+ud
+ud
+ud
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+eC
+eC
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+Ur
+yh
+Zc
+HN
+Cl
+fU
+HN
 qF
 qF
 qF
@@ -25538,8 +30406,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -25564,7 +30437,22 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+JR
+Iz
+ud
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -25572,45 +30460,25 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Pi
+Oy
+Ur
+Ur
+yh
+Zc
+HN
+Iy
+fU
+Cl
+HN
+HN
+MO
 qF
 qF
 qF
@@ -25794,6 +30662,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -25820,55 +30693,50 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+zr
+Fd
+XQ
+Ha
+Ur
+WR
+yh
+Zc
+Iy
+HN
+MO
+Iy
+tL
+HN
+MO
+Ur
 qF
 qF
 qF
@@ -26052,6 +30920,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -26077,56 +30949,52 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+ki
+ki
+AF
+Ha
+Ur
+Nt
+yh
+Zc
+Sw
+HN
+HN
+HN
+gP
+uI
+MO
+Ur
+Ur
 qF
 qF
 qF
@@ -26310,6 +31178,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -26334,7 +31205,12 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -26345,47 +31221,39 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+XQ
+kH
+ki
+Ha
+Ur
+rg
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+sQ
+Ur
+eC
+eC
 qF
 qF
 qF
@@ -26567,6 +31435,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -26593,6 +31465,8 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -26603,53 +31477,47 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+AF
+ki
+BB
+Ha
+Ur
+Ur
+aw
+Fd
+Qr
+Nq
+yO
+Yq
+KF
+KF
+kY
+Ur
+Ur
 qF
+eC
 qF
+eC
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -26823,8 +31691,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -26850,19 +31722,25 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
 qF
 qF
 qF
 qF
+Uf
 qF
 qF
 qF
 qF
 qF
 qF
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -26870,41 +31748,31 @@ qF
 qF
 qF
 qF
+mh
+Sf
+Fd
+Fd
+Ha
+Ur
+Ur
+zt
+UI
+Aj
+UI
+si
+Yq
+kY
+sQ
+Ur
+Ur
+kY
+eC
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -27080,6 +31948,8 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -27109,6 +31979,7 @@ qF
 qF
 qF
 qF
+Uf
 qF
 qF
 qF
@@ -27116,57 +31987,54 @@ qF
 qF
 qF
 qF
+Uf
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
 qF
+mh
+zr
+ki
+mj
+Ha
+Ur
+kY
+JQ
+vY
+Fd
+Qr
+DK
+aw
+Iv
+Yq
+Yq
+Ur
+Ur
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -27336,6 +32204,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -27364,6 +32236,15 @@ qF
 qF
 qF
 qF
+Uf
+gn
+gn
+QO
+QO
+QO
+gn
+gn
+Uf
 qF
 qF
 qF
@@ -27377,66 +32258,53 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+sO
+ey
+AF
+oT
+nU
+Ur
+WR
+YC
+Tb
+BS
+Wl
+Nq
+UI
+Iy
+aR
+Yq
+Ur
+Ur
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+mg
+mg
+mg
+mg
+mg
+gX
+mg
+gX
+mg
 qF
 qF
 qF
@@ -27592,7 +32460,10 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
 qF
 qF
 qF
@@ -27622,6 +32493,7 @@ qF
 qF
 qF
 qF
+Uf
 qF
 qF
 qF
@@ -27629,6 +32501,7 @@ qF
 qF
 qF
 qF
+Uf
 qF
 qF
 qF
@@ -27647,53 +32520,48 @@ qF
 qF
 qF
 qF
+sO
+RA
+nU
+Ur
+Ur
+Nt
+YC
+gZ
+aR
+hh
+Ry
+sG
+Ej
+LT
+Yq
+Ur
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+UI
+UI
+UI
+UI
+DE
+UI
+RM
+RM
+UI
+CT
+HS
+pF
+DE
 qF
 qF
 qF
@@ -27851,6 +32719,8 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -27880,6 +32750,7 @@ qF
 qF
 qF
 qF
+Sa
 qF
 qF
 qF
@@ -27887,6 +32758,7 @@ qF
 qF
 qF
 qF
+Sa
 qF
 qF
 qF
@@ -27906,51 +32778,47 @@ qF
 qF
 qF
 qF
+eC
+eC
+Oi
+wG
+wG
+Yq
+Yq
+Yq
+Yq
+Yq
+Yq
+Yq
+Yq
+Yq
+Oi
+eC
 qF
 qF
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
+UI
+UI
+pF
+tk
+UI
+UI
+UI
+UI
+UI
+UI
+UI
+UI
+pF
+UI
 qF
 qF
 qF
@@ -28103,6 +32971,15 @@ qF
 qF
 qF
 qF
+gB
+pg
+QV
+pg
+gB
+WO
+WO
+Qp
+xF
 qF
 qF
 qF
@@ -28130,6 +33007,15 @@ qF
 qF
 qF
 qF
+oO
+hg
+hg
+hg
+hg
+QO
+QO
+hg
+oO
 qF
 qF
 qF
@@ -28146,7 +33032,12 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -28160,53 +33051,30 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+UI
+UI
+pF
+zH
+UI
+UI
+DE
+CT
+UI
+UI
+zH
+UI
+UI
 qF
 qF
 qF
@@ -28359,6 +33227,16 @@ qF
 qF
 qF
 qF
+WO
+WO
+WO
+WO
+WO
+WO
+WO
+Qp
+xF
+Ur
 qF
 qF
 qF
@@ -28386,6 +33264,7 @@ qF
 qF
 qF
 qF
+Sa
 qF
 qF
 qF
@@ -28393,6 +33272,7 @@ qF
 qF
 qF
 qF
+Sa
 qF
 qF
 qF
@@ -28409,8 +33289,14 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -28422,46 +33308,28 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 qF
 qF
 qF
@@ -28616,6 +33484,18 @@ qF
 qF
 qF
 qF
+OL
+WO
+WO
+WO
+WO
+WO
+Qp
+xF
+Rg
+Rg
+KF
+nK
 qF
 qF
 qF
@@ -28641,6 +33521,15 @@ qF
 qF
 qF
 qF
+oO
+hg
+QO
+QO
+hg
+hg
+hg
+hg
+oO
 qF
 qF
 qF
@@ -28659,8 +33548,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -28680,45 +33573,20 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -28873,6 +33741,18 @@ qF
 qF
 qF
 qF
+YE
+tt
+tt
+tt
+tt
+tt
+xF
+gB
+gB
+xE
+gB
+gB
 qF
 qF
 qF
@@ -28898,6 +33778,7 @@ qF
 qF
 qF
 qF
+Sa
 qF
 qF
 qF
@@ -28905,6 +33786,7 @@ qF
 qF
 qF
 qF
+Sa
 qF
 qF
 qF
@@ -28923,6 +33805,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -28947,35 +33832,18 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -29130,6 +33998,18 @@ qF
 qF
 qF
 qF
+gB
+cS
+gB
+ft
+gB
+gB
+cS
+gB
+qa
+GP
+tm
+gB
 qF
 qF
 qF
@@ -29155,6 +34035,7 @@ qF
 qF
 qF
 qF
+Vf
 qF
 qF
 qF
@@ -29162,6 +34043,7 @@ qF
 qF
 qF
 qF
+ML
 qF
 qF
 qF
@@ -29175,10 +34057,16 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -29202,36 +34090,16 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -29387,6 +34255,18 @@ qF
 qF
 qF
 qF
+gB
+Ml
+Qo
+Qo
+Qo
+FZ
+Qo
+gB
+PR
+GP
+cJ
+gB
 qF
 qF
 qF
@@ -29412,6 +34292,15 @@ qF
 qF
 qF
 qF
+ZT
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+VY
 qF
 qF
 qF
@@ -29426,9 +34315,14 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -29454,40 +34348,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -29644,6 +34512,18 @@ qF
 qF
 qF
 qF
+gB
+nx
+Qo
+lk
+Qo
+FZ
+Qo
+gB
+GP
+GP
+ek
+gB
 qF
 qF
 qF
@@ -29669,6 +34549,15 @@ qF
 qF
 qF
 qF
+ZT
+rc
+rc
+rc
+rc
+rc
+rc
+rc
+VY
 qF
 qF
 qF
@@ -29683,10 +34572,15 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -29712,36 +34606,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -29901,6 +34769,18 @@ qF
 qF
 qF
 qF
+gB
+Qm
+Qo
+Qo
+Qo
+FZ
+Qo
+gB
+GP
+GP
+GP
+gB
 qF
 qF
 qF
@@ -29926,6 +34806,7 @@ qF
 qF
 qF
 qF
+Vf
 qF
 qF
 qF
@@ -29933,6 +34814,7 @@ qF
 qF
 qF
 qF
+ML
 qF
 qF
 qF
@@ -29950,24 +34832,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -30159,6 +35027,15 @@ qF
 qF
 qF
 qF
+eC
+eC
+lk
+Qo
+gB
+Qo
+tn
+GP
+Lj
 qF
 qF
 qF
@@ -30186,6 +35063,7 @@ qF
 qF
 qF
 qF
+IH
 qF
 qF
 qF
@@ -30193,6 +35071,7 @@ qF
 qF
 qF
 qF
+IH
 qF
 qF
 qF
@@ -30209,25 +35088,14 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
 qF
 qF
 qF
@@ -30414,7 +35282,17 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+Qo
+Qo
+Qo
+Qo
+gB
+bo
+bo
 qF
 qF
 qF
@@ -30442,6 +35320,15 @@ qF
 qF
 qF
 qF
+oO
+hg
+hg
+hg
+hg
+QO
+hg
+hg
+oO
 qF
 qF
 qF
@@ -30457,35 +35344,16 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -30670,7 +35538,18 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+gB
+gB
+gB
+gB
+gB
+gB
 qF
 qF
 qF
@@ -30698,6 +35577,7 @@ qF
 qF
 qF
 qF
+IH
 qF
 qF
 qF
@@ -30705,6 +35585,7 @@ qF
 qF
 qF
 qF
+IH
 qF
 qF
 qF
@@ -30724,22 +35605,9 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -30929,6 +35797,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -30963,6 +35834,15 @@ qF
 qF
 qF
 qF
+oO
+hg
+QO
+QO
+QO
+hg
+hg
+hg
+oO
 qF
 qF
 qF
@@ -30979,23 +35859,11 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
 qF
 qF
 qF
@@ -31181,10 +36049,16 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -31217,6 +36091,7 @@ qF
 qF
 qF
 qF
+IH
 qF
 qF
 qF
@@ -31224,6 +36099,7 @@ qF
 qF
 qF
 qF
+IH
 qF
 qF
 qF
@@ -31240,20 +36116,12 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -31441,6 +36309,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -31476,6 +36348,7 @@ qF
 qF
 qF
 qF
+Uf
 qF
 qF
 qF
@@ -31483,6 +36356,7 @@ qF
 qF
 qF
 qF
+Uf
 qF
 qF
 qF
@@ -31502,20 +36376,14 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
 qF
 qF
 qF
@@ -31698,8 +36566,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -31732,6 +36605,15 @@ qF
 qF
 qF
 qF
+Uf
+gn
+gn
+gn
+QO
+QO
+gn
+gn
+Uf
 qF
 qF
 qF
@@ -31751,27 +36633,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -31954,6 +36822,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -31991,6 +36862,7 @@ qF
 qF
 qF
 qF
+Uf
 qF
 qF
 qF
@@ -31998,6 +36870,8 @@ qF
 qF
 qF
 qF
+Uf
+eC
 qF
 qF
 qF
@@ -32017,18 +36891,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -32209,7 +37077,12 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -32246,13 +37119,18 @@ qF
 qF
 qF
 qF
+Uf
 qF
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -32269,21 +37147,11 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -32467,8 +37335,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -32509,6 +37382,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -32526,20 +37404,10 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
 qF
 qF
 qF
@@ -32714,12 +37582,20 @@ qF
 qF
 qF
 qF
+cr
+Ue
+mg
 qF
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -32764,6 +37640,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -32780,25 +37660,13 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -32971,11 +37839,18 @@ qF
 qF
 qF
 qF
+cr
+ba
+mg
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -33021,8 +37896,14 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -33036,26 +37917,13 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -33228,11 +38096,19 @@ qF
 qF
 qF
 qF
+cr
+vg
+mg
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -33279,6 +38155,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -33297,20 +38177,8 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
 qF
 qF
 qF
@@ -33485,11 +38353,17 @@ qF
 qF
 qF
 qF
+cr
+Sg
+mg
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -33539,7 +38413,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -33555,6 +38434,8 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -33564,20 +38445,7 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -33742,7 +38610,17 @@ qF
 qF
 qF
 qF
+cr
+Tn
+mg
+mg
+mg
+mg
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -33792,6 +38670,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -33807,7 +38689,11 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -33820,31 +38706,13 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -33999,7 +38867,18 @@ qF
 qF
 qF
 qF
+vg
+vg
+vg
+vg
+DS
+QB
+fH
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -34047,7 +38926,15 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
+lj
+lj
+lj
 qF
 qF
 qF
@@ -34059,7 +38946,10 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
 qF
 qF
 qF
@@ -34068,45 +38958,23 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+EV
+nZ
+dL
+dL
+dL
+dL
+Mi
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -34255,6 +39123,16 @@ qF
 qF
 qF
 qF
+vg
+vg
+vg
+vg
+vg
+vg
+vg
+vg
+eC
+eC
 qF
 qF
 qF
@@ -34304,10 +39182,20 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
+ET
+lj
+ET
+lj
 qF
+eC
+eC
 qF
 qF
 qF
@@ -34317,58 +39205,38 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+gd
+RX
+qP
+qP
+qP
+qP
+EC
+Mi
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -34512,6 +39380,14 @@ qF
 qF
 qF
 qF
+vg
+vg
+vg
+vg
+vg
+vg
+vg
+vg
 qF
 qF
 qF
@@ -34565,16 +39441,31 @@ qF
 qF
 qF
 qF
+Xb
+Ul
+eC
+eC
+ET
+lj
+lj
+lj
+lj
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -34583,56 +39474,33 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+XC
+HC
+qP
+qP
+qP
+xX
+qP
+EC
+dL
+Mi
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -34770,6 +39638,13 @@ qF
 qF
 qF
 qF
+cd
+vg
+Ga
+vg
+vg
+vg
+vg
 qF
 qF
 qF
@@ -34823,6 +39698,17 @@ qF
 qF
 qF
 qF
+Xb
+Ld
+UI
+xj
+ew
+Jv
+Av
+Jv
+jV
+eC
+eC
 qF
 qF
 qF
@@ -34834,62 +39720,44 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
+gd
+wU
+qP
+qP
+SC
+zy
+qP
+qP
+qP
+EC
+dL
+Mi
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -35029,6 +39897,10 @@ qF
 qF
 qF
 qF
+zu
+li
+vg
+vg
 qF
 qF
 qF
@@ -35083,71 +39955,67 @@ qF
 qF
 qF
 qF
+Xb
+dK
+UI
+jk
+mg
+hA
+vt
+wF
+mg
+eC
+eC
+eC
 qF
 qF
+eC
 qF
+JM
+HN
+HN
+HN
+HN
+uN
+Hh
+vK
+HN
 qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+mg
+Xb
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+EC
+dL
+dL
+dL
+Mi
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
 qF
 qF
 qF
@@ -35286,6 +40154,10 @@ qF
 qF
 qF
 qF
+zu
+DN
+vg
+vg
 qF
 qF
 qF
@@ -35338,73 +40210,69 @@ qF
 qF
 qF
 qF
+eC
 qF
+Xb
+DE
+UI
+kk
+mg
+hA
+vt
+wF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
+aq
+HN
+HN
+HN
+sB
+oy
+IL
+GT
+sB
+HN
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+mg
+mg
+Xb
+qP
+qP
+qP
+qP
+qP
+rZ
+qP
+qP
+qP
+EC
+dL
+dL
+dL
+dL
+dL
+dL
+Mi
+Cg
 qF
 qF
 qF
@@ -35543,6 +40411,10 @@ qF
 qF
 qF
 qF
+Id
+Fk
+vg
+vg
 qF
 qF
 qF
@@ -35597,71 +40469,67 @@ qF
 qF
 qF
 qF
+mg
+mg
+GL
+mg
+mg
+hA
+vt
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+HN
+HN
+JM
+HN
+sB
+sB
+sB
+dH
+sB
+HN
+JM
+HN
+JM
 qF
+eC
+eC
+eC
+eC
 qF
+eC
+eC
 qF
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+mg
+Xb
+qP
+qP
+Je
+oq
+qP
+qP
+Bi
+qP
+PS
+qP
+qP
+qP
+qP
+qP
+EC
+Mi
 qF
 qF
 qF
@@ -35800,7 +40668,13 @@ qF
 qF
 qF
 qF
+Id
+if
+vg
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -35848,13 +40722,43 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+HN
+HN
+JM
+HN
+HN
+HN
+HN
+HN
+HN
+HN
+JM
+HN
+HN
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -35866,60 +40770,24 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+Xb
+qP
+qP
+qP
+Zk
+qP
+VH
+Ze
+OV
+qP
+qP
+qP
+qP
+qP
+qP
+EC
+Mi
 qF
 qF
 qF
@@ -36057,6 +40925,12 @@ qF
 qF
 qF
 qF
+Id
+sM
+vg
+eC
+eC
+eC
 qF
 qF
 qF
@@ -36103,8 +40977,16 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -36113,10 +40995,28 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+Hh
+Hh
+Hh
+vK
+HN
+HN
+HN
+uN
+Hh
+Hh
+Hh
+vK
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -36128,55 +41028,23 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+mg
+mg
+Xb
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+Fv
 qF
 qF
 qF
@@ -36314,6 +41182,13 @@ qF
 qF
 qF
 qF
+zu
+So
+vg
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -36357,20 +41232,45 @@ qF
 qF
 qF
 qF
+EK
+QH
+OI
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
 qF
 qF
 qF
+eC
 qF
+RJ
+HN
+HN
+HN
+RJ
+iF
+oH
+ex
+Vz
+eC
+eC
 qF
 qF
 qF
@@ -36388,52 +41288,20 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+Xb
+qP
+qP
+qP
+qP
+qP
+qP
+SJ
+qP
+qP
+Wm
+qP
+Fv
 qF
 qF
 qF
@@ -36571,9 +41439,16 @@ qF
 qF
 qF
 qF
+zu
+Xl
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -36614,7 +41489,15 @@ qF
 qF
 qF
 qF
+EK
+Nf
+az
+az
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -36632,9 +41515,21 @@ qF
 qF
 qF
 qF
+eC
+eC
+RJ
+HN
+gS
+HN
+RJ
+bJ
+Rf
+fn
+RJ
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -36651,46 +41546,19 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+mg
+mg
+mg
+mg
+Xb
+qP
+qP
+qP
+HW
+aI
+qP
+Fv
 qF
 qF
 qF
@@ -36831,7 +41699,12 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -36872,9 +41745,19 @@ qF
 qF
 qF
 qF
+cb
+EK
+Nf
+az
+az
+az
+lG
+pe
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -36890,7 +41773,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -36919,35 +41808,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+mg
+Xb
+qP
+qP
+qP
+qP
+eC
 qF
 qF
 qF
@@ -37091,8 +41959,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -37129,6 +42002,14 @@ qF
 qF
 qF
 qF
+cb
+lp
+Nf
+az
+az
+ky
+kn
+Zr
 qF
 qF
 qF
@@ -37148,12 +42029,19 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -37179,35 +42067,15 @@ qF
 qF
 qF
 qF
+mg
+Xb
+qP
+qP
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
 qF
 qF
 qF
@@ -37347,6 +42215,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -37383,8 +42256,17 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+Of
+ju
+az
+az
+az
+qN
+rR
+Zr
 qF
 qF
 qF
@@ -37407,8 +42289,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
+eC
 qF
 qF
 qF
@@ -37438,31 +42325,12 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mg
+mg
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -37607,6 +42475,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -37638,10 +42509,21 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
+eC
+eC
+tu
+kR
+az
+az
+az
+qN
+UT
+Zr
 qF
 qF
 qF
@@ -37663,8 +42545,14 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -37697,30 +42585,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -37863,7 +42731,11 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -37897,6 +42769,18 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+cb
+EK
+az
+az
+az
+pp
+yQ
+Zr
 qF
 qF
 qF
@@ -37916,8 +42800,15 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -37952,34 +42843,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -38122,9 +42990,15 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -38151,6 +43025,19 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+pe
+pe
+OW
+pB
+vD
+Hu
+oG
+pe
 qF
 qF
 qF
@@ -38172,7 +43059,12 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -38206,36 +43098,12 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -38380,6 +43248,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -38407,9 +43279,22 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+pe
+Mv
+Bb
+DM
+vk
+pe
+pe
 qF
 qF
 qF
@@ -38433,8 +43318,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -38465,34 +43355,12 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -38638,6 +43506,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -38660,12 +43532,25 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+pe
+Zr
+qu
+ST
+Zr
+pe
 qF
 qF
 qF
@@ -38689,8 +43574,14 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -38723,33 +43614,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -38892,9 +43760,15 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -38915,10 +43789,18 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -38951,6 +43833,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -38982,35 +43868,17 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -39114,6 +43982,9 @@ qF
 qF
 qF
 qF
+Uh
+Uh
+Uh
 qF
 qF
 qF
@@ -39151,6 +44022,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -39171,6 +44047,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -39200,6 +44082,20 @@ qF
 qF
 qF
 qF
+XR
+Zq
+Zq
+XR
+Zq
+mm
+oM
+rE
+hC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -39232,39 +44128,11 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -39369,6 +44237,12 @@ qF
 qF
 qF
 qF
+Uh
+Uh
+Uh
+uu
+Uh
+Uh
 qF
 qF
 qF
@@ -39405,8 +44279,14 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -39421,7 +44301,16 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -39449,7 +44338,20 @@ qF
 qF
 qF
 qF
+WF
+WE
+Gm
+WE
+WE
+WE
+Lt
+WE
+mY
+zC
+zC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -39482,47 +44384,13 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -39625,6 +44493,15 @@ qF
 qF
 qF
 qF
+Uh
+Uh
+WE
+IK
+em
+Ra
+fG
+Sy
+Jd
 qF
 qF
 qF
@@ -39658,9 +44535,14 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -39673,12 +44555,20 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
+eC
 qF
 qF
 qF
@@ -39704,6 +44594,18 @@ qF
 qF
 qF
 qF
+WE
+WE
+Gm
+WE
+xt
+Gm
+qZ
+fa
+Gm
+KN
+nQ
+zC
 qF
 qF
 qF
@@ -39739,48 +44641,14 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -39882,6 +44750,19 @@ qF
 qF
 qF
 qF
+Uh
+em
+VT
+WE
+em
+em
+my
+ru
+dV
+bH
+ki
+Uh
+Uh
 qF
 qF
 qF
@@ -39914,6 +44795,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -39928,6 +44814,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -39958,6 +44850,19 @@ qF
 qF
 qF
 qF
+WE
+WE
+WE
+WE
+Tx
+UT
+tE
+xt
+WE
+WE
+WE
+Jg
+Wt
 qF
 qF
 qF
@@ -39996,48 +44901,11 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -40139,6 +45007,19 @@ qF
 qF
 qF
 qF
+Uh
+lc
+xz
+WE
+wV
+em
+pP
+ne
+JO
+ch
+Fd
+Fd
+mg
 qF
 qF
 qF
@@ -40172,6 +45053,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -40186,8 +45070,14 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -40217,6 +45107,19 @@ qF
 qF
 qF
 qF
+Lt
+Gm
+WE
+WE
+lU
+UT
+Vd
+VO
+Ro
+WE
+WE
+WE
+Gr
 qF
 qF
 qF
@@ -40256,47 +45159,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -40396,6 +45264,20 @@ qF
 qF
 qF
 qF
+Uh
+jn
+qZ
+em
+kw
+Sz
+fG
+Pe
+eZ
+uC
+ki
+QY
+Uh
+Uh
 qF
 qF
 qF
@@ -40429,6 +45311,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -40438,8 +45323,13 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -40474,6 +45364,19 @@ qF
 qF
 qF
 qF
+WE
+WE
+WE
+pY
+UT
+ap
+UT
+fu
+hO
+Lt
+WE
+Gm
+Gr
 qF
 qF
 qF
@@ -40512,48 +45415,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -40654,6 +45522,19 @@ qF
 qF
 qF
 qF
+Uh
+Uh
+GY
+RV
+UY
+Pe
+vu
+bH
+Fd
+ki
+jM
+rB
+Uh
 qF
 qF
 qF
@@ -40686,13 +45567,25 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
+bI
+az
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -40728,6 +45621,19 @@ qF
 qF
 qF
 qF
+WE
+Gm
+fa
+WE
+BQ
+Rt
+ap
+Hn
+WE
+lI
+Gm
+sd
+Gr
 qF
 qF
 qF
@@ -40768,46 +45674,8 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
 qF
 qF
 qF
@@ -40912,6 +45780,17 @@ qF
 qF
 qF
 qF
+mg
+fG
+Pe
+XE
+yu
+NN
+uC
+KO
+Fd
+sk
+ZG
 qF
 qF
 qF
@@ -40947,13 +45826,26 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+LQ
+LQ
+LQ
+LQ
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -40986,6 +45878,19 @@ qF
 qF
 qF
 qF
+Gm
+WE
+WE
+eb
+DZ
+DZ
+DZ
+DZ
+DZ
+DZ
+DZ
+DZ
+Ks
 qF
 qF
 qF
@@ -41023,49 +45928,12 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -41169,6 +46037,16 @@ qF
 qF
 qF
 qF
+Uh
+Pe
+Gp
+BH
+hz
+tI
+Fd
+QY
+bB
+PL
 qF
 qF
 qF
@@ -41204,8 +46082,21 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+LQ
+LQ
+CP
+il
+az
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -41244,6 +46135,18 @@ qF
 qF
 qF
 qF
+WE
+qZ
+Gm
+Gr
+zC
+zC
+zC
+zC
+zC
+zC
+zC
+zC
 qF
 qF
 qF
@@ -41282,49 +46185,14 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -41426,6 +46294,16 @@ qF
 qF
 qF
 qF
+Uh
+Uh
+hz
+tI
+Fd
+Fd
+Hg
+gu
+em
+wi
 qF
 qF
 qF
@@ -41465,6 +46343,16 @@ qF
 qF
 qF
 qF
+LQ
+QF
+LQ
+LQ
+bI
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -41505,6 +46393,15 @@ qF
 qF
 qF
 qF
+WE
+WE
+Gr
+zC
+of
+Fp
+Fp
+Fp
+Fp
 qF
 qF
 qF
@@ -41545,42 +46442,13 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -41684,6 +46552,15 @@ qF
 qF
 qF
 qF
+Uh
+kJ
+Fd
+Fd
+Zl
+aZ
+VS
+em
+wk
 qF
 qF
 qF
@@ -41714,6 +46591,7 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -41722,9 +46600,20 @@ qF
 qF
 qF
 qF
+LQ
+LQ
+il
+LQ
+az
+eC
+eC
+eC
 qF
 qF
+eC
 qF
+eC
+eC
 qF
 qF
 qF
@@ -41759,8 +46648,13 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -41807,37 +46701,11 @@ qF
 qF
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -41942,7 +46810,11 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -41970,6 +46842,7 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -41983,6 +46856,14 @@ qF
 qF
 qF
 qF
+LQ
+LQ
+LQ
+LQ
+LQ
+az
+eC
+eC
 qF
 qF
 qF
@@ -42026,8 +46907,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -42071,29 +46957,11 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -42201,7 +47069,10 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -42225,22 +47096,34 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
+az
+az
+bI
+tM
+az
+az
+tM
 qF
 qF
+eC
 qF
+eC
 qF
 qF
 qF
@@ -42274,10 +47157,18 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -42325,33 +47216,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -42456,7 +47324,11 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -42468,9 +47340,11 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -42481,12 +47355,27 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+az
+bI
+dn
+tq
+tq
+bI
+az
 qF
 qF
 qF
@@ -42529,6 +47418,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -42579,35 +47473,9 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -42714,21 +47582,57 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
+eC
 qF
+eC
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+WO
+MW
+WO
+Ha
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+az
+Uw
+oh
+eT
+UX
+Nu
+bI
 qF
 qF
 qF
@@ -42770,6 +47674,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -42789,6 +47699,12 @@ qF
 qF
 qF
 qF
+mg
+mg
+mg
+Fn
+mg
+mg
 qF
 qF
 qF
@@ -42810,64 +47726,16 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
 qF
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -42973,19 +47841,55 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+be
+WO
+MW
+WO
+Ha
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+bI
+Uw
+ol
+nE
+Ay
+dd
+az
 qF
 qF
 qF
@@ -43020,11 +47924,19 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -43044,6 +47956,12 @@ qF
 qF
 qF
 qF
+mg
+Yg
+sA
+vt
+AD
+sw
 qF
 qF
 qF
@@ -43065,62 +47983,12 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -43230,6 +48098,8 @@ qF
 qF
 qF
 qF
+Kn
+Kn
 qF
 qF
 qF
@@ -43237,14 +48107,45 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+be
+WO
+MW
+WO
+Ha
+eC
+eC
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
+az
+Uw
+ol
+Lb
+Ay
+Ae
 qF
 qF
 qF
@@ -43279,11 +48180,18 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -43305,6 +48213,18 @@ qF
 qF
 qF
 qF
+mg
+tU
+wF
+vt
+AD
+AD
+AD
+OT
+mg
+mg
+mg
+mg
 qF
 qF
 qF
@@ -43319,67 +48239,15 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -43475,32 +48343,70 @@ qF
 qF
 qF
 qF
+Xu
+Xu
+Xu
+CR
 qF
 qF
 qF
 qF
 qF
+Xu
+dc
+hy
+vh
+Kn
+Kn
 qF
+eC
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+be
+WO
+MW
+WO
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+zu
+zu
+ol
+Lb
+Ay
+zu
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -43534,7 +48440,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -43558,6 +48470,18 @@ qF
 qF
 qF
 qF
+mg
+tU
+wF
+vt
+fY
+fY
+NR
+cm
+dT
+FA
+js
+mg
 qF
 qF
 qF
@@ -43576,65 +48500,9 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -43730,13 +48598,42 @@ qF
 qF
 qF
 qF
+RC
+je
+dt
+RN
+cF
+CR
 qF
+eC
 qF
 qF
 qF
+dc
+Oj
+xd
+NU
+Kn
+Kn
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
+ey
+WO
+MW
 qF
 qF
 qF
@@ -43748,6 +48645,7 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -43757,6 +48655,11 @@ qF
 qF
 qF
 qF
+zu
+zu
+AY
+zu
+zu
 qF
 qF
 qF
@@ -43790,10 +48693,17 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -43817,6 +48727,18 @@ qF
 qF
 qF
 qF
+mg
+Hy
+AD
+vt
+AD
+AD
+AD
+OT
+mg
+mg
+mg
+mg
 qF
 qF
 qF
@@ -43834,64 +48756,10 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -43987,14 +48855,39 @@ qF
 qF
 qF
 qF
+xA
+IS
+wy
+JP
+dt
 qF
+eC
 qF
+eC
 qF
 qF
+dc
+Es
+Nz
+yK
+Kn
+Kn
+Kn
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44005,6 +48898,7 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44020,16 +48914,26 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
+eC
 qF
+Hr
+gz
+vg
 qF
 qF
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44043,11 +48947,18 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44070,12 +48981,25 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
+mg
+tU
+AD
+XD
+AD
+sw
+sw
+gN
+mg
 qF
 qF
 qF
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44087,70 +49011,14 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -44243,15 +49111,39 @@ qF
 qF
 qF
 qF
+CR
+xB
+tF
+Up
+yg
+xB
+eC
+eC
 qF
 qF
 qF
+eC
+dc
+JL
+nL
+PK
+Kn
+Kn
+Kn
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
 qF
 qF
 qF
@@ -44278,15 +49170,28 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
+eC
+eC
+eC
 qF
 qF
+fC
+mJ
+vg
+IA
 qF
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44298,13 +49203,20 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44323,11 +49235,23 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
+eC
+mg
+tU
+AD
+vt
+AD
+sw
+sw
+gN
+mg
 qF
+eC
 qF
 qF
 qF
@@ -44337,6 +49261,7 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44345,70 +49270,13 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
@@ -44500,12 +49368,35 @@ qF
 qF
 qF
 qF
+CR
+kt
+qQ
+Ew
+yA
+kt
+eC
+eC
+eC
+eC
+eC
 qF
+Xu
+dc
+hy
+vh
+Kn
+Kn
+vh
 qF
+eC
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -44535,6 +49426,22 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+fC
+mJ
+vg
+dy
 qF
 qF
 qF
@@ -44555,6 +49462,11 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -44582,86 +49494,42 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+sA
+wF
+wF
+vt
+wF
+wF
+wF
+Db
+Og
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
+eC
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+zu
+zu
+zu
+zu
+xg
+HN
+HN
+HN
+dI
+dI
 qF
 qF
 qF
@@ -44757,13 +49625,30 @@ qF
 qF
 qF
 qF
+CR
+cF
+kx
+kt
+RN
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+Yz
+Yz
+Kn
+Kn
+Kn
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44798,15 +49683,33 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+ZL
+YL
+vg
+MP
 qF
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
+eC
 qF
 qF
 qF
@@ -44815,10 +49718,15 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -44841,84 +49749,44 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+fY
+fY
+fY
+fY
+fY
+fY
+fY
+fY
+fY
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+ME
+Zf
+cT
+KL
+Zj
+HN
+HN
+HN
+St
+SD
 qF
 qF
 qF
@@ -45016,12 +49884,26 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -45059,19 +49941,48 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
+eC
+vj
+WM
+vg
+vg
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+SO
+SO
+SO
+SO
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
+eC
+eC
 qF
 qF
 qF
@@ -45092,90 +50003,47 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+DT
+gG
+gG
+gG
+wF
+mN
+gG
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+Ur
+VC
+DU
+DU
+yz
+HN
+HN
+lx
+xl
+DU
 qF
 qF
 qF
@@ -45276,8 +50144,20 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -45320,13 +50200,39 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
 qF
+fC
+RT
+vg
+vg
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+HN
+aq
+aq
+HN
+HN
+HN
+HN
+eC
+eC
 qF
 qF
 qF
@@ -45354,86 +50260,48 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
+mg
+mg
+mg
+mg
+mg
+mg
+mg
 qF
+eC
+eC
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+Ur
+Yt
+yx
+yx
+Zf
+HN
+HN
+HN
+in
+yx
+yx
 qF
 qF
 qF
@@ -45530,11 +50398,22 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -45581,16 +50460,39 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+vj
+mA
+vg
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+SX
+HN
+ke
+Zx
+Hw
+Xy
+ke
+Bq
+Hw
+pe
 qF
 qF
+eC
 qF
 qF
 qF
@@ -45617,7 +50519,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -45633,64 +50540,25 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+zu
+SL
+dI
+DF
+St
+KL
+um
+wl
+ke
+vV
 qF
 qF
 qF
@@ -45790,13 +50658,22 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -45846,12 +50723,30 @@ qF
 qF
 qF
 qF
+ze
+gz
+vg
 qF
+eC
+eC
 qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+SX
+HN
+HJ
+HJ
+Hw
+Xy
+fm
+Bq
+pe
+pe
 qF
 qF
 qF
@@ -45863,6 +50758,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -45878,7 +50776,12 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
+eC
+eC
 qF
 qF
 qF
@@ -45889,65 +50792,30 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Zf
+mZ
+HN
+HN
+xl
+DU
+yz
+gC
+ke
+eR
 qF
 qF
 qF
@@ -46058,6 +50926,9 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -46110,13 +50981,28 @@ qF
 qF
 qF
 qF
+WM
+vg
 qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
+eC
 qF
+eC
+SX
+HN
+pe
+pe
+pe
+pe
+pe
+pe
+pe
 qF
 qF
 qF
@@ -46124,12 +51010,19 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
+eC
 qF
+eC
+eC
 qF
 qF
 qF
@@ -46139,6 +51032,10 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -46155,56 +51052,27 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+YX
+cG
+gM
+gI
+xl
+DU
+yz
+CS
+CS
+CS
 qF
 qF
 qF
@@ -46308,13 +51176,18 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -46374,19 +51247,35 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+SX
+HN
+xU
+Xi
+Ix
+YZ
+BX
+am
+pe
 qF
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
@@ -46397,9 +51286,14 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
+eC
 qF
 qF
 qF
@@ -46417,51 +51311,25 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+zu
+zu
+zu
+zu
+Zf
+xl
+DU
+yz
+qE
+xe
+xe
 qF
 qF
 qF
@@ -46573,8 +51441,11 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -46637,18 +51508,49 @@ qF
 qF
 qF
 qF
+SX
+HN
+xU
+Xi
+Ix
+xp
+BX
+am
+pe
+gt
 qF
 qF
+eC
+eC
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
+eC
 qF
 qF
 qF
+eC
+eC
 qF
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -46674,52 +51576,18 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+pI
+Ak
+Ak
+hE
+PC
+xl
+DU
+yz
+qE
+xe
+xe
+xe
 qF
 qF
 qF
@@ -46829,6 +51697,9 @@ qF
 qF
 qF
 qF
+ZY
+wS
+Tt
 qF
 qF
 qF
@@ -46894,16 +51765,46 @@ qF
 qF
 qF
 qF
+SX
+HN
+xU
+er
+QR
+QR
+QR
+kW
+pe
+nu
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -46932,51 +51833,18 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+CD
+hE
+hE
+hE
+bn
+xl
+DU
+yz
+sV
+xe
+xe
+xe
 qF
 qF
 qF
@@ -47082,6 +51950,14 @@ qF
 qF
 qF
 qF
+Uh
+Ux
+ks
+Tt
+Tt
+xO
+Tt
+Tt
 qF
 qF
 qF
@@ -47147,15 +52023,47 @@ qF
 qF
 qF
 qF
+HN
+sD
+Hi
+Hi
+Hi
+Hi
+Hi
+Hi
+Hi
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
+ym
+eC
 qF
+eC
+eC
 qF
 qF
 qF
@@ -47182,58 +52090,18 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+ui
+hE
+yl
+hE
+de
+in
+yx
+KJ
+zu
+PY
+cP
+cP
 qF
 qF
 qF
@@ -47339,6 +52207,14 @@ qF
 qF
 qF
 qF
+Uh
+mU
+TY
+Lw
+uH
+Tt
+wS
+cq
 qF
 qF
 qF
@@ -47405,10 +52281,44 @@ qF
 qF
 qF
 qF
+xU
+YP
+mF
+sb
+Yw
+YP
+Yw
+nF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+RA
+RA
+RA
+RA
+RA
 qF
 qF
 qF
@@ -47437,60 +52347,18 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+PY
+hE
+PY
+hE
+Yp
+HN
+HN
+HN
+Yt
+St
+KL
+KL
 qF
 qF
 qF
@@ -47597,6 +52465,13 @@ qF
 qF
 qF
 qF
+ks
+TT
+ma
+lw
+Hx
+no
+Uh
 qF
 qF
 qF
@@ -47669,15 +52544,41 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
+eC
 qF
+eC
 qF
 qF
 qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+Ha
+Ur
+sQ
+Ur
+Ur
+Ur
+HM
+Ur
+Ur
+Ur
+eC
+eC
 qF
 qF
 qF
@@ -47703,50 +52604,17 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+PY
+dx
+KK
+eF
+CD
+HN
+HN
+HN
+HN
+xl
+DU
 qF
 qF
 qF
@@ -47855,6 +52723,12 @@ qF
 qF
 qF
 qF
+ta
+ac
+Ce
+Tt
+Uh
+Uh
 qF
 qF
 qF
@@ -47927,17 +52801,42 @@ qF
 qF
 qF
 qF
+eC
+eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
 qF
 qF
+eC
 qF
+eC
+eC
+eC
+Xu
+Xu
+Xu
+Xu
+Xu
+Xu
+Xu
+qe
+FP
+FP
+Xu
+Xu
+Xu
 qF
 qF
 qF
@@ -47962,47 +52861,16 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+zu
+zu
+zu
+zu
+NW
+gS
+HN
+HN
+rb
+ll
 qF
 qF
 qF
@@ -48113,6 +52981,10 @@ qF
 qF
 qF
 qF
+ks
+Tt
+Ux
+Uh
 qF
 qF
 qF
@@ -48184,10 +53056,15 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
+eC
+eC
+eC
 qF
 qF
+eC
 qF
 qF
 qF
@@ -48204,28 +53081,19 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mp
+kG
+lZ
+BM
+lZ
+Ax
+qe
+dj
+Lb
+Lb
+Lb
+va
+AK
 qF
 qF
 qF
@@ -48371,6 +53239,9 @@ qF
 qF
 qF
 qF
+Uh
+Uh
+Uh
 qF
 qF
 qF
@@ -48453,6 +53324,8 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
 qF
@@ -48461,28 +53334,23 @@ qF
 qF
 qF
 qF
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mp
+cI
+Qo
+BM
+Qo
+cI
+qe
+Lb
+Lb
+Lb
+Lb
+va
+ah
 qF
 qF
 qF
@@ -48704,6 +53572,13 @@ qF
 qF
 qF
 qF
+eC
+eC
+qF
+qF
+qF
+eC
+eC
 qF
 qF
 qF
@@ -48720,26 +53595,19 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mp
+Qo
+Qo
+Qo
+Qo
+Qo
+qe
+QI
+xL
+Lb
+Lb
+Mc
+wj
 qF
 qF
 qF
@@ -48984,19 +53852,19 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Xu
+mp
+MV
+Vj
+Vj
+Xu
+qe
+Ic
+mO
+Lb
+Lb
+hs
+hs
 qF
 qF
 qF
@@ -49241,19 +54109,19 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mp
+Lb
+Lb
+Lb
+Lb
+Lb
+qe
+Dy
+hK
+Lb
+Lb
+Lb
+fv
 qF
 qF
 qF
@@ -49499,17 +54367,17 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Lb
+Lb
+AV
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
 qF
 qF
 qF
@@ -49756,16 +54624,16 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Lb
+Lb
+Lb
+Lb
+Lb
+qe
+iw
+xL
+Lb
+Lb
 qF
 qF
 qF
@@ -50014,14 +54882,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+mp
+Lb
+Lb
+Xu
+Xu
+Xu
+Xu
+hs
 qF
 qF
 qF
