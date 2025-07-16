@@ -1,0 +1,4 @@
+author: "TheTrueSilverRat"
+delete-after: True
+changes:
+  - code_imp: "Changed how the damage proc for the shapeshift restore() proc was handled so people didnt die hard when they came back (unless they died ish during the transformation)"
