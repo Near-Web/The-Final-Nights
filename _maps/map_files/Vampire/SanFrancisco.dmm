@@ -16169,11 +16169,14 @@
 /turf/open/floor/plating/bacotell,
 /area/vtm/clinic/haven)
 "eBs" = (
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	density = 0
+	},
 /obj/structure/showcase/machinery/tv{
 	icon_state = "tv_analog";
 	pixel_y = 14;
-	plane = 4.6
+	plane = 4.6;
+	density = 0
 	},
 /obj/effect/bump_teleporter{
 	id = 69;
@@ -24941,11 +24944,14 @@
 	id = 120;
 	id_target = 210
 	},
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	density = 0
+	},
 /obj/structure/showcase/machinery/tv{
 	icon_state = "tv_nature";
 	plane = 4.2;
-	pixel_y = 12
+	pixel_y = 12;
+	density = 0
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/forest/caves)
@@ -64579,7 +64585,9 @@
 	},
 /area/vtm/sabbat_lair)
 "rrs" = (
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	density = 0
+	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8;
 	color = "#574d46"
@@ -64596,7 +64604,8 @@
 /obj/structure/showcase/machinery/tv{
 	icon_state = "tv_nature";
 	pixel_y = 13;
-	pixel_x = 6
+	pixel_x = 6;
+	density = 0
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/cog/pantry)
@@ -71871,11 +71880,14 @@
 /obj/structure/railing/metal{
 	dir = 4
 	},
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	density = 0
+	},
 /obj/structure/showcase/machinery/tv{
 	icon_state = "tv_nature";
 	plane = 4.2;
-	pixel_y = 12
+	pixel_y = 12;
+	density = 0
 	},
 /obj/effect/bump_teleporter{
 	id = 210;
