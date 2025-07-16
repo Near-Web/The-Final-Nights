@@ -98,6 +98,14 @@
 
 	transformator.transform(src, auspice.breed_form, TRUE) //Turn werewolves back into their breed form once they die.
 
+/mob/living/carbon/werewolf/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
+	// No more hugging yourself
+	if(src == attack_target && !combat_mode)
+		check_self_for_injuries()
+		return TRUE
+
+	return ..()
+
 /mob/living/carbon/werewolf/resolve_unarmed_attack(atom/attack_target, list/modifiers)
 	// Werewolf interactions can be found in werewolf_interactions.dm
 	attack_target.attack_werewolf(src, modifiers)

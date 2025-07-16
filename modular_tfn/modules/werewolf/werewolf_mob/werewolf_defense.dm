@@ -1,3 +1,28 @@
+/mob/living/carbon/werewolf/attack_paw(mob/living/carbon/user, list/modifiers)
+	if(..())
+		if(user.combat_mode)
+			return apply_damage(rand(user.melee_damage_lower, user.melee_damage_upper))
+
+/mob/living/carbon/werewolf/attack_hand(mob/living/carbon/human/user, list/modifiers)
+	. = ..()
+	if(.)	//to allow surgery to return properly.
+		return FALSE
+
+	if(user.combat_mode)
+		if(HAS_TRAIT(user, TRAIT_PACIFISM))
+			to_chat(user, "<span class='warning'>You don't want to hurt [src]!</span>")
+			return
+		user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
+		visible_message("<span class='danger'>[user] punches [src]!</span>",\
+						"<span class='userdanger'>[user] punches you!</span>", null, COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, "<span class='danger'>You punch [src]!</span>")
+		apply_damage((rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh) / 3) * user.get_total_physique())
+		log_combat(user, src, "attacked")
+		updatehealth()
+		return TRUE
+	else
+		help_shake_act(user)
+
 /mob/living/carbon/werewolf/attack_animal(mob/living/simple_animal/M)
 	. = ..()
 	do_rage_from_attack()

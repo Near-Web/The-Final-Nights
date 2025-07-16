@@ -1,5 +1,5 @@
 /atom/proc/attack_werewolf(mob/living/carbon/werewolf/user, list/modifiers)
-	attack_paw(user, modifiers)
+	attack_hand(user, modifiers)
 
 /obj/item/attack_werewolf(mob/living/carbon/werewolf/user, list/modifiers)
 	if (!user.can_hold_items(src))
@@ -13,7 +13,7 @@
 
 		return
 
-	attack_paw(user, modifiers)
+	attack_hand(user, modifiers)
 
 /obj/attack_werewolf(mob/living/carbon/werewolf/user, list/modifiers)
 	if (!user.combat_mode)
@@ -32,3 +32,13 @@
 			. = attack_generic(user, rand(user.melee_damage_lower,user.melee_damage_upper), user.melee_damage_type, MELEE, play_soundeffect, user.armour_penetration)
 		if(. && !play_soundeffect)
 			playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
+
+/obj/structure/vampdoor/attack_werewolf(mob/living/carbon/werewolf/user, list/modifiers)
+	if (!user.combat_mode || !closed || !iscrinos(user))
+		return ..()
+
+	break_door(user)
+
+/mob/living/attack_werewolf(mob/living/carbon/werewolf/user, list/modifiers)
+	attack_paw(user)
+

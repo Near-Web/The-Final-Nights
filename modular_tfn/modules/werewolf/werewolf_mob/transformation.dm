@@ -66,6 +66,11 @@
 	transfer_to.set_stat(transfer_from.stat)
 	transfer_to.update_health_hud()
 
+	// Transfer resting or standing between forms
+	transfer_to.set_resting(transfer_from.resting)
+	if(transfer_to.body_position != STANDING_UP && !transfer_to.resting && !transfer_to.buckled && !HAS_TRAIT(transfer_to, TRAIT_FLOORED))
+		transfer_to.get_up(TRUE)
+
 	transfer_organ_states(transfer_from, transfer_to)
 
 /**
