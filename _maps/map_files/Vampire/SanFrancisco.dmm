@@ -39248,9 +39248,10 @@
 /area/vtm)
 "kJC" = (
 /obj/effect/decal/bordur,
-/obj/structure/vampfence/rich{
-	dir = 4;
-	pixel_x = 28
+/obj/structure/vampfence/corner/rich{
+	dir = 8;
+	icon_state = "fence_end";
+	plane = -2
 	},
 /turf/open/floor/plating/vampdirt,
 /area/vtm/graveyard)
@@ -42589,6 +42590,15 @@
 	icon_state = "stone4"
 	},
 /area/vtm/interior/giovanni/basement)
+"lDQ" = (
+/obj/effect/decal/bordur,
+/obj/structure/vampfence/corner/rich{
+	dir = 4;
+	icon_state = "fence_end";
+	plane = -2
+	},
+/turf/open/floor/plating/vampdirt,
+/area/vtm/graveyard)
 "lDU" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -66789,8 +66799,8 @@
 /turf/open/floor/plating/rough/cave,
 /area/vtm/sewer/tzimisce_sanctum)
 "rUl" = (
-/obj/structure/vampgate,
 /obj/effect/decal/bordur,
+/obj/structure/vampgate,
 /turf/open/floor/plating/vampdirt,
 /area/vtm/graveyard)
 "rUx" = (
@@ -133310,7 +133320,7 @@ oIF
 wWs
 iUX
 iUX
-hGm
+lDQ
 bLW
 qYl
 dSH
