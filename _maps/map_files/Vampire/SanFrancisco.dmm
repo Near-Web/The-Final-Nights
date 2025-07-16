@@ -27883,6 +27883,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/weightmachine/stacklifter,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "hKU" = (
@@ -53100,11 +53101,11 @@
 	},
 /area/vtm/interior/shop)
 "olF" = (
-/obj/structure/weightmachine/stacklifter,
 /obj/effect/turf_decal/siding/white{
 	color = "#636363";
 	dir = 4
 	},
+/obj/structure/weightmachine/stacklifter,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "olN" = (
