@@ -58,3 +58,19 @@
       "caw" instead.
   darkincarnate:
   - rscadd: more crinos hp
+2025-07-16:
+  Somniworld:
+  - bugfix: Rage/Blood healing, as well as bone gel, will now fix your limping status
+      effect correctly!
+  Tzui5020, Falloutfalcon:
+  - rscadd: Pliers to rip out fangs with, One will only give a status effect and the
+      other will remove them for the whole round.
+  - rscadd: Adds the Baby Teeth trait
+  - code_imp: Un-snowflakes the wirecutters we had before into the Tool wirecutter.
+      Ports PR#31 from ApocryphaXIII.
+  chazzyjazzy:
+  - bugfix: fixed meleemods not being applied to weapons besides completely unarmed
+  - qol: catwalks in the sewers and across rooftops now make catwalk-appropriate metal
+      footstep sounds
+  darkincarnate:
+  - rscadd: cane in loadout
