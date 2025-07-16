@@ -24938,8 +24938,8 @@
 "gWJ" = (
 /obj/structure/stone_tile/surrounding/cracked,
 /obj/effect/bump_teleporter{
-	id = 210;
-	id_target = 120
+	id = 120;
+	id_target = 210
 	},
 /obj/structure/table/wood,
 /obj/structure/showcase/machinery/tv{
