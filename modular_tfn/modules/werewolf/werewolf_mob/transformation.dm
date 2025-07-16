@@ -62,9 +62,9 @@
 	transfer_from.fire_stacks = transfer_to.fire_stacks
 	transfer_from.on_fire = transfer_to.on_fire
 
-	transfer_to.update_stat()
-	if(transfer_to.stat == CONSCIOUS)
-		transfer_to.get_up(TRUE)
+	// Will kill or revive forms on transformation as necessary
+	transfer_to.set_stat(transfer_from.stat)
+	transfer_to.update_health_hud()
 
 	transfer_organ_states(transfer_from, transfer_to)
 
@@ -211,8 +211,6 @@
 			if(!lupus)
 				lupus_form = null
 				return
-			if (trans.stat == DEAD)
-				lupus.death()
 
 			transformating = TRUE
 
@@ -234,8 +232,6 @@
 			if(!crinos)
 				crinos_form = null
 				return
-			if (trans.stat == DEAD)
-				crinos.death()
 
 			transformating = TRUE
 
@@ -257,8 +253,6 @@
 			if(!corvid)
 				corvid_form = null
 				return
-			if (trans.stat == DEAD)
-				corvid.death()
 
 			transformating = TRUE
 
@@ -279,8 +273,6 @@
 			if(!cor_crinos)
 				corax_form = null
 				return
-			if (trans.stat == DEAD)
-				cor_crinos.death()
 
 			transformating = TRUE
 
@@ -301,8 +293,6 @@
 			if(!homid)
 				human_form = null
 				return
-			if (trans.stat == DEAD)
-				homid.death()
 
 			transformating = TRUE
 
