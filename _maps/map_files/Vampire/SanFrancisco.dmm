@@ -18972,9 +18972,6 @@
 /area/vtm/interior)
 "flX" = (
 /obj/structure/table/wood,
-/obj/machinery/processor{
-	pixel_y = 12
-	},
 /turf/open/floor/plating/bacotell,
 /area/vtm/interior/cog/pantry)
 "fmc" = (
@@ -19922,6 +19919,10 @@
 /obj/item/flashlight/lamp/green{
 	pixel_y = 2;
 	pixel_x = 4
+	},
+/obj/machinery/button/curtain{
+	pixel_x = -6;
+	id = 913
 	},
 /turf/open/floor/carpet,
 /area/vtm/interior/chantry)
@@ -21957,8 +21958,8 @@
 /turf/open/floor/plating/dirt,
 /area/vtm/pacificheights/forest)
 "gdR" = (
-/obj/machinery/light/cold{
-	pixel_y = 32
+/obj/machinery/vamp/atm{
+	pixel_y = 25
 	},
 /turf/open/floor/plating/circled,
 /area/vtm/interior/subway)
@@ -40039,6 +40040,14 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/dirt,
 /area/vtm/pacificheights)
+"kXq" = (
+/obj/structure/table/wood,
+/obj/machinery/processor{
+	pixel_y = 12;
+	plane = 1
+	},
+/turf/open/floor/plating/bacotell,
+/area/vtm/interior/cog/pantry)
 "kXu" = (
 /obj/effect/decal/bordur,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -42955,13 +42964,6 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/church/interior)
-"lLV" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/glass/bowl{
-	pixel_y = 10
-	},
-/turf/open/floor/plating/bacotell,
-/area/vtm/interior/cog/pantry)
 "lMa" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/wood{
@@ -55301,11 +55303,6 @@
 /obj/structure/table/wood/fancy/red,
 /obj/item/soapstone,
 /obj/item/storage/bag/books,
-/obj/machinery/button/curtain{
-	pixel_y = 7;
-	pixel_x = -6;
-	id = 913
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
 	color = "#574d46"
@@ -57961,6 +57958,13 @@
 /obj/effect/decal/graffiti,
 /turf/open/floor/plating/vampcanal,
 /area/vtm/sewer)
+"pFi" = (
+/obj/effect/decal/litter,
+/obj/machinery/vamp/atm{
+	pixel_y = 25
+	},
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/financialdistrict)
 "pFp" = (
 /turf/open/floor/plating/dirt,
 /area/vtm/interior/cog/caern)
@@ -58752,9 +58756,13 @@
 	},
 /area/vtm/sewer/nosferatu_warren)
 "pPQ" = (
-/obj/structure/vampdoor/glass,
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
+	},
+/obj/structure/vampdoor/glass{
+	lock_id = "cleaning";
+	locked = 1;
+	lockpick_difficulty = 10
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/vjanitor)
@@ -62208,6 +62216,22 @@
 /obj/structure/noticeboard{
 	pixel_y = 32
 	},
+/obj/item/vamp/keys/techstore{
+	pixel_y = 7;
+	pixel_x = 8
+	},
+/obj/item/vamp/keys/techstore{
+	pixel_y = 7;
+	pixel_x = 8
+	},
+/obj/item/vamp/keys/techstore{
+	pixel_y = 7;
+	pixel_x = 8
+	},
+/obj/item/vamp/keys/techstore{
+	pixel_y = 7;
+	pixel_x = 8
+	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/techshop)
 "qJW" = (
@@ -65466,6 +65490,10 @@
 	pixel_y = 7;
 	pixel_x = 9
 	},
+/obj/item/vamp/keys/children_of_gaia,
+/obj/item/vamp/keys/children_of_gaia,
+/obj/item/vamp/keys/children_of_gaia,
+/obj/item/vamp/keys/children_of_gaia,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/cog/pantry)
 "rEL" = (
@@ -85112,7 +85140,10 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/pacificheights/industrial)
 "xfO" = (
-/obj/machinery/deepfryer,
+/obj/machinery/deepfryer{
+	density = 0;
+	pixel_y = 18
+	},
 /turf/open/floor/plating/circled,
 /area/vtm/interior/shop)
 "xfZ" = (
@@ -159156,7 +159187,7 @@ vhc
 hgx
 ehn
 gnp
-aFu
+pFi
 fXQ
 kJz
 oCk
@@ -163777,7 +163808,7 @@ wzS
 woT
 sCO
 etX
-gRC
+kXq
 sSa
 xQc
 kQM
@@ -163976,7 +164007,7 @@ rcJ
 sSa
 sSa
 wzS
-lLV
+gRC
 sCO
 sCO
 flX
