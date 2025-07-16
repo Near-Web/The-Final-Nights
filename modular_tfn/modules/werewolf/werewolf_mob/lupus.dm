@@ -38,8 +38,7 @@
 	multiplicative_slowdown = -0.7
 
 /mob/living/carbon/werewolf/lupus/update_icons()
-	remove_overlay("_rest")
-	remove_overlay("_flying")
+	cut_overlays()
 
 	var/laid_down = FALSE
 
