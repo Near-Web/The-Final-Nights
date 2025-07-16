@@ -3425,6 +3425,9 @@
 /obj/item/food/spaghetti/pastatomato{
 	pixel_y = 18
 	},
+/obj/machinery/light/small{
+	pixel_y = 32
+	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/littleitaly/apartments)
 "aYc" = (
