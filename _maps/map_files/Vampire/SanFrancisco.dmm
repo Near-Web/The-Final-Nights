@@ -17147,6 +17147,22 @@
 	color = "#635d52"
 	},
 /area/vtm/interior/police/court)
+"eMr" = (
+/obj/structure/railing/metal{
+	dir = 4
+	},
+/obj/structure/table,
+/obj/item/kitchen/knife/plastic{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/obj/item/kitchen/fork/plastic{
+	pixel_y = 10
+	},
+/turf/open/floor/plating/toilet{
+	color = "#d6b390"
+	},
+/area/vtm/interior/shop)
 "eMw" = (
 /obj/effect/decal/bordur,
 /turf/open/floor/plating/sidewalk,
@@ -28205,6 +28221,19 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/banu/haven)
+"hMV" = (
+/obj/structure/table,
+/obj/item/kitchen/fork/plastic{
+	pixel_y = 10
+	},
+/obj/item/kitchen/knife/plastic{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/turf/open/floor/plating/circled{
+	color = "#EADDCA"
+	},
+/area/vtm/interior/shop)
 "hNi" = (
 /obj/effect/decal/wallpaper/papers/two{
 	pixel_y = -5
@@ -38640,6 +38669,22 @@
 	},
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/littleitaly/apartments)
+"kyf" = (
+/obj/structure/railing/metal{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/item/kitchen/fork/plastic{
+	pixel_y = 10
+	},
+/obj/item/kitchen/knife/plastic{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/turf/open/floor/plating/toilet{
+	color = "#d6b390"
+	},
+/area/vtm/interior/shop)
 "kyn" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/granite/black,
@@ -204333,7 +204378,7 @@ xkm
 wOw
 tPq
 tPq
-tFB
+eMr
 tFB
 cmb
 lUr
@@ -205951,7 +205996,7 @@ aEO
 aEO
 aEO
 aEO
-qJf
+kyf
 lUr
 lUr
 lUr
@@ -206963,7 +207008,7 @@ eNz
 uYN
 kRu
 pLU
-uYN
+hMV
 wOw
 sgr
 wOw
