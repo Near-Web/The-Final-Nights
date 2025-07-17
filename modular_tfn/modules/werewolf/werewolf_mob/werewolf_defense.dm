@@ -1,6 +1,7 @@
 /mob/living/carbon/werewolf/attack_paw(mob/living/carbon/user, list/modifiers)
 	if(..())
 		if(user.combat_mode)
+			do_rage_from_attack(user)
 			return apply_damage(rand(user.melee_damage_lower, user.melee_damage_upper))
 
 /mob/living/carbon/werewolf/attack_hand(mob/living/carbon/human/user, list/modifiers)
