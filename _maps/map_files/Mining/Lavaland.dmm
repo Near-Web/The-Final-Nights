@@ -119,9 +119,19 @@
 /obj/structure/table,
 /turf/open/floor/plating/toilet,
 /area/vtm/interior/penumbra)
+"bp" = (
+/turf/closed/wall/vampwall/metal,
+/area/vtm/interior/penumbra)
 "bt" = (
 /obj/structure/rack,
 /turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"bw" = (
+/obj/structure/table,
+/obj/item/restraints/handcuffs,
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
+	},
 /area/vtm/interior/penumbra)
 "bB" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -216,6 +226,14 @@
 /area/vtm/interior/penumbra)
 "cr" = (
 /turf/closed/wall/vampwall/junk,
+/area/vtm/interior/penumbra)
+"cs" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
+	},
 /area/vtm/interior/penumbra)
 "cF" = (
 /obj/machinery/telecomms/hub,
@@ -564,6 +582,12 @@
 	pixel_x = 9
 	},
 /turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"fe" = (
+/obj/structure/sink{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/circled,
 /area/vtm/interior/penumbra)
 "fl" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -934,6 +958,20 @@
 	},
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/penumbra)
+"hT" = (
+/obj/structure/statue/bone/rib{
+	dir = 1
+	},
+/turf/open/floor/plating/shit{
+	icon_state = "blood"
+	},
+/area/vtm/interior/penumbra)
+"id" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter4-old"
+	},
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/penumbra)
 "if" = (
 /obj/structure/table,
 /obj/item/toy/cards/deck/tarot{
@@ -980,6 +1018,21 @@
 "iF" = (
 /obj/structure/chair/wood,
 /turf/open/floor/carpet,
+/area/vtm/interior/penumbra)
+"iJ" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter1-old"
+	},
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
+	},
+/area/vtm/interior/penumbra)
+"iO" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "trails_2-old";
+	dir = 10
+	},
+/turf/open/floor/plating/circled,
 /area/vtm/interior/penumbra)
 "ja" = (
 /obj/effect/decal/bordur{
@@ -1041,6 +1094,12 @@
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/penumbra)
+"jK" = (
+/obj/structure/table,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
 "jM" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
@@ -1091,6 +1150,10 @@
 	},
 /obj/structure/fluff/hedge,
 /turf/open/floor/plating/granite/black,
+/area/vtm/interior/penumbra)
+"ko" = (
+/obj/structure/statue/bone/rib,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/penumbra)
 "ks" = (
 /obj/effect/decal/litter,
@@ -1237,6 +1300,13 @@
 "lD" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/concrete,
+/area/vtm/interior/penumbra)
+"lF" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter4-old"
+	},
+/obj/effect/cult_turf/overlay/floor/bloodcult,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/penumbra)
 "lG" = (
 /obj/machinery/mineral/equipment_vendor/fastfood/coffeevendor,
@@ -1521,6 +1591,12 @@
 	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/interior/penumbra)
+"og" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
 "oh" = (
 /obj/structure/railing/metal{
 	dir = 9;
@@ -1535,12 +1611,29 @@
 	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/penumbra)
+"on" = (
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_y = 8
+	},
+/obj/machinery/light/cold{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
 "oq" = (
 /obj/effect/turf_decal/siding/white/end{
 	dir = 4;
 	color = "#9c8a67"
 	},
 /turf/open/floor/carpet/green,
+/area/vtm/interior/penumbra)
+"ou" = (
+/obj/effect/cult_turf/overlay/floor/bloodcult,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/penumbra)
 "ow" = (
 /obj/structure/railing/metal{
@@ -1703,9 +1796,21 @@
 /obj/effect/decal/wallpaper/light,
 /turf/closed/wall/vampwall/painted,
 /area/vtm/interior/penumbra)
+"qo" = (
+/obj/effect/cult_turf/overlay/floor/bloodcult,
+/turf/open/floor/plating/shit{
+	icon_state = "blood"
+	},
+/area/vtm/interior/penumbra)
 "qp" = (
 /obj/effect/turf_decal/weather/dirt,
 /turf/open/floor/plating/rough/cave,
+/area/vtm/interior/penumbra)
+"qt" = (
+/obj/structure/bed,
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
+	},
 /area/vtm/interior/penumbra)
 "qu" = (
 /obj/item/shard,
@@ -1871,6 +1976,13 @@
 /obj/structure/lamppost/sidewalk,
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/penumbra)
+"sh" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "trails_2-old";
+	dir = 9
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
 "si" = (
 /obj/effect/decal/litter,
 /turf/open/floor/plating/concrete{
@@ -1982,6 +2094,11 @@
 	},
 /turf/open/floor/plating/vampocean{
 	density = 0
+	},
+/area/vtm/interior/penumbra)
+"ti" = (
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
 	},
 /area/vtm/interior/penumbra)
 "tk" = (
@@ -2438,6 +2555,12 @@
 	icon_state = "stone8"
 	},
 /area/vtm/interior/penumbra)
+"xT" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
 "xU" = (
 /obj/effect/decal/wallpaper/red,
 /turf/closed/wall/vampwall/rich,
@@ -2463,6 +2586,9 @@
 "yh" = (
 /obj/structure/barricade/wooden/crude,
 /turf/closed/wall/vampwall/junk/alt/low/window,
+/area/vtm/interior/penumbra)
+"yj" = (
+/turf/closed/wall/vampwall/metal/reinforced,
 /area/vtm/interior/penumbra)
 "yl" = (
 /obj/structure/closet/crate/bin,
@@ -2679,6 +2805,12 @@
 /obj/machinery/photocopier,
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior/penumbra)
+"AL" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter1-old"
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
 "AV" = (
 /obj/transfer_point_vamp/umbral{
 	id = 664
@@ -2755,6 +2887,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior/penumbra)
+"Cd" = (
+/obj/structure/table,
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
 "Ce" = (
 /obj/structure/stone_tile/surrounding_tile,
 /turf/open/floor/plating/stone,
@@ -2800,6 +2936,19 @@
 	icon_state = "piping40"
 	},
 /turf/open/floor/plating/vampcanal,
+/area/vtm/interior/penumbra)
+"Dh" = (
+/obj/structure/table,
+/obj/vampire_computer{
+	icon_state = "computerprince"
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
+"Dq" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "trails_1-old"
+	},
+/turf/open/floor/plating/circled,
 /area/vtm/interior/penumbra)
 "Du" = (
 /obj/structure/railing/metal/corner,
@@ -2966,6 +3115,12 @@
 	},
 /turf/open/floor/plating/vampbeach,
 /area/vtm/interior/penumbra)
+"EF" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "trails_2-old"
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
 "EK" = (
 /obj/structure/fluff/hedge,
 /obj/effect/decal/wallpaper/stone/low{
@@ -3101,6 +3256,12 @@
 	},
 /turf/open/floor/plating/umbra,
 /area/vtm/interior/penumbra)
+"GH" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter2-old"
+	},
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/penumbra)
 "GL" = (
 /obj/item/shield/door{
 	icon_state = "old"
@@ -3144,6 +3305,9 @@
 	dir = 1
 	},
 /turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"Hb" = (
+/turf/closed/wall/vampwall/metal/glass,
 /area/vtm/interior/penumbra)
 "Hg" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -3261,7 +3425,7 @@
 "Ij" = (
 /obj/structure/stone_tile/surrounding,
 /obj/effect/landmark/teleport_mark{
-	tribe = "Wendigo"
+	tribe = "Galestalkers"
 	},
 /turf/open/floor/plating/stone,
 /area/vtm/interior/penumbra)
@@ -3446,6 +3610,21 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/penumbra)
+"Kf" = (
+/turf/open/floor/plating/shit{
+	icon_state = "blood"
+	},
+/area/vtm/interior/penumbra)
+"Kh" = (
+/obj/effect/turf_decal/siding/white{
+	color = "#636363"
+	},
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 1
+	},
+/turf/open/floor/plating/grate,
+/area/vtm/interior/penumbra)
 "Kn" = (
 /turf/open/floor/plating/toilet{
 	color = "#d6b390"
@@ -3566,6 +3745,12 @@
 	},
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/penumbra)
+"Lu" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter6-old"
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/penumbra)
 "Lw" = (
 /obj/structure/stone_tile/block{
 	dir = 8
@@ -3633,6 +3818,12 @@
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/red,
+/area/vtm/interior/penumbra)
+"MD" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter1-old"
+	},
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/penumbra)
 "ME" = (
 /obj/structure/anarchsign{
@@ -3709,6 +3900,9 @@
 	dir = 6
 	},
 /turf/open/floor/plating/vampdirt,
+/area/vtm/interior/penumbra)
+"NO" = (
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/penumbra)
 "NR" = (
 /obj/structure/lattice/grate{
@@ -4036,6 +4230,14 @@
 	},
 /obj/structure/flora/rock/jungle,
 /turf/open/floor/plating/vampgrass,
+/area/vtm/interior/penumbra)
+"Rv" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter6-old"
+	},
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
+	},
 /area/vtm/interior/penumbra)
 "Ry" = (
 /obj/effect/decal/fakelattice{
@@ -4521,6 +4723,18 @@
 	},
 /turf/open/water,
 /area/vtm/interior/penumbra)
+"VQ" = (
+/obj/effect/cult_turf/overlay/floor/bloodcult,
+/obj/effect/heretic_rune/big{
+	color = "#fc0b03";
+	pixel_x = -34;
+	pixel_y = 14
+	},
+/obj/effect/landmark/teleport_mark{
+	tribe = "Black Spiral Dancers"
+	},
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/penumbra)
 "VS" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -4591,6 +4805,12 @@
 	},
 /turf/open/floor/plating/vampgrass,
 /area/vtm/interior/penumbra)
+"WL" = (
+/obj/structure/statue/bone/rib,
+/turf/open/floor/plating/shit{
+	icon_state = "blood"
+	},
+/area/vtm/interior/penumbra)
 "WM" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -4617,6 +4837,19 @@
 	dir = 1
 	},
 /turf/open/floor/plating/sidewalk,
+/area/vtm/interior/penumbra)
+"WW" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter6-old"
+	},
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/penumbra)
+"WZ" = (
+/obj/structure/table,
+/obj/machinery/button/door{
+	pixel_y = 6
+	},
+/turf/open/floor/plating/circled,
 /area/vtm/interior/penumbra)
 "Xb" = (
 /obj/effect/decal/wallpaper/stone,
@@ -42378,8 +42611,8 @@ qF
 qF
 qF
 qF
-qF
-qF
+ko
+Kf
 qF
 qF
 qF
@@ -42631,14 +42864,14 @@ qF
 qF
 qF
 qF
+Qo
 qF
 qF
+Qo
 qF
-qF
-qF
-qF
-qF
-qF
+NO
+Kf
+Kf
 qF
 qF
 qF
@@ -42891,11 +43124,11 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
+bp
+fe
+AL
+NO
+ou
 qF
 qF
 qF
@@ -43138,6 +43371,7 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
@@ -43145,15 +43379,14 @@ qF
 qF
 qF
 qF
+Qo
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Qo
+Lu
+Qo
+Qo
+NO
+Kf
 qF
 qF
 qF
@@ -43404,13 +43637,13 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Qo
+EF
+iO
+xT
+Cd
+GH
+Kf
 qF
 qF
 qF
@@ -43649,25 +43882,25 @@ eC
 eC
 eC
 eC
+eC
+eC
+qF
 qF
 eC
 qF
 qF
 qF
 qF
+Qo
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Qo
+Qo
+jK
+Cd
+WZ
+NO
+NO
 qF
 qF
 qF
@@ -43906,25 +44139,25 @@ eC
 eC
 eC
 eC
+eC
+eC
+eC
+eC
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+Kf
+Kf
+Kf
+GH
+NO
+yj
+Hb
+Hb
+Kf
+Kf
+ou
 qF
 qF
 qF
@@ -44165,22 +44398,22 @@ eC
 eC
 eC
 eC
+eC
+eC
+eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+ou
+NO
+NO
+NO
+NO
+GH
+NO
+ti
+iJ
+NO
+Kf
 qF
 qF
 qF
@@ -44423,21 +44656,21 @@ qF
 eC
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+Kf
+MD
+Kf
+yj
+Lu
+Qo
+Kf
+NO
+ti
+NO
+GH
+NO
 qF
 qF
 qF
@@ -44681,26 +44914,26 @@ qF
 qF
 qF
 qF
+eC
+eC
+Kf
+NO
+qF
+Kh
+sh
+Dq
+Qo
+ou
+GH
+ou
+NO
 qF
 qF
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+Kf
 qF
 qF
 qF
@@ -44936,28 +45169,28 @@ qF
 qF
 qF
 qF
+eC
+qF
+qF
+qF
+ou
+NO
+qF
+yj
+on
+og
+Kf
+id
+VQ
+NO
 qF
 qF
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+NO
+WL
 qF
 qF
 qF
@@ -45196,25 +45429,25 @@ qF
 qF
 qF
 qF
+Kf
+GH
+NO
+qF
+yj
+Cd
+Dh
+NO
+ou
+NO
+qo
 qF
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+NO
+Kf
+Kf
 qF
 qF
 qF
@@ -45453,24 +45686,24 @@ qF
 qF
 qF
 qF
+Kf
+NO
+Kf
 qF
 qF
 qF
+Kf
+NO
+GH
+NO
+NO
+ou
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+NO
+NO
+ou
 qF
 qF
 qF
@@ -45710,23 +45943,23 @@ qF
 qF
 qF
 qF
+NO
+qF
+NO
+Qo
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+WW
+NO
+yj
+yj
+NO
+NO
+NO
+MD
+NO
+NO
+NO
 qF
 qF
 qF
@@ -45967,23 +46200,23 @@ qF
 qF
 qF
 qF
+hT
 qF
 qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+ou
+NO
+bp
+bw
+cs
+NO
+NO
+NO
+GH
+Kf
+ou
 qF
 qF
 qF
@@ -46228,17 +46461,17 @@ qF
 qF
 qF
 qF
+Qo
+qF
+GH
+Kf
+bp
+ti
+Rv
+ti
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+ti
 qF
 qF
 qF
@@ -46487,11 +46720,11 @@ qF
 qF
 qF
 qF
+NO
+Kf
+Kf
 qF
-qF
-qF
-qF
-qF
+qt
 qF
 qF
 qF
@@ -46741,16 +46974,16 @@ qF
 qF
 qF
 qF
+eC
 qF
+eC
+NO
+NO
+NO
+NO
+NO
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+ti
 qF
 qF
 qF
@@ -46999,14 +47232,14 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
-qF
+eC
+eC
+eC
+eC
+ou
+lF
+Kf
+WL
 qF
 qF
 qF
@@ -47256,9 +47489,9 @@ qF
 qF
 qF
 qF
-qF
-qF
-qF
+eC
+eC
+eC
 qF
 qF
 qF
@@ -47510,14 +47743,14 @@ qF
 qF
 qF
 qF
+eC
 qF
 qF
 qF
+eC
+eC
 qF
-qF
-qF
-qF
-qF
+eC
 qF
 qF
 qF
