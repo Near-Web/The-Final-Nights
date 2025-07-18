@@ -138,3 +138,6 @@
 
 	///The Examine Panel TGUI.
 	var/datum/examine_panel/tgui = new() //create the datum
+
+	/// Assoc list of [typepath] = [knowledge instance]. A list of all knowledge this heretic's reserached.
+	var/list/researched_knowledge = list()
