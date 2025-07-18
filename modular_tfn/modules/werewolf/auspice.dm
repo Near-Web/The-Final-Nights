@@ -6,7 +6,7 @@
 	var/rage = 1
 	var/start_gnosis = 1
 	var/gnosis = 1
-	var/base_breed = "Homid"
+	var/breed_form = FORM_HOMID
 	var/datum/garou_tribe/tribe = new /datum/garou_tribe/galestalkers()
 	var/list/gifts = list()
 	var/force_abomination = FALSE
@@ -14,10 +14,10 @@
 /datum/auspice/proc/on_gain(var/mob/living/carbon/C)
 	C.update_rage_hud()
 
-	var/mob/living/simple_animal/werewolf/lupus/lupus = C.transformator.lupus_form?.resolve()
-	var/mob/living/simple_animal/werewolf/crinos/crinos = C.transformator.crinos_form?.resolve()
-	var/mob/living/simple_animal/werewolf/corax/corax_crinos/cor_crinos = C.transformator.corax_form?.resolve()
-	var/mob/living/simple_animal/werewolf/lupus/corvid/corvid = C.transformator.corvid_form?.resolve()
+	var/mob/living/carbon/werewolf/lupus/lupus = C.transformator.lupus_form?.resolve()
+	var/mob/living/carbon/werewolf/crinos/crinos = C.transformator.crinos_form?.resolve()
+	var/mob/living/carbon/werewolf/corax/corax_crinos/cor_crinos = C.transformator.corax_form?.resolve()
+	var/mob/living/carbon/werewolf/lupus/corvid/corvid = C.transformator.corvid_form?.resolve()
 	lupus?.auspice = src
 	crinos?.auspice = src
 	cor_crinos?.auspice = src
@@ -59,6 +59,48 @@
 	if(tribe.tribe_trait==TRAIT_CORAX)
 		ADD_TRAIT(C,TRAIT_CORAX, tribe)
 
+/**
+ * Sets the breed of a shapeshifter, or what form
+ * they were born in and naturally stay in. If that
+ * form isn't human form, this will also allow them to
+ * transform out of human form upon death. Sets Gnosis
+ * to the values every breed starts with.
+ *
+ * Arguments:
+ * * breed - Name of the breed being set
+ * * owner - Mob whose breed is being set, and whose Auspice this is
+ */
+/datum/auspice/proc/set_breed(breed, mob/living/carbon/human/owner)
+	// Apply breed-specific stats
+	switch (breed)
+		if (BREED_HOMID)
+			owner.auspice.gnosis = 1
+			owner.auspice.start_gnosis = 1
+			breed_form = FORM_HOMID
+		if (BREED_LUPUS)
+			owner.auspice.gnosis = 5
+			owner.auspice.start_gnosis = 5
+			breed_form = FORM_LUPUS
+		if (BREED_METIS)
+			owner.auspice.gnosis = 3
+			owner.auspice.start_gnosis = 3
+			breed_form = FORM_CRINOS
+		if (BREED_CORVID)
+			owner.auspice.gnosis = 5
+			owner.auspice.start_gnosis = 5
+			breed_form = FORM_CORVID
+
+	// Reverting to Homid form is handled elsewhere, this is specifically to transform out of Homid
+	if (breed != BREED_HOMID)
+		RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(handle_death))
+
+/datum/auspice/proc/handle_death(mob/living/carbon/human/source, gibbed)
+	SIGNAL_HANDLER
+
+	if (gibbed)
+		return
+
+	source.transformator?.transform(source, breed_form, TRUE)
 
 /datum/auspice/ahroun
 	name = "Ahroun"
