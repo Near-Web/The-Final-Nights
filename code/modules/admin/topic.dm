@@ -168,6 +168,13 @@
 				else
 					message_admins("[key_name_admin(usr)] tried to create a revenant. Unfortunately, there were no candidates available.")
 					log_admin("[key_name(usr)] failed to create a revenant.")
+			if("valkyrie")
+				if(src.makeValkyrie())
+					message_admins("[key_name(usr)] created a Task Force VALKYRIE squad.")
+					log_admin("[key_name(usr)] created a Task Force VALKYRIE squad..")
+				else
+					message_admins("[key_name_admin(usr)] tried to create a Task Force VALKYRIE squad. Unfortunately, there were no candidates available.")
+					log_admin("[key_name(usr)] failed to create a Task Force VALKYRIE squad.")
 
 	else if(href_list["forceevent"])
 		if(!check_rights(R_FUN))
