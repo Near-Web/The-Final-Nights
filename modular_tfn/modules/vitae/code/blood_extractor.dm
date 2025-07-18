@@ -4,7 +4,7 @@
 	icon = 'modular_tfn/modules/vitae/icons/blood_extractor.dmi'
 	icon_state = "bloodextractor"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
+	layer = VEHICLE_LAYER
 	anchored = TRUE
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
