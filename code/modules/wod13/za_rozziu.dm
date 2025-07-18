@@ -49,18 +49,40 @@ SUBSYSTEM_DEF(zombiepool)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	var/punches_to_break = 500
 	var/repairing = FALSE
+	var/masquerade_timer_running = FALSE
+
+//makes graveyard keepers lose masquerade if gate is open.
+/obj/structure/vampgate/proc/start_masquerade_leak()
+	if (masquerade_timer_running)
+		return
+	masquerade_timer_running = TRUE
+	check_masquerade_leak()
+
+/obj/structure/vampgate/proc/check_masquerade_leak()
+	if (icon_state != "gate-open")
+		masquerade_timer_running = FALSE
+		return
+
+	for (var/mob/living/carbon/human/H in GLOB.player_list)
+		if (H?.mind?.assigned_role == "Graveyard Keeper" && H.client && istype(get_area(H), /area/vtm/graveyard))
+			H.masquerade -= 1
+			to_chat(H, "<span class='danger'>You failed your duty, the graveyard gate is broken and spews darkness... Your Masquerade is quickly slipping away.</span>")
+			SSgraveyard.total_bad += 1
+
+	// Schedule the next check in 60 seconds
+	addtimer(CALLBACK(src, PROC_REF(check_masquerade_leak)), 60 SECONDS)
 
 /obj/structure/vampgate/proc/punched()
 	playsound(get_turf(src), 'code/modules/wod13/sounds/get_bent.ogg', 100, FALSE)
 	pixel_z = pixel_z+rand(-1, 1)
 	pixel_w = pixel_w+rand(-1, 1)
 	punches_to_break = max(0, punches_to_break-1)
-	spawn(2)
-		pixel_z = initial(pixel_z)
-		pixel_w = initial(pixel_w)
-		if(punches_to_break == 0)
-			density = FALSE
-			icon_state = "gate-open"
+	pixel_z = initial(pixel_z)
+	pixel_w = initial(pixel_w)
+	if(punches_to_break == 0)
+		density = FALSE
+		icon_state = "gate-open"
+		start_masquerade_leak()
 
 /obj/structure/vampgate/examine(mob/user)
 	. = ..()
@@ -84,7 +106,7 @@ SUBSYSTEM_DEF(zombiepool)
 		if(!repairing)
 			repairing = TRUE
 			if(do_mob(user, src, 5 SECONDS))
-				punches_to_break = min(punches_to_break+5, initial(punches_to_break))
+				punches_to_break = min(punches_to_break+25, initial(punches_to_break))
 				if(punches_to_break)
 					density = TRUE
 					icon_state = "gate"
