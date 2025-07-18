@@ -277,22 +277,22 @@
 			// All stages (fail completely)
 			animate(target, pixel_y = 16, color = "#ff0000", time = 5 SECONDS, loop = 1)
 			addtimer(CALLBACK(src, /datum/discipline_power/thaumaturgy/cauldron_of_blood/proc/reset_target_appearance, target), 5 SECONDS)
-			addtimer(CALLBACK(src, .proc/blood_burn_stage1, target), 0)
-			addtimer(CALLBACK(src, .proc/blood_burn_stage2, target), 2.5 SECONDS)
-			addtimer(CALLBACK(src, .proc/blood_burn_stage3, target), 5 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(blood_burn_stage1), target), 0)
+			addtimer(CALLBACK(src, PROC_REF(blood_burn_stage2), target), 2.5 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(blood_burn_stage3), target), 5 SECONDS)
 
 		else if(successes == 2)
 			// Stages 1 & 2
 			animate(target, pixel_y = 16, color = "#ff0000", time = 2.5 SECONDS, loop = 1)
 			addtimer(CALLBACK(src, /datum/discipline_power/thaumaturgy/cauldron_of_blood/proc/reset_target_appearance, target), 2.5 SECONDS)
-			addtimer(CALLBACK(src, .proc/blood_burn_stage1, target), 0)
-			addtimer(CALLBACK(src, .proc/blood_burn_stage2, target), 2.5 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(blood_burn_stage1), target), 0)
+			addtimer(CALLBACK(src, PROC_REF(blood_burn_stage2), target), 2.5 SECONDS)
 
 		else if(successes == 3)
 			animate(target, pixel_y = 16, color = "#ff0000", time = 1 SECONDS, loop = 1)
 			addtimer(CALLBACK(src, /datum/discipline_power/thaumaturgy/cauldron_of_blood/proc/reset_target_appearance, target), 1 SECONDS)
 			// Stage 1 only
-			addtimer(CALLBACK(src, .proc/blood_burn_stage1, target), 0)
+			addtimer(CALLBACK(src, PROC_REF(blood_burn_stage1), target), 0)
 
 		else
 			// Resisted completely
