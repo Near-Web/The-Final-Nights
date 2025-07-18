@@ -3995,6 +3995,13 @@
 	},
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
+"bgr" = (
+/obj/structure/table/wood,
+/obj/machinery/light/small{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/hotel)
 "bgM" = (
 /obj/effect/decal/bordur,
 /obj/structure/roadsign/noparking,
@@ -26405,6 +26412,14 @@
 	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/park)
+"hkj" = (
+/obj/structure/showcase/machinery/tv{
+	icon_state = "tv_analog";
+	pixel_y = 14
+	},
+/obj/structure/table/wood,
+/turf/open/floor/plating/parquetry/old,
+/area/vtm/hotel)
 "hko" = (
 /obj/structure/chair/wood/wings{
 	dir = 1
@@ -58506,6 +58521,10 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/police/upstairs)
+"pAD" = (
+/obj/effect/decal/wallpaper/paper/low,
+/turf/closed/wall/vampwall/old/low/window,
+/area/vtm/hotel)
 "pAF" = (
 /obj/elevator_button_down{
 	pixel_y = 30;
@@ -202522,7 +202541,7 @@ mjT
 mjT
 mjT
 lUP
-nrU
+bgr
 vuM
 oov
 cMg
@@ -202723,8 +202742,8 @@ mjT
 mjT
 mjT
 mjT
-lUP
-uau
+pAD
+hkj
 vuM
 oov
 sJn
@@ -202925,7 +202944,7 @@ mjT
 mjT
 mjT
 mjT
-lUP
+pAD
 xAO
 wzX
 vuM
