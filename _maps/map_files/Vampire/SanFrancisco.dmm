@@ -73256,19 +73256,6 @@
 	},
 /turf/open/floor/plating/vampdirt,
 /area/vtm/sewer)
-"tpX" = (
-/obj/machinery/light/small{
-	pixel_y = 32
-	},
-/obj/structure/vampipe{
-	pixel_y = 32
-	},
-/turf/open/floor/plating/vampcanal{
-	icon_state = "canal2";
-	baseicon = "canal2";
-	base_icon_state = "canal2"
-	},
-/area/vtm/sewer)
 "tqh" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4;
@@ -73744,7 +73731,7 @@
 /obj/structure/railing/metal{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/machinery/light/small/red{
 	dir = 1
 	},
 /turf/open/floor/plating/vampcanal{
@@ -87622,7 +87609,7 @@
 /area/vtm/interior/giovanni/outside)
 "xmn" = (
 /obj/structure/railing/metal,
-/obj/machinery/light/small{
+/obj/machinery/light/small/red{
 	pixel_y = 32
 	},
 /turf/open/floor/plating/vampcanal{
@@ -108108,9 +108095,9 @@ kZU
 tuX
 tuX
 tuX
-tpX
+rRF
 lNI
-kpY
+hsr
 tuX
 tuX
 tuX
@@ -108916,9 +108903,9 @@ tuX
 tuX
 tuX
 tuX
-tpX
+rRF
 lNI
-kpY
+hsr
 tuX
 tuX
 tuX
@@ -111541,11 +111528,11 @@ apJ
 apJ
 rld
 rld
-xmn
+gVi
 apJ
 apJ
 apJ
-txm
+ccn
 rld
 rld
 apJ
@@ -113359,11 +113346,11 @@ apJ
 apJ
 rld
 rld
-xmn
+gVi
 apJ
 apJ
 apJ
-txm
+ccn
 rld
 rld
 apJ
