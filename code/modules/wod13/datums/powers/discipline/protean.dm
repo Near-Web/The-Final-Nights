@@ -288,8 +288,14 @@
 	owner.do_jitter_animation(15)
 
 //MIST FORM
-/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/best
-	shapeshift_type = /mob/living/simple_animal/hostile/gangrel/best
+/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/mist
+	shapeshift_type = /mob/living/simple_animal/hostile/smokecrawler/mist
+
+/mob/living/simple_animal/hostile/smokecrawler/mist
+	name = "Mist"
+	desc = "Levitating Spritz of Water."
+	speed = -1
+	alpha = 10
 
 /datum/discipline_power/protean/mist_form
 	name = "Mist Form"
@@ -312,7 +318,7 @@
 		/datum/discipline_power/protean/warform
 	)
 
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/best/GA
+	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/mist/GA
 
 /datum/discipline_power/protean/mist_form/activate()
 	. = ..()

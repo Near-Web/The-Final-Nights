@@ -1442,6 +1442,7 @@
 	minbodytemp = 0
 	bloodpool = 0
 	maxbloodpool = 0
+	is_flying_animal = TRUE
 
 /mob/living/simple_animal/hostile/smokecrawler/hidden
 	alpha = 10
