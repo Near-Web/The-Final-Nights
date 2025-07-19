@@ -124,6 +124,7 @@
 		/mob/living/simple_animal/hostile/bear/wod13, \
 		/mob/living/simple_animal/hostile/beastmaster/rat/flying, \
 		/mob/living/simple_animal/hostile/beastmaster/shapeshift, \
+		/mob/living/simple_animal/pet/dog/corgi, \
 		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf, \
 		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/gray, \
 		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/red, \
@@ -234,12 +235,14 @@
 	owner.Stun(1.5 SECONDS)
 	owner.do_jitter_animation(30)
 
-/mob/living/simple_animal/hostile/gangrel/better
-	maxHealth = 325
-	health = 325
-	melee_damage_lower = 35
-	melee_damage_upper = 35
-	speed = -0.6
+/mob/living/simple_animal/hostile/gangrel/best
+	icon_state = "gangrel_m"
+	icon_living = "gangrel_m"
+	maxHealth = 400 //More in line with new health values.
+	health = 400
+	melee_damage_lower = 40
+	melee_damage_upper = 40
+	speed = -0.8
 
 //WARFORM
 
@@ -283,15 +286,6 @@
 	GA.Restore(GA.myshape)
 	owner.Stun(1 SECONDS)
 	owner.do_jitter_animation(15)
-
-/mob/living/simple_animal/hostile/gangrel/best
-	icon_state = "gangrel_m"
-	icon_living = "gangrel_m"
-	maxHealth = 400 //More in line with new health values.
-	health = 400
-	melee_damage_lower = 40
-	melee_damage_upper = 40
-	speed = -0.8
 
 //MIST FORM
 /obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/best

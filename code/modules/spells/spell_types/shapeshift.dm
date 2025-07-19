@@ -83,6 +83,8 @@
 	H = new(shape,src,caster)
 	if(HAS_TRAIT(caster, TRAIT_WARRIOR) && !HAS_TRAIT(shape, TRAIT_WARRIOR))
 		ADD_TRAIT(shape, TRAIT_WARRIOR, ROUNDSTART_TRAIT)
+	var/datum/action/transform_back/restore = new()
+	restore.Grant(shape)
 
 	clothes_req = FALSE
 	human_req = FALSE
