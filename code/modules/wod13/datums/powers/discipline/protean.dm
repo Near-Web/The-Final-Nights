@@ -111,6 +111,15 @@
 	dextrous = TRUE
 	held_items = list(null, null)
 
+/mob/living/simple_animal/hostile/gangrel/best
+	icon_state = "gangrel_m"
+	icon_living = "gangrel_m"
+	maxHealth = 400 //More in line with new health values.
+	health = 400
+	melee_damage_lower = 40
+	melee_damage_upper = 40
+	speed = -0.8
+
 //SHAPE OF THE BEAST
 /obj/effect/proc_holder/spell/targeted/shapeshift/gangrel
 	name = "Gangrel Form"
@@ -234,15 +243,6 @@
 	GA.Restore(GA.myshape)
 	owner.Stun(1.5 SECONDS)
 	owner.do_jitter_animation(30)
-
-/mob/living/simple_animal/hostile/gangrel/best
-	icon_state = "gangrel_m"
-	icon_living = "gangrel_m"
-	maxHealth = 400 //More in line with new health values.
-	health = 400
-	melee_damage_lower = 40
-	melee_damage_upper = 40
-	speed = -0.8
 
 //WARFORM
 
