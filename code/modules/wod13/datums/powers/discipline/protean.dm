@@ -12,6 +12,8 @@
 	activate_sound = 'code/modules/wod13/sounds/protean_activate.ogg'
 	deactivate_sound = 'code/modules/wod13/sounds/protean_deactivate.ogg'
 
+
+
 //EYES OF THE BEAST
 /datum/discipline_power/protean/eyes_of_the_beast
 	name = "Eyes of the Beast"
@@ -25,13 +27,6 @@
 
 	toggled = TRUE
 	var/original_eye_color
-
-	grouped_powers = list(
-		/datum/discipline_power/protean/feral_claws,
-		/datum/discipline_power/protean/shape_of_the_beast,
-		/datum/discipline_power/protean/warform,
-		/datum/discipline_power/protean/mist_form
-	)
 
 
 /datum/discipline_power/protean/eyes_of_the_beast/activate()
@@ -75,13 +70,6 @@
 
 	toggled = TRUE
 	duration_length = 2 TURNS
-
-	grouped_powers = list(
-		/datum/discipline_power/protean/eyes_of_the_beast,
-		/datum/discipline_power/protean/shape_of_the_beast,
-		/datum/discipline_power/protean/warform,
-		/datum/discipline_power/protean/mist_form
-	)
 
 /datum/discipline_power/protean/feral_claws/activate()
 	. = ..()
@@ -131,7 +119,80 @@
 	cooldown_min = 5 SECONDS
 	revert_on_death = TRUE
 	die_with_shapeshifted_form = FALSE
-	shapeshift_type = /mob/living/simple_animal/hostile/gangrel
+	shapeshift_type = null
+	possible_shapes = list(
+		/mob/living/simple_animal/hostile/bear/wod13, \
+		/mob/living/simple_animal/hostile/beastmaster/rat/flying, \
+		/mob/living/simple_animal/hostile/beastmaster/shapeshift, \
+		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf, \
+		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/gray, \
+		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/red, \
+		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/white, \
+		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/ginger, \
+		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/brown
+	)
+	var/non_gangrel_shapes = list(
+		/mob/living/simple_animal/hostile/beastmaster/rat/flying, \
+		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf
+	)
+	var/is_gangrel = FALSE
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/cast(list/targets,mob/user = usr)
+	if(src in user.mob_spell_list)
+		LAZYREMOVE(user.mob_spell_list, src)
+		user.mind.AddSpell(src)
+	if(user.buckled)
+		user.buckled.unbuckle_mob(src,force=TRUE)
+	for(var/mob/living/M in targets)
+		if(!shapeshift_type)
+			var/list/animal_list = list()
+			var/list/display_animals = list()
+			if(!is_gangrel)
+				for(var/path in non_gangrel_shapes)
+					var/mob/living/simple_animal/animal = path
+					animal_list[initial(animal.name)] = path
+					var/image/animal_image = image(icon = initial(animal.icon), icon_state = initial(animal.icon_state))
+					display_animals += list(initial(animal.name) = animal_image)
+			else
+				for(var/path in possible_shapes)
+					var/mob/living/simple_animal/animal = path
+					animal_list[initial(animal.name)] = path
+					var/image/animal_image = image(icon = initial(animal.icon), icon_state = initial(animal.icon_state))
+					display_animals += list(initial(animal.name) = animal_image)
+
+			sort_list(display_animals)
+			var/new_shapeshift_type = show_radial_menu(M, M, display_animals, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 38, require_near = TRUE)
+			if(shapeshift_type)
+				return
+			shapeshift_type = new_shapeshift_type
+			if(!shapeshift_type) //If you aren't gonna decide I am!
+				shapeshift_type = pick(animal_list)
+			shapeshift_type = animal_list[shapeshift_type]
+
+		var/obj/shapeshift_holder/S = locate() in M
+		if(S)
+			M = Restore(M)
+		else
+			M = Shapeshift(M)
+
+/datum/action/transform_back
+	name = "Return to Form"
+	desc = "Transform back to your original form."
+	button_icon_state = "protean"
+	button_icon = 'code/modules/wod13/UI/actions.dmi'
+	background_icon_state = "gift"
+	icon_icon = 'code/modules/wod13/UI/actions.dmi'
+	check_flags = AB_CHECK_CONSCIOUS
+
+/datum/action/transform_back/Trigger(trigger_flags)
+	. = ..()
+	var/obj/shapeshift_holder/Shape = locate() in owner
+	if(Shape)
+		. =  Shape.stored
+		Shape.restore()
+	else
+		to_chat(owner, "<span class='warning'>You cannot transform back to your original form as you are already in your original form. Unless you believe it is not?</span>")
+
 
 /datum/discipline_power/protean/shape_of_the_beast
 	name = "Shape of the Beast"
@@ -161,7 +222,11 @@
 	if (!GA)
 		GA = new(owner)
 	owner.drop_all_held_items()
-	GA.Shapeshift(owner)
+	if(GA.shapeshift_type)
+		GA.shapeshift_type = null
+	if(owner.clan?.name == CLAN_GANGREL)
+		GA.is_gangrel = TRUE
+	GA.cast(list(owner), owner)
 
 /datum/discipline_power/protean/shape_of_the_beast/deactivate()
 	. = ..()
@@ -179,7 +244,9 @@
 //WARFORM
 
 /obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/warform
-	shapeshift_type = /mob/living/simple_animal/hostile/gangrel/better
+	shapeshift_type = /mob/living/simple_animal/hostile/gangrel/best
+	possible_shapes = null
+	non_gangrel_shapes = null
 
 /datum/discipline_power/protean/warform
 	name = "War Form"
