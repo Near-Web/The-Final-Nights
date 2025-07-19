@@ -22896,6 +22896,12 @@
 /obj/effect/decal/wallpaper/light,
 /turf/closed/wall/vampwall/painted,
 /area/vtm/interior/techshop)
+"gmw" = (
+/obj/machinery/light/red{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/toilet,
+/area/vtm/interior/endron_facility)
 "gmz" = (
 /obj/effect/decal/crosswalk{
 	dir = 8
@@ -36315,6 +36321,7 @@
 /obj/item/hemostat{
 	pixel_x = 7
 	},
+/obj/item/cautery,
 /turf/open/floor/plating/circled{
 	color = "#b0b0b0"
 	},
@@ -45393,6 +45400,18 @@
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/vjanitor)
+"mhM" = (
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_y = 5;
+	pixel_x = -5
+	},
+/obj/item/pen{
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/wyrm_corrupted)
 "mhO" = (
 /obj/structure/railing/metal/corner{
 	dir = 8
@@ -87978,6 +87997,13 @@
 /obj/structure/vampdoor/wood/old,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/apartment)
+"xCi" = (
+/obj/structure/table,
+/obj/vampire_computer{
+	pixel_y = 5
+	},
+/turf/open/floor/plating/circled,
+/area/vtm/interior/wyrm_corrupted)
 "xCm" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10;
@@ -122679,8 +122705,8 @@ jcI
 tuX
 rCB
 mNZ
-iUv
-naj
+xCi
+mhM
 sIV
 mNZ
 vbd
@@ -163482,7 +163508,7 @@ fVC
 pij
 dsN
 kIU
-wzo
+gmw
 wzo
 kIU
 auX
