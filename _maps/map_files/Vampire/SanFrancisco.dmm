@@ -26542,6 +26542,15 @@
 /obj/item/clothing/under/vampire/mechanic,
 /obj/item/clothing/under/vampire/mechanic,
 /obj/item/clothing/under/vampire/mechanic,
+/obj/item/clothing/shoes/vampire/jackboots/work{
+	pixel_y = 7;
+	pixel_x = -6
+	},
+/obj/item/clothing/shoes/vampire/jackboots/work{
+	pixel_y = 5;
+	pixel_x = 6
+	},
+/obj/item/clothing/shoes/vampire/jackboots/work,
 /turf/open/floor/plating/industrial,
 /area/vtm/interior/shop)
 "hjc" = (
@@ -33293,6 +33302,21 @@
 /obj/effect/landmark/npcability,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/park)
+"iVF" = (
+/obj/structure/vampdoor/reinf{
+	lock_id = "pentex";
+	lockpick_difficulty = 18;
+	dir = 8;
+	locked = 1
+	},
+/obj/effect/decal/bordur{
+	dir = 4
+	},
+/obj/effect/decal/bordur{
+	dir = 8
+	},
+/turf/open/floor/plating/rough,
+/area/vtm/interior/endron_facility/plant)
 "iVI" = (
 /obj/effect/decal/fakelattice,
 /obj/structure/methlab,
@@ -37583,7 +37607,7 @@
 	},
 /obj/structure/vampdoor/glass{
 	dir = 8;
-	lockpick_difficulty = 15;
+	lockpick_difficulty = 18;
 	lock_id = "kiasyd";
 	locked = 1
 	},
@@ -41856,14 +41880,13 @@
 /area/vtm/interior/littleitaly)
 "lhH" = (
 /obj/structure/rack/bubway/west,
-/obj/item/storage/box/emptysandbags,
-/obj/item/storage/box/emptysandbags{
-	pixel_y = 5;
-	pixel_x = -5
+/obj/item/melee/vampirearms/shovel,
+/obj/item/melee/vampirearms/shovel{
+	pixel_x = 3;
+	pixel_y = 13
 	},
-/obj/item/storage/box/emptysandbags{
-	pixel_y = 8;
-	pixel_x = 6
+/obj/item/melee/vampirearms/shovel{
+	pixel_y = 7
 	},
 /turf/open/floor/plating/industrial,
 /area/vtm/interior/shop)
@@ -43196,7 +43219,7 @@
 	},
 /obj/structure/vampdoor/reinf{
 	lock_id = "pentex";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 18;
 	dir = 1;
 	locked = 1
 	},
@@ -51684,14 +51707,14 @@
 /area/vtm/pacificheights/forest)
 "nHI" = (
 /obj/structure/rack/bubway/east,
-/obj/item/clothing/shoes/vampire/jackboots/work,
-/obj/item/clothing/shoes/vampire/jackboots/work{
-	pixel_y = 5;
-	pixel_x = 6
+/obj/item/hand_labeler,
+/obj/item/hand_labeler{
+	pixel_y = 4;
+	pixel_x = 5
 	},
-/obj/item/clothing/shoes/vampire/jackboots/work{
-	pixel_y = 7;
-	pixel_x = -6
+/obj/item/hand_labeler{
+	pixel_y = 4;
+	pixel_x = -4
 	},
 /turf/open/floor/plating/industrial,
 /area/vtm/interior/shop)
@@ -58474,8 +58497,8 @@
 	pixel_y = 5;
 	pixel_x = 9
 	},
-/obj/item/ammo_box/vampire/c44,
-/obj/item/ammo_box/vampire/c44,
+/obj/item/ammo_box/vampire/c9mm,
+/obj/item/ammo_box/vampire/c9mm,
 /turf/open/floor/plating/stone,
 /area/vtm/forest/caves)
 "pst" = (
@@ -59400,7 +59423,8 @@
 /area/vtm/interior/tzimisce_manor)
 "pFT" = (
 /obj/structure/vampdoor/anarch{
-	dir = 8
+	dir = 8;
+	lockpick_difficulty = 18
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
@@ -132758,7 +132782,7 @@ goA
 goA
 goA
 goA
-kLG
+iVF
 goA
 goA
 wiu
