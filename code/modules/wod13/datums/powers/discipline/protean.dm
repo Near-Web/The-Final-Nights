@@ -26,6 +26,14 @@
 	toggled = TRUE
 	var/original_eye_color
 
+	grouped_powers = list(
+		/datum/discipline_power/protean/feral_claws,
+		/datum/discipline_power/protean/shape_of_the_beast,
+		/datum/discipline_power/protean/warform,
+		/datum/discipline_power/protean/mist_form
+	)
+
+
 /datum/discipline_power/protean/eyes_of_the_beast/activate()
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_PROTEAN_VISION, TRAIT_GENERIC)
@@ -69,8 +77,9 @@
 	duration_length = 2 TURNS
 
 	grouped_powers = list(
-		/datum/discipline_power/protean/earth_meld,
+		/datum/discipline_power/protean/eyes_of_the_beast,
 		/datum/discipline_power/protean/shape_of_the_beast,
+		/datum/discipline_power/protean/warform,
 		/datum/discipline_power/protean/mist_form
 	)
 
@@ -114,7 +123,7 @@
 	dextrous = TRUE
 	held_items = list(null, null)
 
-//EARTH MELD
+//SHAPE OF THE BEAST
 /obj/effect/proc_holder/spell/targeted/shapeshift/gangrel
 	name = "Gangrel Form"
 	desc = "Take on the shape a wolf."
@@ -124,9 +133,9 @@
 	die_with_shapeshifted_form = FALSE
 	shapeshift_type = /mob/living/simple_animal/hostile/gangrel
 
-/datum/discipline_power/protean/earth_meld
-	name = "Earth Meld"
-	desc = "Hide yourself in the earth itself."
+/datum/discipline_power/protean/shape_of_the_beast
+	name = "Shape of the Beast"
+	desc = "Assume the form of an animal and retain your power."
 
 	level = 3
 
@@ -139,21 +148,22 @@
 	cooldown_length = 20 SECONDS
 
 	grouped_powers = list(
+		/datum/discipline_power/protean/eyes_of_the_beast,
 		/datum/discipline_power/protean/feral_claws,
-		/datum/discipline_power/protean/shape_of_the_beast,
+		/datum/discipline_power/protean/warform
 		/datum/discipline_power/protean/mist_form
 	)
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/GA
 
-/datum/discipline_power/protean/earth_meld/activate()
+/datum/discipline_power/protean/shape_of_the_beast/activate()
 	. = ..()
 	if (!GA)
 		GA = new(owner)
 	owner.drop_all_held_items()
 	GA.Shapeshift(owner)
 
-/datum/discipline_power/protean/earth_meld/deactivate()
+/datum/discipline_power/protean/shape_of_the_beast/deactivate()
 	. = ..()
 	GA.Restore(GA.myshape)
 	owner.Stun(1.5 SECONDS)
@@ -166,13 +176,14 @@
 	melee_damage_upper = 35
 	speed = -0.6
 
-//SHAPE OF THE BEAST
-/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/better
+//WARFORM
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/warform
 	shapeshift_type = /mob/living/simple_animal/hostile/gangrel/better
 
-/datum/discipline_power/protean/shape_of_the_beast
-	name = "Shape of the Beast"
-	desc = "Assume the form of an animal and retain your power."
+/datum/discipline_power/protean/warform
+	name = "War Form"
+	desc = "Unleash your inner Beast."
 
 	level = 4
 
@@ -185,21 +196,22 @@
 	cooldown_length = 20 SECONDS
 
 	grouped_powers = list(
+		/datum/discipline_power/protean/eyes_of_the_beast,
 		/datum/discipline_power/protean/feral_claws,
-		/datum/discipline_power/protean/earth_meld,
+		/datum/discipline_power/protean/shape_of_the_beast,
 		/datum/discipline_power/protean/mist_form
 	)
 
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/better/GA
+	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/warform/GA
 
-/datum/discipline_power/protean/shape_of_the_beast/activate()
+/datum/discipline_power/protean/warform/activate()
 	. = ..()
 	if (!GA)
 		GA = new(owner)
 	owner.drop_all_held_items()
 	GA.Shapeshift(owner)
 
-/datum/discipline_power/protean/shape_of_the_beast/deactivate()
+/datum/discipline_power/protean/warform/deactivate()
 	. = ..()
 	GA.Restore(GA.myshape)
 	owner.Stun(1 SECONDS)
@@ -233,9 +245,10 @@
 	cooldown_length = 20 SECONDS
 
 	grouped_powers = list(
+		/datum/discipline_power/protean/eyes_of_the_beast,
 		/datum/discipline_power/protean/feral_claws,
-		/datum/discipline_power/protean/earth_meld,
-		/datum/discipline_power/protean/shape_of_the_beast
+		/datum/discipline_power/protean/shape_of_the_beast,
+		/datum/discipline_power/protean/warform
 	)
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/best/GA
