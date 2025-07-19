@@ -150,7 +150,7 @@
 	grouped_powers = list(
 		/datum/discipline_power/protean/eyes_of_the_beast,
 		/datum/discipline_power/protean/feral_claws,
-		/datum/discipline_power/protean/warform
+		/datum/discipline_power/protean/warform,
 		/datum/discipline_power/protean/mist_form
 	)
 
