@@ -1,47 +1,3 @@
-/obj/item/arcane_tome
-	name = "arcane tome"
-	desc = "The secrets of Blood Magic..."
-	icon_state = "arcane"
-	icon = 'code/modules/wod13/items.dmi'
-	onflooricon = 'code/modules/wod13/onfloor.dmi'
-	w_class = WEIGHT_CLASS_SMALL
-	is_magic = TRUE
-	var/list/rituals = list()
-
-/obj/item/arcane_tome/Initialize()
-	. = ..()
-	for(var/i in subtypesof(/obj/ritualrune))
-		if(i)
-			var/obj/ritualrune/R = new i(src)
-			rituals |= R
-
-/obj/item/arcane_tome/attack_self(mob/user)
-	. = ..()
-	for(var/obj/ritualrune/R in rituals)
-		if(R)
-			if(R.sacrifices.len > 0)
-				var/list/required_items = list()
-				for(var/item_type in R.sacrifices)
-					var/obj/item/I = new item_type(src)
-					required_items += I.name
-					qdel(I)
-				var/required_list
-				if(required_items.len == 1)
-					required_list = required_items[1]
-				else
-					for(var/item_name in required_items)
-						required_list += (required_list == "" ? item_name : ", [item_name]")
-				to_chat(user, "[R.thaumlevel] [R.name] - [R.desc] Requirements: [required_list].")
-			else
-				to_chat(user, "[R.thaumlevel] [R.name] - [R.desc]")
-
-/datum/crafting_recipe/arctome
-	name = "Arcane Tome"
-	time = 10 SECONDS
-	reqs = list(/obj/item/paper = 3, /obj/item/reagent_containers/blood = 2)
-	result = /obj/item/arcane_tome
-	always_available = FALSE
-	category = CAT_MISC
 
 /obj/ritualrune
 	name = "Tremere Rune"
@@ -63,7 +19,7 @@
 /obj/ritualrune/attack_hand(mob/user)
 	if(!activated)
 		var/mob/living/L = user
-		if(L.thaumaturgy_knowledge)
+		if(HAS_TRAIT(L, TRAIT_THAUMATURGY_KNOWLEDGE))
 			L.say(word)
 			L.Immobilize(30)
 			last_activator = user
@@ -400,14 +356,15 @@
 /obj/ritualrune/curse/attack_hand(mob/user)
 	if(!activated)
 		var/mob/living/L = user
-		if(L.thaumaturgy_knowledge)
-			L.say(word)
-			L.Immobilize(30)
-			last_activator = user
-			activator_bonus = L.thaum_damage_plus
-			animate(src, color = rgb(255, 64, 64), time = 10)
-			complete()
-			addtimer(CALLBACK(src, PROC_REF(start_curse), user), 1 SECONDS)
+		if(!HAS_TRAIT(L, TRAIT_THAUMATURGY_KNOWLEDGE))
+			return
+		L.say(word)
+		L.Immobilize(30)
+		last_activator = user
+		activator_bonus = L.thaum_damage_plus
+		animate(src, color = rgb(255, 64, 64), time = 10)
+		complete()
+		addtimer(CALLBACK(src, PROC_REF(start_curse), user), 1 SECONDS)
 		return
 
 	// If already activated but not channeling, allow restarting
