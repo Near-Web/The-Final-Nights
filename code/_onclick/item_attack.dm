@@ -353,8 +353,8 @@
 					head.add_mob_blood(src)
 				if(glasses && prob(33))
 					glasses.add_mob_blood(src)
-
-			if(!attacking_item.get_sharpness() && armor_block < 50)
+/* //TFN REMOVAL START
+ 			if(!attacking_item.get_sharpness() && armor_block < 50)
 				if(prob(damage_done))
 					adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
 					if(stat == CONSCIOUS)
@@ -369,7 +369,8 @@
 						gain_trauma(/datum/brain_trauma/mild/concussion)
 				else
 					adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_done * 0.2)
-
+ */ 
+ // TFN REMOVAL END
 				// rev deconversion through blunt trauma.
 				// this can be signalized to the rev datum
 				if(mind && stat == CONSCIOUS && src != attacker && prob(damage_done + ((100 - health) * 0.5)))
