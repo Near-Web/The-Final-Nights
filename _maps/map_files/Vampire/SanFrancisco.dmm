@@ -1463,6 +1463,24 @@
 	},
 /turf/open/floor/plating/bacotell,
 /area/vtm/interior/cog/pantry)
+"atK" = (
+/obj/structure/railing{
+	dir = 4;
+	plane = 4;
+	pixel_y = 3
+	},
+/obj/structure/chair/wood/wings{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	color = "#9a704a";
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/jazzclub)
 "atR" = (
 /turf/open/floor/plating/stone,
 /area/vtm/forest/caves)
@@ -3158,6 +3176,10 @@
 	},
 /turf/open/floor/plating/bacotell,
 /area/vtm/clinic/haven)
+"aTo" = (
+/obj/item/mop/advanced,
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "aTp" = (
 /obj/structure/bed/maint,
 /obj/item/restraints/handcuffs/cable,
@@ -3320,6 +3342,16 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/banu/haven)
+"aWe" = (
+/obj/structure/vampdoor/wood{
+	dir = 1;
+	lock_id = "ventrue";
+	lockpick_difficulty = 12
+	},
+/turf/open/floor/plating/toilet{
+	color = "#919191"
+	},
+/area/vtm/jazzclub)
 "aWh" = (
 /obj/effect/decal/bordur{
 	dir = 6
@@ -3553,7 +3585,8 @@
 /area/vtm/interior/cog/caern)
 "aZA" = (
 /obj/structure/vampdoor/glass/clinic{
-	name = "Storage"
+	name = "Storage";
+	lockpick_difficulty = 16
 	},
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/clinic)
@@ -4856,6 +4889,15 @@
 	},
 /turf/open/floor/plating/vampdirt,
 /area/vtm/sewer/nosferatu_warren)
+"btH" = (
+/obj/structure/table,
+/obj/item/clothing/suit/toggle/chef,
+/obj/item/clothing/head/chefhat{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/turf/open/floor/plating/church,
+/area/vtm/jazzclub)
 "btN" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -4958,7 +5000,8 @@
 "bvn" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 8;
-	id = 131
+	id = 131;
+	icon = 'icons/obj/doors/shutters_topless.dmi'
 	},
 /turf/closed/wall/vampwall/metal/glass,
 /area/vtm/interior/wyrm_corrupted)
@@ -5495,8 +5538,7 @@
 	dir = 8;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 5467;
@@ -6263,14 +6305,6 @@
 	},
 /turf/open/floor/plating/shit,
 /area/vtm/sewer/nosferatu_warren)
-"bMf" = (
-/obj/machinery/light/prince{
-	light_power = 0.45;
-	name = "dim light fixture";
-	dir = 8
-	},
-/turf/open/floor/carpet/red,
-/area/vtm/jazzclub)
 "bMo" = (
 /turf/open/floor/carpet/black,
 /area/vtm/interior/strip)
@@ -6482,7 +6516,7 @@
 	},
 /obj/structure/vampdoor/glass/pentex{
 	dir = 1;
-	lockpick_difficulty = 16
+	lockpick_difficulty = 18
 	},
 /obj/effect/vip_barrier/endron/endron_2,
 /turf/open/floor/plating/sidewalk/poor,
@@ -8137,8 +8171,7 @@
 	dir = 8;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/effect/decal/rugs,
 /turf/open/floor/plating/vampcanalplating,
@@ -8215,8 +8248,7 @@
 /area/vtm/financialdistrict/construction)
 "cmC" = (
 /obj/effect/turf_decal/siding/wideplating{
-	color = "#802d29";
-	dir = 6
+	color = "#802d29"
 	},
 /obj/structure/mirror{
 	pixel_y = 32
@@ -8923,7 +8955,8 @@
 	dir = 4
 	},
 /obj/structure/vampdoor/wood/giovanni/high_security{
-	dir = 4
+	dir = 4;
+	lockpick_difficulty = 18
 	},
 /turf/open/floor/plating/toilet{
 	color = "#919191"
@@ -9346,8 +9379,7 @@
 	dir = 8;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/effect/decal/trash,
 /turf/open/floor/plating/shit,
@@ -9996,7 +10028,7 @@
 	},
 /area/vtm/sewer)
 "cLW" = (
-/obj/effect/decal/pallet,
+/obj/structure/closet/crate/bin,
 /turf/open/floor/plating/church,
 /area/vtm/jazzclub)
 "cLX" = (
@@ -10368,7 +10400,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "cQt" = (
 /obj/machinery/camera/directional/east,
 /turf/open/floor/plating/vampcanalplating,
@@ -11738,6 +11770,13 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/church/interior)
+"dji" = (
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/obj/item/clothing/neck/vampire/prayerbeads,
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "djk" = (
 /obj/effect/landmark/npcability,
 /obj/effect/landmark/npcbeacon,
@@ -12664,7 +12703,7 @@
 	dir = 1;
 	lock_id = "prince";
 	locked = 1;
-	lockpick_difficulty = 16
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f3)
@@ -14680,8 +14719,7 @@
 	dir = 8;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /turf/open/floor/plating/vampcanalplating,
 /area/vtm/sewer)
@@ -15189,6 +15227,25 @@
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/sewer)
+"egA" = (
+/obj/item/candle/infinite{
+	anchored = 1
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_x = -10;
+	pixel_y = -4
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_x = 10;
+	pixel_y = -4
+	},
+/obj/effect/decal/bordur{
+	dir = 1
+	},
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "egE" = (
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/baali)
@@ -16512,7 +16569,7 @@
 "eAK" = (
 /obj/structure/vampdoor/wood{
 	lock_id = "primBanu";
-	lockpick_difficulty = 18;
+	lockpick_difficulty = 24;
 	locked = 1;
 	dir = 8
 	},
@@ -17222,7 +17279,7 @@
 	},
 /obj/structure/vampdoor/wood{
 	lock_id = "primVentrue";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 24;
 	locked = 1
 	},
 /turf/open/floor/plating/parquetry,
@@ -17935,10 +17992,10 @@
 "eSX" = (
 /obj/structure/vampdoor/wood{
 	lock_id = "clinic";
-	lockpick_difficulty = 16;
 	locked = 1;
 	name = "Office";
-	dir = 8
+	dir = 8;
+	lockpick_difficulty = 4
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 8;
@@ -18345,8 +18402,7 @@
 	dir = 1;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 5467;
@@ -19230,7 +19286,8 @@
 "fiA" = (
 /obj/effect/decal/bordur,
 /obj/structure/vampdoor/glass/prince{
-	lock_id = "giovanni"
+	lock_id = "giovanni";
+	lockpick_difficulty = 18
 	},
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/giovanni)
@@ -19282,8 +19339,7 @@
 	dir = 8;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
@@ -19343,6 +19399,8 @@
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/condiment/milk,
 /obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
 /obj/item/reagent_containers/blood/random,
 /obj/item/reagent_containers/blood/random,
 /turf/open/floor/plating/bacotell,
@@ -23035,7 +23093,7 @@
 /turf/closed/wall/vampwall/painted,
 /area/vtm/interior/techshop)
 "gmw" = (
-/obj/machinery/light/red{
+/obj/machinery/light{
 	pixel_y = 32
 	},
 /turf/open/floor/plating/toilet,
@@ -23522,7 +23580,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "guf" = (
 /turf/open/floor/plating/toilet,
 /area/vtm/clinic/haven)
@@ -24107,7 +24165,8 @@
 /area/vtm/sewer/nosferatu_bar)
 "gCw" = (
 /obj/structure/vampdoor/wood/giovanni/high_security{
-	dir = 4
+	dir = 4;
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/giovanni)
@@ -24324,8 +24383,7 @@
 	dir = 1;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/effect/decal/trash,
 /turf/open/floor/plating/vampcanalplating,
@@ -24436,7 +24494,9 @@
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/littleitaly/apartments)
 "gGH" = (
-/obj/structure/vampdoor/wood/giovanni/high_security,
+/obj/structure/vampdoor/wood/giovanni/high_security{
+	lockpick_difficulty = 24
+	},
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/giovanni)
 "gGJ" = (
@@ -24945,7 +25005,7 @@
 	color = "#636363"
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "gNf" = (
 /obj/structure/chair/office,
 /turf/open/floor/plating/parquetry/old,
@@ -25440,6 +25500,9 @@
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/sugar,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
 /turf/open/floor/plating/church,
 /area/vtm/jazzclub)
 "gVq" = (
@@ -28872,6 +28935,22 @@
 	},
 /turf/open/floor/plating/shit/border,
 /area/vtm/sewer)
+"hPF" = (
+/obj/item/candle/infinite{
+	anchored = 1
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_x = 4;
+	pixel_y = 10
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_x = 4;
+	pixel_y = -10
+	},
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "hPJ" = (
 /obj/structure/lattice/pentex,
 /turf/open/floor/plasteel/dark,
@@ -29070,7 +29149,8 @@
 	},
 /obj/structure/vampdoor/wood/pentex{
 	dir = 8;
-	lock_id = "pentexleader"
+	lock_id = "pentexleader";
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/endron_facility/restricted)
@@ -29587,7 +29667,7 @@
 	pixel_y = 19
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "hZF" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/bowl/mushroom_bowl{
@@ -31441,7 +31521,7 @@
 	color = "#636363"
 	},
 /turf/open/floor/circuit/telecomms/normal_temp,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "iwa" = (
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
@@ -32348,10 +32428,13 @@
 /area/vtm/baywalk)
 "iJF" = (
 /obj/structure/table,
-/obj/item/clothing/suit/toggle/chef,
-/obj/item/clothing/head/chefhat{
-	pixel_y = 11;
-	pixel_x = 6
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_y = 3;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_y = 6;
+	pixel_x = 8
 	},
 /turf/open/floor/plating/toilet{
 	color = "#919191"
@@ -33281,8 +33364,7 @@
 	dir = 1;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /turf/open/floor/plating/vampcanalplating,
 /area/vtm/sewer/nosferatu_warren)
@@ -33305,7 +33387,7 @@
 "iVF" = (
 /obj/structure/vampdoor/reinf{
 	lock_id = "pentex";
-	lockpick_difficulty = 18;
+	lockpick_difficulty = 24;
 	dir = 8;
 	locked = 1
 	},
@@ -33325,7 +33407,7 @@
 "iVZ" = (
 /obj/structure/vampdoor/wood{
 	lock_id = "primVentrue";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 24;
 	locked = 1
 	},
 /turf/open/floor/plating/parquetry,
@@ -33616,7 +33698,7 @@
 /area/vtm/financialdistrict)
 "jan" = (
 /obj/structure/vampdoor/wood{
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 24;
 	lock_id = "bar";
 	locked = 1
 	},
@@ -34581,16 +34663,18 @@
 /turf/open/floor/plating/vampgrass,
 /area/vtm/financialdistrict)
 "jnK" = (
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#802d29";
-	dir = 4
+/obj/structure/toilet{
+	dir = 4;
+	pixel_y = 12
 	},
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/vampire/business,
-/obj/item/clothing/under/vampire/primogen_toreador/female,
-/obj/item/clothing/under/vampire/suit/female,
-/obj/item/clothing/under/vampire/ventrue/female,
-/turf/open/floor/plating/parquetry,
+/obj/machinery/light/prince{
+	pixel_y = 32;
+	light_power = 0.45;
+	name = "dim light fixture"
+	},
+/turf/open/floor/plating/toilet{
+	color = "#919191"
+	},
 /area/vtm/jazzclub)
 "jnQ" = (
 /obj/item/kirbyplants/random,
@@ -35111,7 +35195,7 @@
 	color = "#636363"
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "jus" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/plating/vampgrass,
@@ -35359,8 +35443,7 @@
 	dir = 1;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/sewer/nosferatu_warren)
@@ -36117,6 +36200,10 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/shop)
+"jJE" = (
+/obj/item/storage/book/bible,
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "jJF" = (
 /obj/structure/table/wood/fancy/red,
 /obj/machinery/fax/tremere,
@@ -37607,7 +37694,7 @@
 	},
 /obj/structure/vampdoor/glass{
 	dir = 8;
-	lockpick_difficulty = 18;
+	lockpick_difficulty = 24;
 	lock_id = "kiasyd";
 	locked = 1
 	},
@@ -37738,7 +37825,7 @@
 	},
 /obj/structure/vampdoor/reinf{
 	lock_id = "pentex";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 20;
 	dir = 1;
 	locked = 1
 	},
@@ -38451,6 +38538,10 @@
 /obj/machinery/button/door{
 	pixel_y = 6;
 	id = 122
+	},
+/obj/machinery/button/door{
+	pixel_y = 14;
+	id = 121
 	},
 /turf/open/floor/plating/circled,
 /area/vtm/interior/wyrm_corrupted)
@@ -41122,6 +41213,9 @@
 /obj/item/storage/bag/trash,
 /obj/item/pushbroom,
 /obj/item/pushbroom,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/vjanitor)
 "kYk" = (
@@ -41813,7 +41907,7 @@
 	color = "#636363"
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "lgI" = (
 /obj/effect/decal/bordur/corner{
 	dir = 8
@@ -42687,7 +42781,7 @@
 	},
 /obj/machinery/telecomms/hub,
 /turf/open/floor/circuit/telecomms/normal_temp,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "lrt" = (
 /obj/effect/decal/wallpaper/padded,
 /turf/closed/wall/vampwall/city,
@@ -43219,7 +43313,7 @@
 	},
 /obj/structure/vampdoor/reinf{
 	lock_id = "pentex";
-	lockpick_difficulty = 18;
+	lockpick_difficulty = 24;
 	dir = 1;
 	locked = 1
 	},
@@ -43767,7 +43861,7 @@
 	dir = 4;
 	lock_id = "prince";
 	locked = 1;
-	lockpick_difficulty = 16
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f3)
@@ -44445,8 +44539,7 @@
 	dir = 8;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -46548,7 +46641,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "mrT" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
@@ -46621,7 +46714,7 @@
 "msS" = (
 /obj/structure/vampdoor/chantry{
 	dir = 8;
-	lockpick_difficulty = 18
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/chantry)
@@ -47255,7 +47348,7 @@
 "mBL" = (
 /obj/structure/vampdoor/reinf{
 	lock_id = "pentex";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 20;
 	dir = 8;
 	locked = 1
 	},
@@ -47664,6 +47757,7 @@
 	name = "dim light fixture";
 	pixel_x = -16
 	},
+/obj/item/kitchen/rollingpin,
 /turf/open/floor/plating/toilet{
 	color = "#919191"
 	},
@@ -47997,7 +48091,7 @@
 	pixel_y = 19
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "mMa" = (
 /obj/structure/musician/piano{
 	icon_state = "piano";
@@ -48697,7 +48791,7 @@
 /turf/open/floor/plasteel/stairs{
 	dir = 8
 	},
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "mTF" = (
 /obj/structure/chair/red{
 	dir = 1
@@ -49700,7 +49794,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/parquetry/old,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "neO" = (
 /obj/structure/table/wood,
 /obj/item/storage/secure/briefcase{
@@ -50492,6 +50586,9 @@
 	},
 /turf/open/floor/plating/parquetry/rich,
 /area/vtm/interior/bianchiBank)
+"nrq" = (
+/turf/closed/wall/vampwall/painted,
+/area/vtm/interior/glasswalker)
 "nrt" = (
 /obj/structure/vampdoor/wood{
 	lock_id = "bianchiBank";
@@ -52512,16 +52609,6 @@
 	color = "#919191"
 	},
 /area/vtm/interior)
-"nQh" = (
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#802d29";
-	dir = 4
-	},
-/obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/vampire/heels,
-/obj/item/clothing/shoes/vampire/heels/red,
-/turf/open/floor/plating/parquetry,
-/area/vtm/jazzclub)
 "nQo" = (
 /obj/structure/railing/metal/corner{
 	dir = 1
@@ -52989,8 +53076,7 @@
 	dir = 1;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 5467;
@@ -53128,6 +53214,14 @@
 	},
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower)
+"nZe" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = 121;
+	icon = 'icons/obj/doors/shutters_topless.dmi'
+	},
+/turf/closed/wall/vampwall/metal/glass,
+/area/vtm/interior/wyrm_corrupted)
 "nZi" = (
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
@@ -53316,7 +53410,7 @@
 	dir = 8
 	},
 /obj/structure/vampdoor/wood{
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 24;
 	lock_id = "bar";
 	locked = 1;
 	dir = 4
@@ -54144,11 +54238,6 @@
 /obj/effect/turf_decal/siding/white,
 /turf/open/floor/carpet,
 /area/vtm/interior/bianchiBank)
-"olo" = (
-/obj/effect/decal/bordur,
-/obj/item/binoculars,
-/turf/open/floor/plating/roofwalk,
-/area/vtm)
 "olt" = (
 /obj/effect/decal/wallpaper/light/low{
 	color = "#509462"
@@ -55949,7 +56038,6 @@
 /obj/structure/vampdoor/reinf{
 	lock_id = "npc";
 	locked = 1;
-	lockpick_difficulty = 18;
 	dir = 4
 	},
 /turf/open/floor/plating/parquetry/old,
@@ -56381,6 +56469,7 @@
 /obj/item/storage/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/blood/random,
 /turf/open/floor/plating/toilet,
 /area/vtm/interior/tzimisce_manor)
 "oPn" = (
@@ -56766,7 +56855,7 @@
 	dir = 4;
 	lock_id = "prince";
 	locked = 1;
-	lockpick_difficulty = 16
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/plating/parquetry/rich,
 /area/vtm/interior/millennium_tower/f3)
@@ -56775,8 +56864,7 @@
 	dir = 1;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/effect/decal/rugs,
 /turf/open/floor/plating/rough/cave,
@@ -57866,7 +57954,7 @@
 /obj/structure/table,
 /obj/vampire_computer,
 /turf/open/floor/circuit/telecomms/normal_temp,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "pko" = (
 /obj/structure/railing/metal{
 	dir = 4
@@ -58409,7 +58497,7 @@
 	color = "#636363"
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "prs" = (
 /turf/open/openspace,
 /area/vtm/supply)
@@ -58811,7 +58899,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "pwS" = (
 /turf/open/floor/plating/dirt,
 /area/vtm/anarch/basement)
@@ -60862,13 +60950,6 @@
 "qbe" = (
 /turf/open/floor/plasteel/stairs,
 /area/vtm/fishermanswharf/lower)
-"qbh" = (
-/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
-	id = 9285;
-	pixel_y = 15
-	},
-/turf/closed/wall/vampwall/rich/old/low/window,
-/area/vtm/interior/endron_facility/restricted)
 "qbk" = (
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/flora/grass/jungle/b,
@@ -61853,7 +61934,7 @@
 /obj/structure/table,
 /obj/machinery/bitcoin_miner,
 /turf/open/floor/circuit/telecomms/normal_temp,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "qlN" = (
 /obj/structure/vampdoor/children_of_gaia{
 	lockpick_difficulty = 16
@@ -62494,8 +62575,7 @@
 	dir = 8;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/sewer)
@@ -63180,6 +63260,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior/giovanni)
+"qEb" = (
+/obj/effect/decal/wallpaper/blue,
+/turf/closed/wall/vampwall/painted,
+/area/vtm/interior/glasswalker)
 "qEc" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -64132,7 +64216,9 @@
 /turf/open/floor/plating/vampwood,
 /area/vtm/fishermanswharf)
 "qQe" = (
-/obj/structure/vampdoor/glass/prince,
+/obj/structure/vampdoor/glass/prince{
+	lockpick_difficulty = 24
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f3)
 "qQf" = (
@@ -64647,6 +64733,16 @@
 /obj/item/food/spaghetti,
 /turf/open/floor/plating/church,
 /area/vtm/jazzclub)
+"qWz" = (
+/obj/structure/sink{
+	pixel_y = 16;
+	plane = 3
+	},
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/church,
+/area/vtm/jazzclub)
 "qWR" = (
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
@@ -64921,7 +65017,7 @@
 "rbq" = (
 /obj/structure/vampdoor/reinf{
 	lock_id = "pentex";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 20;
 	dir = 8;
 	locked = 1
 	},
@@ -65004,7 +65100,7 @@
 "rcf" = (
 /obj/structure/vampdoor/reinf{
 	lock_id = "pentex";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 20;
 	dir = 8;
 	locked = 1
 	},
@@ -67087,7 +67183,8 @@
 /area/vtm/interior/tzimisce_manor)
 "rFi" = (
 /obj/structure/vampdoor/wood/giovanni{
-	dir = 8
+	dir = 8;
+	lockpick_difficulty = 18
 	},
 /obj/effect/decal/bordur{
 	dir = 8
@@ -68027,11 +68124,13 @@
 /area/vtm/interior/littleitaly)
 "rTB" = (
 /obj/structure/table,
-/obj/item/flashlight/lamp,
 /obj/elevator_button{
 	anchored = 1;
 	id = 22;
 	pixel_y = 30
+	},
+/obj/machinery/p25transceiver/endron{
+	pixel_y = 8
 	},
 /turf/open/floor/plating/vampplating,
 /area/vtm/interior/endron_facility/restricted)
@@ -68340,6 +68439,15 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/vampdirt,
 /area/vtm/pacificheights)
+"rZt" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 10
+	},
+/turf/open/floor/plating/toilet{
+	color = "#919191"
+	},
+/area/vtm/jazzclub)
 "rZw" = (
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -68934,7 +69042,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "sgM" = (
 /obj/effect/decal/cardboard,
 /turf/open/floor/plating/concrete,
@@ -69759,6 +69867,8 @@
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 8
 	},
+/obj/item/instrument/piano_synth,
+/obj/item/instrument/eguitar,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/anarch)
 "sto" = (
@@ -69852,7 +69962,7 @@
 	dir = 4;
 	lock_id = "primMalkav";
 	name = "Reflection Room";
-	lockpick_difficulty = 16
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/plating/toilet,
 /area/vtm/clinic/haven)
@@ -70570,6 +70680,7 @@
 /obj/item/storage/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/blood/random,
 /turf/open/floor/plating/toilet,
 /area/vtm/interior/tzimisce_manor)
 "sEW" = (
@@ -71235,8 +71346,7 @@
 	dir = 8;
 	lock_id = "nosferatu";
 	locked = 1;
-	lockpick_difficulty = 20;
-	name = "old strange door"
+	lockpick_difficulty = 20
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 5467;
@@ -72394,6 +72504,22 @@
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility/restricted)
+"tfn" = (
+/obj/item/candle/infinite{
+	anchored = 1
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_y = 10;
+	pixel_x = -4
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_y = -10;
+	pixel_x = -4
+	},
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "tfo" = (
 /obj/structure/rack/bubway/west,
 /obj/item/screwdriver{
@@ -72565,6 +72691,16 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/anarch)
+"thx" = (
+/obj/machinery/light/prince{
+	light_power = 0.45;
+	name = "dim light fixture";
+	dir = 8
+	},
+/turf/open/floor/plating/toilet{
+	color = "#919191"
+	},
+/area/vtm/jazzclub)
 "thI" = (
 /obj/effect/turf_decal/siding/white,
 /obj/structure/table,
@@ -74160,6 +74296,8 @@
 /obj/structure/janitorialcart,
 /obj/item/mop,
 /obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/vjanitor)
 "tDr" = (
@@ -75463,20 +75601,6 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/ghetto)
-"tUq" = (
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#802d29";
-	dir = 4
-	},
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/vampire/fancy_gray,
-/obj/item/clothing/under/vampire/fancy_red,
-/obj/item/clothing/under/vampire/primogen_toreador,
-/obj/item/clothing/under/vampire/rich,
-/obj/item/clothing/under/vampire/sexy,
-/obj/item/clothing/under/vampire/ventrue,
-/turf/open/floor/plating/parquetry,
-/area/vtm/jazzclub)
 "tUu" = (
 /obj/machinery/washing_machine,
 /turf/open/floor/plating/parquetry/old,
@@ -76896,14 +77020,6 @@
 	},
 /turf/open/floor/plating/industrial,
 /area/vtm/sewer/nosferatu_warren)
-"uow" = (
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#802d29";
-	dir = 4
-	},
-/obj/structure/table/wood,
-/turf/open/floor/plating/parquetry,
-/area/vtm/jazzclub)
 "uox" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -78286,7 +78402,7 @@
 /area/vtm/anarch/basement)
 "uHV" = (
 /obj/structure/vampdoor/glass/prince{
-	lockpick_difficulty = 16
+	lockpick_difficulty = 24
 	},
 /obj/effect/turf_decal/siding/wood{
 	color = "#9a704a";
@@ -80262,6 +80378,14 @@
 	icon_state = "stone8"
 	},
 /area/vtm/sewer/nosferatu_warren)
+"vlM" = (
+/obj/structure/table,
+/obj/item/ammo_box/vampire/c9mm/silver,
+/obj/item/ammo_box/magazine/semi9mm,
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
+	},
+/area/vtm/interior/wyrm_corrupted)
 "vlV" = (
 /obj/structure/vampipe{
 	icon_state = "piping35"
@@ -80369,12 +80493,6 @@
 	},
 /turf/open/floor/plating/woodfancy,
 /area/vtm/interior/tzimisce_manor)
-"vnz" = (
-/obj/structure/table,
-/turf/open/floor/plating/circled{
-	color = "#b0b0b0"
-	},
-/area/vtm/interior/wyrm_corrupted)
 "vnH" = (
 /obj/effect/turf_decal/weather/dirt,
 /turf/open/floor/plating/vampgrass,
@@ -80874,6 +80992,15 @@
 	icon_state = "canal_concrete"
 	},
 /area/vtm/sewer/nosferatu_warren)
+"vwq" = (
+/obj/structure/guncase{
+	anchored = 1
+	},
+/obj/item/gun/ballistic/automatic/vampire/beretta,
+/turf/open/floor/plating/circled{
+	color = "#b0b0b0"
+	},
+/area/vtm/interior/wyrm_corrupted)
 "vwr" = (
 /obj/effect/turf_decal/siding/wood{
 	color = "#665136";
@@ -80972,6 +81099,18 @@
 "vyA" = (
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/endron_facility)
+"vyW" = (
+/obj/structure/vampdoor/wood{
+	dir = 1;
+	lock_id = "ventrue";
+	lockpick_difficulty = 12
+	},
+/obj/effect/turf_decal/siding/white{
+	color = "#636363";
+	dir = 1
+	},
+/turf/open/floor/plating/church,
+/area/vtm/jazzclub)
 "vzb" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
@@ -81047,6 +81186,16 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/vampgrass,
 /area/vtm)
+"vzO" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29";
+	dir = 6
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/parquetry,
+/area/vtm/jazzclub)
 "vAa" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -81072,7 +81221,7 @@
 	dir = 8;
 	lock_id = "prince";
 	locked = 1;
-	lockpick_difficulty = 16
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/plating/parquetry,
 /area/vtm/interior/millennium_tower/f2)
@@ -81874,10 +82023,6 @@
 	},
 /obj/structure/table/wood,
 /obj/item/lipstick/random{
-	pixel_y = 11;
-	pixel_x = 8
-	},
-/obj/item/lipstick/random{
 	pixel_y = 3;
 	pixel_x = -7
 	},
@@ -81887,6 +82032,10 @@
 	pixel_y = 32;
 	light_power = 0.45;
 	name = "dim light fixture"
+	},
+/obj/item/lipstick/random{
+	pixel_y = 11;
+	pixel_x = 8
 	},
 /turf/open/floor/plating/parquetry,
 /area/vtm/jazzclub)
@@ -83743,7 +83892,7 @@
 	dir = 8
 	},
 /turf/open/floor/circuit/telecomms/normal_temp,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "wmq" = (
 /obj/machinery/washing_machine{
 	pixel_y = 15;
@@ -84487,7 +84636,7 @@
 	},
 /obj/structure/vampdoor/reinf{
 	lock_id = "pentex";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 24;
 	dir = 8;
 	locked = 1
 	},
@@ -84610,8 +84759,7 @@
 /obj/structure/vampdoor/reinf{
 	lock_id = "primNosferatu";
 	locked = 1;
-	lockpick_difficulty = 15;
-	name = "primogen hideout"
+	lockpick_difficulty = 24
 	},
 /obj/effect/decal/rugs,
 /turf/open/floor/plating/rough/cave{
@@ -84791,6 +84939,22 @@
 	density = 0
 	},
 /area/vtm/interior/millennium_tower)
+"wAt" = (
+/obj/item/candle/infinite{
+	anchored = 1
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_y = 4;
+	pixel_x = 10
+	},
+/obj/item/candle/infinite{
+	anchored = 1;
+	pixel_y = 4;
+	pixel_x = -10
+	},
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "wAu" = (
 /obj/item/candle/infinite{
 	anchored = 1;
@@ -84866,6 +85030,18 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/financialdistrict/construction)
+"wBo" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#802d29"
+	},
+/obj/structure/table/wood,
+/obj/item/instrument/recorder,
+/obj/item/instrument/violin,
+/obj/item/instrument/harmonica,
+/obj/item/instrument/guitar,
+/obj/item/instrument/accordion,
+/turf/open/floor/plating/parquetry,
+/area/vtm/jazzclub)
 "wBp" = (
 /obj/structure/railing/metal,
 /turf/open/openspace,
@@ -85570,7 +85746,7 @@
 	dir = 4;
 	lock_id = "primLasombra";
 	locked = 1;
-	lockpick_difficulty = 16
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/plating/church,
 /area/vtm/church/interior/haven)
@@ -85724,10 +85900,10 @@
 	},
 /obj/structure/vampdoor/wood{
 	lock_id = "clinic";
-	lockpick_difficulty = 16;
 	locked = 1;
 	name = "Office";
-	dir = 8
+	dir = 8;
+	lockpick_difficulty = 4
 	},
 /turf/open/floor/plating/parquetry,
 /area/vtm/clinic)
@@ -88548,6 +88724,15 @@
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/forest/caves)
+"xCV" = (
+/obj/structure/table,
+/obj/vampire_computer,
+/obj/item/flashlight/lamp{
+	pixel_y = 13;
+	pixel_x = -13
+	},
+/turf/open/floor/plating/vampplating,
+/area/vtm/interior/endron_facility/restricted)
 "xCW" = (
 /obj/structure/table/wood,
 /obj/machinery/reagentgrinder{
@@ -88624,7 +88809,7 @@
 	},
 /obj/structure/vampdoor/reinf{
 	lock_id = "pentex";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 20;
 	dir = 8;
 	locked = 1
 	},
@@ -89757,7 +89942,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/circuit/telecomms/normal_temp,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "xSE" = (
 /mob/living/carbon/human/npc/guard,
 /obj/effect/turf_decal/siding/wideplating{
@@ -89928,7 +90113,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/vampplating,
-/area/vtm/interior/techshop)
+/area/vtm/interior/glasswalker)
 "xVl" = (
 /obj/effect/decal/bordur{
 	dir = 1
@@ -90468,7 +90653,7 @@
 /obj/structure/vampdoor/wood{
 	lock_id = "prince";
 	locked = 1;
-	lockpick_difficulty = 10
+	lockpick_difficulty = 24
 	},
 /turf/open/floor/plating/toilet{
 	color = "#919191"
@@ -90802,6 +90987,10 @@
 	color = "#F5DDB0"
 	},
 /area/vtm/interior)
+"yhl" = (
+/obj/effect/decal/wallpaper/stone,
+/turf/closed/wall/vampwall/painted,
+/area/vtm/interior/glasswalker)
 "yht" = (
 /obj/structure/reagent_dispensers/watertank/high,
 /obj/structure/railing{
@@ -90840,7 +91029,7 @@
 /obj/structure/vampdoor/reinf{
 	lock_id = "primToreador";
 	locked = 1;
-	lockpick_difficulty = 16
+	lockpick_difficulty = 24
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 1;
@@ -122430,10 +122619,10 @@ iOo
 uDU
 ycz
 pbw
-vnz
 llI
+vlM
 hdd
-sto
+vwq
 uHQ
 rCB
 tuX
@@ -124047,8 +124236,8 @@ sIV
 yec
 jmr
 jmr
-pbw
-pbw
+nZe
+nZe
 jmr
 uHQ
 rCB
@@ -165848,7 +166037,7 @@ eMF
 rax
 vZm
 ePJ
-vZm
+rZt
 ePJ
 teg
 pEF
@@ -166251,7 +166440,7 @@ cLW
 eMF
 eti
 vZm
-kon
+btH
 eMF
 dvC
 dvC
@@ -167265,7 +167454,7 @@ lqn
 tSH
 oqf
 eMF
-lxu
+vzO
 fIE
 fIE
 fIE
@@ -167874,12 +168063,12 @@ ucp
 ucp
 eMF
 aWK
-opv
+wIl
+vyW
+vZm
+ePJ
+vZm
 eMF
-nQh
-uow
-tUq
-uow
 jnK
 eMF
 cmC
@@ -168078,13 +168267,13 @@ eMF
 lRp
 emG
 eMF
-fIE
-fIE
-bMf
-fIE
-fIE
-kDp
-fIE
+qWz
+thx
+ePJ
+aWe
+ePJ
+eMF
+wBo
 fIE
 ucp
 mJe
@@ -203018,7 +203207,7 @@ trk
 cqw
 uRg
 wBp
-dwZ
+xCV
 nlH
 wwN
 rcR
@@ -207456,7 +207645,7 @@ mjT
 uRR
 fEm
 eMF
-mVL
+atK
 hSS
 mVL
 wJX
@@ -238670,8 +238859,8 @@ iXN
 "}
 (131,1,4) = {"
 iXN
-ucj
-xEp
+dji
+hPF
 xEp
 wmS
 mjT
@@ -238872,10 +239061,10 @@ iXN
 "}
 (132,1,4) = {"
 iXN
-ucj
-xEp
-xEp
-olo
+egA
+aTo
+wAt
+wmS
 mjT
 mjT
 mjT
@@ -239075,8 +239264,8 @@ iXN
 (133,1,4) = {"
 iXN
 ucj
-xEp
-xEp
+tfn
+jJE
 wmS
 mjT
 mjT
@@ -244023,13 +244212,13 @@ mjT
 mjT
 yjk
 yjk
-qbh
-qbh
+bvQ
+bvQ
 trk
 hRQ
 yjk
-qbh
-qbh
+bvQ
+bvQ
 yjk
 yjk
 aIK
@@ -245361,13 +245550,13 @@ mjT
 mjT
 mjT
 mjT
-slr
-slr
-slr
-slr
-slr
-slr
-rbS
+nrq
+nrq
+nrq
+nrq
+nrq
+nrq
+yhl
 bpF
 hgJ
 hgJ
@@ -245563,13 +245752,13 @@ mjT
 mjT
 mjT
 mjT
-rbS
+yhl
 pkj
 gue
 lrs
 hZC
 ivX
-rbS
+yhl
 mOz
 xEp
 xEp
@@ -245765,13 +245954,13 @@ mjT
 mjT
 mjT
 mjT
-rbS
+yhl
 qlK
 lgF
 gMV
 pwQ
 lrs
-rbS
+yhl
 mOz
 xEp
 iVn
@@ -245967,13 +246156,13 @@ mjT
 mjT
 mjT
 mjT
-rbS
+yhl
 xVa
 juq
 xSC
 cQq
 xVa
-rbS
+yhl
 mOz
 xEp
 iVn
@@ -246169,13 +246358,13 @@ mjT
 mjT
 mjT
 mjT
-rbS
+yhl
 wmn
 mrJ
 prq
 sgF
 wmn
-rbS
+yhl
 mOz
 xEp
 iVn
@@ -246371,13 +246560,13 @@ mjT
 mjT
 mjT
 mjT
-rbS
+yhl
 ivX
 mTC
 wmn
 mLW
 ivX
-rbS
+yhl
 mOz
 xEp
 xEp
@@ -246573,13 +246762,13 @@ mjT
 mjT
 mjT
 mjT
-slr
-cvl
+nrq
+qEb
 neN
-slr
-slr
-slr
-rbS
+nrq
+nrq
+nrq
+yhl
 mOz
 xEp
 xEp

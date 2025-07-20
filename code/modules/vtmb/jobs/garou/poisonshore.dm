@@ -40,6 +40,7 @@
 	jobtype = /datum/job/vamp/garou/spiral/lead
 
 	id = /obj/item/card/id/garou/spiral/lead
+	ears = /obj/item/p25radio
 	uniform =  /obj/item/clothing/under/pentex/pentex_executive_suit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
 	suit = /obj/item/clothing/suit/pentex/pentex_labcoat_alt
@@ -104,6 +105,7 @@
 	jobtype = /datum/job/vamp/garou/spiral/executive
 
 	id = /obj/item/card/id/garou/spiral/executive
+	ears = /obj/item/p25radio
 	uniform =  /obj/item/clothing/under/pentex/pentex_executive_suit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
 	l_pocket = /obj/item/vamp/phone/endron_exec
@@ -166,6 +168,7 @@
 	jobtype = /datum/job/vamp/garou/spiral/executive
 
 	id = /obj/item/card/id/garou/spiral/affairs
+	ears = /obj/item/p25radio
 	uniform =  /obj/item/clothing/under/pentex/pentex_suit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
 	l_pocket = /obj/item/vamp/phone/endron_affairs
@@ -229,6 +232,7 @@
 	jobtype = /datum/job/vamp/garou/spiral/secchief
 
 	id = /obj/item/card/id/garou/spiral/secchief
+	ears = /obj/item/p25radio
 	uniform =  /obj/item/clothing/under/pentex/pentex_turtleneck
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	gloves = /obj/item/clothing/gloves/vampire/work
@@ -291,6 +295,7 @@
 	jobtype = /datum/job/vamp/garou/spiral/sec
 
 	id = /obj/item/card/id/garou/spiral/sec
+	ears = /obj/item/p25radio
 	uniform =  /obj/item/clothing/under/pentex/pentex_shortsleeve
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	gloves = /obj/item/clothing/gloves/vampire/work
@@ -350,6 +355,7 @@
 	jobtype = /datum/job/vamp/garou/spiral/employee
 
 	id = /obj/item/card/id/garou/spiral/employee
+	ears = /obj/item/p25radio
 	uniform = /obj/item/clothing/under/pentex/pentex_longleeve
 	gloves = /obj/item/clothing/gloves/vampire/work
 	shoes = /obj/item/clothing/shoes/vampire
