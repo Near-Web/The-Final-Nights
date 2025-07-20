@@ -261,6 +261,7 @@
 	var/maxbloodpool = 5
 	var/generation = 13
 	var/masquerade = 5
+	var/graveyard_duty = 0 //0-10; For Graveyard Duty, to restore masquerade.
 	var/datum/weakref/conditioner
 	var/conditioned = FALSE
 	var/last_masquerade_violation = 0
