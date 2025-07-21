@@ -135,19 +135,27 @@
 	violates_masquerade = TRUE
 
 	cancelable = TRUE
+	duration_length = 999 SCENES
 
-	var/obj/structure/bury_pit/burial_pit
-
-/datum/discipline_power/protean/warform/activate()
+/datum/discipline_power/protean/earth_meld/activate()
 	. = ..()
-	burial_pit = new (get_turf(owner))
+	var/obj/structure/bury_pit/burial_pit = new (get_turf(owner))
 	burial_pit.icon_state = "pit1"
 	owner.forceMove(burial_pit)
 
-/datum/discipline_power/protean/warform/deactivate()
+/datum/discipline_power/protean/earth_meld/deactivate()
 	. = ..()
-	if(burial_pit)
-		QDEL_NULL(burial_pit)
+	var/meld_check = SSroll.storyteller_roll(owner.morality_path.score, difficulty = 6, mobs_to_show_output = owner, numerical = FALSE)
+	switch(meld_check)
+		if(ROLL_BOTCH)
+			owner.torpor("Earth Meld")
+		if(ROLL_FAILURE)
+			return
+		if(ROLL_SUCCESS)
+			owner.forceMove(get_turf(owner))
+		else
+			return
+
 
 //SHAPE OF THE BEAST
 /obj/effect/proc_holder/spell/targeted/shapeshift/gangrel
@@ -237,14 +245,14 @@
 	name = "Shape of the Beast"
 	desc = "Assume the form of an animal and retain your power."
 
-	level = 3
+	level = 4
 
 	check_flags = DISC_CHECK_IMMOBILE | DISC_CHECK_CAPABLE
 
 	violates_masquerade = TRUE
 
 	cancelable = TRUE
-	duration_length = 20 SECONDS
+	duration_length = 999 SCENES
 	cooldown_length = 20 SECONDS
 
 	grouped_powers = list(
@@ -278,7 +286,7 @@
 	name = "Mist"
 	desc = "Levitating Spritz of Water."
 	speed = -1
-	alpha = 10
+	alpha = 20
 
 /datum/discipline_power/protean/mist_form
 	name = "Mist Form"
@@ -291,7 +299,7 @@
 	violates_masquerade = TRUE
 
 	cancelable = TRUE
-	duration_length = 20 SECONDS
+	duration_length = 999 SCENES
 	cooldown_length = 20 SECONDS
 
 	grouped_powers = list(
