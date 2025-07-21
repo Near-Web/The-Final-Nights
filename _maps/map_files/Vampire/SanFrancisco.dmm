@@ -10571,9 +10571,6 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
 	},
-/obj/keypad/panic_room{
-	pixel_y = 30
-	},
 /obj/machinery/light/prince{
 	pixel_y = 38
 	},
@@ -55254,7 +55251,10 @@
 	damage_deflection = 60;
 	max_integrity = 300;
 	name = "Panic Room Shutter";
-	id = 12
+	id = 12;
+	icon_state = "open";
+	density = 0;
+	opacity = 0
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f3)
