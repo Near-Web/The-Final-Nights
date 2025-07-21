@@ -22402,6 +22402,11 @@
 /obj/item/taperecorder,
 /obj/item/taperecorder,
 /obj/item/taperecorder,
+/obj/item/taperecorder,
+/obj/item/tape,
+/obj/item/tape,
+/obj/item/tape,
+/obj/item/tape,
 /turf/open/floor/plating/vampplating/mono,
 /area/vtm/interior/techshop)
 "gbm" = (
