@@ -85,6 +85,7 @@
 	owner.remove_client_colour(/datum/client_colour/glass_colour/red)
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/protean2)
 
+//Depreciated. Still kept since think there's mobs of this that are spawned
 /mob/living/simple_animal/hostile/gangrel
 	name = "warform"
 	desc = "A horrid man-beast abomination."
@@ -119,6 +120,34 @@
 	melee_damage_lower = 40
 	melee_damage_upper = 40
 	speed = -0.8
+
+
+//Earth Meld
+
+/datum/discipline_power/protean/earth_meld
+	name = "Earth Meld"
+	desc = "Place yourself on Earth."
+
+	level = 3
+
+	check_flags = DISC_CHECK_IMMOBILE | DISC_CHECK_CAPABLE
+
+	violates_masquerade = TRUE
+
+	cancelable = TRUE
+
+	var/obj/structure/bury_pit/burial_pit
+
+/datum/discipline_power/protean/warform/activate()
+	. = ..()
+	burial_pit = new (get_turf(owner))
+	burial_pit.icon_state = "pit1"
+	owner.forceMove(burial_pit)
+
+/datum/discipline_power/protean/warform/deactivate()
+	. = ..()
+	if(burial_pit)
+		QDEL_NULL(burial_pit)
 
 //SHAPE OF THE BEAST
 /obj/effect/proc_holder/spell/targeted/shapeshift/gangrel
@@ -219,9 +248,6 @@
 	cooldown_length = 20 SECONDS
 
 	grouped_powers = list(
-		/datum/discipline_power/protean/eyes_of_the_beast,
-		/datum/discipline_power/protean/feral_claws,
-		/datum/discipline_power/protean/warform,
 		/datum/discipline_power/protean/mist_form
 	)
 
@@ -243,49 +269,6 @@
 	GA.Restore(GA.myshape)
 	owner.Stun(1.5 SECONDS)
 	owner.do_jitter_animation(30)
-
-//WARFORM
-
-/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/warform
-	shapeshift_type = /mob/living/simple_animal/hostile/gangrel/best
-	possible_shapes = null
-	non_gangrel_shapes = null
-
-/datum/discipline_power/protean/warform
-	name = "War Form"
-	desc = "Unleash your inner Beast."
-
-	level = 4
-
-	check_flags = DISC_CHECK_IMMOBILE | DISC_CHECK_CAPABLE
-
-	violates_masquerade = TRUE
-
-	cancelable = TRUE
-	duration_length = 20 SECONDS
-	cooldown_length = 20 SECONDS
-
-	grouped_powers = list(
-		/datum/discipline_power/protean/eyes_of_the_beast,
-		/datum/discipline_power/protean/feral_claws,
-		/datum/discipline_power/protean/shape_of_the_beast,
-		/datum/discipline_power/protean/mist_form
-	)
-
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/warform/GA
-
-/datum/discipline_power/protean/warform/activate()
-	. = ..()
-	if (!GA)
-		GA = new(owner)
-	owner.drop_all_held_items()
-	GA.Shapeshift(owner)
-
-/datum/discipline_power/protean/warform/deactivate()
-	. = ..()
-	GA.Restore(GA.myshape)
-	owner.Stun(1 SECONDS)
-	owner.do_jitter_animation(15)
 
 //MIST FORM
 /obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/mist
@@ -312,10 +295,7 @@
 	cooldown_length = 20 SECONDS
 
 	grouped_powers = list(
-		/datum/discipline_power/protean/eyes_of_the_beast,
-		/datum/discipline_power/protean/feral_claws,
-		/datum/discipline_power/protean/shape_of_the_beast,
-		/datum/discipline_power/protean/warform
+		/datum/discipline_power/protean/shape_of_the_beast
 	)
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/mist/GA
