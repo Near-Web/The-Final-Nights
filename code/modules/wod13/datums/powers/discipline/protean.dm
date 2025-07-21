@@ -143,18 +143,26 @@
 	burial_pit.icon_state = "pit1"
 	owner.forceMove(burial_pit)
 
-/datum/discipline_power/protean/earth_meld/deactivate()
+/datum/discipline_power/protean/earth_meld/can_activate_untargeted(alert)
 	. = ..()
+
 	var/meld_check = SSroll.storyteller_roll(owner.morality_path.score, difficulty = 6, mobs_to_show_output = owner, numerical = FALSE)
 	switch(meld_check)
 		if(ROLL_BOTCH)
+			to_chat(owner, "<span class= 'warning'>Mother Earth Calls you to its Warm Embrace</span>")
 			owner.torpor("Earth Meld")
+			return FALSE
 		if(ROLL_FAILURE)
-			return
+			to_chat(owner, "<span class= 'warning'> YOU ARE UNABLE TO DIG YOURSELF OUT</span>")
+			return FALSE
 		if(ROLL_SUCCESS)
-			owner.forceMove(get_turf(owner))
+			return .
 		else
-			return
+			return FALSE
+
+/datum/discipline_power/protean/earth_meld/deactivate()
+	. = ..()
+	owner.forceMove(get_turf(owner))
 
 
 //SHAPE OF THE BEAST
