@@ -485,7 +485,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -6257,7 +6256,6 @@
 /obj/effect/landmark/start/graveyardkeeper,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/graveyard/interior)
@@ -7345,7 +7343,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -10875,7 +10872,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -11847,7 +11843,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -13278,7 +13273,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -13749,7 +13743,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -15903,7 +15896,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -17240,7 +17232,6 @@
 /obj/item/melee/vampirearms/knife,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -18517,7 +18508,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -18768,7 +18758,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -20355,7 +20344,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -20900,7 +20888,6 @@
 /obj/effect/landmark/start/sabbatductus,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -23262,7 +23249,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -23320,7 +23306,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -23743,7 +23728,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -23763,7 +23747,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -25472,7 +25455,6 @@
 /obj/structure/railing/metal,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -25920,7 +25902,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -26094,7 +26075,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -26428,7 +26408,6 @@
 "hge" = (
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -27287,7 +27266,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -28708,7 +28686,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -29848,7 +29825,6 @@
 /obj/structure/bath/sabbatbath,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -30558,7 +30534,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -33247,7 +33222,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -35059,7 +35033,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/interior/vjanitor)
@@ -37288,7 +37261,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -38694,7 +38666,6 @@
 /obj/effect/landmark/start/sabbatpriest,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -38734,7 +38705,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -39502,7 +39472,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -40108,7 +40077,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -40138,7 +40106,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -41155,7 +41122,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -42688,7 +42654,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/interior/apartment)
@@ -44056,7 +44021,6 @@
 /obj/structure/railing/metal,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -44387,7 +44351,6 @@
 "lOn" = (
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -44511,7 +44474,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -44767,7 +44729,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -46618,7 +46579,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -48628,7 +48588,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -52994,7 +52953,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -54658,7 +54616,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -55595,7 +55552,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -65715,7 +65671,6 @@
 /obj/structure/bonfire/prelit,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -65850,7 +65805,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -66233,7 +66187,6 @@
 /obj/item/vtm_artifact/rand,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -67360,7 +67313,6 @@
 /obj/structure/chair/wood,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -67981,7 +67933,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -68805,7 +68756,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -68906,7 +68856,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -69307,7 +69256,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -69329,7 +69277,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -73468,7 +73415,6 @@
 /obj/structure/curtain,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/interior/apartment)
@@ -73872,7 +73818,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -74185,7 +74130,6 @@
 /obj/structure/curtain,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/clinic/haven)
@@ -76725,7 +76669,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -77713,7 +77656,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -77964,7 +77906,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -82616,7 +82557,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sewer)
@@ -83177,7 +83117,6 @@
 "wcZ" = (
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -84807,7 +84746,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -87193,7 +87131,6 @@
 /obj/structure/curtain,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/interior/apartment)
@@ -87790,7 +87727,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm)
@@ -88092,7 +88028,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/sabbat_lair)
@@ -89146,7 +89081,6 @@
 /obj/structure/curtain,
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/hotel)
@@ -89240,7 +89174,6 @@
 	},
 /turf/open/floor/plating/vampcanal{
 	icon_state = "canal2";
-	baseicon = "canal2";
 	base_icon_state = "canal2"
 	},
 /area/vtm/interior/vjanitor)
