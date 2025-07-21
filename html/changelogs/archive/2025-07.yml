@@ -82,3 +82,8 @@
   BlitzArde:
   - spellcheck: pomp shotgun becomes pump shotgun and the luchador masks names are
       corrected
+2025-07-20:
+  Dusk-a:
+  - image: Reverted the Gargoyle legs to the old version
+  SoreYew:
+  - bugfix: fixed sprite not showing up.
