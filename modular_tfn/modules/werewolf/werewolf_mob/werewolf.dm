@@ -332,3 +332,21 @@
 		playsound(get_turf(src), 'code/modules/wod13/sounds/werewolf_step.ogg', 50, FALSE) // feel free to change the noise to something more avian later.
 
 	. = ..()
+
+/obj/item/bodypart/chest/crinos
+	max_damage = 900
+
+/obj/item/bodypart/head/crinos
+	max_damage = 900
+
+/obj/item/bodypart/l_arm/crinos
+	max_damage = 200
+
+/obj/item/bodypart/r_arm/crinos
+	max_damage = 200
+
+/obj/item/bodypart/r_leg/crinos
+	max_damage = 200
+
+/obj/item/bodypart/l_leg/crinos
+	max_damage = 200
