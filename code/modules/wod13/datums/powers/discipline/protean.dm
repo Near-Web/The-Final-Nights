@@ -143,7 +143,7 @@
 	burial_pit.icon_state = "pit1"
 	owner.forceMove(burial_pit)
 
-/datum/discipline_power/protean/earth_meld/can_activate_untargeted(alert)
+/datum/discipline_power/protean/earth_meld/can_deactivate_untargeted(alert)
 	. = ..()
 
 	var/meld_check = SSroll.storyteller_roll(owner.morality_path.score, difficulty = 6, mobs_to_show_output = owner, numerical = FALSE)
