@@ -1,9 +1,12 @@
 /mob/living/carbon/werewolf/examine(mob/living/user)
 	. = ..()
 
-	var/isknown = 0
+	if (!isgarou(user) && !iswerewolf(user))
+		return
+
+	var/isknown = FALSE
 	var/same_tribe = FALSE
-	var/truescent
+	var/truescent = FALSE
 
 	var/list/honorr = list("claim to good conduct", "claim to honor", "claim to chivalry")
 	var/list/wisdomm = list("claim to insight", "claim to wisdom", "claim to sagacity")
