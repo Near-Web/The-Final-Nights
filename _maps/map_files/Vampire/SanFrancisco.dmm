@@ -9320,7 +9320,7 @@
 "czW" = (
 /obj/structure/vampdoor/simple{
 	lock_id = "triad";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 24;
 	locked = 1
 	},
 /obj/effect/turf_decal/siding/wood{
@@ -20949,7 +20949,7 @@
 	},
 /obj/structure/vampdoor/simple{
 	lock_id = "triad";
-	lockpick_difficulty = 9;
+	lockpick_difficulty = 24;
 	locked = 1
 	},
 /turf/open/floor/plating/toilet,
@@ -54732,7 +54732,7 @@
 "orB" = (
 /obj/structure/vampdoor/simple{
 	lock_id = "triad";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 24;
 	locked = 1
 	},
 /obj/effect/turf_decal/siding/wood{
@@ -63526,7 +63526,7 @@
 	},
 /obj/structure/vampdoor/simple{
 	lock_id = "triad";
-	lockpick_difficulty = 9;
+	lockpick_difficulty = 24;
 	locked = 1
 	},
 /turf/open/floor/plating/toilet,
@@ -68204,7 +68204,7 @@
 "rXn" = (
 /obj/structure/vampdoor/simple{
 	lock_id = "triad";
-	lockpick_difficulty = 16;
+	lockpick_difficulty = 24;
 	locked = 1
 	},
 /obj/effect/turf_decal/siding/wood{
