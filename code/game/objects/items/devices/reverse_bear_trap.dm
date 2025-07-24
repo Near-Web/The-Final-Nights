@@ -7,7 +7,6 @@
 	flags_1 = CONDUCT_1
 	resistance_flags = FIRE_PROOF | UNACIDABLE
 	w_class = WEIGHT_CLASS_NORMAL
-	obj_integrity = 300
 	max_integrity = 300
 	inhand_icon_state = "rack_parts"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
@@ -45,7 +44,7 @@
 		to_chat(loc, "<span class='userdanger'>*ding*</span>")
 		addtimer(CALLBACK(src, PROC_REF(snap)), 2)
 
-/obj/item/reverse_bear_trap/attack_hand(mob/user)
+/obj/item/reverse_bear_trap/attack_hand(mob/user, list/modifiers)
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(C.get_item_by_slot(ITEM_SLOT_HEAD) == src)

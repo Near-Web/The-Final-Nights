@@ -1,11 +1,15 @@
 /obj/item/wirecutters
 	name = "wirecutters"
 	desc = "This cuts wires."
-	icon = 'icons/obj/tools.dmi'
-	icon_state = "cutters_map"
+	icon_state = "fixer"
+	icon = 'code/modules/wod13/items.dmi'
+	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	onflooricon_state = "fixer"
 	inhand_icon_state = "cutters"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+
+
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	force = 6
@@ -23,33 +27,6 @@
 	tool_behaviour = TOOL_WIRECUTTER
 	toolspeed = 1
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 30)
-	var/random_color = TRUE
-	var/static/list/wirecutter_colors = list(
-		"blue" = "#1861d5",
-		"red" = "#951710",
-		"pink" = "#d5188d",
-		"brown" = "#a05212",
-		"green" = "#0e7f1b",
-		"cyan" = "#18a2d5",
-		"yellow" = "#d58c18"
-	)
-
-
-/obj/item/wirecutters/Initialize()
-	. = ..()
-	if(random_color) //random colors!
-		icon_state = "cutters"
-		var/our_color = pick(wirecutter_colors)
-		add_atom_colour(wirecutter_colors[our_color], FIXED_COLOUR_PRIORITY)
-		update_appearance()
-
-/obj/item/wirecutters/update_overlays()
-	. = ..()
-	if(!random_color) //icon override
-		return
-	var/mutable_appearance/base_overlay = mutable_appearance(icon, "cutters_cutty_thingy")
-	base_overlay.appearance_flags = RESET_COLOR
-	. += base_overlay
 
 /obj/item/wirecutters/attack(mob/living/carbon/C, mob/user)
 	if(istype(C) && C.handcuffed && istype(C.handcuffed, /obj/item/restraints/handcuffs/cable))
@@ -75,7 +52,6 @@
 	icon = 'icons/obj/abductor.dmi'
 	icon_state = "cutters"
 	toolspeed = 0.1
-	random_color = FALSE
 
 /obj/item/wirecutters/cyborg
 	name = "powered wirecutters"
@@ -84,4 +60,48 @@
 	icon_state = "wirecutters_cyborg"
 	worn_icon_state = "cutters"
 	toolspeed = 0.5
-	random_color = FALSE
+
+/obj/item/wirecutters/pliers
+	name = "dental pliers"
+	desc = "Meant for taking out teeth."
+	icon_state = "neat_ripper"
+	lefthand_file = 'code/modules/wod13/lefthand.dmi'
+	righthand_file = 'code/modules/wod13/righthand.dmi'
+	onflooricon_state = "neat_ripper"
+	inhand_icon_state = "neat_ripper"
+	toolspeed = 2 //isn't meant for cutting wires
+	/// If pulling fangs lasts for the entire ROUND or not.
+	var/permanent = TRUE
+	slot_flags = NONE
+
+/obj/item/wirecutters/pliers/bad_pliers
+	name = "pliers"
+	desc = "Meant for pulling wires but you could definetly crush something with these."
+	icon_state = "ripper"
+	onflooricon_state = "ripper"
+	inhand_icon_state = "ripper"
+	toolspeed = 1.2 //is an actual tool but can't actually cut
+	permanent = FALSE
+
+/obj/item/wirecutters/pliers/attack(mob/living/target, mob/living/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		return
+	if(!iskindred(target))
+		return
+	if(HAS_TRAIT(target, TRAIT_BABY_TEETH))
+		visible_message(usr, span_warning("[user] can't pull out the fangs of [target] because they are already deformed!"))
+	else
+		user.visible_message(span_warning("[user] takes [src] straight to the [target]'s Fangs!"), span_warning("You take [src] straight to the [target]'s Fangs!"))
+		if(!do_after(user, 30, target))
+			return
+		user.do_attack_animation(target)
+		user.visible_message(span_warning("[user] rips out [target]'s fangs!"), span_warning("You rip out [target]'s fangs!"))
+		target.emote("scream")
+		if(target.has_quirk(/datum/quirk/permafangs))
+			REMOVE_TRAIT(target, TRAIT_PERMAFANGS, ROUNDSTART_TRAIT)
+		if (permanent == TRUE)
+			target.apply_status_effect(STATUS_EFFECT_SEVERE_BABY_TEETH)
+			visible_message(span_warning("[user] stuff's in Bone putty into [target] to stop their fangs from regrowing!"))
+		else
+			target.apply_status_effect(STATUS_EFFECT_BABY_TEETH)

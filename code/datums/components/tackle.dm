@@ -68,10 +68,13 @@
 	tackle.thrower = user
 
 ///See if we can tackle or not. If we can, leap!
-/datum/component/tackler/proc/checkTackle(mob/living/carbon/user, atom/A, params)
+/datum/component/tackler/proc/checkTackle(mob/living/carbon/user, atom/A, list/modifiers)
 	SIGNAL_HANDLER
 
-	if(!user.in_throw_mode || user.get_active_held_item() || user.pulling || user.buckled || user.incapacitated())
+	if(modifiers[ALT_CLICK] || modifiers[SHIFT_CLICK] || modifiers[CTRL_CLICK] || modifiers[MIDDLE_CLICK])
+		return
+
+	if(!user.throw_mode || user.get_active_held_item() || user.pulling || user.buckled || user.incapacitated())
 		return
 
 	if(!A || !(isturf(A) || isturf(A.loc)))
@@ -99,9 +102,6 @@
 
 	user.face_atom(A)
 
-	var/list/modifiers = params2list(params)
-	if(modifiers["alt"] || modifiers["shift"] || modifiers["ctrl"] || modifiers["middle"])
-		return
 
 	tackling = TRUE
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(checkObstacle))
@@ -210,7 +210,7 @@
 			target.Paralyze(5)
 			target.Knockdown(30)
 			if(ishuman(target) && ishuman(user))
-				S.dna.species.grab(S, T)
+				INVOKE_ASYNC(user, TYPE_PROC_REF(/mob/living, grab), user, target)
 				S.setGrabState(GRAB_PASSIVE)
 
 		if(5 to INFINITY) // absolutely BODIED
@@ -224,7 +224,7 @@
 			target.Paralyze(5)
 			target.Knockdown(30)
 			if(ishuman(target) && ishuman(user))
-				S.dna.species.grab(S, T)
+				INVOKE_ASYNC(user, TYPE_PROC_REF(/mob/living, grab), user, target)
 				S.setGrabState(GRAB_AGGRESSIVE)
 
 
@@ -465,7 +465,7 @@
 			user.hitby(shard, skipcatch = TRUE, hitpush = FALSE)
 			shard.embedding = list()
 			shard.updateEmbedding()
-		W.obj_destruction()
+		W.atom_destruction()
 		user.adjustStaminaLoss(10 * speed)
 		user.Paralyze(30)
 		user.visible_message("<span class='danger'>[user] smacks into [W] and shatters it, shredding [user.p_them()]self with glass!</span>", "<span class='userdanger'>You smacks into [W] and shatter it, shredding yourself with glass!</span>")
@@ -480,7 +480,7 @@
 
 /datum/component/tackler/proc/delayedSmash(obj/structure/window/W)
 	if(W)
-		W.obj_destruction()
+		W.atom_destruction()
 		playsound(W, "shatter", 70, TRUE)
 
 ///Check to see if we hit a table, and if so, make a big mess!

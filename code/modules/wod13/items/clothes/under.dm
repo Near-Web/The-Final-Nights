@@ -11,7 +11,10 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	body_worn = TRUE
 	fitted = NO_FEMALE_UNIFORM
-	cost = 10
+
+/obj/item/clothing/under/vampire/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 10, "undersuit", FALSE)
 
 /obj/item/clothing/under/vampire/brujah
 	name = "punk attire"
@@ -126,6 +129,26 @@
 	name = "military fatigues"
 	desc = "Some military clothes."
 	icon_state = "milfatigues"
+
+/obj/item/clothing/under/vampire/sceneleopard
+	name = "revealing outfit"
+	desc = "You never thought you needed spaghetti straps."
+	icon_state = "scenetop_leopard"
+
+/obj/item/clothing/under/vampire/scenemoody
+	name = "moody attire"
+	desc = "A classic My Laboratory Romance top."
+	icon_state = "scenetop_moody"
+
+/obj/item/clothing/under/vampire/scenezim
+	name = "pim attire"
+	desc = "A top from your favorite show, Intruder Pim"
+	icon_state = "scenetop_zim"
+
+/obj/item/clothing/under/vampire/scenepink
+	name = "popular Outfit"
+	desc = "It almost makes you feel like a mean girl"
+	icon_state = "scenetop_pink"
 
 //FOR NPC
 
@@ -432,7 +455,10 @@
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	body_worn = TRUE
 	fitted = NO_FEMALE_UNIFORM
-	cost = 10
+
+/obj/item/clothing/under/pentex/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 10, "undersuit", FALSE)
 
 /obj/item/clothing/under/pentex/pentex_janitor
 	name = "Ardus Enterprises custodian jumpsuit"

@@ -76,7 +76,7 @@
 		iteration++
 	unpacked = TRUE
 
-/obj/machinery/food_cart/attack_hand(mob/living/user)
+/obj/machinery/food_cart/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(machine_stat & BROKEN)
 		to_chat(user, "<span class='warning'>[src] is completely busted.</span>")
@@ -113,10 +113,10 @@
 	UnregisterSignal(cart_griddle, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED))
 	UnregisterSignal(cart_smartfridge, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED))
 	UnregisterSignal(cart_table, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED))
-	UnregisterSignal(cart_tent, COMSIG_MOVABLE_MOVED)
-	obj_break()
+	UnregisterSignal(cart_tent, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED))
+	atom_break()
 
-/obj/machinery/food_cart/obj_break(damage_flag)
+/obj/machinery/food_cart/atom_break(damage_flag)
 	. = ..()
 	pack_up()
 	if(cart_griddle)

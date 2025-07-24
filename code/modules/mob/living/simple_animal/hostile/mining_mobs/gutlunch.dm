@@ -26,7 +26,7 @@
 	response_harm_simple = "squish"
 	friendly_verb_continuous = "pinches"
 	friendly_verb_simple = "pinch"
-	a_intent = INTENT_HELP
+	combat_mode = FALSE
 	ventcrawler = VENTCRAWLER_ALWAYS
 	gold_core_spawnable = FRIENDLY_SPAWN
 	stat_attack = HARD_CRIT
@@ -89,7 +89,7 @@
 	else
 		..()
 
-/mob/living/simple_animal/hostile/asteroid/gutlunch/AttackingTarget()
+/mob/living/simple_animal/hostile/asteroid/gutlunch/AttackingTarget(atom/attacked_target)
 	if(is_type_in_typecache(target,wanted_objects)) //we eats
 		udder.generateMilk()
 		regenerate_icons()

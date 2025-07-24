@@ -15,12 +15,12 @@
 	. = ..()
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/secway)
 
-/obj/vehicle/ridden/secway/obj_break()
+/obj/vehicle/ridden/secway/atom_break()
 	START_PROCESSING(SSobj, src)
 	return ..()
 
 /obj/vehicle/ridden/secway/process(delta_time)
-	if(obj_integrity >= integrity_failure * max_integrity)
+	if(atom_integrity >= integrity_failure * max_integrity)
 		return PROCESS_KILL
 	if(DT_PROB(10, delta_time))
 		return
@@ -28,13 +28,13 @@
 	smoke.set_up(0, src)
 	smoke.start()
 
-/obj/vehicle/ridden/secway/attackby(obj/item/W, mob/user, params)
-	if(W.tool_behaviour == TOOL_WELDER && user.a_intent != INTENT_HARM)
-		if(obj_integrity < max_integrity)
+/obj/vehicle/ridden/secway/attackby(obj/item/W, mob/living/user, params)
+	if(W.tool_behaviour == TOOL_WELDER && !user.combat_mode)
+		if(atom_integrity < max_integrity)
 			if(W.use_tool(src, user, 0, volume = 50, amount = 1))
 				user.visible_message("<span class='notice'>[user] repairs some damage to [name].</span>", "<span class='notice'>You repair some damage to \the [src].</span>")
-				obj_integrity += min(10, max_integrity-obj_integrity)
-				if(obj_integrity == max_integrity)
+				atom_integrity += min(10, max_integrity-atom_integrity)
+				if(atom_integrity == max_integrity)
 					to_chat(user, "<span class='notice'>It looks to be fully repaired now.</span>")
 		return TRUE
 
@@ -48,7 +48,7 @@
 		return TRUE
 	return ..()
 
-/obj/vehicle/ridden/secway/attack_hand(mob/living/user)
+/obj/vehicle/ridden/secway/attack_hand(mob/living/user, list/modifiers)
 	if(eddie_murphy)                                                       // v lol
 		user.visible_message("<span class='warning'>[user] begins cleaning [eddie_murphy] out of [src].</span>", "<span class='warning'>You begin cleaning [eddie_murphy] out of [src]...</span>")
 		if(do_after(user, 60, target = src))
@@ -64,8 +64,8 @@
 	if(eddie_murphy)
 		. += "<span class='warning'>Something appears to be stuck in its exhaust...</span>"
 
-/obj/vehicle/ridden/secway/obj_destruction()
-	explosion(src, -1, 0, 2, 4, flame_range = 3)
+/obj/vehicle/ridden/secway/atom_destruction()
+	explosion(src, devastation_range = -1, light_impact_range = 2, flame_range = 3, flash_range = 4)
 	return ..()
 
 /obj/vehicle/ridden/secway/Destroy()

@@ -14,7 +14,10 @@
 	can_be_tied = FALSE
 	onflooricon = 'code/modules/wod13/onfloor.dmi'
 	body_worn = TRUE
-	cost = 5
+
+/obj/item/clothing/shoes/vampire/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 5, "shoes", FALSE)
 
 /obj/item/clothing/shoes/vampire/brown
 	icon_state = "shoes_brown"
@@ -70,3 +73,17 @@
 	desc = "Shoes with a metal tip."
 	icon_state = "metal_shoes"
 
+/obj/item/clothing/shoes/vampire/blackfur
+	name = "black fur boots"
+	desc = "A furry pair of black and white boots"
+	icon_state = "furboots_black"
+
+/obj/item/clothing/shoes/vampire/brownfur
+	name = "brown fur boots"
+	desc = "A furry pair of brown boots"
+	icon_state = "furboots_brown"
+
+/obj/item/clothing/shoes/vampire/pumped
+	name = "knee-high sneakers"
+	desc = "these are the pumped up kicks you are looking for"
+	icon_state = "pumped_up_kicks"

@@ -14,7 +14,7 @@
 	speak_chance = 1
 	icon = 'icons/mob/eldritch_mobs.dmi'
 	speed = 0
-	a_intent = INTENT_HARM
+	combat_mode = TRUE
 	stop_automated_movement = 1
 	AIStatus = AI_OFF
 	attack_sound = 'sound/weapons/punch1.ogg'
@@ -250,9 +250,9 @@
 
 /mob/living/simple_animal/hostile/eldritch/armsy/Shoot(atom/targeted_atom)
 	target = targeted_atom
-	AttackingTarget()
+	AttackingTarget(target)
 
-/mob/living/simple_animal/hostile/eldritch/armsy/AttackingTarget()
+/mob/living/simple_animal/hostile/eldritch/armsy/AttackingTarget(atom/attacked_target)
 	if(istype(target,/obj/item/bodypart/r_arm) || istype(target,/obj/item/bodypart/l_arm))
 		qdel(target)
 		heal()
@@ -261,7 +261,7 @@
 		return
 	if(back)
 		back.target = target
-		back.AttackingTarget()
+		back.AttackingTarget(target)
 	if(!Adjacent(target))
 		return
 	do_attack_animation(target)

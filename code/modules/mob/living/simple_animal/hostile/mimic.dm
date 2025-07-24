@@ -68,7 +68,7 @@
 	if(.)
 		trigger()
 
-/mob/living/simple_animal/hostile/mimic/crate/AttackingTarget()
+/mob/living/simple_animal/hostile/mimic/crate/AttackingTarget(atom/attacked_target)
 	. = ..()
 	if(.)
 		icon_state = initial(icon_state)
@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 	if(destroy_objects)
 		..()
 
-/mob/living/simple_animal/hostile/mimic/copy/AttackingTarget()
+/mob/living/simple_animal/hostile/mimic/copy/AttackingTarget(atom/attacked_target)
 	. = ..()
 	if(knockdown_people && . && prob(15) && iscarbon(target))
 		var/mob/living/carbon/C = target
@@ -298,15 +298,15 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 	lock = new
 	lock.Grant(src)
 
-/mob/living/simple_animal/hostile/mimic/xenobio/AttackingTarget()
+/mob/living/simple_animal/hostile/mimic/xenobio/AttackingTarget(atom/attacked_target)
 	if(src == target)
 		toggle_open()
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/mimic/xenobio/attack_hand(mob/living/carbon/human/M)
+/mob/living/simple_animal/hostile/mimic/xenobio/attack_hand(mob/living/carbon/human/user, list/modifiers)
 	. = ..()
-	if(M.a_intent != "help")
+	if(user.combat_mode)
 		return
 	toggle_open()
 

@@ -14,15 +14,12 @@
 	activate_sound = 'code/modules/wod13/sounds/obfuscate_activate.ogg'
 	deactivate_sound = 'code/modules/wod13/sounds/obfuscate_deactivate.ogg'
 
+	power_group = DISCIPLINE_POWER_GROUP_COMBAT
+
 	var/static/list/aggressive_signals = list(
 		COMSIG_MOB_ATTACK_HAND,
-		COMSIG_MOB_ATTACKED_HAND,
-		COMSIG_MOB_MELEE_SWING,
 		COMSIG_MOB_FIRED_GUN,
 		COMSIG_MOB_THREW_MOVABLE,
-		COMSIG_MOB_ATTACKING_MELEE,
-		COMSIG_MOB_ATTACKED_BY_MELEE,
-		CELERITY_POWER_ACTIVATE,
 		COMSIG_PROJECTILE_PREHIT,
 	)
 

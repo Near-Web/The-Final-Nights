@@ -72,7 +72,7 @@
 	var/allow_bureaucratic_error = FALSE
 
 	///Minimum vampire Generation necessary to do this job.
-	var/minimal_generation = 13
+	var/minimal_generation = HIGHEST_GENERATION_LIMIT
 	///Minimum Masquerade level necessary to do this job.
 	var/minimal_masquerade = 1
 	///Minimum Renown Rank (garou) necessary to do this job.
@@ -85,19 +85,17 @@
 	///List of species that are allowed to do this job.
 	var/list/allowed_species = list("Vampire")
 	///List of species that are limited to a certain amount of that species doing this job.
-	var/list/species_slots = list()
+	var/list/species_slots = list("Vampire" = 50, "Ghoul" = 50, "Human" = 50, "Kuei-Jin" = 50, "Werewolf" = 50)
 	///List of Bloodlines that are allowed to do this job.
-	var/list/allowed_bloodlines = list("Brujah", "Tremere", "Ventrue", "Nosferatu", "Gangrel", "Toreador", "Malkavian", "Banu Haqim", "Giovanni", "Ministry")
+	var/list/allowed_bloodlines = list(CLAN_BRUJAH, CLAN_TREMERE, CLAN_VENTRUE, CLAN_NOSFERATU, CLAN_GANGREL, CLAN_TOREADOR, CLAN_MALKAVIAN, CLAN_BANU_HAQIM, CLAN_GIOVANNI, CLAN_SETITES)
 	///List of Tribes that are allowed to do this job.
-	var/list/allowed_tribes = list("Galestalkers", "Ghost Council", "Hart Wardens", "Children of Gaia", "Glass Walkers", "Bone Gnawers", "Ronin", "Black Spiral Dancers","Get of Fenris","Black Furies","Silver Fangs","Silent Striders","Shadow Lords","Red Talons","Stargazers")
+	var/list/allowed_tribes = list("Galestalkers", "Ghost Council", "Hart Wardens", "Children of Gaia", "Glass Walkers", "Bone Gnawers", "Ronin", "Black Spiral Dancers","Get of Fenris","Black Furies","Silver Fangs","Silent Striders","Shadow Lords","Red Talons","Stargazers", "Corax")
 	///List of Auspices that are allowed to do this job.
 	var/list/allowed_auspice = list("Philodox", "Galliard", "Ragabash", "Theurge", "Ahroun")
 	///If this job requires whitelisting before it can be selected for characters.
 	var/whitelisted = FALSE
-	// List for phone shit
-	var/my_contact_is_important = FALSE
 	// Only for display in memories
-	var/list/known_contacts = list()
+	var/list/known_contacts = null
 
 	var/duty
 	var/v_duty
@@ -193,8 +191,7 @@
 
 			to_chat(M, span_danger("Failed to locate a storage object on your mob, either you spawned with no hands free and no backpack or this is a bug."))
 			qdel(item)
-	if(spawnee.base_body_mod != "") // Is the user fat or slim? if so, let's regenerate their icons so they're scaled accordingly.
-		spawnee.regenerate_icons()
+	spawnee.regenerate_icons()
 	// TFN ADDITION END: loadout spawning
 
 	if(!config)	//Needed for robots.
@@ -210,12 +207,7 @@
 		for(var/i in roundstart_experience)
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
-	if(my_contact_is_important)
-		for(var/obj/item/vamp/phone/PHONE in GLOB.phones_list)
-			if(PHONE)
-				PHONE.add_important_contacts()
-
-	if(length(known_contacts) > 0)
+	if(LAZYLEN(known_contacts) > 0)
 		H.knowscontacts = known_contacts
 
 /datum/job/proc/announce(mob/living/carbon/human/H)

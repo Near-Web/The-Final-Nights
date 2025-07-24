@@ -68,7 +68,7 @@
 		if(3)
 			adjustBruteLoss(110)
 
-/mob/living/simple_animal/hostile/asteroid/basilisk/AttackingTarget()
+/mob/living/simple_animal/hostile/asteroid/basilisk/AttackingTarget(atom/attacked_target)
 	. = ..()
 	if(lava_drinker && !warmed_up && istype(target, /turf/open/lava))
 		visible_message("<span class='warning'>[src] begins to drink from [target]...</span>")
@@ -106,7 +106,7 @@
 	melee_damage_upper = 15
 	attack_verb_continuous = "impales"
 	attack_verb_simple = "impale"
-	a_intent = INTENT_HARM
+	combat_mode = TRUE
 	speak_emote = list("telepathically cries")
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	stat_attack = HARD_CRIT

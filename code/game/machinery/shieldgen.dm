@@ -64,10 +64,10 @@
 	///The rune that created the shield itself. Used to delete the rune when the shield is destroyed.
 	var/obj/effect/rune/parent_rune
 
-/obj/structure/emergency_shield/cult/barrier/attack_hand(mob/living/user)
-	parent_rune.attack_hand(user)
+/obj/structure/emergency_shield/cult/barrier/attack_hand(mob/living/user, list/modifiers)
+	parent_rune.attack_hand(user, modifiers)
 
-/obj/structure/emergency_shield/cult/barrier/attack_animal(mob/living/simple_animal/user)
+/obj/structure/emergency_shield/cult/barrier/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	if(iscultist(user))
 		parent_rune.attack_animal(user)
 	else
@@ -141,7 +141,7 @@
 
 
 /obj/machinery/shieldgen/deconstruct(disassembled = TRUE)
-	obj_break()
+	atom_break()
 	locked = pick(0,1)
 
 /obj/machinery/shieldgen/interact(mob/user)
@@ -188,7 +188,7 @@
 			if(coil.get_amount() < 1)
 				return
 			coil.use(1)
-			obj_integrity = max_integrity
+			atom_integrity = max_integrity
 			set_machine_stat(machine_stat & ~BROKEN)
 			to_chat(user, "<span class='notice'>You repair \the [src].</span>")
 			update_appearance()

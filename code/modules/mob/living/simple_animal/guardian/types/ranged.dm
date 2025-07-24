@@ -7,7 +7,7 @@
 	armour_penetration = 100
 
 /mob/living/simple_animal/hostile/guardian/ranged
-	a_intent = INTENT_HELP
+	combat_mode = FALSE
 	friendly_verb_continuous = "quietly assesses"
 	friendly_verb_simple = "quietly assess"
 	melee_damage_lower = 10
@@ -129,7 +129,7 @@
 	incorporeal_move = FALSE
 	. = ..()
 
-/mob/living/simple_animal/hostile/guardian/ranged/AttackingTarget()
+/mob/living/simple_animal/hostile/guardian/ranged/AttackingTarget(atom/attacked_target)
 	if(toggle)
 		return
 	..()

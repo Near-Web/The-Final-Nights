@@ -100,7 +100,7 @@
 	obj_damage = 60
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	a_intent = INTENT_HARM
+	combat_mode = TRUE
 	del_on_death = TRUE
 	deathmessage = "collapses into bits of plant matter."
 	attacked_sound = 'sound/creatures/venus_trap_hurt.ogg'
@@ -130,7 +130,7 @@
 	. = ..()
 	pixel_x = base_pixel_x + (dir & (NORTH|WEST) ? 2 : -2)
 
-/mob/living/simple_animal/hostile/venus_human_trap/AttackingTarget()
+/mob/living/simple_animal/hostile/venus_human_trap/AttackingTarget(atom/attacked_target)
 	. = ..()
 	if(isliving(target))
 		var/mob/living/L = target

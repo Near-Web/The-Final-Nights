@@ -49,6 +49,9 @@
 		last_stasis_sound = _running
 
 /obj/machinery/stasis/AltClick(mob/user)
+	. = ..()
+	if(!can_interact(user))
+		return
 	if(world.time >= stasis_can_toggle && user.canUseTopic(src, !issilicon(user)))
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + STASIS_TOGGLE_COOLDOWN
@@ -99,7 +102,7 @@
 		animate(mattress_on, alpha = new_alpha, time = 50, easing = CUBIC_EASING|easing_direction)
 
 
-/obj/machinery/stasis/obj_break(damage_flag)
+/obj/machinery/stasis/atom_break(damage_flag)
 	. = ..()
 	if(.)
 		play_power_sound()

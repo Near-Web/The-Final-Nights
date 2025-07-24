@@ -65,7 +65,7 @@
 	body_zone = BODY_ZONE_L_ARM
 	body_part = ARM_LEFT
 	aux_zone = BODY_ZONE_PRECISE_L_HAND
-	aux_layer = HANDS_PART_LAYER
+	aux_layer = BODYPARTS_HIGH_LAYER
 	body_damage_coeff = 0.75
 	held_index = 1
 	px_x = -6
@@ -137,6 +137,7 @@
 	wound_resistance = -10
 	px_x = -5
 	px_y = -3
+	appendage_noun = "paw"
 
 /obj/item/bodypart/l_arm/alien
 	icon = 'icons/mob/animal_parts.dmi'
@@ -162,7 +163,7 @@
 	body_zone = BODY_ZONE_R_ARM
 	body_part = ARM_RIGHT
 	aux_zone = BODY_ZONE_PRECISE_R_HAND
-	aux_layer = HANDS_PART_LAYER
+	aux_layer = BODYPARTS_HIGH_LAYER
 	body_damage_coeff = 0.75
 	held_index = 2
 	px_x = 6
@@ -170,6 +171,8 @@
 	max_stamina_damage = 50
 	can_be_disabled = TRUE
 
+/obj/item/bodypart/r_arm/corvid_corax //the talons of a raven, used to pick up stuff, hopefully.
+	max_damage = 125
 
 /obj/item/bodypart/r_arm/set_owner(new_owner)
 	. = ..()
@@ -235,6 +238,7 @@
 	wound_resistance = -10
 	px_x = 5
 	px_y = -3
+	appendage_noun = "paw"
 
 /obj/item/bodypart/r_arm/alien
 	icon = 'icons/mob/animal_parts.dmi'

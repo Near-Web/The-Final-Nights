@@ -102,7 +102,7 @@
 			. += mutable_appearance(icon, "[base_icon_state]_alert")
 		//	. += emissive_appearance(icon, "[base_icon_state]_alert", src, alpha = src.alpha,)
 
-	var/hp_percent = obj_integrity * 100 / max_integrity
+	var/hp_percent = atom_integrity * 100 / max_integrity
 	switch(hp_percent)
 		if(75 to 100)
 			return
@@ -487,7 +487,7 @@
 	return (machine_stat & BROKEN)
 
 /obj/machinery/newscaster/welder_act(mob/living/user, obj/item/tool)
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode)
 		return
 	. = TRUE
 	if(!(machine_stat & BROKEN))
@@ -501,7 +501,7 @@
 		user.balloon_alert_to_viewers("stopped welding!", "interrupted the repair!")
 		return
 	user.balloon_alert_to_viewers("repaired [src]")
-	obj_integrity = max_integrity
+	atom_integrity = max_integrity
 	set_machine_stat(machine_stat & ~BROKEN)
 
 /obj/machinery/newscaster/wrench_act(mob/living/user, obj/item/tool)
@@ -536,14 +536,14 @@
 	new /obj/item/shard(loc)
 	new /obj/item/shard(loc)
 
-/obj/machinery/newscaster/obj_break(damage_flag)
+/obj/machinery/newscaster/atom_break(damage_flag)
 	. = ..()
 	if(.)
 		playsound(loc, 'sound/effects/glassbr3.ogg', 100, TRUE)
 
 
 /obj/machinery/newscaster/attack_paw(mob/living/user, list/modifiers)
-	if(!user.a_intent != INTENT_HARM)
+	if(!(user.combat_mode))
 		to_chat(user, span_warning("The newscaster controls are far too complicated for your tiny brain!"))
 	else
 		take_damage(5, BRUTE, MELEE)

@@ -14,7 +14,7 @@
 	minbodytemp = 0
 	maxbodytemp = INFINITY
 	unique_name = 1
-	a_intent = INTENT_HARM
+	combat_mode = TRUE
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	initial_language_holder = /datum/language_holder/empty
@@ -266,7 +266,6 @@
 	verb_ask = "demands"
 	verb_exclaim = "roars"
 	verb_yell = "bellows"
-	force_threshold = 10
 	mob_size = MOB_SIZE_LARGE
 	hud_type = /datum/hud/blobbernaut
 
@@ -320,7 +319,7 @@
 	if(hud_used)
 		hud_used.healths.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#e36600'>[round((health / maxHealth) * 100, 0.5)]%</font></div>")
 
-/mob/living/simple_animal/hostile/blob/blobbernaut/AttackingTarget()
+/mob/living/simple_animal/hostile/blob/blobbernaut/AttackingTarget(atom/attacked_target)
 	. = ..()
 	if(. && isliving(target) && overmind)
 		overmind.blobstrain.blobbernaut_attack(target, src)

@@ -7,7 +7,7 @@
 
 /datum/discipline/vicissitude/post_gain()
 	. = ..()
-	owner.faction |= "Tzimisce"
+	owner.faction |= CLAN_TZIMISCE
 
 /datum/discipline_power/vicissitude
 	name = "Vicissitude power name"
@@ -105,8 +105,7 @@
 	var/original_facialhaircolor
 	var/original_eyecolor
 	var/original_body_mod
-	var/original_alt_sprite
-	var/original_alt_sprite_greyscale
+	var/original_body_sprite
 
 	var/datum/dna/impersonating_dna
 	var/impersonating_name
@@ -117,8 +116,7 @@
 	var/impersonating_facialhaircolor
 	var/impersonating_eyecolor
 	var/impersonating_body_mod
-	var/impersonating_alt_sprite
-	var/impersonating_alt_sprite_greyscale
+	var/impersonating_body_sprite
 
 	var/is_shapeshifted = FALSE
 
@@ -161,14 +159,12 @@
 	impersonating_facialhaircolor = victim.facial_hair_color
 	impersonating_eyecolor = victim.eye_color
 	impersonating_body_mod = victim.base_body_mod
-	if (victim.clane)
-		impersonating_alt_sprite = victim.clane.alt_sprite
-		impersonating_alt_sprite_greyscale = victim.clane.alt_sprite_greyscale
+	impersonating_body_sprite = GET_BODY_SPRITE(victim)
 
 /datum/discipline_power/vicissitude/malleable_visage/proc/initialize_original()
 	if (is_shapeshifted)
 		return
-	if (original_dna && original_body_mod)
+	if (original_dna)
 		return
 
 	original_dna = new
@@ -181,8 +177,7 @@
 	original_facialhaircolor = owner.facial_hair_color
 	original_eyecolor = owner.eye_color
 	original_body_mod = owner.base_body_mod
-	original_alt_sprite = owner.clane?.alt_sprite
-	original_alt_sprite_greyscale = owner.clane?.alt_sprite_greyscale
+	original_body_sprite = GET_BODY_SPRITE(owner)
 
 /datum/discipline_power/vicissitude/malleable_visage/proc/shapeshift(to_original = FALSE, instant = FALSE)
 	if (!impersonating_dna)
@@ -191,7 +186,7 @@
 		var/time_delay = 10 SECONDS
 		if (original_body_mod != impersonating_body_mod)
 			time_delay += 5 SECONDS
-		if (original_alt_sprite != impersonating_alt_sprite)
+		if (original_body_sprite != impersonating_body_sprite)
 			time_delay += 10 SECONDS
 		to_chat(owner, span_notice("You begin molding your appearance... This will take [DisplayTimeText(time_delay)]."))
 		if (!do_after(owner, time_delay))
@@ -210,15 +205,14 @@
 		owner.hair_color = original_haircolor
 		owner.facial_hair_color = original_facialhaircolor
 		owner.eye_color = original_eyecolor
-		owner.base_body_mod = original_body_mod
-		owner.clane?.alt_sprite = original_alt_sprite
-		owner.clane?.alt_sprite_greyscale = original_alt_sprite_greyscale
+		owner.set_body_model(original_body_mod)
+		owner.set_body_sprite(original_body_sprite)
 		is_shapeshifted = FALSE
 		QDEL_NULL(impersonating_dna)
 	else
 		//Nosferatu, Cappadocians, Gargoyles, Kiasyd, etc. will revert instead of being indefinitely without their curse
-		if (original_alt_sprite)
-			addtimer(CALLBACK(src, PROC_REF(revert_to_cursed_form)), 5 MINUTES)
+		if (!NORMAL_BODY_SPRITE(owner))
+			addtimer(CALLBACK(src, PROC_REF(revert_to_cursed_form)), 1 SCENES)
 		impersonating_dna.transfer_identity(destination = owner, superficial = TRUE)
 		owner.real_name = impersonating_name
 		owner.skin_tone = impersonating_skintone
@@ -227,24 +221,17 @@
 		owner.hair_color = impersonating_haircolor
 		owner.facial_hair_color = impersonating_facialhaircolor
 		owner.eye_color = impersonating_eyecolor
-		owner.base_body_mod = impersonating_body_mod
-		owner.clane?.alt_sprite = impersonating_alt_sprite
-		owner.clane?.alt_sprite_greyscale = impersonating_alt_sprite_greyscale
+		owner.set_body_model(impersonating_body_mod)
+		owner.set_body_sprite(impersonating_body_sprite)
 		is_shapeshifted = TRUE
 
 	owner.update_body()
 
 /datum/discipline_power/vicissitude/malleable_visage/proc/revert_to_cursed_form()
-	if (!original_alt_sprite)
-		return
 	if (!is_shapeshifted)
 		return
-	if (!owner.clane)
-		return
 
-	owner.base_body_mod = original_body_mod
-	owner.clane.alt_sprite = original_alt_sprite
-	owner.clane.alt_sprite_greyscale = original_alt_sprite_greyscale
+	owner.set_body_sprite(original_body_sprite)
 
 	to_chat(owner, span_warning("Your cursed appearance reasserts itself!"))
 
@@ -290,6 +277,8 @@
 	owner.mind.teach_crafting_recipe(/datum/crafting_recipe/tzi_floor)
 	owner.mind.teach_crafting_recipe(/datum/crafting_recipe/tzi_eyes)
 	owner.mind.teach_crafting_recipe(/datum/crafting_recipe/tzi_implant)
+	owner.mind.teach_crafting_recipe(/datum/crafting_recipe/tzi_venom)
+	owner.mind.teach_crafting_recipe(/datum/crafting_recipe/tzi_stun)
 
 	// owner.mind.teach_crafting_recipe(/datum/crafting_recipe/tzi_floor_living) (Commented out because crafting it resulted in the crafting icon in tgui to go infinitely and stop the crafting menu from working)
 
@@ -341,6 +330,8 @@
 	. = ..()
 	var/datum/action/basic_vicissitude/vicissitude_upgrade = new()
 	vicissitude_upgrade.Grant(owner)
+	var/obj/item/organ/cyberimp/arm/tzimisce/armblade = new()
+	armblade.Insert(owner)
 
 	if (!owner.mind)
 		return
@@ -354,6 +345,7 @@
 	owner.mind.teach_crafting_recipe(/datum/crafting_recipe/tzijelly)
 	owner.mind.teach_crafting_recipe(/datum/crafting_recipe/tzicreature)
 	owner.mind.teach_crafting_recipe(/datum/crafting_recipe/cattzi)
+
 /datum/action/basic_vicissitude
 	name = "Vicissitude Upgrade"
 	desc = "Upgrade your body..."
@@ -366,7 +358,7 @@
 	var/original_hairstyle
 	var/original_body_mod
 
-/datum/action/basic_vicissitude/Trigger()
+/datum/action/basic_vicissitude/Trigger(trigger_flags)
 	. = ..()
 	if (selected_upgrade)
 		remove_upgrade()
@@ -386,16 +378,16 @@
 	if(selected_upgrade)
 		return
 	selected_upgrade = upgrade
-	ADD_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+	ADD_TRAIT(user, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 	switch (upgrade)
 		if ("Skin armor")
-			user.unique_body_sprite = "tziarmor"
+			user.set_body_sprite("tziarmor")
 			original_skin_tone = user.skin_tone
 			user.skin_tone = "albino"
 			original_hairstyle = user.hairstyle
 			user.hairstyle = "Bald"
 			original_body_mod = user.base_body_mod
-			user.base_body_mod = ""
+			user.set_body_model(NORMAL_BODY_MODEL)
 			user.physiology.armor.melee += 20
 			user.physiology.armor.bullet += 20
 		if ("Centipede legs")
@@ -416,6 +408,7 @@
 			user.apply_overlay(PROTEAN_LAYER)
 		if ("Leather wings")
 			user.dna.species.GiveSpeciesFlight(user)
+			user.add_movespeed_modifier(/datum/movespeed_modifier/leatherwings)
 
 	user.do_jitter_animation(10)
 	playsound(get_turf(user), 'code/modules/wod13/sounds/vicissitude.ogg', 100, TRUE, -6)
@@ -427,13 +420,13 @@
 	to_chat(user, span_notice("You begin surgically removing your enhancements..."))
 	if (!do_after(user, 10 SECONDS))
 		return
-	REMOVE_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+	REMOVE_TRAIT(user, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 	switch (selected_upgrade)
 		if ("Skin armor")
-			user.unique_body_sprite = null
+			user.set_body_sprite()
 			user.skin_tone = original_skin_tone
 			user.hairstyle = original_hairstyle
-			user.base_body_mod = original_body_mod
+			user.set_body_model(original_body_mod)
 			user.physiology.armor.melee -= 20
 			user.physiology.armor.bullet -= 20
 		if ("Centipede legs")
@@ -448,11 +441,125 @@
 			QDEL_NULL(upgrade_overlay)
 		if ("Leather wings")
 			user.dna.species.RemoveSpeciesFlight(user)
+			user.remove_movespeed_modifier(/datum/movespeed_modifier/leatherwings)
 
 	user.do_jitter_animation(10)
 	playsound(get_turf(user), 'code/modules/wod13/sounds/vicissitude.ogg', 100, TRUE, -6)
 
 	selected_upgrade = null
+
+/datum/action/advanced_vicissitude
+	name = "Advanced Vicissitude Upgrade"
+	desc = "Upgrade your body further..."
+	button_icon_state = "basic"
+	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
+	vampiric = TRUE
+	var/mutable_appearance/upgrade_overlay
+	var/selected_advanced_upgrade
+	var/advanced_original_skin_tone //Shouldn't be necessary most of the time, but in case someone combines the changes for the two armours.
+	var/advanced_original_hairstyle
+	var/advanced_original_body_mod
+
+/datum/action/advanced_vicissitude/Trigger(trigger_flags)
+	. = ..()
+	if (selected_advanced_upgrade)
+		remove_advanced_upgrade()
+	else
+		give_advanced_upgrade()
+
+	owner.update_body()
+
+/datum/action/advanced_vicissitude/proc/give_advanced_upgrade()
+	var/mob/living/carbon/human/user = owner
+	var/advancedupgrade = input(owner, "Choose basic upgrade:", "Advanced Vicissitude Upgrades") as null|anything in list("Bone armour", "Centipede legs", "Second pair of arms", "Membrane wings")
+	if(!advancedupgrade)
+		return
+	to_chat(user, span_notice("You begin molding your flesh and bone into a stronger form..."))
+	if (!do_after(user, 10 SECONDS))
+		return
+	if(selected_advanced_upgrade)
+		return
+	selected_advanced_upgrade = advancedupgrade
+	switch (advancedupgrade)
+		if ("Bone armour")
+			ADD_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			user.set_body_sprite("tziarmor")
+			advanced_original_skin_tone = user.skin_tone
+			user.skin_tone = "albino"
+			advanced_original_hairstyle = user.hairstyle
+			user.hairstyle = "Bald"
+			advanced_original_body_mod = user.base_body_mod
+			user.set_body_model(NORMAL_BODY_MODEL)
+			user.physiology.armor.melee += 60
+			user.physiology.armor.bullet += 60
+		if ("Centipede legs")
+			ADD_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			user.remove_overlay(PROTEAN_LAYER)
+			upgrade_overlay = mutable_appearance('code/modules/wod13/64x64.dmi', "centipede", -PROTEAN_LAYER)
+			upgrade_overlay.pixel_z = -16
+			upgrade_overlay.pixel_w = -16
+			user.overlays_standing[PROTEAN_LAYER] = upgrade_overlay
+			user.apply_overlay(PROTEAN_LAYER)
+			user.add_movespeed_modifier(/datum/movespeed_modifier/centipede)
+		if ("Second pair of arms")
+			ADD_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			var/limbs = user.held_items.len
+			user.change_number_of_hands(limbs + 2)
+			user.remove_overlay(PROTEAN_LAYER)
+			upgrade_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "2hands", -PROTEAN_LAYER)
+			upgrade_overlay.color = "#[skintone2hex(user.skin_tone)]"
+			user.overlays_standing[PROTEAN_LAYER] = upgrade_overlay
+			user.apply_overlay(PROTEAN_LAYER)
+		if ("Membrane wings")
+			ADD_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			user.dna.species.GiveSpeciesFlight(user)
+			user.add_movespeed_modifier(/datum/movespeed_modifier/membranewings)
+
+	user.do_jitter_animation(10)
+	playsound(get_turf(user), 'code/modules/wod13/sounds/vicissitude.ogg', 100, TRUE, -6)
+
+/datum/action/advanced_vicissitude/proc/remove_advanced_upgrade()
+	var/mob/living/carbon/human/user = owner
+	if (!selected_advanced_upgrade)
+		return
+	to_chat(user, span_notice("You begin surgically removing your enhancements..."))
+	if (!do_after(user, 10 SECONDS))
+		return
+	switch (selected_advanced_upgrade)
+		if ("Bone armour")
+			REMOVE_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			user.set_body_sprite()
+			user.skin_tone = advanced_original_skin_tone
+			user.hairstyle = advanced_original_hairstyle
+			user.set_body_model(advanced_original_body_mod)
+			user.physiology.armor.melee -= 60
+			user.physiology.armor.bullet -= 60
+		if ("Centipede legs")
+			REMOVE_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			user.remove_overlay(PROTEAN_LAYER)
+			QDEL_NULL(upgrade_overlay)
+			user.remove_movespeed_modifier(/datum/movespeed_modifier/centipede)
+		if ("Second pair of arms")
+			REMOVE_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			var/limbs = user.held_items.len
+			user.change_number_of_hands(limbs - 2)
+			user.remove_overlay(PROTEAN_LAYER)
+			QDEL_NULL(upgrade_overlay)
+		if ("Membrane wings")
+			REMOVE_TRAIT(user, TRAIT_NONMASQUERADE, TRAUMA_TRAIT)
+			user.dna.species.RemoveSpeciesFlight(user)
+			user.remove_movespeed_modifier(/datum/movespeed_modifier/membranewings)
+/*		if ("Cuttlefish skin")
+			for(var/datum/action/active_camo/camo in owner.actions)
+				camo.Remove(owner)
+			if(owner.alpha == 30)
+				animate(owner, alpha = 255, time = 1.5 SECONDS)*/
+
+
+	user.do_jitter_animation(10)
+	playsound(get_turf(user), 'code/modules/wod13/sounds/vicissitude.ogg', 100, TRUE, -6)
+
+	selected_advanced_upgrade = null
 
 //HORRID FORM
 /datum/discipline_power/vicissitude/horrid_form
@@ -504,6 +611,7 @@
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/bloodcrawler/bloodform_shapeshift
 
+
 /datum/discipline_power/vicissitude/bloodform/activate()
 	. = ..()
 	if (!bloodform_shapeshift)
@@ -518,3 +626,27 @@
 	bloodform_shapeshift.Restore(bloodform_shapeshift.myshape)
 	owner.Stun(1.5 SECONDS)
 	owner.do_jitter_animation(30)
+
+/datum/discipline_power/vicissitude/bloodform/post_gain()
+	. = ..()
+	for(var/datum/action/basic_vicissitude/vicissitude_upgrade in owner.actions)
+		vicissitude_upgrade.Remove(owner)
+
+	var/datum/action/advanced_vicissitude/vicissitude_upgrade_advanced = new()
+	vicissitude_upgrade_advanced.Grant(owner)
+
+// REWORK ABILITIES AND VERBS
+/*
+/datum/action/active_camo
+	name = "Active Camo"
+	var/stealth_alpha = 30
+	button_icon_state = "basic"
+
+/datum/action/active_camo/Trigger(trigger_flags)
+	var/mob/living/carbon/human/user = owner
+	if(owner.alpha == stealth_alpha)
+		animate(owner, alpha = 255, time = 1.5 SECONDS)
+		to_chat(user, span_notice("You disable your chromatophores and reappear!"))
+	else
+		animate(owner, alpha = stealth_alpha, time = 1.5 SECONDS)
+		to_chat(user, span_notice("You activate your chromatophores and disappear!"))*/

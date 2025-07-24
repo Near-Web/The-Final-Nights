@@ -7,7 +7,6 @@
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
 	hud_possible = list(HEALTH_HUD,STATUS_HUD,ID_HUD,WANTED_HUD,IMPLOYAL_HUD,IMPCHEM_HUD,IMPTRACK_HUD, NANITE_HUD, DIAG_NANITE_FULL_HUD,ANTAG_HUD,GLAND_HUD,SENTIENT_DISEASE_HUD,FAN_HUD)
 	hud_type = /datum/hud/human
-	possible_a_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
 	can_buckle = TRUE
 	buckle_lying = 0
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
@@ -46,6 +45,7 @@
 	var/socks = "Nude" //Which socks the player wants
 	var/backpack = DBACKPACK		//Which backpack type the player has chosen.
 	var/jumpsuit_style = PREF_SUIT		//suit/skirt
+	var/underwear_visibility = NONE ///Flag for showing/hiding underwear, toggleable by a verb
 
 	//Equipment slots
 	var/obj/item/clothing/wear_suit = null
@@ -84,8 +84,11 @@
 	///Exposure to damaging heat levels increases stacks, stacks clean over time when temperatures are lower. Stack is consumed to add a wound.
 	var/heat_exposure_stacks = 0
 
+	/// Height of the mob
+	VAR_PROTECTED/mob_height = HUMAN_HEIGHT_MEDIUM
+
 	//Shitty VtM vars I'm moving here so they're not strewn around the codebase
-	var/datum/vampireclane/clane
+	var/datum/vampire_clan/clan
 	var/datum/morality/morality_path
 
 	var/last_repainted_mark
@@ -99,7 +102,6 @@
 	var/mob/living/caster
 
 	var/datum/job/JOB
-	var/roundstart_vampire = FALSE
 	var/last_loot_check = 0
 
 	var/phonevoicetag = 10
@@ -110,8 +112,6 @@
 	var/additional_centipede = FALSE
 	var/additional_armor = FALSE
 
-	var/unique_body_sprite
-
 	var/image/suckbar
 	var/atom/suckbar_loc
 
@@ -119,12 +119,13 @@
 	var/last_raid = 0
 	var/killed_count = 0
 
-	var/base_body_mod = ""
+	/// Body model based on weight. Can be slim, normal, or fat.
+	var/base_body_mod = NORMAL_BODY_MODEL
+	/// Clothing sprites to use based on body model
 	var/icon/body_sprite
 
 	bloodquality = 2
 
-	var/soul_state = SOUL_PRESENT
 
 	var/can_be_embraced = TRUE
 

@@ -42,6 +42,14 @@
 	if(!attach_accessory(I, user))
 		return ..()
 
+/obj/item/clothing/under/attack_hand_secondary(mob/user, params)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+
+	toggle()
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
 /obj/item/clothing/under/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
 	..()
 	if(ismob(loc))
@@ -302,3 +310,21 @@
 
 /obj/item/clothing/under/rank
 	dying_key = DYE_REGISTRY_UNDER
+
+/obj/item/clothing/under/proc/dump_attachment()
+	if(!attached_accessory)
+		return
+	var/atom/drop_location = drop_location()
+	attached_accessory.transform *= 2
+	attached_accessory.pixel_x -= 8
+	attached_accessory.pixel_y += 8
+	if(drop_location)
+		attached_accessory.forceMove(drop_location)
+	cut_overlays()
+	attached_accessory = null
+	accessory_overlay = null
+	update_appearance()
+
+/obj/item/clothing/under/rank/atom_destruction(damage_flag)
+	dump_attachment()
+	return ..()

@@ -324,6 +324,11 @@
 	name = "Hospital - Psych Ward"
 	zone_type = "elysium"
 
+/area/vtm/sabbat_lair
+	name = "Interior"
+	zone_type = "elysium"
+	music = /datum/vampiremusic/sewer
+
 /area/vtm/supply
 	name = "Supply Depot"
 	icon_state = "supply"
@@ -348,6 +353,14 @@
 	upper = FALSE
 	music = /datum/vampiremusic/bar
 	zone_type = "elysium"
+	fire_controled = TRUE
+	wall_rating = HIGH_WALL_RATING
+
+/area/vtm/anarch/garage
+	name = "Garage"
+	icon_state = "anarch"
+	ambience_index = AMBIENCE_INTERIOR
+	upper = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
@@ -440,6 +453,35 @@
 
 /area/vtm/sewer/nosferatu_town
 	name = "Underground Town"
+	icon_state = "hotel"
+	upper = FALSE
+	music = /datum/vampiremusic/nosferatu
+	zone_type = "elysium"
+	yang_chi = 0
+	yin_chi = 2
+	wall_rating = HIGH_WALL_RATING
+
+/area/vtm/sewer/nosferatu_warren
+	name = "Underground Warren"
+	icon_state = "hotel"
+	upper = FALSE
+	music = /datum/vampiremusic/nosferatu
+	zone_type = "elysium"
+	yang_chi = 0
+	yin_chi = 2
+	wall_rating = HIGH_WALL_RATING
+
+/area/vtm/sewer/nosferatu_bar
+	name = "Underground Bar"
+	icon_state = "hotel"
+	upper = FALSE
+	zone_type = "elysium"
+	yang_chi = 0
+	yin_chi = 2
+	wall_rating = HIGH_WALL_RATING
+
+/area/vtm/interior/nosferatu_office
+	name = "Underground Office"
 	icon_state = "hotel"
 	upper = FALSE
 	music = /datum/vampiremusic/nosferatu
@@ -758,8 +800,8 @@
 
 			if(iskindred(src))
 				var/mob/living/carbon/human/H = src
-				if(H.clane)
-					if(H.clane.name == "Daughters of Cacophony")
+				if(H.clan)
+					if(H.clan.name == CLAN_DAUGHTERS_OF_CACOPHONY)
 						cacophony = FALSE //This Variable was TRUE, which makes the DoC music loop play.
 
 			if(!cacophony)

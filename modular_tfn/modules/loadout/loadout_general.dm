@@ -78,3 +78,13 @@
 	display_name = "hair spray"
 	path = /obj/item/dyespray
 	cost = 2
+
+/datum/gear/general/briefcase
+	display_name = "briefcase"
+	path = /obj/item/storage/briefcase
+	cost = 3
+
+/datum/gear/general/cane
+	display_name = "cane"
+	path = /obj/item/cane
+	cost = 3

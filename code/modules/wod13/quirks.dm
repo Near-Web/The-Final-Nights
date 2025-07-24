@@ -65,7 +65,7 @@ Dancer
 	gain_text = "<span class='notice'>You feel more experienced in love.</span>"
 	lose_text = "<span class='warning'>You feel more clueless in love.</span>"
 	allowed_species = list("Vampire", "Kuei-Jin")
-	excluded_clans = list("Nagaraja")
+	excluded_clans = list(CLAN_NAGARAJA)
 
 /datum/quirk/tough_flesh
 	name = "Tough Flesh"
@@ -97,7 +97,16 @@ Dancer
 	gain_text = "<span class='warning'>You feel anxious about the way you feed.</span>"
 	lose_text = "<span class='warning'>You can feed normal again.</span>"
 	allowed_species = list("Vampire", "Kuei-Jin")
-	excluded_clans = list("Nagaraja")
+	excluded_clans = list(CLAN_NAGARAJA)
+
+/datum/quirk/baby_teeth
+	name = "Baby Teeth"
+	desc = "Your fangs have been pulled out and have not regrown normally or they did not grow at all."
+	mob_trait = TRAIT_BABY_TEETH
+	value = -4
+	gain_text = "<span class='warning'>You lost your fangs.</span>"
+	lose_text = "<span class='notice'>You regrow your fangs.</span>"
+	allowed_species = list("Vampire")
 
 /datum/quirk/lazy
 	name = "Lazy"
@@ -147,10 +156,32 @@ Dancer
 	name = "Lively Aura"
 	desc = "You don't SEEM dead enough to readings, fooling a few forms of detection as to whether or not you're a walking corpse."
 	mob_trait = TRAIT_WARM_AURA
-	value = 3
+	value = 2
 	gain_text = "<span class='warning'>You feel your heart beat, for a moment.</span>"
 	lose_text = "<span class='notice'>You feel a subtle chill.</span>"
-	allowed_species = list("Kuei-jin", "Vampire")
+	allowed_species = list("Kuei-Jin", "Vampire")
+
+//I could do something more elegent and rework the backend of species quirk visibility, or I could just do this and save myself a week of refactoring. I'll stick refactoring quirks on the 'Do Eventually' list tho.
+/datum/quirk/frenetic_aura_mortal
+	name = "Frenetic Aura (Mortal)"
+	desc = "Your aura seems.. Unusually energetic and active to various forms of detection, this may get you mistaken for a garou and implies one's emotions are volatile in the extreme."
+	mob_trait = TRAIT_FRENETIC_AURA
+	value = 3 //For mortals and ghouls, this is expensive, as it provides benefit akin to cold aura with no penalties.
+	gain_text = "<span class='warning'>You feel tense and jittery.</span>"
+	lose_text = "<span class='notice'>You feel your emotions quell to something more manageable.</span>"
+	allowed_species = list("Ghoul", "Human")
+
+/datum/quirk/frenetic_aura
+	name = "Frenetic Aura (Undead)"
+	desc = "Your aura seems.. Unusually energetic and active to various forms of detection, this may get you mistaken for a Garou or Abomination and implies one's emotions are volatile in the extreme, you are more susceptible to frenzy."
+	mob_trait = TRAIT_FRENETIC_AURA
+	value = -1 //For vampires and KJ. This makes them notably more vulnerable to frenzy- on par with brujah. For Brujah, it makes them even more volatile and even more frenzy prone. Consequentially, it is a negative. There are no real benefits to it.
+	gain_text = "<span class='warning'>You feel tense and jittery.</span>"
+	lose_text = "<span class='notice'>You feel your emotions quell to something more manageable.</span>"
+	allowed_species = list("Vampire", "Kuei-Jin")
+
+/datum/quirk/frenetic_aura/on_spawn()
+	ADD_TRAIT(quirk_holder, TRAIT_LONGER_FRENZY, "frenetic_aura")
 
 /datum/quirk/blush_of_health
 	name = "Blush of Health"
@@ -204,6 +235,20 @@ Dancer
 	gain_text = "<span class='warning'>You feel poorer.</span>"
 	lose_text = "<span class='notice'>You feel hope for your future finances.</span>"
 
+/datum/quirk/debtor/add()
+	. = ..()
+	if(!ishuman(quirk_holder))
+		return
+	var/mob/living/carbon/human/debtor = quirk_holder
+	for(var/datum/vtm_bank_account/account as anything in GLOB.bank_account_list)
+		if(debtor.bank_id != account.bank_id)
+			continue
+		if(debtor.clan?.name == CLAN_VENTRUE)
+			account.balance = 5 // Extra loss of dignitas.
+		else
+			account.balance = floor(account.balance * 0.5)
+		break
+
 /datum/quirk/messy_eater
 	name = "Messy Eater"
 	desc = "Blood doesn't make it in around your fangs correctly. Create bloodstains when you feed, and reduce your blood intake."
@@ -211,8 +256,8 @@ Dancer
 	value = -2
 	gain_text = "<span class='warning'>Your fangs feel awkward in your mouth.</span>"
 	lose_text = "<span class='notice'>You fangs feel comfortable in your mouth.</span>"
-	allowed_species = list("Vampire","Kuei-jin")
-	excluded_clans = list("Nagaraja")
+	allowed_species = list("Vampire","Kuei-Jin")
+	excluded_clans = list(CLAN_NAGARAJA)
 
 /datum/quirk/animal_repulsion
 	name = "Animal Repulsion"
@@ -221,7 +266,7 @@ Dancer
 	value = -2
 	gain_text = "<span class='warning'>You can feel hostile eyes watching you.</span>"
 	lose_text = "<span class='notice'>Cats walk by you unphased.</span>"
-	allowed_species = list("Vampire","Ghoul","Human","Kuei-jin")
+	allowed_species = list("Vampire","Ghoul","Human","Kuei-Jin")
 
 /datum/quirk/wyrm_tainted
 	name = "Wyrm Tainted"
@@ -231,7 +276,7 @@ Dancer
 	gain_text = "<span class='warning'>You feel wrongness crawling beneath your skin.</span>"
 	lose_text = "<span class='notice'>You feel relief and warmth.</span>"
 	allowed_species = list("Werewolf")
-	allowed_tribes = list("Galestalkers","Ronin", "Glass Walkers", "Ghost Council", "Hart Wardens", "Children of Gaia", "Bone Gnawers", "Get of Fenris", "Black Furies", "Silver Fangs", "Silent Striders", "Shadow Lords", "Red Talons", "Stargazers")
+	allowed_tribes = list("Galestalkers","Ronin", "Glass Walkers", "Ghost Council", "Hart Wardens", "Children of Gaia", "Bone Gnawers", "Get of Fenris", "Black Furies", "Silver Fangs", "Silent Striders", "Shadow Lords", "Red Talons", "Stargazers", "Corax")
 
 /datum/quirk/illegal_identity
 	name = "Illegal Identity"
@@ -240,6 +285,21 @@ Dancer
 	value = 0
 	gain_text = "<span class='warning'>You feel legally unprepared.</span>"
 	lose_text = "<span class='notice'>You feel bureaucratically legitimate.</span>"
+
+/datum/quirk/illegal_identity/add()
+	. = ..()
+	if(!ishuman(quirk_holder))
+		return
+	var/mob/living/carbon/human/debtor = quirk_holder
+	var/obj/item/passport/passport = locate() in debtor // In pockets
+	if(!passport && debtor.back)
+		passport = locate() in debtor.back // In backpack
+	if(passport && passport.owner == debtor.real_name)
+		passport.fake = TRUE
+		if(debtor.dna?.species)
+			passport.owner = debtor.dna.species.random_name(debtor.gender, unique = TRUE)
+		else
+			passport.owner = random_unique_name(debtor.gender)
 
 /datum/quirk/potent_blood
 	name = "Potent Blood"
@@ -262,7 +322,7 @@ Dancer
 	gain_text = "<span class='warning'>You have a craving for liver.</span>"
 	lose_text = "<span class='notice'>Your craving subsides...</span>"
 	allowed_species = list("Vampire")
-	excluded_clans = list("Nagaraja")
+	excluded_clans = list(CLAN_NAGARAJA)
 
 /datum/action/fly_upper
 	name = "Fly Up"
@@ -271,7 +331,7 @@ Dancer
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 	var/last_acrobate = 0
 
-/datum/action/fly_upper/Trigger()
+/datum/action/fly_upper/Trigger(trigger_flags)
 	owner.up()
 
 /datum/quirk/dancer
@@ -294,7 +354,7 @@ Dancer
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 	var/last_added_humanity = 0
 
-/datum/action/dance/Trigger()
+/datum/action/dance/Trigger(trigger_flags)
 	if(HAS_TRAIT(owner, TRAIT_INCAPACITATED))
 		to_chat(owner, "<span class='warning'>You're a little too close to being dead to get down!</span>")
 		return
@@ -322,15 +382,15 @@ Dancer
 	gain_text = "<span class='notice'>You feel short.</span>"
 	lose_text = "<span class='notice'>You don't feel short anymore.</span>"
 
-/datum/quirk/dwarf/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
-	if(H.age < 16)
-		to_chat(H, "<span class='userdanger'>You can't be a dwarf kid, looser!</span>")
-		return
+/datum/quirk/dwarf/add()
 	if(iswerewolf(quirk_holder))
 		return
-	H.AddElement(/datum/element/dwarfism, COMSIG_PARENT_PREQDELETED, src)
-	H.isdwarfy = TRUE
+	quirk_holder.AddElement(/datum/element/dwarfism, COMSIG_PARENT_PREQDELETED, src)
+
+/datum/quirk/dwarf/remove()
+	if (!quirk_holder)
+		return
+	quirk_holder.RemoveElement(/datum/element/dwarfism)
 
 #define SHORT 4/5
 #define TALL 5/4
@@ -378,37 +438,6 @@ Dancer
 
 #undef SHORT
 #undef TALL
-
-
-/datum/element/children
-	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY|ELEMENT_BESPOKE
-	argument_hash_start_idx = 2
-	var/comsig
-	var/list/attached_targets = list()
-
-/datum/element/children/Attach(datum/target, comsig, comsig_target)
-	. = ..()
-	if(!ishuman(target))
-		return ELEMENT_INCOMPATIBLE
-
-	src.comsig = comsig
-
-	var/mob/living/carbon/human/L = target
-	L.transform = L.transform.Scale(81/100, 81/100)
-	attached_targets[target] = comsig_target
-	RegisterSignal(target, comsig, PROC_REF(check_loss)) //Second arg of the signal will be checked against the comsig_target.
-
-/datum/element/children/proc/check_loss(mob/living/L, comsig_target)
-	if(attached_targets[L] == comsig_target)
-		Detach(L)
-
-/datum/element/children/Detach(mob/living/L)
-	. = ..()
-	if(QDELETED(L))
-		return
-	L.transform = L.transform.Scale(100/81, 100/81)
-	UnregisterSignal(L, comsig)
-	attached_targets -= L
 
 /datum/quirk/homosexual
 	name = "Homosexual"
@@ -500,7 +529,7 @@ Dancer
 /datum/quirk/latin
 	name = "Latin"
 	desc = "You know the ancient holy language OF THE ROMANS AND THE CLERGY!!"
-	value = 2
+	value = 1
 
 /datum/quirk/latin/add()
 	var/mob/living/carbon/H = quirk_holder
@@ -590,7 +619,7 @@ Dancer
 	gain_text = "<span class='notice'>You feel necroresistant.</span>"
 	lose_text = "<span class='notice'>You don't want necrophilia anymore.</span>"
 	allowed_species = list("Vampire")
-	excluded_clans = list("Nagaraja")
+	excluded_clans = list(CLAN_NAGARAJA)
 
 /datum/quirk/charmer
 	name = "Abnormal Charmer"
@@ -600,6 +629,24 @@ Dancer
 	gain_text = "<span class='notice'>You feel charismatic.</span>"
 	lose_text = "<span class='notice'>You don't feel charismatic anymore.</span>"
 	allowed_species = list("Vampire", "Kuei-Jin")
+
+/datum/quirk/unbonding
+	name = "Unbonding"
+	desc = "Your vitae, for one reason or another, doesn't produce blood bonds with anybody."
+	value = -1
+	mob_trait = TRAIT_DEFICIENT_VITAE
+	gain_text = "<span class='notice'>Your blood feels vacant.</span>"
+	lose_text = "<span class='notice'>You feel like something that was missing just came back to you.</span>"
+	allowed_species = list("Vampire")
+
+/datum/quirk/permafangs
+	name = "Permanent Fangs"
+	desc = "Your fangs do not retract, making it impossible for you to hide your true nature. While some mortals may think you’ve had your teeth filed or are wearing prosthetics, sooner or later you’re going to run into someone who knows what you truly are."
+	value = 0
+	mob_trait = TRAIT_PERMAFANGS
+	gain_text = "<span class='notice'>Your fangs become stuck.</span>"
+	lose_text = "<span class='notice'>You feel your fangs retract again.</span>"
+	allowed_species = list("Vampire")
 
 /datum/quirk/diablerist
 	name = "Diablerist"
@@ -618,15 +665,15 @@ Dancer
 	gain_text = "<span class='notice'>You feel tall.</span>"
 	lose_text = "<span class='notice'>You don't feel tall anymore.</span>"
 
-/datum/quirk/tower/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
-	if(H.age < 16)
-		to_chat(H, "<span class='userdanger'>You can't be a tall kid, looser!</span>")
-		return
+/datum/quirk/tower/add()
 	if(iswerewolf(quirk_holder))
 		return
-	H.AddElement(/datum/element/giantism, COMSIG_PARENT_PREQDELETED, src)
-	H.istower = TRUE
+	quirk_holder.AddElement(/datum/element/giantism, COMSIG_PARENT_PREQDELETED, src)
+
+/datum/quirk/tower/remove()
+	if (!quirk_holder)
+		return
+	quirk_holder.RemoveElement(/datum/element/giantism)
 
 #define TALL 1.16
 #define SHORT 0.86206896551

@@ -881,26 +881,6 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 	. = stack_trace_storage
 	stack_trace_storage = null
 
-/proc/flash_color(mob_or_client, flash_color="#960000", flash_time=20)
-	var/client/C
-	if(ismob(mob_or_client))
-		var/mob/M = mob_or_client
-		if(M.client)
-			C = M.client
-		else
-			return
-	else if(istype(mob_or_client, /client))
-		C = mob_or_client
-
-	if(!istype(C))
-		return
-
-	var/animate_color = C.color
-	C.color = flash_color
-	animate(C, color = animate_color, time = flash_time)
-
-#define RANDOM_COLOUR (rgb(rand(0,255),rand(0,255),rand(0,255)))
-
 /proc/random_nukecode()
 	var/val = rand(0, 99999)
 	var/str = "[val]"
@@ -1144,14 +1124,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		/obj/item/reagent_containers/food/drinks/bottle
 		)
 	return pick(subtypesof(/obj/item/reagent_containers/food/drinks) - blocked)
-
-/proc/special_list_filter(list/L, datum/callback/condition)
-	if(!islist(L) || !length(L) || !istype(condition))
-		return list()
-	. = list()
-	for(var/i in L)
-		if(condition.Invoke(i))
-			. |= i
 
 /proc/CallAsync(datum/source, proctype, list/arguments)
 	set waitfor = FALSE

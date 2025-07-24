@@ -15,9 +15,8 @@
 
 /datum/outfit/job/hunter/post_equip(mob/living/carbon/human/H)
 	..()
-	if(H.clane)
-		qdel(H.clane)
 	H.set_species(/datum/species/human)
+	H.set_clan(null)
 	H.generation = 13
 	H.maxHealth = round((initial(H.maxHealth)-initial(H.maxHealth)/4)+(initial(H.maxHealth)/4)*(H.physique+13-H.generation))
 	H.health = round((initial(H.health)-initial(H.health)/4)+(initial(H.health)/4)*(H.physique+13-H.generation))
@@ -32,7 +31,6 @@
 		if(A.vampiric)
 			A.Remove(H)
 	H.thaumaturgy_knowledge = FALSE
-	QDEL_NULL(H.clane)
 	var/obj/item/organ/eyes/NV = new()
 	NV.Insert(H, TRUE, FALSE)
 	if(H.mind)
@@ -45,7 +43,7 @@
 	var/obj/effect/landmark/start/D = pick(landmarkslist)
 	H.forceMove(D.loc)
 
-	var/list/loadouts = list("Fire Fighter", "EOD Suit", "Holy Presence")
+	var/list/loadouts = list("Fire Master", "EOD Suit", "Holy Presence")
 	spawn()
 		var/loadout_type = input(H, "Choose the Lord's gift for you:", "Loadout") as anything in loadouts
 		switch(loadout_type)

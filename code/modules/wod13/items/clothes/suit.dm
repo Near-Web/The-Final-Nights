@@ -18,7 +18,10 @@
 	resistance_flags = NONE
 	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 	body_worn = TRUE
-	cost = 15
+
+/obj/item/clothing/suit/vampire/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 15, "suit", FALSE)
 
 /obj/item/clothing/suit/vampire/trench/malkav
 	icon_state = "malkav_coat"
@@ -196,6 +199,41 @@
 	desc = "A red hood with an ornate golden trim, marked with the emblem of House Tremere."
 	icon_state = "magister_hood"
 
+/obj/item/clothing/suit/hooded/hoodie
+	name = "hoodie"
+	desc = "A simple hoodie."
+	icon_state = "hoodie"
+	icon = 'code/modules/wod13/clothing.dmi'
+	worn_icon = 'code/modules/wod13/worn.dmi'
+	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	body_parts_covered = CHEST | GROIN | ARMS
+	cold_protection = CHEST | GROIN | ARMS
+	hoodtype = /obj/item/clothing/head/hooded/hood_hood
+	body_worn = TRUE
+
+/obj/item/clothing/head/hooded/hood_hood
+	name = "hoodie hood"
+	desc = "A hoodies hoodie hood."
+	icon_state = "hoodie_hood"
+	icon = 'code/modules/wod13/clothing.dmi'
+	worn_icon = 'code/modules/wod13/worn.dmi'
+	onflooricon = 'code/modules/wod13/onfloor.dmi'
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	flags_inv = HIDEHAIR | HIDEEARS
+	body_worn = TRUE
+
+/obj/item/clothing/suit/hooded/hoodie/hoodie_pim
+	name = "intruder pim hoodie"
+	desc = "A hoodie of your favourite Intruder Pim character, Grr."
+	icon_state = "hoodie_zim"
+	hoodtype = /obj/item/clothing/head/hooded/hood_hood/hood_pim
+
+/obj/item/clothing/head/hooded/hood_hood/hood_pim
+	name = "intruder pim hoodie hood"
+	desc = "A hood resembling your favourite Intruder Pim character, Grr."
+	icon_state = "hoodie_zim_hood"
+
 /obj/item/clothing/suit/vampire/nun
 	name = "Sisterly Frock"
 	desc = "The habit of a religious sister of the catholic church."
@@ -324,6 +362,10 @@
 	icon_state = "fbivest"
 	desc = "Lightweight, bulletproof vest with yellow FBI markings, tailored for active duty. This one has special agent insignia on it."
 
+/obj/item/clothing/suit/vampire/coat/leopard
+	name = "leopard coat"
+	desc = "This'll give PETA something to cry about."
+	icon_state = "leopard_coat"
 //Police + Army
 /obj/item/clothing/suit/vampire/vest/police
 	name = "police duty vest"
@@ -452,7 +494,10 @@
 	resistance_flags = NONE
 	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10, WOUND = 10)
 	body_worn = TRUE
-	cost = 15
+
+/obj/item/clothing/suit/vampire/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 15, "suit", FALSE)
 
 /obj/item/clothing/suit/pentex/pentex_labcoat
 	name = "Endron labcoat"

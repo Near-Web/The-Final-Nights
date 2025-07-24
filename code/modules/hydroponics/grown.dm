@@ -6,6 +6,7 @@
 // Base type. Subtypes are found in /grown dir. Lavaland-based subtypes can be found in mining/ash_flora.dm
 /obj/item/food/grown
 	icon = 'icons/obj/hydroponics/harvest.dmi'
+	worn_icon = 'icons/mob/clothing/head/hydroponics.dmi'
 	name = "fresh produce" // so recipe text doesn't say 'snack'
 	max_volume = 100
 	w_class = WEIGHT_CLASS_SMALL
@@ -52,6 +53,7 @@
 
 	seed.prepare_result(src)
 	transform *= TRANSFORM_USING_VARIABLE(seed.potency, 100) + 0.5 //Makes the resulting produce's sprite larger or smaller based on potency!
+	AddComponent(/datum/component/selling, 20, "produce", FALSE)
 
 /obj/item/food/grown/MakeEdible()
 	AddComponent(/datum/component/edible,\

@@ -9,6 +9,13 @@
 
 #define STATUS_EFFECT_REFRESH 3 // if it only allows one, and new instances just instead refresh the timer
 
+/// Use in status effect "duration" to make it last forever
+#define STATUS_EFFECT_PERMANENT -1
+/// Use in status effect "tick_interval" to prevent it from calling tick()
+#define STATUS_EFFECT_NO_TICK -1
+/// Use in status effect "tick_interval" to guarantee that tick() gets called on every process()
+#define STATUS_EFFECT_AUTO_TICK 0
+
 ///////////
 // BUFFS //
 ///////////
@@ -90,6 +97,10 @@
 #define STATUS_EFFECT_AMOK /datum/status_effect/amok //Makes the target automatically strike out at adjecent non-heretics.
 
 #define STATUS_EFFECT_CLOUDSTRUCK /datum/status_effect/cloudstruck //blinds and applies an overlay.
+
+#define STATUS_EFFECT_BABY_TEETH /datum/status_effect/babyteeth //takes away the ability to suck blood from people
+
+#define STATUS_EFFECT_SEVERE_BABY_TEETH /datum/status_effect/pbabyteeth //takes away the ability to suck blood from people for the entire round
 
 /// Makes the mob move randomly.
 /// Read the documentation for /datum/status_effect/confusion for more information.

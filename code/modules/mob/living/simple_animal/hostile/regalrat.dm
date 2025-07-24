@@ -82,7 +82,7 @@
 	else if(user != src && istype(user,/mob/living/simple_animal/hostile/regalrat))
 		. += "<span class='warning'>Who is this foolish false king? This will not stand!</span>"
 
-/mob/living/simple_animal/hostile/regalrat/AttackingTarget()
+/mob/living/simple_animal/hostile/regalrat/AttackingTarget(atom/attacked_target)
 	. = ..()
 	if(istype(target, /obj/item/food/cheesewedge))
 		cheese_heal(target, MINOR_HEAL, "<span class='green'>You eat [target], restoring some health.</span>")
@@ -129,7 +129,7 @@
 	button_icon_state = "coffer"
 	cooldown_time = 50
 
-/datum/action/cooldown/coffer/Trigger()
+/datum/action/cooldown/coffer/Trigger(trigger_flags)
 	. = ..()
 	if(!.)
 		return
@@ -174,7 +174,7 @@
 	cooldown_time = 80
 	///Checks to see if there are any nearby mice. Does not count Rats.
 
-/datum/action/cooldown/riot/Trigger()
+/datum/action/cooldown/riot/Trigger(trigger_flags)
 	. = ..()
 	if(!.)
 		return
@@ -301,7 +301,7 @@
 				playsound(src, 'sound/effects/sparks2.ogg', 100, TRUE)
 				C.deconstruct()
 
-/mob/living/simple_animal/hostile/rat/AttackingTarget()
+/mob/living/simple_animal/hostile/rat/AttackingTarget(atom/attacked_target)
 	. = ..()
 	if(istype(target, /obj/item/food/cheesewedge))
 		if (health >= maxHealth)

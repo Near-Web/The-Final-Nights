@@ -69,11 +69,14 @@
 	else
 		. += cpu.active_program?.program_icon_state || screen_icon_state_menu
 
-	if(cpu && cpu.obj_integrity <= cpu.integrity_failure * cpu.max_integrity)
+	if(cpu && cpu.get_integrity() <= cpu.integrity_failure * cpu.max_integrity)
 		. += "bsod"
 		. += "broken"
 
 /obj/machinery/modular_computer/AltClick(mob/user)
+	. = ..()
+	if(!can_interact(user))
+		return
 	if(cpu)
 		cpu.AltClick(user)
 
@@ -114,8 +117,8 @@
 	if(cpu)
 		return cpu.screwdriver_act(user, tool)
 
-/obj/machinery/modular_computer/attackby(obj/item/W as obj, mob/user)
-	if (user.a_intent == INTENT_HELP && cpu && !(flags_1 & NODECONSTRUCT_1))
+/obj/machinery/modular_computer/attackby(obj/item/W as obj, mob/living/user)
+	if (!user.combat_mode && cpu && !(flags_1 & NODECONSTRUCT_1))
 		return cpu.attackby(W, user)
 	return ..()
 

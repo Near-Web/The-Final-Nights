@@ -5,6 +5,9 @@
 /// Admins can still manually request a re-render
 #define LOG_UPDATE_TIMEOUT 5 SECONDS
 
+// The maximum number of entries allowed in the signaler investigate log, keep this relatively small to prevent performance issues when an admin tries to query it
+#define INVESTIGATE_SIGNALER_LOG_MAX_LENGTH 500
+
 //Investigate logging defines
 #define INVESTIGATE_ATMOS			"atmos"
 #define INVESTIGATE_BOTANY			"botany"
@@ -65,7 +68,7 @@
 #define INDIVIDUAL_EMOTE_LOG (LOG_EMOTE | LOG_SUBTLE | LOG_SUBTLER)
 #define INDIVIDUAL_SHOW_ALL_LOG (LOG_ATTACK | LOG_SAY | LOG_WHISPER | LOG_EMOTE | LOG_SUBTLE | LOG_SUBTLER | LOG_DSAY | LOG_PDA | LOG_CHAT | LOG_COMMENT | LOG_TELECOMMS | LOG_OOC | LOG_ADMIN | LOG_OWNERSHIP | LOG_GAME | LOG_ADMIN_PRIVATE | LOG_ASAY | LOG_MECHA | LOG_VIRUS | LOG_SHUTTLE | LOG_ECON | LOG_SPEECH_INDICATORS)
 // TFN EDIT ADDITION END
-#define LOGSRC_CLIENT "Client"
+#define LOGSRC_CKEY "Ckey"
 #define LOGSRC_MOB "Mob"
 
 // Log header keys

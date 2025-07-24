@@ -3,6 +3,7 @@
 	id = "ghoul"
 	default_color = "FFFFFF"
 	toxic_food = RAW
+	liked_food = SANGUINE
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, HAS_FLESH, HAS_BONE)
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_VIRUSIMMUNE, TRAIT_NOCRITDAMAGE)
 	use_skintones = TRUE
@@ -14,8 +15,6 @@
 	punchdamagehigh = 20
 	dust_anim = "dust-h"
 	var/mob/living/carbon/human/master
-	var/changed_master = FALSE
-	var/last_vitae = 0
 	var/list/datum/discipline/disciplines = list()
 	selectable = TRUE
 
@@ -26,7 +25,7 @@
 	check_flags = NONE
 	var/mob/living/carbon/human/host
 
-/datum/action/ghoulinfo/Trigger()
+/datum/action/ghoulinfo/Trigger(trigger_flags)
 	if(host)
 		var/dat = {"
 			<style type="text/css">
@@ -58,9 +57,9 @@
 		dat += "<BR>"
 		if(G.master)
 			dat += "My Regnant is [G.master.real_name], I should obey their wants.<BR>"
-			if(G.master.clane)
-				if(G.master.clane.name != "Caitiff")
-					dat += "Regnant's clan is [G.master.clane], maybe I can try some of it's disciplines..."
+			if(G.master.clan)
+				if(G.master.clan.name != CLAN_NONE)
+					dat += "Regnant's clan is [G.master.clan], maybe I can try some of it's disciplines..."
 		if(host.mind.special_role)
 			for(var/datum/antagonist/A in host.mind.antag_datums)
 				if(A.objectives)
@@ -105,7 +104,7 @@
 						dat += "Their number is [host.Myself.Lover.phone_number].<BR>"
 					if(host.Myself.Lover.lover_text)
 						dat += "[host.Myself.Lover.lover_text]<BR>"
-		if(length(host.knowscontacts) > 0)
+		if(LAZYLEN(host.knowscontacts) > 0)
 			dat += "<b>I know some other of my kind in this city. Need to check my phone, there definetely should be:</b><BR>"
 			for(var/i in host.knowscontacts)
 				dat += "-[i] contact<BR>"
@@ -126,6 +125,7 @@
 	var/datum/discipline/bloodheal/giving_bloodheal = new(1)
 	C.give_discipline(giving_bloodheal)
 
+	C.set_clan(null)
 	C.generation = 13
 	C.bloodpool = 10
 	C.maxbloodpool = 10
@@ -149,7 +149,7 @@
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 	var/taking = FALSE
 
-/datum/action/take_vitae/Trigger()
+/datum/action/take_vitae/Trigger(trigger_flags)
 	if(istype(owner, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = owner
 		if(istype(H.pulling, /mob/living/carbon/human))
@@ -205,7 +205,7 @@
 					icon_icon = 'code/modules/wod13/UI/actions.dmi'
 	. = ..()
 
-/datum/action/blood_heal/Trigger()
+/datum/action/blood_heal/Trigger(trigger_flags)
 	if(istype(owner, /mob/living/carbon/human))
 		if (HAS_TRAIT(owner, TRAIT_TORPOR))
 			return
@@ -233,8 +233,7 @@
 		button.color = "#970000"
 		animate(button, color = "#ffffff", time = 20, loop = 1)
 		if(length(H.all_wounds))
-			for(var/i in 1 to min(5, length(H.all_wounds)))
-				var/datum/wound/W = pick(H.all_wounds)
+			for(var/datum/wound/W as anything in H.all_wounds)
 				W.remove_wound()
 		H.adjustCloneLoss(-5, TRUE)
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)

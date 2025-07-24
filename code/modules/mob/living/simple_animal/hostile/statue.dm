@@ -8,7 +8,7 @@
 	icon_living = "human_male"
 	icon_dead = "human_male"
 	gender = NEUTER
-	a_intent = INTENT_HARM
+	combat_mode = TRUE
 	mob_biotypes = MOB_HUMANOID
 
 	response_help_continuous = "touches"
@@ -93,7 +93,7 @@
 				LoseTarget()
 				GiveTarget(watching)
 
-/mob/living/simple_animal/hostile/statue/AttackingTarget()
+/mob/living/simple_animal/hostile/statue/AttackingTarget(atom/attacked_target)
 	if(can_be_seen(get_turf(loc)))
 		if(client)
 			to_chat(src, "<span class='warning'>You cannot attack, there are eyes on you!</span>")

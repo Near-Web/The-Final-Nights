@@ -29,7 +29,7 @@
 /obj/vehicle/ridden/wheelchair/motorized/get_cell()
 	return power_cell
 
-/obj/vehicle/ridden/wheelchair/motorized/obj_destruction(damage_flag)
+/obj/vehicle/ridden/wheelchair/motorized/atom_destruction(damage_flag)
 	var/turf/T = get_turf(src)
 	for(var/c in contents)
 		var/atom/movable/thing = c
@@ -57,7 +57,7 @@
 	. = ..()
 	density = FALSE
 
-/obj/vehicle/ridden/wheelchair/motorized/attack_hand(mob/living/user)
+/obj/vehicle/ridden/wheelchair/motorized/attack_hand(mob/living/user, list/modifiers)
 	if(!power_cell || !panel_open)
 		return ..()
 	power_cell.update_appearance()

@@ -32,6 +32,7 @@
 #define TRAIT_CHUNKYFINGERS		"chunkyfingers" //means that you can't use weapons with normal trigger guards.
 #define TRAIT_DUMB				"dumb"
 #define TRAIT_ADVANCEDTOOLUSER	"advancedtooluser" //Whether a mob is dexterous enough to use machines and certain items or not.
+#define TRAIT_NO_HANDS			"no_hands" // For stuff like lupus.
 #define TRAIT_MONKEYLIKE		"monkeylike" //Antagonizes the above.
 #define TRAIT_PACIFISM			"pacifism"
 #define TRAIT_ELYSIUM			"elysium"
@@ -101,6 +102,7 @@
 #define TRAIT_XRAY_VISION       "xray_vision"
 #define TRAIT_THERMAL_VISION    "thermal_vision"
 #define TRAIT_PROTEAN_VISION	"protean_vision"
+#define TRAIT_GHOST_VISION	"ghost_vision"
 #define TRAIT_ABDUCTOR_TRAINING "abductor-training"
 #define TRAIT_ABDUCTOR_SCIENTIST_TRAINING "abductor-scientist-training"
 #define TRAIT_SURGEON           "surgeon"
@@ -157,54 +159,11 @@
 ///generic atom traits
 /// Trait from being under the floor in some manner
 #define TRAIT_UNDERFLOOR "underfloor"
+/// Marks an atom when the cleaning of it is first started, so that the cleaning overlay doesn't get removed prematurely
+#define TRAIT_CURRENTLY_CLEANING "currently_cleaning"
 
 #define TRAIT_THUNDERSHOT		"thundershot" // Fire without ammo.
-#define TRAIT_SCENTTRUEFORM		"scenttrueform" // Werewolf ID sniff.
-#define TRAIT_DOGWOLF			"dogwolf"
-
-#define TRAIT_DANCER			"dancer"
-#define TRAIT_EXP_DRIVER		"experienced_driver"
-#define TRAIT_BONE_KEY			"bone_key"
-#define TRAIT_BLOODY_LOVER		"bloody_lover"
-#define TRAIT_TOUGH_FLESH		"tough_flesh"
-#define TRAIT_BLOODY_SUCKER		"bloody_sucker"
-#define TRAIT_NON_INT			"non_intellectual"
-#define TRAIT_COFFIN_THERAPY	"coffin_therapy"
-#define TRAIT_RUBICON			"rubicon"
-#define TRAIT_HUNGRY			"hungry"
-#define TRAIT_STAKE_RESISTANT	"stake_resistant"
-#define TRAIT_COLD_AURA			"cold_aura"
-#define TRAIT_WARM_AURA			"warm_aura"
-#define TRAIT_UNBONDABLE		"unbondable"
-#define TRAIT_BLUSH_OF_HEALTH	"blush_of_health"
-#define TRAIT_POTENT_BLOOD		"potent_blood"
-#define TRAIT_CAN_EAT			"can_eat" // this is for kindred. not normal people. normal people do not need this flag.
-#define TRAIT_MESSY_EATER		"messy_eater"
-#define TRAIT_DEBTOR			"debtor"
-#define TRAIT_ANIMAL_REPULSION	"animal_repulsion"
-#define TRAIT_WYRMTAINTED		"wyrm_tainted"
-#define TRAIT_ILLEGAL_IDENTITY	"illegal_identity"
-#define TRAIT_LAZY				"lazy"
-#define TRAIT_HOMOSEXUAL		"homosexual"
-#define TRAIT_HUNTED			"hunted"
-#define TRAIT_VIOLATOR			"violator"
-#define TRAIT_DIABLERIE			"diablerie"
-#define TRAIT_GULLET			"gullet"
-#define TRAIT_CHARMER			"charmer"
-#define TRAIT_ORGANOVORE		"organovore"
-#define TRAIT_UNMASQUERADE		"unmasquerade"	//For tzi clothing
-#define TRAIT_NONMASQUERADE		"nonmasquerade"	//For tzi mods
-#define TRAIT_GUNFIGHTER        "gunfighter"    //Halves firing delay and cooldown between burst fire shots
-/// Makes gambling incredibly effective, and causes random beneficial events to happen for the mob.
-#define TRAIT_SUPERNATURAL_LUCK	"supernatural_luck"
-/// Lets the mob block projectiles like bullets using only their hands.
-#define TRAIT_HANDS_BLOCK_PROJECTILES "hands_block_projectiles"
-/// The mob always dodges melee attacks
-#define TRAIT_ENHANCED_MELEE_DODGE "enhanced_melee_dodge"
-/// The mob can easily swim and jump very far.
-#define TRAIT_SUPERNATURAL_DEXTERITY "supernatural_dexterity"
-/// Can pass through walls so long as it doesn't move the mob into a new area
-#define TRAIT_PASS_THROUGH_WALLS "pass_through_walls"
+#define TRAIT_BABY_TEETH		"baby_teeth"
 
 // You can stare into the abyss, but it does not stare back.
 // You're immune to the hallucination effect of the supermatter, either
@@ -288,6 +247,7 @@
 #define TRAIT_AGEUSIA			"ageusia"
 #define TRAIT_HEAVY_SLEEPER		"heavy_sleeper"
 #define TRAIT_NIGHT_VISION		"night_vision"
+#define TRAIT_ALT_NIGHT_VISION  "alt_night_vision"
 #define TRAIT_LIGHT_STEP		"light_step"
 #define TRAIT_SPIRITUAL			"spiritual"
 #define TRAIT_FAN_CLOWN			"fan_clown"
@@ -330,3 +290,6 @@
 #define TRAIT_HARDENED_SOLES "trait_hardened_soles"
 //For handcuff breaking speed.
 #define TRAIT_CUFFBREAKER		"cuffbreaker"
+
+/// Properly wielded two handed item
+#define TRAIT_WIELDED "wielded"

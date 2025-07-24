@@ -14,12 +14,12 @@
 
 /datum/action/humaninfo
 	name = "About Me"
-	desc = "Check assigned role, clane, generation, humanity, masquerade, known disciplines, known contacts etc."
+	desc = "Check assigned role, clan, generation, humanity, masquerade, known disciplines, known contacts etc."
 	button_icon_state = "masquerade"
 	check_flags = NONE
 	var/mob/living/carbon/human/host
 
-/datum/action/humaninfo/Trigger()
+/datum/action/humaninfo/Trigger(trigger_flags)
 	if(host)
 		var/dat = {"
 			<style type="text/css">
@@ -76,7 +76,7 @@
 				dat += "Their number is [host.Myself.Lover.phone_number].<BR>"
 			if(host.Myself.Lover.lover_text)
 				dat += "[host.Myself.Lover.lover_text]<BR>"
-		if(length(host.knowscontacts) > 0)
+		if(LAZYLEN(host.knowscontacts) > 0)
 			dat += "<b>I know some other of my kind in this city. Need to check my phone, there definetely should be:</b><BR>"
 			for(var/i in host.knowscontacts)
 				dat += "-[i] contact<BR>"
