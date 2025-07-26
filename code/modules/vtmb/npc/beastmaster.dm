@@ -277,3 +277,62 @@ SUBSYSTEM_DEF(beastmastering)
 		for(var/mob/living/simple_animal/hostile/beastmaster/B in H.beastmaster)
 			B.enemies = list()
 			B.targa = null
+
+
+/mob/living/simple_animal/hostile/beastmaster/shapeshift //Only used for Shapeshifting
+	speed = -0.50
+	maxHealth = 200
+	health = 200
+	harm_intent_damage = 20
+	melee_damage_lower = 24
+	melee_damage_upper = 42
+	melee_damage_type = CLONE
+	damage_coeff = list(BRUTE = 0.5, BURN = 2, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 0)
+
+/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf
+	name = "Black Wolf"
+	desc = "Howling and Snarling."
+	icon = 'code/modules/wod13/werewolf_lupus.dmi'
+	icon_state = "black"
+	icon_living = "black"
+	icon_dead = "black_rest"
+
+/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/gray
+	name = "Gray Wolf"
+	desc = "Howling and Snarling."
+	icon = 'code/modules/wod13/werewolf_lupus.dmi'
+	icon_state = "gray"
+	icon_living = "gray"
+	icon_dead = "gray_rest"
+
+/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/red
+	name = "Red Wolf"
+	desc = "Howling and Snarling."
+	icon = 'code/modules/wod13/werewolf_lupus.dmi'
+	icon_state = "red"
+	icon_living = "red"
+	icon_dead = "red_rest"
+
+/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/white
+	name = "White Wolf"
+	desc = "The Most Malicious Wolf."
+	icon = 'code/modules/wod13/werewolf_lupus.dmi'
+	icon_state = "white"
+	icon_living = "white"
+	icon_dead = "white_rest"
+
+/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/ginger
+	name = "Ginger Wolf"
+	desc = "You see no souls in its eyes."
+	icon = 'code/modules/wod13/werewolf_lupus.dmi'
+	icon_state = "ginger"
+	icon_living = "ginger"
+	icon_dead = "ginger_rest"
+
+/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf/brown
+	name = "Brown Wolf"
+	desc = "Howling and Snarling."
+	icon = 'code/modules/wod13/werewolf_lupus.dmi'
+	icon_state = "brown"
+	icon_living = "brown"
+	icon_dead = "brown_rest"

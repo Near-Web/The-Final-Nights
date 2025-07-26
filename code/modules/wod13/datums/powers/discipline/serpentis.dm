@@ -138,6 +138,12 @@
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/cobra/BC
 
+
+/datum/discipline_power/serpentis/the_form_of_the_cobra/pre_activation_checks()
+	to_chat(owner, span_warning("You begin transforming"))
+	if (do_after(owner, 6 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM )))
+		return TRUE
+
 /datum/discipline_power/serpentis/the_form_of_the_cobra/activate()
 	. = ..()
 	if(!BC)
