@@ -577,6 +577,12 @@
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/tzimisce/horrid_form_shapeshift
 
+/datum/discipline_power/vicissitude/horrid_form/pre_activation_checks()
+	to_chat(owner, span_warning("You begin transforming"))
+	if (do_after(owner, 6 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM )))
+		return TRUE
+
+
 /datum/discipline_power/vicissitude/horrid_form/activate()
 	. = ..()
 	if (!horrid_form_shapeshift)
@@ -610,6 +616,12 @@
 	cooldown_length = 20 SECONDS
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/bloodcrawler/bloodform_shapeshift
+
+
+/datum/discipline_power/vicissitude/bloodform/pre_activation_checks()
+	to_chat(owner, span_warning("You begin transforming"))
+	if (do_after(owner, 6 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM )))
+		return TRUE
 
 
 /datum/discipline_power/vicissitude/bloodform/activate()

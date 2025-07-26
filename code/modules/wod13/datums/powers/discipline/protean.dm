@@ -241,7 +241,7 @@
 		. =  Shape.stored
 		Shape.restore()
 	else
-		to_chat(owner, "<span class='warning'>You cannot transform back to your original form as you are already in your original form. Unless you believe it is not?</span>")
+		to_chat(owner, span_warning("You cannot transform back to your original form as you are already in your original form. Unless you believe it is not?"))
 
 
 /datum/discipline_power/protean/shape_of_the_beast
@@ -254,6 +254,8 @@
 
 	violates_masquerade = TRUE
 
+	vitae_cost = 2
+
 	cancelable = TRUE
 	duration_length = 999 SCENES
 	cooldown_length = 20 SECONDS
@@ -263,6 +265,12 @@
 	)
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/GA
+
+
+/datum/discipline_power/protean/shape_of_the_beast/pre_activation_checks()
+	to_chat(owner, span_warning("You begin transforming"))
+	if (do_after(owner, 6 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM )))
+		return TRUE
 
 /datum/discipline_power/protean/shape_of_the_beast/activate()
 	. = ..()
@@ -299,6 +307,7 @@
 
 	check_flags = DISC_CHECK_IMMOBILE | DISC_CHECK_CAPABLE
 
+	vitae_cost = 2
 	violates_masquerade = TRUE
 
 	cancelable = TRUE
@@ -310,6 +319,11 @@
 	)
 
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gangrel/mist/GA
+
+/datum/discipline_power/protean/mist_form/pre_activation_checks()
+	to_chat(owner, span_warning("You begin transforming"))
+	if (do_after(owner, 6 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM )))
+		return TRUE
 
 /datum/discipline_power/protean/mist_form/activate()
 	. = ..()
