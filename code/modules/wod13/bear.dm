@@ -22,3 +22,9 @@
 
 	melee_damage_lower = 35
 	melee_damage_upper = 40 //Good luck lol
+
+
+
+/mob/living/simple_animal/hostile/bear/wod13/vampire
+	melee_damage_type = CLONE
+	damage_coeff = list(BRUTE = 0.5, BURN = 2, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 0)

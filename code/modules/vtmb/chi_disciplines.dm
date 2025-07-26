@@ -1443,6 +1443,7 @@
 	bloodpool = 0
 	maxbloodpool = 0
 	is_flying_animal = TRUE
+	damage_coeff = list(BRUTE = 0, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
 
 /mob/living/simple_animal/hostile/smokecrawler/hidden
 	alpha = 10

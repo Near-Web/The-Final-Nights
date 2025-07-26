@@ -170,8 +170,8 @@
 	die_with_shapeshifted_form = FALSE
 	shapeshift_type = null
 	possible_shapes = list(
-		/mob/living/simple_animal/hostile/bear/wod13, \
-		/mob/living/simple_animal/hostile/beastmaster/rat/flying, \
+		/mob/living/simple_animal/hostile/bear/wod13/vampire, \
+		/mob/living/simple_animal/hostile/beastmaster/rat/flying/vampire, \
 		/mob/living/simple_animal/hostile/beastmaster/shapeshift, \
 		/mob/living/simple_animal/pet/dog/corgi, \
 		/mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf, \
@@ -298,6 +298,7 @@
 	desc = "Levitating Spritz of Water."
 	speed = -1
 	alpha = 20
+	damage_coeff = list(BRUTE = 0, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
 
 /datum/discipline_power/protean/mist_form
 	name = "Mist Form"

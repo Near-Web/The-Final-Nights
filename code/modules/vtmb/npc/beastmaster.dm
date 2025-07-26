@@ -286,6 +286,8 @@ SUBSYSTEM_DEF(beastmastering)
 	harm_intent_damage = 20
 	melee_damage_lower = 24
 	melee_damage_upper = 42
+	melee_damage_type = CLONE
+	damage_coeff = list(BRUTE = 0.5, BURN = 2, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 0)
 
 /mob/living/simple_animal/hostile/beastmaster/shapeshift/wolf
 	name = "Black Wolf"
